@@ -1,0 +1,838 @@
+{
+  "careers": [
+    {
+      "id": "career-001",
+      "name": "Licenciatura en Informática",
+      "shortName": "Lic. Informática",
+      "type": "licenciatura",
+      "durationYears": 5,
+      "totalSubjects": 43,
+      "totalCredits": 280,
+      "description": "Formación completa en ciencias de la computación, algoritmos, software y gestión de sistemas. Título de grado universitario.",
+      "tags": ["Algoritmos", "Bases de datos", "Redes", "IA", "Software"],
+      "isActive": true
+    },
+    {
+      "id": "career-002",
+      "name": "Tecnicatura en Tecnologías Web",
+      "shortName": "Tec. Web",
+      "type": "tecnicatura",
+      "durationYears": 3,
+      "totalSubjects": 28,
+      "totalCredits": 160,
+      "description": "Orientada al desarrollo web frontend, backend, UX/UI y aplicaciones móviles. Salida laboral inmediata.",
+      "tags": ["Frontend", "Backend", "UX/UI", "Mobile", "React"],
+      "isActive": true
+    },
+    {
+      "id": "career-003",
+      "name": "Tecnicatura en Redes Informáticas",
+      "shortName": "Tec. Redes",
+      "type": "tecnicatura",
+      "durationYears": 3,
+      "totalSubjects": 26,
+      "totalCredits": 155,
+      "description": "Infraestructura de redes, seguridad informática, administración de sistemas y cloud computing.",
+      "tags": ["Infraestructura", "Seguridad", "Cloud", "Cisco", "Linux"],
+      "isActive": true
+    },
+    {
+      "id": "career-004",
+      "name": "Analista de Sistemas",
+      "shortName": "Analista",
+      "type": "analista",
+      "durationYears": 3,
+      "totalSubjects": 30,
+      "totalCredits": 170,
+      "description": "Análisis, diseño, documentación y gestión de sistemas de información. Perfil orientado al negocio y la tecnología.",
+      "tags": ["Análisis", "Diseño", "Gestión", "UML", "Proyectos"],
+      "isActive": true
+    }
+  ],
+
+  "subjects": [
+    {
+      "id": "sub-001",
+      "name": "Matemática I",
+      "code": "INF-101",
+      "careerId": "career-001",
+      "year": 1,
+      "semester": 1,
+      "credits": 6,
+      "area": "Matemática",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-002",
+      "name": "Álgebra Lineal",
+      "code": "INF-102",
+      "careerId": "career-001",
+      "year": 1,
+      "semester": 1,
+      "credits": 6,
+      "area": "Matemática",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-003",
+      "name": "Introducción a la Programación",
+      "code": "INF-103",
+      "careerId": "career-001",
+      "year": 1,
+      "semester": 1,
+      "credits": 8,
+      "area": "Programación",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-004",
+      "name": "Sistemas y Organizaciones",
+      "code": "INF-104",
+      "careerId": "career-001",
+      "year": 1,
+      "semester": 1,
+      "credits": 4,
+      "area": "Sistemas",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-005",
+      "name": "Matemática II",
+      "code": "INF-105",
+      "careerId": "career-001",
+      "year": 1,
+      "semester": 2,
+      "credits": 6,
+      "area": "Matemática",
+      "prerequisites": ["sub-001"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-006",
+      "name": "Algoritmos y Estructuras de Datos I",
+      "code": "INF-106",
+      "careerId": "career-001",
+      "year": 1,
+      "semester": 2,
+      "credits": 8,
+      "area": "Programación",
+      "prerequisites": ["sub-003"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-007",
+      "name": "Arquitectura de Computadoras",
+      "code": "INF-107",
+      "careerId": "career-001",
+      "year": 1,
+      "semester": 2,
+      "credits": 6,
+      "area": "Hardware",
+      "prerequisites": ["sub-003"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-008",
+      "name": "Física I",
+      "code": "INF-108",
+      "careerId": "career-001",
+      "year": 1,
+      "semester": 2,
+      "credits": 4,
+      "area": "Ciencias Básicas",
+      "prerequisites": ["sub-001"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-009",
+      "name": "Bases de Datos",
+      "code": "INF-205",
+      "careerId": "career-001",
+      "year": 2,
+      "semester": 1,
+      "credits": 8,
+      "area": "Bases de Datos",
+      "prerequisites": ["sub-006"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-010",
+      "name": "Algoritmos y Estructuras de Datos II",
+      "code": "INF-203",
+      "careerId": "career-001",
+      "year": 2,
+      "semester": 1,
+      "credits": 8,
+      "area": "Programación",
+      "prerequisites": ["sub-006"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-011",
+      "name": "Redes I",
+      "code": "INF-204",
+      "careerId": "career-001",
+      "year": 2,
+      "semester": 1,
+      "credits": 6,
+      "area": "Redes",
+      "prerequisites": ["sub-007"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-012",
+      "name": "Física II",
+      "code": "INF-206",
+      "careerId": "career-001",
+      "year": 2,
+      "semester": 1,
+      "credits": 4,
+      "area": "Ciencias Básicas",
+      "prerequisites": ["sub-008"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-013",
+      "name": "Ingeniería de Software I",
+      "code": "INF-207",
+      "careerId": "career-001",
+      "year": 2,
+      "semester": 2,
+      "credits": 8,
+      "area": "Software",
+      "prerequisites": ["sub-009", "sub-010"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-014",
+      "name": "Sistemas Operativos",
+      "code": "INF-208",
+      "careerId": "career-001",
+      "year": 2,
+      "semester": 2,
+      "credits": 6,
+      "area": "Sistemas",
+      "prerequisites": ["sub-007"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-015",
+      "name": "Redes II",
+      "code": "INF-209",
+      "careerId": "career-001",
+      "year": 2,
+      "semester": 2,
+      "credits": 6,
+      "area": "Redes",
+      "prerequisites": ["sub-011"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-016",
+      "name": "Probabilidad y Estadística",
+      "code": "INF-210",
+      "careerId": "career-001",
+      "year": 2,
+      "semester": 2,
+      "credits": 4,
+      "area": "Matemática",
+      "prerequisites": ["sub-005"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-017",
+      "name": "Ingeniería de Software II",
+      "code": "INF-301",
+      "careerId": "career-001",
+      "year": 3,
+      "semester": 1,
+      "credits": 8,
+      "area": "Software",
+      "prerequisites": ["sub-013"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-018",
+      "name": "Inteligencia Artificial",
+      "code": "INF-302",
+      "careerId": "career-001",
+      "year": 3,
+      "semester": 1,
+      "credits": 6,
+      "area": "IA",
+      "prerequisites": ["sub-010", "sub-016"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-019",
+      "name": "Seguridad Informática",
+      "code": "INF-303",
+      "careerId": "career-001",
+      "year": 3,
+      "semester": 1,
+      "credits": 6,
+      "area": "Seguridad",
+      "prerequisites": ["sub-015"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-020",
+      "name": "Diseño Web Frontend",
+      "code": "WEB-101",
+      "careerId": "career-002",
+      "year": 1,
+      "semester": 1,
+      "credits": 6,
+      "area": "Frontend",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-021",
+      "name": "Desarrollo Web Frontend",
+      "code": "WEB-102",
+      "careerId": "career-002",
+      "year": 1,
+      "semester": 1,
+      "credits": 8,
+      "area": "Frontend",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-022",
+      "name": "Programación Backend I",
+      "code": "WEB-103",
+      "careerId": "career-002",
+      "year": 1,
+      "semester": 2,
+      "credits": 8,
+      "area": "Backend",
+      "prerequisites": ["sub-021"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-023",
+      "name": "Bases de Datos Web",
+      "code": "WEB-104",
+      "careerId": "career-002",
+      "year": 1,
+      "semester": 2,
+      "credits": 6,
+      "area": "Bases de Datos",
+      "prerequisites": ["sub-021"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-024",
+      "name": "Introducción a las Redes",
+      "code": "RED-101",
+      "careerId": "career-003",
+      "year": 1,
+      "semester": 1,
+      "credits": 8,
+      "area": "Redes",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-025",
+      "name": "Sistemas Operativos I",
+      "code": "RED-102",
+      "careerId": "career-003",
+      "year": 1,
+      "semester": 1,
+      "credits": 6,
+      "area": "Sistemas",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-026",
+      "name": "Redes II",
+      "code": "RED-204",
+      "careerId": "career-003",
+      "year": 2,
+      "semester": 1,
+      "credits": 8,
+      "area": "Redes",
+      "prerequisites": ["sub-024"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-027",
+      "name": "Seguridad en Redes",
+      "code": "RED-305",
+      "careerId": "career-003",
+      "year": 3,
+      "semester": 1,
+      "credits": 8,
+      "area": "Seguridad",
+      "prerequisites": ["sub-026"],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-028",
+      "name": "Análisis de Sistemas I",
+      "code": "ANS-101",
+      "careerId": "career-004",
+      "year": 1,
+      "semester": 1,
+      "credits": 8,
+      "area": "Análisis",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-029",
+      "name": "Análisis y Diseño de Sistemas",
+      "code": "ANS-301",
+      "careerId": "career-004",
+      "year": 3,
+      "semester": 1,
+      "credits": 8,
+      "area": "Análisis",
+      "prerequisites": ["sub-028"],
+      "isElective": false,
+      "isActive": true
+    }
+  ],
+
+  "professors": [
+    {
+      "id": "prof-001",
+      "name": "García Rodríguez, Gustavo",
+      "initials": "GR",
+      "email": "g.garcia@universidad.edu",
+      "department": "Departamento de Bases de Datos",
+      "subjectIds": ["sub-009", "sub-023"],
+      "avgRating": 4.9,
+      "reviewCount": 14,
+      "isActive": true
+    },
+    {
+      "id": "prof-002",
+      "name": "López Castillo, Laura",
+      "initials": "LC",
+      "email": "l.lopez@universidad.edu",
+      "department": "Departamento de Programación",
+      "subjectIds": ["sub-010", "sub-006"],
+      "avgRating": 4.3,
+      "reviewCount": 11,
+      "isActive": true
+    },
+    {
+      "id": "prof-003",
+      "name": "Álvarez Moreno, Andrés",
+      "initials": "AM",
+      "email": "a.alvarez@universidad.edu",
+      "department": "Departamento de Bases de Datos",
+      "subjectIds": ["sub-009"],
+      "avgRating": 3.6,
+      "reviewCount": 8,
+      "isActive": true
+    },
+    {
+      "id": "prof-004",
+      "name": "Peralta Montoya, Pablo",
+      "initials": "PM",
+      "email": "p.peralta@universidad.edu",
+      "department": "Departamento de Tecnologías Web",
+      "subjectIds": ["sub-021", "sub-020"],
+      "avgRating": 4.7,
+      "reviewCount": 9,
+      "isActive": true
+    },
+    {
+      "id": "prof-005",
+      "name": "Morales Sandoval, Mariana",
+      "initials": "MS",
+      "email": "m.morales@universidad.edu",
+      "department": "Departamento de Redes",
+      "subjectIds": ["sub-026", "sub-015"],
+      "avgRating": 4.1,
+      "reviewCount": 7,
+      "isActive": true
+    },
+    {
+      "id": "prof-006",
+      "name": "Jiménez Torres, Jorge",
+      "initials": "JT",
+      "email": "j.jimenez@universidad.edu",
+      "department": "Departamento de Sistemas",
+      "subjectIds": ["sub-029", "sub-028"],
+      "avgRating": 3.9,
+      "reviewCount": 12,
+      "isActive": true
+    },
+    {
+      "id": "prof-007",
+      "name": "Romero Vidal, Roberto",
+      "initials": "RV",
+      "email": "r.romero@universidad.edu",
+      "department": "Departamento de Seguridad",
+      "subjectIds": ["sub-027", "sub-019"],
+      "avgRating": 4.4,
+      "reviewCount": 6,
+      "isActive": true
+    },
+    {
+      "id": "prof-008",
+      "name": "Sánchez Pinto, Sofía",
+      "initials": "SP",
+      "email": "s.sanchez@universidad.edu",
+      "department": "Departamento de Programación",
+      "subjectIds": ["sub-003", "sub-022"],
+      "avgRating": 4.6,
+      "reviewCount": 18,
+      "isActive": true
+    },
+    {
+      "id": "prof-009",
+      "name": "Díaz Fuentes, Diego",
+      "initials": "DF",
+      "email": "d.diaz@universidad.edu",
+      "department": "Departamento de Sistemas",
+      "subjectIds": ["sub-014", "sub-025"],
+      "avgRating": 3.8,
+      "reviewCount": 10,
+      "isActive": true
+    },
+    {
+      "id": "prof-010",
+      "name": "Navarro Espinoza, Natalia",
+      "initials": "NE",
+      "email": "n.navarro@universidad.edu",
+      "department": "Departamento de IA",
+      "subjectIds": ["sub-018"],
+      "avgRating": 4.8,
+      "reviewCount": 5,
+      "isActive": true
+    }
+  ],
+
+  "currentSemester": {
+    "id": "sem-2025-1",
+    "label": "1° Cuatrimestre 2025",
+    "code": "2025-1",
+    "startDate": "2025-03-17",
+    "endDate": "2025-07-19",
+    "isActive": true,
+    "offerings": [
+      {
+        "subjectId": "sub-009",
+        "professorIds": ["prof-001", "prof-003"],
+        "schedule": "Lun y Mié 18:00–21:00",
+        "classroom": "Aula 14",
+        "careerId": "career-001"
+      },
+      {
+        "subjectId": "sub-010",
+        "professorIds": ["prof-002"],
+        "schedule": "Mar y Jue 16:00–19:00",
+        "classroom": "Aula 08",
+        "careerId": "career-001"
+      },
+      {
+        "subjectId": "sub-011",
+        "professorIds": ["prof-005"],
+        "schedule": "Vie 09:00–13:00",
+        "classroom": "Lab. Redes",
+        "careerId": "career-001"
+      },
+      {
+        "subjectId": "sub-014",
+        "professorIds": ["prof-009"],
+        "schedule": "Lun y Jue 20:00–22:00",
+        "classroom": "Aula 03",
+        "careerId": "career-001"
+      },
+      {
+        "subjectId": "sub-021",
+        "professorIds": ["prof-004"],
+        "schedule": "Mar y Vie 19:00–22:00",
+        "classroom": "Lab. Web",
+        "careerId": "career-002"
+      },
+      {
+        "subjectId": "sub-022",
+        "professorIds": ["prof-008"],
+        "schedule": "Mié y Vie 18:00–21:00",
+        "classroom": "Lab. Web",
+        "careerId": "career-002"
+      },
+      {
+        "subjectId": "sub-026",
+        "professorIds": ["prof-005"],
+        "schedule": "Vie 14:00–18:00",
+        "classroom": "Lab. Redes",
+        "careerId": "career-003"
+      },
+      {
+        "subjectId": "sub-027",
+        "professorIds": ["prof-007"],
+        "schedule": "Mié 18:00–22:00",
+        "classroom": "Aula 11",
+        "careerId": "career-003"
+      },
+      {
+        "subjectId": "sub-029",
+        "professorIds": ["prof-006"],
+        "schedule": "Lun y Jue 20:00–22:00",
+        "classroom": "Aula 02",
+        "careerId": "career-004"
+      }
+    ]
+  },
+
+  "reviews": [
+    {
+      "id": "rev-001",
+      "professorId": "prof-001",
+      "subjectId": "sub-009",
+      "rating": 5,
+      "comment": "Explica de forma muy clara, siempre disponible fuera de clase. El final es difícil pero justo.",
+      "isAnonymous": true,
+      "helpfulCount": 12,
+      "semester": "2025-1",
+      "createdAt": "2025-04-10"
+    },
+    {
+      "id": "rev-002",
+      "professorId": "prof-001",
+      "subjectId": "sub-009",
+      "rating": 5,
+      "comment": "El mejor profe del departamento. Los parciales son largos pero te preparan muy bien para el final.",
+      "isAnonymous": true,
+      "helpfulCount": 9,
+      "semester": "2024-2",
+      "createdAt": "2024-11-20"
+    },
+    {
+      "id": "rev-003",
+      "professorId": "prof-002",
+      "subjectId": "sub-010",
+      "rating": 4,
+      "comment": "Buen profe, exige mucho pero aprendés un montón. Conviene ir a consulta seguido.",
+      "isAnonymous": true,
+      "helpfulCount": 7,
+      "semester": "2025-1",
+      "createdAt": "2025-04-08"
+    },
+    {
+      "id": "rev-004",
+      "professorId": "prof-002",
+      "subjectId": "sub-010",
+      "rating": 5,
+      "comment": "Muy dedicada, responde los mails rápido. Los TPs son difíciles pero se aprende mucho.",
+      "isAnonymous": false,
+      "helpfulCount": 5,
+      "semester": "2024-2",
+      "createdAt": "2024-12-01"
+    },
+    {
+      "id": "rev-005",
+      "professorId": "prof-004",
+      "subjectId": "sub-021",
+      "rating": 5,
+      "comment": "Muy actualizado, enseña con proyectos reales. Los parciales son desafiantes pero vale la pena.",
+      "isAnonymous": true,
+      "helpfulCount": 14,
+      "semester": "2025-1",
+      "createdAt": "2025-04-05"
+    },
+    {
+      "id": "rev-006",
+      "professorId": "prof-007",
+      "subjectId": "sub-027",
+      "rating": 4,
+      "comment": "Clase muy práctica, trabaja con casos reales de seguridad. El laboratorio es lo mejor de la cursada.",
+      "isAnonymous": true,
+      "helpfulCount": 6,
+      "semester": "2025-1",
+      "createdAt": "2025-04-12"
+    },
+    {
+      "id": "rev-007",
+      "professorId": "prof-008",
+      "subjectId": "sub-003",
+      "rating": 5,
+      "comment": "La mejor profesora para empezar a programar. Tiene mucha paciencia y explica de cero.",
+      "isAnonymous": true,
+      "helpfulCount": 20,
+      "semester": "2024-2",
+      "createdAt": "2024-11-15"
+    },
+    {
+      "id": "rev-008",
+      "professorId": "prof-010",
+      "subjectId": "sub-018",
+      "rating": 5,
+      "comment": "Una genia. La materia es difícil pero ella lo hace entendible. Vale la pena cursarla con ella.",
+      "isAnonymous": true,
+      "helpfulCount": 4,
+      "semester": "2025-1",
+      "createdAt": "2025-04-09"
+    }
+  ],
+
+  "resources": [
+    {
+      "id": "res-001",
+      "subjectId": "sub-009",
+      "title": "Resumen completo Bases de Datos — Codd + SQL + Normalización",
+      "url": "https://drive.google.com/example/bd-resumen",
+      "type": "apunte",
+      "description": "Cubre todo el programa: modelo relacional, álgebra relacional, SQL avanzado y formas normales hasta 3FN.",
+      "likeCount": 34,
+      "semester": "2025-1",
+      "createdAt": "2025-04-01"
+    },
+    {
+      "id": "res-002",
+      "subjectId": "sub-010",
+      "title": "Listas enlazadas en C++ — Tutorial paso a paso",
+      "url": "https://youtube.com/example/listas-enlazadas",
+      "type": "video",
+      "description": "Serie de 4 videos que explica listas simples, dobles y circulares con implementación en C++.",
+      "likeCount": 28,
+      "semester": "2025-1",
+      "createdAt": "2025-03-25"
+    },
+    {
+      "id": "res-003",
+      "subjectId": "sub-010",
+      "title": "Ejercicios resueltos parcial 2024-2 — Algoritmos II",
+      "url": "https://github.com/example/algo2-ejercicios",
+      "type": "ejercicio",
+      "description": "Todos los ejercicios del parcial anterior resueltos y comentados. Incluye árboles AVL y grafos.",
+      "likeCount": 41,
+      "semester": "2024-2",
+      "createdAt": "2024-11-10"
+    },
+    {
+      "id": "res-004",
+      "subjectId": "sub-021",
+      "title": "Proyecto final Web Frontend — Repositorio base",
+      "url": "https://github.com/example/web-frontend-base",
+      "type": "ejercicio",
+      "description": "Estructura base en React + CSS Modules para arrancar el proyecto final. Incluye router y context.",
+      "likeCount": 22,
+      "semester": "2025-1",
+      "createdAt": "2025-04-03"
+    },
+    {
+      "id": "res-005",
+      "subjectId": "sub-009",
+      "title": "Práctica SQL — 50 ejercicios con solución",
+      "url": "https://drive.google.com/example/sql-ejercicios",
+      "type": "ejercicio",
+      "description": "Ejercicios ordenados por dificultad: SELECT básico, JOINs, subconsultas y procedimientos almacenados.",
+      "likeCount": 47,
+      "semester": "2024-2",
+      "createdAt": "2024-10-20"
+    },
+    {
+      "id": "res-006",
+      "subjectId": "sub-027",
+      "title": "Guía práctica de Wireshark para Redes — Análisis de tráfico",
+      "url": "https://drive.google.com/example/wireshark-guia",
+      "type": "apunte",
+      "description": "Manual práctico para los laboratorios de seguridad en redes. Capturas de ejemplo incluidas.",
+      "likeCount": 18,
+      "semester": "2025-1",
+      "createdAt": "2025-04-07"
+    },
+    {
+      "id": "res-007",
+      "subjectId": "sub-018",
+      "title": "Introducción a Machine Learning con Python — Notebook Colab",
+      "url": "https://colab.research.google.com/example/ml-intro",
+      "type": "ejercicio",
+      "description": "Notebook con ejemplos de clasificación, regresión y clustering usando scikit-learn.",
+      "likeCount": 15,
+      "semester": "2025-1",
+      "createdAt": "2025-04-11"
+    }
+  ],
+
+  "news": [
+    {
+      "id": "news-001",
+      "category": "inscripciones",
+      "title": "Apertura de inscripción a finales — período julio 2025",
+      "body": "El sistema de inscripción a exámenes finales para el turno julio estará habilitado del 1 al 10 de junio. Se recuerda que solo pueden inscribirse alumnos con la cursada regularizada.",
+      "date": "2025-04-10",
+      "author": "Departamento de Informática",
+      "isHighlighted": true
+    },
+    {
+      "id": "news-002",
+      "category": "evento",
+      "title": "Jornadas de puertas abiertas — conocé las carreras del área",
+      "body": "El área de Informática organiza jornadas de orientación vocacional para ingresantes. Actividades prácticas, charlas con docentes y recorrida por los laboratorios.",
+      "date": "2025-04-08",
+      "author": "Facultad",
+      "isHighlighted": false
+    },
+    {
+      "id": "news-003",
+      "category": "aviso",
+      "title": "Cambio de aula en Redes II — nueva ubicación desde el 17/04",
+      "body": "Por obras de mantenimiento, la cursada de Redes II (RED-204) se traslada al Laboratorio de Redes B a partir del viernes 17 de abril.",
+      "date": "2025-04-05",
+      "author": "Departamento de Redes",
+      "isHighlighted": false
+    },
+    {
+      "id": "news-004",
+      "category": "calendario",
+      "title": "2° cuatrimestre 2025 — fechas de cursada y cronograma publicado",
+      "body": "Ya está disponible el calendario académico del segundo cuatrimestre 2025. Inicio de clases: 11 de agosto. Fin de cursada: 22 de noviembre.",
+      "date": "2025-04-02",
+      "author": "Bedelía",
+      "isHighlighted": false
+    },
+    {
+      "id": "news-005",
+      "category": "inscripciones",
+      "title": "Regularizaciones — vencimiento de materias aprobadas en 2023",
+      "body": "Se recuerda a los alumnos que las regularidades de materias aprobadas en 2023 vencen en 2025. Quienes no hayan rendido el final deben rendir antes del turno de diciembre.",
+      "date": "2025-03-28",
+      "author": "Departamento de Informática",
+      "isHighlighted": true
+    }
+  ]
+}
