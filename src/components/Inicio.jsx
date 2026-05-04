@@ -7,7 +7,6 @@ const Inicio =()=>{
                 <i></i>Sistema académico · Informática
               </p>
             </div>
-
             <div className="title-principal children-block">
               <h1>
                 Seguí tu carrera. <br /> <b>Sin excusas.</b>
