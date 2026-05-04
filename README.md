@@ -84,7 +84,3 @@ npm run dev
 
 Desarrollado por ESTUDIANTES ANONIMOS UNO
 
-```
-
----
-
