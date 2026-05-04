@@ -312,7 +312,7 @@ header {
   list-style: none;
   background-color: #1f1f1e;
   padding: 5px 8px;
-  color:#777773;
+  color:var(--color-light);
   border: .5px solid #7777736e;
   border-radius: 5px;
   font-size: 12px;
@@ -432,7 +432,6 @@ li{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
   padding: var(--paddin-section)
 }
 .container-profes{
@@ -495,4 +494,55 @@ li{
 .departament-profe{
   font-size: 13px;
   color: var(--color-dark);
+}
+
+
+/*---------------
+---- NOVEDADES
+---------------- */
+
+.section-novedades{
+  padding: var(--paddin-section);
+}
+.container-novedades{
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  border: .5px solid #7777733b ;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+.container-novedad{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+  border: .5px solid #7777733b;
+}
+
+.indice-novedad p{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-light{
+  color: var(--color-light);
+}
+.text-darck{
+  color: var(--color-dark);
+}
+.container-novedad{
+  width: 100%;
+}
+.title-dia{
+  font-size: 20px;
+}
+.categoria-novedad-title{
+  font-size: 18px;
+}
+.text-novedad{
+  font-size: 15px;
 }

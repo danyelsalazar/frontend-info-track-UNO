@@ -4,6 +4,8 @@ import Inicio from "../components/Inicio";
 import CarrerasArea from "../components/CarrerasArea";
 import CuatrimestrCurso from "../components/CuatrimestreCurso";
 import Profesores from "../components/Profesores";
+import Novedades from "../components/Novedades";
+
 const App = () => {
   return (
     <>
@@ -15,6 +17,7 @@ const App = () => {
         <CarrerasArea/>
         <CuatrimestrCurso/>
         <Profesores/>
+        <Novedades/>
       </main>
      <div className="background"></div>
     </>
