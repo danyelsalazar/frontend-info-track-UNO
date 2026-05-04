@@ -22,7 +22,6 @@ const App = () => {
       </main>
 
       <Footer/>
-     <div className="background"></div>
     </>
   );
 };

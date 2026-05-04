@@ -24,7 +24,7 @@ const Header = () => {
       </div>
 
       {/* botón hamburguesa */}
-      <button className="menu-toggle" onClick={() => setOpen(!open)}>
+      <button className={`menu-toggle ${open ? "hamburquesa-active": ""}`} onClick={() => setOpen(!open)}>
         ☰
       </button>
 

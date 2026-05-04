@@ -19,6 +19,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background: var(--color-bg);
@@ -46,6 +49,7 @@ header {
   padding: 0.8rem 1rem;
   border-bottom: 1px solid var(--color-border);
   margin-bottom: 0.5em;
+  z-index: 10;
 }
 
 /* botón hamburguesa */
@@ -63,22 +67,34 @@ header {
   top: 8vh;
   right: 0;
   width: 100%;
-
-  background: #1f1f1e;
+  height: 0px;
+  background-color: #1f1f1e;
   border-top: 1px solid var(--color-border);
 
-  display: none;
+  transform: translate(100vw, 0px);
+  transition: all ease .3s;
 }
 
 .nav-container.active {
+  background-color: #1f1f1e;
   display: block;
+  transform: translate(0, 0);
+  transition: all ease .3s;
+  z-index: -2;
 }
-
+.menu-toggle{
+  transition: all ease .3s;
+}
+.hamburquesa-active{
+  transform: rotate(180deg);
+}
 .nav-container ul {
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  background-color: #1f1f1e;
   gap: 1rem;
+  z-index: -100;
 }
 
 .item-nav {
@@ -91,8 +107,18 @@ header {
   font-size: 14px;
   transition: opacity 0.2s;
 }
-.item-nav a:hover {
+
+.button-ingresar{
+  transition: opacity 0.2s;
+}
+.item-nav a, .button-ingresar:hover {
   opacity: 0.7;
+  cursor: pointer;
+}
+
+/* scroll en secciones */
+section {
+  scroll-margin-top: 8vh;
 }
 
 /* botón */
@@ -147,11 +173,15 @@ header {
   }
 
   .nav-container {
+    transform: translate(0px);
     position: static;
-    display: block;
     width: auto;
     background: transparent;
     border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 
   .nav-container ul {
@@ -488,27 +518,23 @@ section {
 
 /* ================= BACKGROUND ================= */
 
-.background {
+body::before {
+  content: "";
   position: fixed;
   inset: 0;
+
   background-image: url("./assets/fondo-11.svg");
   background-repeat: no-repeat;
-  background-size: 200%;
-  opacity: 0.1;
-  z-index: -1;
-
+  background-size: 180%;
   background-position: center;
-  background-position: top;
-  background-position: right bottom;
-  background-position: 37% 80%;
+  background-position: 30% 60%;
+  opacity: 0.08;
+  z-index: -1;
 }
 
 /* ================= TABLET ================= */
 
 @media (min-width: 768px) {
-  .background {
-    background-position: 30% 60%;
-  }
 
   .nav-container ul {
     display: flex;
