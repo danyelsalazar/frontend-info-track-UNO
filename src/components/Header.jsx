@@ -60,11 +60,11 @@ const Header = () => {
           <li className="item-nav">
             <a href="#novedades" onClick={() => setOpen(false)}>Novedades</a>
           </li>
-          <li className="item-nav button-ingresar">
-            <a href="#" onClick={() => setOpen(false)}>Ingresar</a>
+          <li onClick={() => setOpen(false)} className="item-nav button-ingresar">
+            <a href="#">Ingresar</a>
           </li>
-          <li className="item-nav button-ingresar">
-            <a href="#" onClick={() => setOpen(false)}>Registrarse</a>
+          <li onClick={() => setOpen(false)} className="item-nav button-ingresar">
+            <a href="#">Registrarse</a>
           </li>
         </ul>
       </nav>
