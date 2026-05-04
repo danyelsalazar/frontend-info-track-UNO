@@ -396,6 +396,96 @@ section {
   color: var(--color-dark);
 }
 
+/* ================= FOOTER ================= */
+
+.footer {
+  margin-top: 3rem;
+  border-top: 1px solid var(--color-border);
+  background: rgba(31,31,30,0.8);
+  backdrop-filter: blur(10px);
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  padding: 2rem 1rem;
+}
+
+/* brand */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-logo-text {
+  font-weight: 600;
+}
+
+.footer-description {
+  font-size: 13px;
+  color: var(--color-dark);
+  max-width: 300px;
+}
+
+/* links */
+.footer-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.footer-links h4 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  display: block;
+  font-size: 13px;
+  color: var(--color-dark);
+  text-decoration: none;
+  margin-bottom: 6px;
+  transition: 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--color-light);
+}
+
+/* bottom */
+.footer-bottom {
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  padding: 1rem;
+  font-size: 12px;
+  color: var(--color-dark);
+}
+
+/* ================= TABLET ================= */
+
+@media (min-width: 768px) {
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+}
+
+/* ================= DESKTOP ================= */
+
+@media (min-width: 1024px) {
+
+  .footer-container {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+}
+
 /* ================= BACKGROUND ================= */
 
 .background {

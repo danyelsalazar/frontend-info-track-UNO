@@ -5,6 +5,7 @@ import CarrerasArea from "../components/CarrerasArea";
 import CuatrimestrCurso from "../components/CuatrimestreCurso";
 import Profesores from "../components/Profesores";
 import Novedades from "../components/Novedades";
+import Footer from "../components/Footer";
 
 const App = () => {
   return (
@@ -19,6 +20,8 @@ const App = () => {
         <Profesores/>
         <Novedades/>
       </main>
+
+      <Footer/>
      <div className="background"></div>
     </>
   );
