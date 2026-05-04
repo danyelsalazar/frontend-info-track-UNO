@@ -4,7 +4,7 @@ const CarrerasArea = () => {
   const { careers, subjects } = data;
 
   return (
-    <section className="carreras-area">
+    <section className="carreras-area" id="carreras">
       <div className="pre-title title-top-careras-uno">
         <p>
           <i></i>Carreras del area

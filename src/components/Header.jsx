@@ -1,10 +1,28 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
 
+  const navRef = useRef()
+  const buttonRef = useRef()
+
+  useEffect(()=>{
+
+    const handleClickFuera = (e)=>{
+      if(navRef.current && !navRef.current.contains(e.target) && !buttonRef.current.contains(e.target)){
+        setOpen(false)
+      }
+    };
+    // abro un escuchador paran todosm los click de la pagina
+    document.addEventListener("mousedown", handleClickFuera);
+
+    return()=>{
+      // cierro el escuchador de clicks
+          document.removeEventListener("mousedown", handleClickFuera);
+    }
+  },[])
   return (
-    <header>
+    <header ref={navRef}>
       <div className="container-logo-header">
         <div className="container-svg-logo-header">
           <svg
@@ -24,29 +42,29 @@ const Header = () => {
       </div>
 
       {/* botón hamburguesa */}
-      <button className={`menu-toggle ${open ? "hamburquesa-active": ""}`} onClick={() => setOpen(!open)}>
+      <button ref={buttonRef} className={`menu-toggle ${open ? "hamburquesa-active": ""}`} onClick={() => setOpen(!open)}>
         ☰
       </button>
 
-      <nav className={`nav-container ${open ? "active" : ""}`}>
+      <nav className={`nav-container ${open ? "active" : ""}` }>
         <ul>
           <li className="item-nav">
-            <a href="#">Carreras</a>
+            <a href="#carreras" onClick={() => setOpen(false)}>Carreras</a>
           </li>
           <li className="item-nav">
-            <a href="#">Cuatrimestre</a>
+            <a href="#cuatrimestre" onClick={() => setOpen(false)}>Cuatrimestre</a>
           </li>
           <li className="item-nav">
-            <a href="#">Profesores</a>
+            <a href="#profesores" onClick={() => setOpen(false)}>Profesores</a>
           </li>
           <li className="item-nav">
-            <a href="#">Novedades</a>
+            <a href="#novedades" onClick={() => setOpen(false)}>Novedades</a>
           </li>
           <li className="item-nav button-ingresar">
-            <a href="#">Ingresar</a>
+            <a href="#" onClick={() => setOpen(false)}>Ingresar</a>
           </li>
           <li className="item-nav button-ingresar">
-            <a href="#">Registrarse</a>
+            <a href="#" onClick={() => setOpen(false)}>Registrarse</a>
           </li>
         </ul>
       </nav>

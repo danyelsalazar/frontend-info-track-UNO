@@ -4,7 +4,7 @@ const CuatrimestrCurso = () => {
   const { subjects, professors, careers, currentSemester } = data;
 
   return (
-    <section className="cuatrimestre-activo">
+    <section id="cuatrimestre" className="cuatrimestre-activo">
       <div className="container-title-top-cuatri">
         <div className="pre-title title-top-careras title-top-careras-cuatrimestre">
           <p>

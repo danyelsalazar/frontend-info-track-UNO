@@ -3,7 +3,7 @@ import data from "../data/infotrack_data (1).json";
 const Novedades = () => {
   const { news } = data;
   return (
-    <section className="section-novedades">
+    <section id="novedades" className="section-novedades">
       <div className="pre-title title-top-careras-uno container-title-secction-profes">
         <p className="title-secction-profes">
           <i></i>Novedades
