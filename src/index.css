@@ -29,6 +29,7 @@ body {
   background: var(--color-bg);
   font-family: "Inter", sans-serif;
   color: var(--color-light);
+  padding-top: 60px;
 }
 
 li {
@@ -38,19 +39,24 @@ li {
 /* ================= HEADER ================= */
 
 header {
-  position: sticky;
-  top: 0px;
-  z-index: 100;
-  background: rgba(31, 31, 30, 0.9);
-  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
   height: 60px;
+
+  z-index: 1000;
+
+  background: rgba(31, 31, 30, 0.95);
+  backdrop-filter: blur(8px);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   padding: 0.8rem 1rem;
   border-bottom: 1px solid var(--color-border);
-  margin-bottom: 0.5em;
 }
 
 /* botón hamburguesa */
@@ -81,7 +87,7 @@ header {
   display: block;
   transform: translate(0, 0);
   transition: all ease .3s;
-  z-index: -2;
+  z-index: 200;
 }
 .menu-toggle{
   transition: all ease .3s;
@@ -95,7 +101,6 @@ header {
   padding: 1rem;
   background-color: #1f1f1e;
   gap: 1rem;
-  z-index: -100;
 }
 
 .item-nav {
@@ -119,7 +124,7 @@ header {
 
 /* scroll en secciones */
 section {
-  scroll-margin-top: 8vh;
+  scroll-margin-top: 60px;
 }
 
 /* botón */
@@ -386,12 +391,12 @@ section {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .descripcion-profe {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   align-items: center;
 }
 
