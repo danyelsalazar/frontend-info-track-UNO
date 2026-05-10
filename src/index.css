@@ -12,7 +12,8 @@
   --radius: 12px;
   --transition: all 0.25s ease;
 }
-html, body{
+html,
+body {
   overflow-x: hidden;
 }
 /* RESET */
@@ -79,20 +80,20 @@ header {
   border-top: 1px solid var(--color-border);
 
   transform: translate(100vw, 0px);
-  transition: all ease .3s;
+  transition: all ease 0.3s;
 }
 
 .nav-container.active {
   background-color: #1f1f1e;
   display: block;
   transform: translate(0, 0);
-  transition: all ease .3s;
+  transition: all ease 0.3s;
   z-index: 200;
 }
-.menu-toggle{
-  transition: all ease .3s;
+.menu-toggle {
+  transition: all ease 0.3s;
 }
-.hamburquesa-active{
+.hamburquesa-active {
   transform: rotate(180deg);
 }
 .nav-container ul {
@@ -114,10 +115,11 @@ header {
   transition: opacity 0.2s;
 }
 
-.button-ingresar{
+.button-ingresar {
   transition: opacity 0.2s;
 }
-.item-nav a, .button-ingresar:hover {
+.item-nav a,
+.button-ingresar:hover {
   opacity: 0.7;
   cursor: pointer;
 }
@@ -197,8 +199,6 @@ section {
     padding: 0;
   }
 }
-
-
 
 /* ================= TOP INFO ================= */
 
@@ -308,7 +308,6 @@ section {
   transition: var(--transition);
 }
 
-
 .info-carrera-item:hover,
 .container-materia-en-curso:hover,
 .item-profesor-materia:hover,
@@ -411,7 +410,7 @@ section {
 /* ================= NOVEDADES ================= */
 
 .container-novedades {
-  padding: .5em 0em;
+  padding: 0.5em 0em;
   display: flex;
   gap: 1rem;
   overflow-x: auto;
@@ -436,7 +435,7 @@ section {
 .footer {
   margin-top: 3rem;
   border-top: 1px solid var(--color-border);
-  background: rgba(31,31,30,0.8);
+  background: rgba(31, 31, 30, 0.8);
   backdrop-filter: blur(10px);
 }
 
@@ -500,42 +499,42 @@ section {
 }
 
 /* ========== MATERIAS ============== */
-.container-materias{
+.container-materias {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 /* contenerdor de materias */
-.container-materias-list{
+.container-materias-list {
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
 }
 
-.materia-item{
+.materia-item {
   display: flex;
   flex-direction: column;
-  border: .5px solid var(--color-border);
+  border: 0.5px solid var(--color-border);
   background-color: var(--color-border);
   border-radius: 10px;
   padding: 16px;
   gap: 10px;
 }
-.materia-name{
+.materia-name {
   font-size: 18px;
   font-weight: 700;
 }
 
-.materia-carrera-name{
+.materia-carrera-name {
   font-size: 15px;
 }
-.container-profesor-name{
+.container-profesor-name {
   display: flex;
   flex-direction: row;
   gap: 5px;
 }
-.materia-profesor-name{
+.materia-profesor-name {
   font-size: 12px;
   padding: 5px;
   border-radius: 10px;
@@ -544,13 +543,13 @@ section {
 }
 
 /* input search */
-.container-input-materias{
+.container-input-materias {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px 0px 10px 0px;
 }
-.input-search-materia{
+.input-search-materia {
   width: 100%;
   height: 30px;
   padding: 10px;
@@ -558,18 +557,18 @@ section {
   border: none;
   color: var(--color-light);
   border-radius: 10px;
-  border: .5px solid var(--color-border);
+  border: 0.5px solid var(--color-border);
   margin-bottom: 20px;
 }
 
-.input-search-materia::placeholder{
+.input-search-materia::placeholder {
   border: none;
 }
-.input-search-materia:focus{
+.input-search-materia:focus {
   outline: none;
 }
 
-.title-secction-materias{
+.title-secction-materias {
   color: var(--color-dark);
   font-size: 14px;
   margin-bottom: 20px;
@@ -577,7 +576,7 @@ section {
   align-items: center;
   gap: 10px;
 }
-.line-title{
+.line-title {
   display: inline-block;
   width: 20px;
   height: 1px;
@@ -588,23 +587,25 @@ section {
 /* ================= TABLET ================= */
 
 @media (min-width: 768px) {
-
   .footer-container {
     grid-template-columns: 1fr 1fr;
     align-items: start;
   }
-
+  .container-materias-list {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* ================= DESKTOP ================= */
 
 @media (min-width: 1024px) {
-
   .footer-container {
     max-width: 1200px;
     margin: auto;
   }
-
+  .container-materias-list{
+    grid-template-columns: 1fr 1fr 1fr ;
+  }
 }
 
 /* ================= BACKGROUND ================= */
@@ -625,7 +626,6 @@ body::before {
 /* ================= TABLET ================= */
 
 @media (min-width: 768px) {
-
   .nav-container ul {
     display: flex;
     gap: 1rem;
@@ -646,7 +646,6 @@ body::before {
   .container-profes {
     grid-template-columns: repeat(2, 1fr);
   }
-  
 }
 
 /* ================= DESKTOP ================= */
@@ -668,5 +667,4 @@ body::before {
   .container-info-carreas-area-cuatrimestre-activo {
     grid-template-columns: repeat(4, 1fr);
   }
-  
 }
