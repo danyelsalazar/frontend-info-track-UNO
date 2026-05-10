@@ -18,9 +18,9 @@ const Inicio =()=>{
                 un estudiante de Informática necesita, en un solo lugar.
               </p>
             </div>
-            <div className="buttons-inicio children-block">
-              <button>Crear cuenta gratis</button>
-              <button>
+            <div className="buttons-inicio button children-block">
+              <button className="btn btn-primary">Crear cuenta gratis</button>
+              <button className="btn btn-secondary">
                 Ver cuatrimestre
                 <svg
                   width="12"

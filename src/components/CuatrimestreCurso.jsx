@@ -41,7 +41,7 @@ const CuatrimestrCurso = () => {
 
           return (
             <div
-              className="container-materia-en-curso"
+              className="card container-materia-en-curso"
               key={offer.subjectId}
             >
               <div className="title-materia-en-curso-cuatrimestre">

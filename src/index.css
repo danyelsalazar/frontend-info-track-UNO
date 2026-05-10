@@ -5,9 +5,14 @@
   --color-surface: #2a2a28;
   --color-card: #30302e;
   --color-border: #3a3a38;
-
+  --color-items-bg-dark: #1a1a1a;
   --color-light: #faf9f5;
   --color-dark: #a1a19c;
+  --color-card-bg: #3A3A38;
+
+   --color-primary: #70b9f1;
+  --color-primary-dark: #144A75;
+  --color-accent: #2FA4A9;
 
   --radius: 12px;
   --transition: all 0.25s ease;
@@ -112,16 +117,18 @@ header {
   color: var(--color-light);
   text-decoration: none;
   font-size: 14px;
-  transition: opacity 0.2s;
+  transition: opacity .2s ease;
 }
 
 .button-ingresar {
-  transition: opacity 0.2s;
+  transition: background-color 0.2s ease,  transform .2s ease;
+  background-color: var(--color-primary-dark);
+  color: var(--color-light);
 }
-.item-nav a,
 .button-ingresar:hover {
-  opacity: 0.7;
   cursor: pointer;
+  background-color: var(--color-card);
+  transform: translateY(-2px);
 }
 
 /* scroll en secciones */
@@ -170,7 +177,7 @@ section {
 
 .svg-logo-header rect:nth-child(2),
 .svg-logo-header rect:nth-child(3) {
-  fill: var(--color-dark);
+  fill: var(--color-primary);
 }
 
 /* ================= DESKTOP ================= */
@@ -249,10 +256,11 @@ section {
   padding: 12px;
   border-radius: var(--radius);
   border: 1px solid var(--color-border);
-  background: transparent;
+  background: var(--color-primary-dark);
   color: var(--color-light);
   font-weight: 500;
   transition: var(--transition);
+  cursor: pointer;
 }
 
 .buttons-inicio button:hover {
@@ -298,21 +306,15 @@ section {
 }
 /* ================= CARDS ================= */
 
-.info-carrera-item,
-.container-materia-en-curso,
-.item-profesor-materia,
-.container-novedad {
+.card {
   background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
+  padding: 1rem;
   transition: var(--transition);
 }
-
-.info-carrera-item:hover,
-.container-materia-en-curso:hover,
-.item-profesor-materia:hover,
-.container-novedad:hover {
-  transform: translateY(-4px);
+.card:hover {
+  transform: scale(1.02);
   border-color: #555;
 }
 
@@ -351,10 +353,13 @@ section {
 }
 
 .materi-carrera {
-  background: #1a1a1a;
+  background: var( --color-bg);
   padding: 4px 8px;
   border-radius: 6px;
   font-size: 11px;
+}
+.index-carrera{
+  color: var(--color-primary);
 }
 
 /* ================= CUATRIMESTRE ================= */
@@ -406,6 +411,10 @@ section {
 .rating span {
   font-size: 14px;
 }
+.profe-initials, .index-profe{
+  color: var(--color-primary);
+}
+
 
 /* ================= NOVEDADES ================= */
 
@@ -428,6 +437,9 @@ section {
 .text-novedad {
   font-size: 13px;
   color: var(--color-dark);
+}
+.categoria-novedad{
+  color: var(--color-primary);
 }
 
 /* ================= FOOTER ================= */
@@ -509,7 +521,7 @@ section {
 .container-materias-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
+  gap: 15px;
 }
 
 .materia-item {
@@ -520,10 +532,16 @@ section {
   border-radius: 10px;
   padding: 16px;
   gap: 10px;
+  cursor: pointer;
+  transition: transform ease .2s;
+}
+.materia-item:hover{
+  transform: scale(1.04);
 }
 .materia-name {
   font-size: 18px;
   font-weight: 700;
+  color: var(--color-primary);
 }
 
 .materia-carrera-name {
@@ -551,7 +569,7 @@ section {
 }
 .input-search-materia {
   width: 100%;
-  height: 30px;
+  height: 40px;
   padding: 10px;
   background-color: var(--color-bg);
   border: none;
@@ -619,7 +637,7 @@ body::before {
   background-size: 180%;
   background-position: center;
   background-position: 30% 60%;
-  opacity: 0.08;
+  opacity: 0.2;
   z-index: -1;
 }
 

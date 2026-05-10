@@ -1,11 +1,12 @@
 import { useState } from "react";
 import data from "../data/infotrack_data (1).json";
-import Header from "../components/Header";
 
 const Materias = () => {
   const { subjects, careers, professors } = data;
 
   const [dataFilter, setdataFilter] = useState("");
+
+  const [materia , setMateria] = useState(null);
 
   //   funcion para generalizar palabras
   const generalizarTexto = (texto) => {
@@ -24,7 +25,6 @@ const Materias = () => {
 
   return (
     <>
-      <Header/>
       <section className="container-materias">
         <p className="title-secction-materias">
           <i className="line-title"></i>
@@ -50,7 +50,7 @@ const Materias = () => {
               profesor.subjectIds.includes(materia.id),
             );
             return (
-              <li key={materia.id} className="materia-item">
+              <li key={materia.id} className="materia-item card">
                 <p className="materia-name">{materia.name}</p>
                 <p className="materia-carrera-name">{carrera.name}</p>
                 <div className="container-profesor-name">

@@ -9,7 +9,7 @@ const Novedades = () => {
           <i></i>Novedades
         </p>
       </div>
-      <div className="container-info-carreas-area container-novedades">
+      <div className="container-info-carreas-area card container-novedades">
         {news.map((novedad) => {
             
           const fechaStr = novedad.date;

@@ -67,10 +67,10 @@ const Header = () => {
           <li className="item-nav">
             <Link to={"/?section=novedades"}  onClick={() => setOpen(false)}>Novedades</Link>
           </li>
-          <li onClick={() => setOpen(false)} className="item-nav button-ingresar">
+          <li onClick={() => setOpen(false)} className="item-nav button-ingresar btn-primary">
             <Link to={"/?section=ingresar"} >Ingresar</Link>
           </li>
-          <li onClick={() => setOpen(false)} className="item-nav button-ingresar">
+          <li onClick={() => setOpen(false)} className="item-nav button-ingresar btn-secondary">
             <Link to={"/?section=registrarse"} >Registrarse</Link>
           </li>
         </ul>

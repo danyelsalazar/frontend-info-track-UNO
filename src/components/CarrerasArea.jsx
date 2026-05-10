@@ -14,7 +14,7 @@ const CarrerasArea = () => {
       <div className="container-info-carreas-area">
 
         {careers.map((carrera, index) => (
-          <div className="info-carrera-item" key={carrera.id}>
+          <div className=" card info-carrera-item" key={carrera.id}>
             <p className="index-carrera">0{index+1}</p>
             <h3 className="title-carrera">{carrera.name}</h3>
             <p className="description-carrera">{carrera.type} - {carrera.durationYears} anos · {carrera.totalSubjects} materias</p>
