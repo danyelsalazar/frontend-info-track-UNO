@@ -12,7 +12,7 @@ const Profesores = () => {
       <div className="container-profes container-info-carreas-area">
         {professors.map((profe, index) => {
           return (
-            <div className="item-profesor-materia">
+            <div key={profe.id} className="item-profesor-materia">
               <div className="descripcion-profe">
                 <p className="index-profe">0{index + 1}</p>
                 <div className="description-profe-departament">

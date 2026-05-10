@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -49,22 +50,28 @@ const Header = () => {
       <nav className={`nav-container ${open ? "active" : ""}` }>
         <ul>
           <li className="item-nav">
-            <a href="#carreras" onClick={() => setOpen(false)}>Carreras</a>
+            <Link to={"/?section=inicio"} onClick={() => setOpen(false)}>Home</Link>
           </li>
           <li className="item-nav">
-            <a href="#cuatrimestre" onClick={() => setOpen(false)}>Cuatrimestre</a>
+            <Link to={"/?section=carreras"} onClick={() => setOpen(false)}>Carreras</Link>
           </li>
           <li className="item-nav">
-            <a href="#profesores" onClick={() => setOpen(false)}>Profesores</a>
+            <Link to={"/?section=cuatrimestre"}  onClick={() => setOpen(false)}>Cuatrimestre</Link>
           </li>
           <li className="item-nav">
-            <a href="#novedades" onClick={() => setOpen(false)}>Novedades</a>
+            <Link to={"/?section=profesores"}  onClick={() => setOpen(false)}>Top profesores</Link>
+          </li>
+          <li className="item-nav">
+            <Link to={"/materias"} onClick={() => setOpen(false)}>Materias</Link>
+          </li>
+          <li className="item-nav">
+            <Link to={"/?section=novedades"}  onClick={() => setOpen(false)}>Novedades</Link>
           </li>
           <li onClick={() => setOpen(false)} className="item-nav button-ingresar">
-            <a href="#">Ingresar</a>
+            <Link to={"/?section=ingresar"} >Ingresar</Link>
           </li>
           <li onClick={() => setOpen(false)} className="item-nav button-ingresar">
-            <a href="#">Registrarse</a>
+            <Link to={"/?section=registrarse"} >Registrarse</Link>
           </li>
         </ul>
       </nav>

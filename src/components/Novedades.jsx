@@ -22,7 +22,7 @@ const Novedades = () => {
 
 
           return (
-            <div className="container-novedad">
+            <div key={novedad.id} className="container-novedad">
               <div className="indice-novedad">
                 <p>
                   <span className="title-light title-dia">{dia}</span>{" "}

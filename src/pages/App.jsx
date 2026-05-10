@@ -1,30 +1,19 @@
+import { Route, Routes } from "react-router-dom";
+import Materias from "./Materias";
+import Home from "./Home"
 import Header from "../components/Header";
-import InfoResum from "../components/InfoResum";
-import Inicio from "../components/Inicio";
-import CarrerasArea from "../components/CarrerasArea";
-import CuatrimestrCurso from "../components/CuatrimestreCurso";
-import Profesores from "../components/Profesores";
-import Novedades from "../components/Novedades";
-import Footer from "../components/Footer";
-import Materias from "../components/Materias";
+import ScrollTopTop from "../components/ScrollTopTop";
 
 const App = () => {
   return (
     <>
-      <Header />
-      <InfoResum />
+      <ScrollTopTop/>
+      <Header/>
 
-      <main>
-        <Inicio/>
-        <CarrerasArea/>
-        <CuatrimestrCurso/>
-        <Profesores/>
-        <Novedades/>
-      </main>
-
-      <Materias/>
-
-      <Footer/>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/materias" element={<Materias/>}/>
+      </Routes>
     </>
   );
 };

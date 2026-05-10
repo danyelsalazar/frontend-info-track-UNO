@@ -1,6 +1,6 @@
 const Inicio =()=>{
     return(
-        <section className="inicio">
+        <section className="inicio" id="inicio">
           <div className="container-inicio-texto children-block">
             <div className="pre-title">
               <p>

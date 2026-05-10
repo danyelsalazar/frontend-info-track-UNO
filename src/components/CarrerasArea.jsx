@@ -23,7 +23,7 @@ const CarrerasArea = () => {
                     subjects    
                         .filter(materia=>(materia.careerId === carrera.id))
                         .map(materia=>(
-                            <li className="materi-carrera">{materia.name}</li>
+                            <li key={materia.id} className="materi-carrera">{materia.name}</li>
                         ))
                 }
             </ul>
