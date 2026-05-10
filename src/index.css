@@ -296,7 +296,6 @@ section {
   height: 1px;
   background: var(--color-dark);
 }
-
 /* ================= CARDS ================= */
 
 .info-carrera-item,
@@ -500,6 +499,92 @@ section {
   color: var(--color-dark);
 }
 
+/* ========== MATERIAS ============== */
+.container-materias{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* contenerdor de materias */
+.container-materias-list{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.materia-item{
+  display: flex;
+  flex-direction: column;
+  border: .5px solid var(--color-border);
+  background-color: var(--color-border);
+  border-radius: 10px;
+  padding: 16px;
+  gap: 10px;
+}
+.materia-name{
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.materia-carrera-name{
+  font-size: 15px;
+}
+.container-profesor-name{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.materia-profesor-name{
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 10px;
+  color: var(--color-light);
+  background-color: var(--color-bg);
+}
+
+/* input search */
+.container-input-materias{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0px 10px 0px;
+}
+.input-search-materia{
+  width: 100%;
+  height: 30px;
+  padding: 10px;
+  background-color: var(--color-bg);
+  border: none;
+  color: var(--color-light);
+  border-radius: 10px;
+  border: .5px solid var(--color-border);
+  margin-bottom: 20px;
+}
+
+.input-search-materia::placeholder{
+  border: none;
+}
+.input-search-materia:focus{
+  outline: none;
+}
+
+.title-secction-materias{
+  color: var(--color-dark);
+  font-size: 14px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.line-title{
+  display: inline-block;
+  width: 20px;
+  height: 1px;
+  color: var(--color-dark);
+  background: var(--color-dark);
+}
+
 /* ================= TABLET ================= */
 
 @media (min-width: 768px) {
@@ -528,7 +613,6 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-
   background-image: url("./assets/fondo-11.svg");
   background-repeat: no-repeat;
   background-size: 180%;

@@ -514,7 +514,7 @@
       "initials": "SP",
       "email": "s.sanchez@universidad.edu",
       "department": "Departamento de Programación",
-      "subjectIds": ["sub-003", "sub-022"],
+      "subjectIds": ["sub-003", "sub-022", "sub-001"],
       "avgRating": 4.6,
       "reviewCount": 18,
       "isActive": true
