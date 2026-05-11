@@ -680,7 +680,6 @@ section {
 }
 .email-profe{
   color: var(--color-light);
-  background-color: var(--color-btn);
   padding: 2px 5px;
   border-radius: 10px;
   margin-right: 5px;
@@ -689,13 +688,19 @@ section {
 .list-coorrelativas{
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 .list-coorrelativas h5{
-  color: var(--color-primary);
+  color: var(--color-light);
+  width: max-content;
+  background-color: var(--color-card-bg);
+  padding: 2px 5px;
+  border-radius: 10px;
 }
 .list-coorrelativas li{
-  color: var(--color-dark);
+  color: var(--color-light);
   font-size: 13px;
+  list-style:circle;
 }
 
 /* ================= TABLET ================= */
