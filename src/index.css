@@ -728,12 +728,12 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("../src/assets/Logo-UNO.jpg");
+  background-image: url("../src/assets/Logo-UNO.png");
   background-repeat: no-repeat;
   background-size: 104%;
   background-position: center;
   opacity: 0.2;
-  background-position: auto ;
+  background-position: 50% 50% ;
   z-index: -1;
 }
 
