@@ -32,7 +32,7 @@ const MateriaDetalle = () => {
                 <p className="profe-materia-detalle">
                   <b>{profe.initials}</b> {profe.name}
                 </p>
-                <p className="email-profe-materia-detalle"> <b>Email: </b>{profe.email}</p>
+                <p className="email-profe-materia-detalle"> <b className="email-profe">Email: </b>{profe.email}</p>
               </div>
             ))}
 

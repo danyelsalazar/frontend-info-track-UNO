@@ -472,7 +472,7 @@ section {
 
 .text-novedad {
   font-size: 13px;
-  color: var(--color-dark);
+  color: var(--color-light);
 }
 .categoria-novedad{
   color: var(--color-primary);
@@ -656,15 +656,34 @@ section {
 }
 
 .title-profes-detalle{
-  color: var(--color-dark);
+  color: var(--color-light);
+  font-weight: 700;
 }
 
 .cod-materia-detalle b, .profe-materia-detalle b{
-  color: var(--color-primary);
+  color: var(--color-light);
+  background-color: var(--color-btn);
+  padding: 2px 5px;
+  border-radius: 10px;
 }
 
 .email-profe-materia-detalle{
   font-size: 13px;
+}
+.info-mareria-detalle-profe{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.email-profe-materia-detalle{
+  color: #144A75;
+}
+.email-profe{
+  color: var(--color-light);
+  background-color: var(--color-btn);
+  padding: 2px 5px;
+  border-radius: 10px;
+  margin-right: 5px;
 }
 
 .list-coorrelativas{
@@ -709,12 +728,12 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("./assets/fondo-11.svg");
+  background-image: url("../src/assets/Logo-UNO.jpg");
   background-repeat: no-repeat;
-  background-size: 180%;
+  background-size: 104%;
   background-position: center;
-  background-position: 30% 60%;
-  opacity: 0;
+  opacity: 0.2;
+  background-position: auto ;
   z-index: -1;
 }
 
@@ -761,6 +780,9 @@ body::before {
 
   .container-info-carreas-area-cuatrimestre-activo {
     grid-template-columns: repeat(4, 1fr);
+  }
+  body::before{
+    background-size: 55%;
   }
 }
 p.divisor{
