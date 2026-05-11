@@ -4,22 +4,28 @@
   --color-bg: #1f1f1e;
   --color-surface: #2a2a28;
   --color-card: #30302e;
-  --color-border: #3a3a38;
+  --color-border:var(--color-dark);
   --color-items-bg-dark: #1a1a1a;
   --color-light: #faf9f5;
-  --color-dark: #a1a19c;
+  --color-dark: #b9b9b3;
   --color-card-bg: #3A3A38;
-
-   --color-primary: #70b9f1;
+  --color-btn: rgb(214,44,91);
+  --color-primary: #009cd1;
   --color-primary-dark: #144A75;
+  --color-border: #1e639b;
   --color-accent: #2FA4A9;
-
+  --color-uno: #009cd1;
   --radius: 12px;
   --transition: all 0.25s ease;
 }
 html,
 body {
   overflow-x: hidden;
+}
+
+#root{
+  display: flex;
+  flex-direction: column;
 }
 /* RESET */
 * {
@@ -32,7 +38,7 @@ html {
 }
 
 body {
-  background: var(--color-bg);
+  background: var(--);
   font-family: "Inter", sans-serif;
   color: var(--color-light);
   padding-top: 60px;
@@ -42,6 +48,10 @@ li {
   list-style: none;
 }
 
+p.divisor{
+  color: var(--color-bg);
+}
+
 /* ================= HEADER ================= */
 
 header {
@@ -49,20 +59,14 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-
   height: 60px;
-
   z-index: 1000;
-
-  background: rgba(31, 31, 30, 0.95);
+  background: var(--color-card-bg);
   backdrop-filter: blur(8px);
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 0.8rem 1rem;
-  border-bottom: 1px solid var(--color-border);
 }
 
 /* botón hamburguesa */
@@ -81,9 +85,6 @@ header {
   right: 0;
   width: 100%;
   height: 0px;
-  background-color: #1f1f1e;
-  border-top: 1px solid var(--color-border);
-
   transform: translate(100vw, 0px);
   transition: all ease 0.3s;
 }
@@ -105,7 +106,8 @@ header {
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  background-color: #1f1f1e;
+  background: var(--color-card-bg);
+  backdrop-filter: blur(8px);
   gap: 1rem;
 }
 
@@ -121,14 +123,17 @@ header {
 }
 
 .button-ingresar {
-  transition: background-color 0.2s ease,  transform .2s ease;
-  background-color: var(--color-primary-dark);
+  transition: background-color 0.2s ease,  transform .2s ease , opacity .2s ease;
+  background-color: var(--color-btn);
   color: var(--color-light);
 }
 .button-ingresar:hover {
   cursor: pointer;
-  background-color: var(--color-card);
   transform: translateY(-2px);
+  opacity: .6;
+}
+nav ul li a:hover{
+  opacity: .8;
 }
 
 /* scroll en secciones */
@@ -138,7 +143,6 @@ section {
 
 /* botón */
 .button-ingresar {
-  border: 1px solid var(--color-border);
   padding: 8px;
   border-radius: 8px;
   text-align: center;
@@ -157,10 +161,9 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  border: 1px solid var(--color-border);
+  border: .5px solid var(--color-dark);
   border-radius: 8px;
-  background: var(--color-surface);
+  background: var(--color-card-bg);
 }
 
 /* svg */
@@ -220,9 +223,13 @@ section {
   min-width: max-content;
   padding: 6px 10px;
   border-radius: 20px;
-  background: var(--color-surface);
+  background: var(--color-primary);
   font-size: 12px;
-  color: var(--color-dark);
+  color: var(--color-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 
 /* ================= INICIO ================= */
@@ -231,18 +238,25 @@ section {
   padding: 2rem 1rem;
 }
 
+
 .container-inicio-texto {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
+.description-inicio{
+  color: var(--color-card-bg);
+  font-size: 14px;
+  font-weight: 500;
+}
 .title-principal h1 {
   font-size: clamp(1.8rem, 6vw, 3rem);
+  color: var(--color-primary);
 }
 
 .title-principal b {
-  color: var(--color-dark);
+  color: var(--color-card-bg);
 }
 
 /* botones */
@@ -255,8 +269,8 @@ section {
 .buttons-inicio button {
   padding: 12px;
   border-radius: var(--radius);
-  border: 1px solid var(--color-border);
-  background: var(--color-primary-dark);
+  border: .5px solid var(--color-bg);
+  background: var(--color-btn);
   color: var(--color-light);
   font-weight: 500;
   transition: var(--transition);
@@ -264,7 +278,7 @@ section {
 }
 
 .buttons-inicio button:hover {
-  background: var(--color-surface);
+  opacity: .7;
   transform: translateY(-2px);
 }
 
@@ -276,15 +290,22 @@ section {
 }
 
 .childrem-description-inicio {
-  background: var(--color-surface);
+  background: var(--color-primary);
   border-radius: var(--radius);
   padding: 12px;
   text-align: center;
   font-size: 13px;
+  transition: var(--transition);
+}
+.childrem-description-inicio:hover{
+  transform: scale(1.04);
 }
 
 /* ================= SECTIONS ================= */
 
+.divisor{
+  color: var(--color-bg);
+}
 section {
   padding: 2.5rem 1rem;
 }
@@ -307,8 +328,7 @@ section {
 /* ================= CARDS ================= */
 
 .card {
-  background: var(--color-card);
-  border: 1px solid var(--color-border);
+  background: var(--color-primary);
   border-radius: var(--radius);
   padding: 1rem;
   transition: var(--transition);
@@ -338,12 +358,13 @@ section {
 }
 
 .title-carrera {
-  font-size: 15px;
+  font-size: 17px;
+  font-weight: 700;
 }
 
 .description-carrera {
   font-size: 12px;
-  color: var(--color-dark);
+  color: var(--color-light);
 }
 
 .items-materias-por-carrera {
@@ -353,7 +374,7 @@ section {
 }
 
 .materi-carrera {
-  background: var( --color-bg);
+  background: var( --color-btn);
   padding: 4px 8px;
   border-radius: 6px;
   font-size: 11px;
@@ -372,18 +393,33 @@ section {
 }
 
 .title-materia-curso {
-  font-size: 14px;
+  font-size: 17px;
 }
 
 .schedule {
   font-size: 12px;
-  color: var(--color-dark);
+  color: var(--color-light);
 }
 
 .list-profesores-materia-cuatrimestre {
   display: flex;
   flex-direction: column;
   gap: 6px;
+}
+.container-materia-en-curso .profe-initials{
+  font-size: 12px;
+  color: var(--color-light);
+  background-color: var(--color-btn);
+  padding: 5px;
+  border-radius: 10px;
+}
+.container-materia-en-curso ul {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.title-top-careras-cuatrimestre p{
+  color: var(--color-card-bg);
 }
 
 /* ================= PROFESORES ================= */
@@ -405,14 +441,14 @@ section {
 
 .departament-profe {
   font-size: 12px;
-  color: var(--color-dark);
+  color: var(--color-light);
 }
 
 .rating span {
   font-size: 14px;
 }
 .profe-initials, .index-profe{
-  color: var(--color-primary);
+  color: var(--color-light);
 }
 
 
@@ -445,9 +481,7 @@ section {
 /* ================= FOOTER ================= */
 
 .footer {
-  margin-top: 3rem;
-  border-top: 1px solid var(--color-border);
-  background: rgba(31, 31, 30, 0.8);
+  background: var(--color-card-bg);
   backdrop-filter: blur(10px);
 }
 
@@ -472,7 +506,7 @@ section {
 
 .footer-description {
   font-size: 13px;
-  color: var(--color-dark);
+  color:#faf9f5;
   max-width: 300px;
 }
 
@@ -486,12 +520,13 @@ section {
 .footer-links h4 {
   font-size: 14px;
   margin-bottom: 10px;
+  font-weight: 700;
 }
 
 .footer-links a {
   display: block;
   font-size: 13px;
-  color: var(--color-dark);
+  color:#ffffff;
   text-decoration: none;
   margin-bottom: 6px;
   transition: 0.2s;
@@ -503,11 +538,11 @@ section {
 
 /* bottom */
 .footer-bottom {
-  border-top: 1px solid var(--color-border);
+  border-top: .5px solid var(--color-dark);
   text-align: center;
   padding: 1rem;
   font-size: 12px;
-  color: var(--color-dark);
+  color: var(--color-light);
 }
 
 /* ========== MATERIAS ============== */
@@ -527,8 +562,6 @@ section {
 .materia-item {
   display: flex;
   flex-direction: column;
-  border: 0.5px solid var(--color-border);
-  background-color: var(--color-border);
   border-radius: 10px;
   padding: 16px;
   gap: 10px;
@@ -541,7 +574,7 @@ section {
 .materia-name {
   font-size: 18px;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-light);
 }
 
 .materia-carrera-name {
@@ -557,7 +590,7 @@ section {
   padding: 5px;
   border-radius: 10px;
   color: var(--color-light);
-  background-color: var(--color-bg);
+  background-color: var(--color-btn);
 }
 
 /* input search */
@@ -571,23 +604,23 @@ section {
   width: 100%;
   height: 40px;
   padding: 10px;
-  background-color: var(--color-bg);
+  background-color: var(--color-card-bg);
   border: none;
   color: var(--color-light);
   border-radius: 10px;
-  border: 0.5px solid var(--color-border);
   margin-bottom: 20px;
 }
 
 .input-search-materia::placeholder {
   border: none;
+  color: var(--color-dark);
 }
 .input-search-materia:focus {
   outline: none;
 }
 
 .title-secction-materias {
-  color: var(--color-dark);
+  color: var(--color-bg);
   font-size: 14px;
   margin-bottom: 20px;
   display: flex;
@@ -598,8 +631,52 @@ section {
   display: inline-block;
   width: 20px;
   height: 1px;
+  background: var(--color-bg);
+}
+
+/* ============ MATERIA DETALLE ============ */
+.container-section-materia-detalle{
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-materia-detalle{
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+ padding: 40px;
+ width: max-content;
+}
+
+.container-info-materia-detalle-profes{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.title-profes-detalle{
   color: var(--color-dark);
-  background: var(--color-dark);
+}
+
+.cod-materia-detalle b, .profe-materia-detalle b{
+  color: var(--color-primary);
+}
+
+.email-profe-materia-detalle{
+  font-size: 13px;
+}
+
+.list-coorrelativas{
+  display: flex;
+  flex-direction: column;
+}
+.list-coorrelativas h5{
+  color: var(--color-primary);
+}
+.list-coorrelativas li{
+  color: var(--color-dark);
+  font-size: 13px;
 }
 
 /* ================= TABLET ================= */
@@ -637,7 +714,7 @@ body::before {
   background-size: 180%;
   background-position: center;
   background-position: 30% 60%;
-  opacity: 0.2;
+  opacity: 0;
   z-index: -1;
 }
 
@@ -686,3 +763,9 @@ body::before {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+p.divisor{
+  color: var(--color-bg);
+}
+ p.divisor i{
+  background-color: var(--color-bg);
+ }

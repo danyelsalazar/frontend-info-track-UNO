@@ -5,7 +5,7 @@ const Profesores = () => {
   return (
     <section id="profesores" className="profesores">
       <div className="pre-title title-top-careras-uno container-title-secction-profes">
-        <p className="title-secction-profes">
+        <p className="title-secction-profes divisor">
           <i></i>Profesores mejor valorados
         </p>
       </div>

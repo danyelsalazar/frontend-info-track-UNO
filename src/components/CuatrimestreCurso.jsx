@@ -7,13 +7,13 @@ const CuatrimestrCurso = () => {
     <section id="cuatrimestre" className="cuatrimestre-activo">
       <div className="container-title-top-cuatri">
         <div className="pre-title title-top-careras title-top-careras-cuatrimestre">
-          <p>
+          <p className="divisor">
             <i></i>Cuatrimestre en Curso
           </p>
 
           <p className="description-cuatri-active-top">
             <svg width="8" height="8" viewBox="0 0 12 12">
-              <circle cx="6" cy="6" r="5" fill="green" />
+              <circle cx="6" cy="6" r="5" fill="#70cc14" />
             </svg>
             En curso
           </p>

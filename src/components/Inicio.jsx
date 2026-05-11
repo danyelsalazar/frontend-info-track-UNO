@@ -3,7 +3,7 @@ const Inicio =()=>{
         <section className="inicio" id="inicio">
           <div className="container-inicio-texto children-block">
             <div className="pre-title">
-              <p>
+              <p className="divisor">
                 <i></i>Sistema académico · Informática
               </p>
             </div>

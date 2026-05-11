@@ -1,12 +1,13 @@
 import { useState } from "react";
 import data from "../data/infotrack_data (1).json";
+import { useNavigate } from "react-router-dom";
 
 const Materias = () => {
   const { subjects, careers, professors } = data;
 
   const [dataFilter, setdataFilter] = useState("");
 
-  const [materia , setMateria] = useState(null);
+  const navigate = useNavigate()
 
   //   funcion para generalizar palabras
   const generalizarTexto = (texto) => {
@@ -50,7 +51,7 @@ const Materias = () => {
               profesor.subjectIds.includes(materia.id),
             );
             return (
-              <li key={materia.id} className="materia-item card">
+              <li key={materia.id} className="materia-item card" onClick={()=> navigate(`/materias/${materia.id}`)}>
                 <p className="materia-name">{materia.name}</p>
                 <p className="materia-carrera-name">{carrera.name}</p>
                 <div className="container-profesor-name">

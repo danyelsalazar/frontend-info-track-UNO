@@ -4,7 +4,6 @@ import CarrerasArea from "../components/CarrerasArea";
 import CuatrimestrCurso from "../components/CuatrimestreCurso";
 import Profesores from "../components/Profesores";
 import Novedades from "../components/Novedades";
-import Footer from "../components/Footer";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -27,7 +26,6 @@ const Home = () => {
   return (
     <>
       <InfoResum />
-
       <main>
         <Inicio />
         <CarrerasArea />
@@ -35,7 +33,6 @@ const Home = () => {
         <Profesores />
         <Novedades />
       </main>
-      <Footer />
     </>
   );
 };
