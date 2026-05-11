@@ -1,13 +1,14 @@
 import { useState } from "react";
 import data from "../data/infotrack_data (1).json";
 import { useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 const Materias = () => {
   const { subjects, careers, professors } = data;
 
   const [dataFilter, setdataFilter] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   //   funcion para generalizar palabras
   const generalizarTexto = (texto) => {
@@ -23,6 +24,30 @@ const Materias = () => {
       generalizarTexto(dataFilter),
     ),
   );
+
+  // estrados para mantener persistida la paginacion de las materias
+  const [searchParams, setSearchParams] = useSearchParams();
+  const paginaInicial = Number(searchParams.get("page")) || 1
+
+  // guardamos los datos en la url
+
+  const cambiarpagina = (nuevaPagina)=>{
+    setPaginaActual(nuevaPagina)
+    setSearchParams({page: nuevaPagina})
+  }
+
+  //estados para paginacion
+  const [paginaActual, setPaginaActual] = useState(paginaInicial);
+  const materiasPorpagina = 5;
+
+  const indiceUltimo = paginaActual * materiasPorpagina;
+  const indicePrimero = indiceUltimo - materiasPorpagina;
+
+  const materiasActuales = filtradoMateria.slice(indicePrimero, indiceUltimo);
+  // calculo cuantas paginas hay
+  const totalPaginas = Math.ceil(subjects.length / materiasPorpagina);
+
+
 
   return (
     <>
@@ -43,7 +68,7 @@ const Materias = () => {
         </div>
 
         <ul className="container-materias-list">
-          {filtradoMateria.map((materia) => {
+          {materiasActuales.map((materia) => {
             const carrera = careers.find(
               (carrera) => materia.careerId === carrera.id,
             );
@@ -51,7 +76,11 @@ const Materias = () => {
               profesor.subjectIds.includes(materia.id),
             );
             return (
-              <li key={materia.id} className="materia-item card" onClick={()=> navigate(`/materias/${materia.id}`)}>
+              <li
+                key={materia.id}
+                className="materia-item card"
+                onClick={() => navigate(`/materias/${materia.id}`)}
+              >
                 <p className="materia-name">{materia.name}</p>
                 <p className="materia-carrera-name">{carrera.name}</p>
                 <div className="container-profesor-name">
@@ -65,6 +94,26 @@ const Materias = () => {
             );
           })}
         </ul>
+
+        <div className="container-btn-paginacion">
+          <button
+            onClick={() => cambiarpagina(paginaActual - 1)}
+            disabled={paginaActual === 1}
+            className="pagina-anterior"
+          >
+            Anterior
+          </button>
+
+          <span className="pagina-index">{paginaActual}</span>
+
+          <button
+            onClick={() => cambiarpagina(paginaActual + 1)}
+            disabled={paginaActual === totalPaginas}
+            className="pagina-siguiente"
+          >
+            Siguiente
+          </button>
+        </div>
       </section>
     </>
   );

@@ -1,0 +1,2937 @@
+{
+  "meta": {
+    "institution": "Universidad Nacional del Oeste — Escuela de Informática",
+    "generatedAt": "2026-05-11T01:26:20.929Z",
+    "sources": [
+      "Plan de Estudios Licenciatura en Informática 2022",
+      "Plan de Estudios Tecnicatura Universitaria en Tecnologías Web",
+      "Plan de Estudios Tecnicatura Universitaria en Redes Informáticas",
+      "Listado Docente Escuela de Informática",
+      "Mail_docentes_2023.xlsx"
+    ],
+    "stats": {
+      "careers": 4,
+      "subjects": 66,
+      "professors": 59,
+      "offeringsQ1": 36,
+      "offeringsQ2": 33,
+      "integrityErrors": 0
+    }
+  },
+  "careers": [
+    {
+      "id": "career-lic",
+      "name": "Licenciatura en Informática",
+      "shortName": "Lic. Informática",
+      "type": "licenciatura",
+      "durationYears": 5,
+      "totalCredits": 3600,
+      "description": "Se propone formar egresados con significativos fundamentos teóricos de informática y conocimiento actualizado de las tecnologías, lo que le permitirá seguir capacitándose permanentemente al ritmo de la evolución tecnológica. Podrá planificar, dirigir, realizar y/o evaluar proyectos de diseño, verificación, puesta a punto, mantenimiento y actualización para redes de comunicaciones que vinculen sistemas de procesamiento de datos.",
+      "degreeTitle": "Licenciado/a en Informática",
+      "intermediateTitle": "Analista en Informática (al completar 3° año)",
+      "tags": [
+        "Algoritmos",
+        "Ingeniería de Software",
+        "Bases de Datos",
+        "Redes",
+        "IA"
+      ],
+      "isActive": true
+    },
+    {
+      "id": "career-analista",
+      "name": "Analista en Informática",
+      "shortName": "Analista",
+      "type": "analista",
+      "durationYears": 3,
+      "totalCredits": 2190,
+      "description": "Título intermedio de la Licenciatura en Informática. Comprende los primeros 3 años del plan. Forma profesionales capacitados para el análisis, diseño y gestión de sistemas de información.",
+      "degreeTitle": "Analista en Informática",
+      "intermediateTitle": null,
+      "tags": [
+        "Análisis",
+        "Diseño",
+        "Gestión",
+        "Programación",
+        "Bases de Datos"
+      ],
+      "isActive": true
+    },
+    {
+      "id": "career-web",
+      "name": "Tecnicatura Universitaria en Tecnologías Web",
+      "shortName": "Tec. Web",
+      "type": "tecnicatura",
+      "durationYears": 3,
+      "totalCredits": 1750,
+      "description": "Se apunta a la formación de técnicos universitarios conscientes del rol de la informática dentro de la sociedad actual. El plan crea graduados con dominio técnico para el análisis y desarrollo de sistemas informáticos con principal énfasis en el desarrollo de sistemas web y móviles. Cuenta con formación en desarrollo web y diseño gráfico, además de amplia formación de trabajo en equipo.",
+      "degreeTitle": "Técnico/a Universitario/a en Tecnologías Web",
+      "intermediateTitle": null,
+      "tags": [
+        "Frontend",
+        "Backend",
+        "Diseño Gráfico",
+        "Mobile",
+        "Métodos Ágiles"
+      ],
+      "isActive": true
+    },
+    {
+      "id": "career-redes",
+      "name": "Tecnicatura Universitaria en Redes Informáticas",
+      "shortName": "Tec. Redes",
+      "type": "tecnicatura",
+      "durationYears": 3,
+      "totalCredits": 1705,
+      "description": "Se propone formar técnicos universitarios para la implementación, mantenimiento, administración y actualización en redes de información. El egresado estará capacitado para la instalación, administración y ampliación de redes de datos informáticos, con conocimientos básicos de programación y ciencias de la computación.",
+      "degreeTitle": "Técnico/a Universitario/a en Redes Informáticas",
+      "intermediateTitle": null,
+      "tags": [
+        "Redes",
+        "Seguridad",
+        "Infraestructura",
+        "Electrónica",
+        "Comunicaciones"
+      ],
+      "isActive": true
+    }
+  ],
+  "subjects": [
+    {
+      "id": "07071",
+      "name": "Tecnología Aplicada",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-web",
+        "career-redes"
+      ],
+      "year": 1,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [],
+      "area": "Tecnología",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "01017",
+      "name": "Álgebra y Geometría Analítica",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-web",
+        "career-redes"
+      ],
+      "year": 1,
+      "semester": 1,
+      "weeklyHours": 5,
+      "totalHours": 75,
+      "prerequisites": [],
+      "area": "Matemática",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07030",
+      "name": "Algoritmos y Estructura de Datos",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-web",
+        "career-redes"
+      ],
+      "year": 1,
+      "semester": 1,
+      "weeklyHours": 8,
+      "totalHours": 120,
+      "prerequisites": [],
+      "area": "Programación",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07032",
+      "name": "Teoría de Sistemas y Organizaciones",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista"
+      ],
+      "year": 1,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [],
+      "area": "Sistemas",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "02001",
+      "name": "Análisis y Producción del Discurso",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-web",
+        "career-redes"
+      ],
+      "year": 1,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [],
+      "area": "Humanidades",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "02004",
+      "name": "Problemática Regional",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-web",
+        "career-redes"
+      ],
+      "year": 1,
+      "semester": 2,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [],
+      "area": "Humanidades",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07031",
+      "name": "Arquitectura de Computadores I",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-web",
+        "career-redes"
+      ],
+      "year": 1,
+      "semester": 2,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07071"
+      ],
+      "area": "Hardware",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07033",
+      "name": "Programación con Objetos I",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-web",
+        "career-redes"
+      ],
+      "year": 1,
+      "semester": 2,
+      "weeklyHours": 8,
+      "totalHours": 120,
+      "prerequisites": [
+        "07030"
+      ],
+      "area": "Programación",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "01018",
+      "name": "Matemática Discreta",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-web",
+        "career-redes"
+      ],
+      "year": 1,
+      "semester": 2,
+      "weeklyHours": 6,
+      "totalHours": 90,
+      "prerequisites": [],
+      "area": "Matemática",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "01019",
+      "name": "Análisis Matemático I",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-redes"
+      ],
+      "year": 2,
+      "semester": 1,
+      "weeklyHours": 6,
+      "totalHours": 90,
+      "prerequisites": [
+        "01017"
+      ],
+      "area": "Matemática",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07034",
+      "name": "Programación con Objetos II",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-web"
+      ],
+      "year": 2,
+      "semester": 1,
+      "weeklyHours": 8,
+      "totalHours": 120,
+      "prerequisites": [
+        "07033"
+      ],
+      "area": "Programación",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "00004",
+      "name": "Electiva",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista"
+      ],
+      "year": 2,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [],
+      "area": "Electiva",
+      "isElective": true,
+      "isActive": true
+    },
+    {
+      "id": "07036",
+      "name": "Arquitectura de Computadores II",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-redes"
+      ],
+      "year": 2,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07031"
+      ],
+      "area": "Hardware",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "01020",
+      "name": "Probabilidad y Estadística",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-redes"
+      ],
+      "year": 2,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "01019"
+      ],
+      "area": "Matemática",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07035",
+      "name": "Lenguajes Formales",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-web"
+      ],
+      "year": 2,
+      "semester": 1,
+      "weeklyHours": 5,
+      "totalHours": 75,
+      "prerequisites": [
+        "01018"
+      ],
+      "area": "Teoría",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "02036",
+      "name": "Universidad, Ciencia y Sociedad",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-web",
+        "career-redes"
+      ],
+      "year": 2,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [],
+      "area": "Humanidades",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07041",
+      "name": "Ingeniería de Software I",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-web"
+      ],
+      "year": 2,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07030",
+        "07032"
+      ],
+      "area": "Ingeniería de Software",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07039",
+      "name": "Sistemas Operativos I",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-web"
+      ],
+      "year": 2,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07031"
+      ],
+      "area": "Sistemas",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07014",
+      "name": "Base de Datos I",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-web",
+        "career-redes"
+      ],
+      "year": 2,
+      "semester": 2,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07030",
+        "01018"
+      ],
+      "area": "Bases de Datos",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07040",
+      "name": "Comunicación y Redes I",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-redes"
+      ],
+      "year": 2,
+      "semester": 2,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07031"
+      ],
+      "area": "Redes",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "01021",
+      "name": "Análisis Matemático II",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista"
+      ],
+      "year": 3,
+      "semester": 1,
+      "weeklyHours": 6,
+      "totalHours": 90,
+      "prerequisites": [
+        "01019",
+        "01020"
+      ],
+      "area": "Matemática",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07017",
+      "name": "Base de Datos II",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista"
+      ],
+      "year": 3,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07039",
+        "07014"
+      ],
+      "area": "Bases de Datos",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07045",
+      "name": "Comunicación y Redes II",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-redes"
+      ],
+      "year": 3,
+      "semester": 1,
+      "weeklyHours": 6,
+      "totalHours": 90,
+      "prerequisites": [
+        "07040"
+      ],
+      "area": "Redes",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07043",
+      "name": "Ingeniería de Software II",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista"
+      ],
+      "year": 3,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07041"
+      ],
+      "area": "Ingeniería de Software",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07046",
+      "name": "Explotación de Datos",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista"
+      ],
+      "year": 3,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07017"
+      ],
+      "area": "IA / Datos",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07044",
+      "name": "Interfaces de Usuario y Tecnologías Web",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista"
+      ],
+      "year": 3,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07034"
+      ],
+      "area": "Web",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07048",
+      "name": "Programación con Objetos III",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista"
+      ],
+      "year": 3,
+      "semester": 2,
+      "weeklyHours": 8,
+      "totalHours": 120,
+      "prerequisites": [
+        "07039",
+        "07034",
+        "07017"
+      ],
+      "area": "Programación",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "01022",
+      "name": "Matemática Aplicada",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista"
+      ],
+      "year": 3,
+      "semester": 2,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "01021"
+      ],
+      "area": "Matemática",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07047",
+      "name": "Taller de Redes",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista",
+        "career-redes"
+      ],
+      "year": 3,
+      "semester": 2,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07045"
+      ],
+      "area": "Redes",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07050",
+      "name": "Sistemas Operativos II",
+      "careerId": "career-lic",
+      "sharedWith": [
+        "career-analista"
+      ],
+      "year": 3,
+      "semester": 2,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07039",
+        "07036",
+        "07045"
+      ],
+      "area": "Sistemas",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07023",
+      "name": "Dirección y Evaluación de Proyectos Informáticos",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07043"
+      ],
+      "area": "Gestión",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07051",
+      "name": "Arquitectura de Software",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07043",
+        "07036"
+      ],
+      "area": "Ingeniería de Software",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "01023",
+      "name": "Modelos, Simulación y Teoría de la Decisión",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "01021"
+      ],
+      "area": "Matemática Aplicada",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "02037",
+      "name": "Metodología de la Investigación",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07043",
+        "01022"
+      ],
+      "area": "Metodología",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07052",
+      "name": "Paradigmas de Programación",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07048",
+        "07035"
+      ],
+      "area": "Programación",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07054",
+      "name": "Lenguajes de Programación",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07048",
+        "07035"
+      ],
+      "area": "Programación",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07057",
+      "name": "Infraestructura de Sistemas",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 2,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07036",
+        "07047"
+      ],
+      "area": "Sistemas",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07059",
+      "name": "Inteligencia Artificial",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 2,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07048"
+      ],
+      "area": "IA",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07060",
+      "name": "Práctica Profesional",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 2,
+      "weeklyHours": 8,
+      "totalHours": 120,
+      "prerequisites": [
+        "07046",
+        "07051",
+        "07044",
+        "07023"
+      ],
+      "area": "Práctica",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07058",
+      "name": "Desarrollo de Compiladores",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 2,
+      "weeklyHours": 6,
+      "totalHours": 90,
+      "prerequisites": [
+        "07054"
+      ],
+      "area": "Teoría",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "00009",
+      "name": "Optativa I — Ingeniería de Requisitos Avanzada",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [],
+      "area": "Optativa",
+      "isElective": true,
+      "isActive": true
+    },
+    {
+      "id": "02038",
+      "name": "Aspectos Legales y Sociales de la Informática",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [],
+      "area": "Humanidades",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07062",
+      "name": "Ingeniería de Software III",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07043"
+      ],
+      "area": "Ingeniería de Software",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07064",
+      "name": "Sistemas de Tiempo Real y Misión Crítica",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07050"
+      ],
+      "area": "Sistemas",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07067",
+      "name": "Teoría de la Computación",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07048",
+        "07052"
+      ],
+      "area": "Teoría",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "09021",
+      "name": "Economía I",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [],
+      "area": "Economía",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "00010",
+      "name": "Optativa II — Ingeniería de Software IV",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [],
+      "area": "Optativa",
+      "isElective": true,
+      "isActive": true
+    },
+    {
+      "id": "07065",
+      "name": "Seguridad y Auditoría",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 2,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07050",
+        "07017",
+        "07047"
+      ],
+      "area": "Seguridad",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "08022",
+      "name": "Administración y Gestión de las Organizaciones",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 2,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [],
+      "area": "Gestión",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "09022",
+      "name": "Economía II",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 2,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "09021"
+      ],
+      "area": "Economía",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07068",
+      "name": "Trabajo Final",
+      "careerId": "career-lic",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 2,
+      "weeklyHours": 4,
+      "totalHours": 120,
+      "prerequisites": [
+        "07060",
+        "07059"
+      ],
+      "area": "Práctica",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07084",
+      "name": "Programación Web I",
+      "careerId": "career-web",
+      "sharedWith": [],
+      "year": 1,
+      "semester": 2,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07030",
+        "01018"
+      ],
+      "area": "Web",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07085",
+      "name": "Ingeniería de Software I (Web)",
+      "careerId": "career-web",
+      "sharedWith": [],
+      "year": 2,
+      "semester": 1,
+      "weeklyHours": 5,
+      "totalHours": 75,
+      "prerequisites": [
+        "07030"
+      ],
+      "area": "Ingeniería de Software",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07086",
+      "name": "Diseño Gráfico",
+      "careerId": "career-web",
+      "sharedWith": [],
+      "year": 2,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [],
+      "area": "Diseño",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07087",
+      "name": "Programación Web II",
+      "careerId": "career-web",
+      "sharedWith": [],
+      "year": 2,
+      "semester": 2,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07084"
+      ],
+      "area": "Web",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07094-web",
+      "name": "Taller de Lenguajes (Web)",
+      "careerId": "career-web",
+      "sharedWith": [],
+      "year": 2,
+      "semester": 2,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07085"
+      ],
+      "area": "Programación",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07088",
+      "name": "Programación Web III",
+      "careerId": "career-web",
+      "sharedWith": [],
+      "year": 3,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07086",
+        "07087"
+      ],
+      "area": "Web",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07089",
+      "name": "Dispositivos Móviles",
+      "careerId": "career-web",
+      "sharedWith": [],
+      "year": 3,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07086"
+      ],
+      "area": "Mobile",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07090",
+      "name": "Métodos Ágiles en la Web",
+      "careerId": "career-web",
+      "sharedWith": [],
+      "year": 3,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07085"
+      ],
+      "area": "Gestión",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07094-web-pp",
+      "name": "Práctica Profesional Supervisada (Web)",
+      "careerId": "career-web",
+      "sharedWith": [],
+      "year": 3,
+      "semester": 1,
+      "weeklyHours": 0,
+      "totalHours": 100,
+      "prerequisites": [
+        "07041",
+        "07039"
+      ],
+      "area": "Práctica",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07080",
+      "name": "Álgebra y Geometría Analítica (Redes)",
+      "careerId": "career-redes",
+      "sharedWith": [],
+      "year": 1,
+      "semester": 1,
+      "weeklyHours": 6,
+      "totalHours": 90,
+      "prerequisites": [],
+      "area": "Matemática",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07081",
+      "name": "Medidas Electrónicas",
+      "careerId": "career-redes",
+      "sharedWith": [],
+      "year": 2,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07031"
+      ],
+      "area": "Electrónica",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07082-redes",
+      "name": "Circuitos Electrónicos",
+      "careerId": "career-redes",
+      "sharedWith": [],
+      "year": 1,
+      "semester": 2,
+      "weeklyHours": 8,
+      "totalHours": 120,
+      "prerequisites": [
+        "07080"
+      ],
+      "area": "Electrónica",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07083",
+      "name": "Seguridad en Redes",
+      "careerId": "career-redes",
+      "sharedWith": [],
+      "year": 3,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07045"
+      ],
+      "area": "Seguridad",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07094-redes",
+      "name": "Programación en Comunicaciones",
+      "careerId": "career-redes",
+      "sharedWith": [],
+      "year": 3,
+      "semester": 1,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "prerequisites": [
+        "07045"
+      ],
+      "area": "Redes",
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "07094-redes-pp",
+      "name": "Práctica Profesional Supervisada (Redes)",
+      "careerId": "career-redes",
+      "sharedWith": [],
+      "year": 3,
+      "semester": 1,
+      "weeklyHours": 0,
+      "totalHours": 100,
+      "prerequisites": [
+        "07045"
+      ],
+      "area": "Práctica",
+      "isElective": false,
+      "isActive": true
+    }
+  ],
+  "professors": [
+    {
+      "id": "prof-001",
+      "name": "Afonzo, Victoria",
+      "email": "mafonso@uno.edu.ar",
+      "subjectIds": [
+        "01021",
+        "01020"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-002",
+      "name": "Aguiar, Hector Ariel",
+      "email": "aaguiar@uno.edu.ar",
+      "subjectIds": [
+        "07030"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-003",
+      "name": "Albarracín, Jorge",
+      "email": "jalbarracin@uno.edu.ar",
+      "subjectIds": [
+        "07071",
+        "07081",
+        "02037",
+        "07082-redes",
+        "07057"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-004",
+      "name": "Alegre, Alejandro",
+      "email": "aalegre@uno.edu.ar",
+      "subjectIds": [
+        "01018"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-005",
+      "name": "Andrada, Alexander Alexis",
+      "email": "alandrada@uno.edu.ar",
+      "subjectIds": [
+        "07087",
+        "07094-web"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-006",
+      "name": "Barrientos, Daniel",
+      "email": "dbarrientos@uno.edu.ar",
+      "subjectIds": [
+        "07064",
+        "07039",
+        "07050"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-007",
+      "name": "Bergonzi Colaneri, Vanesa",
+      "email": "vbergonzi@uno.edu.ar",
+      "subjectIds": [
+        "07052",
+        "07067"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-008",
+      "name": "Blanco Pulleiro, María del Carmen",
+      "email": "blancopulleiro@uno.edu.ar",
+      "subjectIds": [
+        "07017",
+        "07014"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-009",
+      "name": "Blautzik, Leonardo José",
+      "email": "lblautzik@uno.edu.ar",
+      "subjectIds": [
+        "07033"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-010",
+      "name": "Buda, Jose Julian",
+      "email": "jbuda@uno.edu.ar",
+      "subjectIds": [
+        "07030"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-011",
+      "name": "Cabrera, Jose Luis",
+      "email": "jcabrera@uno.edu.ar",
+      "subjectIds": [
+        "07034",
+        "07048",
+        "07059"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-012",
+      "name": "Corsaro, Alejandro",
+      "email": "acorsaro@uno.edu.ar",
+      "subjectIds": [
+        "07071"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-013",
+      "name": "Cuagliarelli, Silvia Marcela",
+      "email": "scuagliarelli@uno.edu.ar",
+      "subjectIds": [
+        "07035"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-014",
+      "name": "de Figueiredo, Analia",
+      "email": "anfigueiredo@uno.edu.ar",
+      "subjectIds": [
+        "07032"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-015",
+      "name": "Doorn, Jorge Horacio",
+      "email": "jdoorn@uno.edu.ar",
+      "subjectIds": [
+        "07054",
+        "07058"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-016",
+      "name": "Españadero, Juan Pablo",
+      "email": "jespanadero@uno.edu.ar",
+      "subjectIds": [
+        "07017",
+        "07014"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-017",
+      "name": "Esperanza, Marcelo",
+      "email": "mesperanza@uno.edu.ar",
+      "subjectIds": [
+        "07045",
+        "07040"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-018",
+      "name": "Espinoza, César",
+      "email": "cespinoza@uno.edu.ar",
+      "subjectIds": [
+        "01023",
+        "01022"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-019",
+      "name": "Esterkin, Viviana",
+      "email": "vesterkin@uno.edu.ar",
+      "subjectIds": [
+        "07023",
+        "07060"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-020",
+      "name": "Estevez, Carlos Marcelo",
+      "email": "cestevez@uno.edu.ar",
+      "subjectIds": [
+        "07045",
+        "07040",
+        "07047"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-021",
+      "name": "Fernández, Ana Laura",
+      "email": "afernandez@uno.edu.ar",
+      "subjectIds": [
+        "01019"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-022",
+      "name": "Fernandez, Enrique",
+      "email": "enfernandez@uno.edu.ar",
+      "subjectIds": [
+        "07051",
+        "07041"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-023",
+      "name": "Figueroa, María Virginia",
+      "email": "mfigueroa@uno.edu.ar",
+      "subjectIds": [
+        "01017"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-024",
+      "name": "Frattini, Maximiliano",
+      "email": "mfrattini@uno.edu.ar",
+      "subjectIds": [
+        "07031",
+        "07036"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-025",
+      "name": "Garitonandia, Joaquin",
+      "email": "jgaritonandia@uno.edu.ar",
+      "subjectIds": [
+        "01017"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-026",
+      "name": "Gomez, Alejandro",
+      "email": "alegomez@uno.edu.ar",
+      "subjectIds": [
+        "09021",
+        "09022"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-027",
+      "name": "Gomez, Walter",
+      "email": "wgomez@uno.edu.ar",
+      "subjectIds": [
+        "07051",
+        "07041"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-028",
+      "name": "Guglielmino, Roberto",
+      "email": "rguglielmino@uno.edu.ar",
+      "subjectIds": [
+        "07033"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-029",
+      "name": "Hadad, Graciela",
+      "email": "ghadad@uno.edu.ar",
+      "subjectIds": [
+        "07062",
+        "00010"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-030",
+      "name": "Hrynkiewicz, Olga",
+      "email": "ohrynkiewicz@uno.edu.ar",
+      "subjectIds": [
+        "01019"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-031",
+      "name": "Kaplan, Gladys",
+      "email": "gkaplan@uno.edu.ar",
+      "subjectIds": [
+        "00009"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-032",
+      "name": "López, Dario",
+      "email": "rlopez@uno.edu.ar",
+      "subjectIds": [
+        "01018"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-033",
+      "name": "Maldonado, Verónica",
+      "email": "vmaldonado@uno.edu.ar",
+      "subjectIds": [
+        "01017"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-034",
+      "name": "Malerba, Diego",
+      "email": "dmalerba@uno.edu.ar",
+      "subjectIds": [
+        "01018",
+        "01017"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-035",
+      "name": "Mendoza, Hector Dante",
+      "email": "hmendoza@uno.edu.ar",
+      "subjectIds": [
+        "07043",
+        "07033",
+        "07014",
+        "07041",
+        "07046"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-036",
+      "name": "Menendez, Carlos",
+      "email": "cmenendez@uno.edu.ar",
+      "subjectIds": [
+        "07030"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-037",
+      "name": "Miño, Nancy",
+      "email": "nmino@uno.edu.ar",
+      "subjectIds": [
+        "01018"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-038",
+      "name": "Nielsen, Hernan Ezequiel",
+      "email": "hnielsen@uno.edu.ar",
+      "subjectIds": [
+        "07071",
+        "07031",
+        "07036"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-039",
+      "name": "Occhipinti, Pedro Salvador",
+      "email": "pocchipinti@uno.edu.ar",
+      "subjectIds": [
+        "07030",
+        "07044",
+        "07084"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-040",
+      "name": "Ochoa, María Alejandra",
+      "email": "mochoa@uno.edu.ar",
+      "subjectIds": [
+        "07032"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-041",
+      "name": "Paez, Sebastián",
+      "email": "spaez@uno.edu.ar",
+      "subjectIds": [
+        "01023",
+        "01022"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-042",
+      "name": "Pandolfo, Pablo",
+      "email": "ppandolfo@uno.edu.ar",
+      "subjectIds": [
+        "07035",
+        "07087",
+        "07033",
+        "07094-web"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-043",
+      "name": "Perez, Silvia",
+      "email": "sperez@uno.edu.ar",
+      "subjectIds": [
+        "07046"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-044",
+      "name": "Pirovano, Pablo",
+      "email": "ppirovano@uno.edu.ar",
+      "subjectIds": [
+        "07030"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-045",
+      "name": "Raffaele, Eduardo",
+      "email": "hraffaele@uno.edu.ar",
+      "subjectIds": [
+        "08022"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-046",
+      "name": "Ramirez, Daniela",
+      "email": "dramirez@uno.edu.ar",
+      "subjectIds": [
+        "01020"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-047",
+      "name": "Rechimon, Pablo Hernan",
+      "email": "prechimon@uno.edu.ar",
+      "subjectIds": [
+        "07035",
+        "07033"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-048",
+      "name": "Rizzo, Carlos",
+      "email": "crizzo@uno.edu.ar",
+      "subjectIds": [
+        "01021"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-049",
+      "name": "Romero, Diego Javier",
+      "email": "dromero@uno.edu.ar",
+      "subjectIds": [
+        "07071",
+        "07040"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-050",
+      "name": "Serritela, Alberto",
+      "email": "aserritela@uno.edu.ar",
+      "subjectIds": [
+        "07052",
+        "07067"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-051",
+      "name": "Solla, Laura Mercedes",
+      "email": "lsolla@uno.edu.ar",
+      "subjectIds": [
+        "07030",
+        "07068"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-052",
+      "name": "Sotelo, Gastón",
+      "email": "ssotelo@uno.edu.ar",
+      "subjectIds": [
+        "08022"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-053",
+      "name": "Toba, Marcela Alejandra",
+      "email": "mtoba@uno.edu.ar",
+      "subjectIds": [
+        "07030",
+        "07034",
+        "07059"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-054",
+      "name": "Politano, Leandro",
+      "email": "lpolitano@uno.edu.ar",
+      "subjectIds": [
+        "07088"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-055",
+      "name": "Tarnoczy, Victoria",
+      "email": "vtarnoczy@uno.edu.ar",
+      "subjectIds": [
+        "07086"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-056",
+      "name": "Tarnoczy, Erica",
+      "email": "etarnoczy@uno.edu.ar",
+      "subjectIds": [
+        "07086"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-057",
+      "name": "Ferrario, Alberto",
+      "email": "mferrario@uno.edu.ar",
+      "subjectIds": [
+        "02038"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-058",
+      "name": "Parra, Sergio",
+      "email": "sparra@uno.edu.ar",
+      "subjectIds": [
+        "08022"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-059",
+      "name": "Ibañez, Natalia",
+      "email": "nibaniez@uno.edu.ar",
+      "subjectIds": [
+        "08022"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    }
+  ],
+  "semesters": [
+    {
+      "id": "sem-2025-1",
+      "label": "1° Cuatrimestre 2025",
+      "code": "2025-1",
+      "startDate": "2025-03-17",
+      "endDate": "2025-07-19",
+      "isActive": true,
+      "offerings": [
+        {
+          "subjectId": "01021",
+          "professorIds": [
+            "prof-001",
+            "prof-048"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07030",
+          "professorIds": [
+            "prof-002",
+            "prof-010",
+            "prof-036",
+            "prof-039",
+            "prof-044",
+            "prof-051",
+            "prof-053"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07071",
+          "professorIds": [
+            "prof-003",
+            "prof-012",
+            "prof-038",
+            "prof-049"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07081",
+          "professorIds": [
+            "prof-003"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "02037",
+          "professorIds": [
+            "prof-003"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "01018",
+          "professorIds": [
+            "prof-004",
+            "prof-032",
+            "prof-034",
+            "prof-037"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07087",
+          "professorIds": [
+            "prof-005",
+            "prof-042"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07064",
+          "professorIds": [
+            "prof-006"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07052",
+          "professorIds": [
+            "prof-007",
+            "prof-050"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07017",
+          "professorIds": [
+            "prof-008",
+            "prof-016"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07033",
+          "professorIds": [
+            "prof-009",
+            "prof-028",
+            "prof-035"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07034",
+          "professorIds": [
+            "prof-011",
+            "prof-053"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07035",
+          "professorIds": [
+            "prof-013",
+            "prof-042",
+            "prof-047"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07032",
+          "professorIds": [
+            "prof-014",
+            "prof-040"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07054",
+          "professorIds": [
+            "prof-015"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07045",
+          "professorIds": [
+            "prof-017",
+            "prof-020"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "01023",
+          "professorIds": [
+            "prof-018",
+            "prof-041"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07023",
+          "professorIds": [
+            "prof-019"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "01019",
+          "professorIds": [
+            "prof-021",
+            "prof-030"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07051",
+          "professorIds": [
+            "prof-022",
+            "prof-027"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "01017",
+          "professorIds": [
+            "prof-023",
+            "prof-025",
+            "prof-033",
+            "prof-034"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07031",
+          "professorIds": [
+            "prof-024",
+            "prof-038"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07036",
+          "professorIds": [
+            "prof-024",
+            "prof-038"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "09021",
+          "professorIds": [
+            "prof-026"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07062",
+          "professorIds": [
+            "prof-029"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "00009",
+          "professorIds": [
+            "prof-031"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07043",
+          "professorIds": [
+            "prof-035"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07014",
+          "professorIds": [
+            "prof-035"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07044",
+          "professorIds": [
+            "prof-039"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07084",
+          "professorIds": [
+            "prof-039"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07040",
+          "professorIds": [
+            "prof-049"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07068",
+          "professorIds": [
+            "prof-051"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "08022",
+          "professorIds": [
+            "prof-052",
+            "prof-058",
+            "prof-059"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07088",
+          "professorIds": [
+            "prof-054"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07086",
+          "professorIds": [
+            "prof-055",
+            "prof-056"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "02038",
+          "professorIds": [
+            "prof-057"
+          ],
+          "schedule": "",
+          "classroom": ""
+        }
+      ]
+    },
+    {
+      "id": "sem-2025-2",
+      "label": "2° Cuatrimestre 2025",
+      "code": "2025-2",
+      "startDate": "2025-08-11",
+      "endDate": "2025-11-22",
+      "isActive": false,
+      "offerings": [
+        {
+          "subjectId": "01020",
+          "professorIds": [
+            "prof-001",
+            "prof-046"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07030",
+          "professorIds": [
+            "prof-002",
+            "prof-010",
+            "prof-036",
+            "prof-039",
+            "prof-044",
+            "prof-051"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07071",
+          "professorIds": [
+            "prof-003",
+            "prof-012",
+            "prof-038",
+            "prof-049"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07082-redes",
+          "professorIds": [
+            "prof-003"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07057",
+          "professorIds": [
+            "prof-003"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "01018",
+          "professorIds": [
+            "prof-004",
+            "prof-032",
+            "prof-034",
+            "prof-037"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07094-web",
+          "professorIds": [
+            "prof-005",
+            "prof-042"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07039",
+          "professorIds": [
+            "prof-006"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07050",
+          "professorIds": [
+            "prof-006"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07067",
+          "professorIds": [
+            "prof-007",
+            "prof-050"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07014",
+          "professorIds": [
+            "prof-008",
+            "prof-016"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07033",
+          "professorIds": [
+            "prof-009",
+            "prof-028",
+            "prof-042",
+            "prof-047"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07048",
+          "professorIds": [
+            "prof-011"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07059",
+          "professorIds": [
+            "prof-011",
+            "prof-053"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07035",
+          "professorIds": [
+            "prof-013"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07032",
+          "professorIds": [
+            "prof-014",
+            "prof-040"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07058",
+          "professorIds": [
+            "prof-015"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07040",
+          "professorIds": [
+            "prof-017",
+            "prof-020"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "01022",
+          "professorIds": [
+            "prof-018",
+            "prof-041"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07060",
+          "professorIds": [
+            "prof-019"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07047",
+          "professorIds": [
+            "prof-020"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "01019",
+          "professorIds": [
+            "prof-021",
+            "prof-030"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07041",
+          "professorIds": [
+            "prof-022",
+            "prof-027",
+            "prof-035"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "01017",
+          "professorIds": [
+            "prof-023",
+            "prof-025",
+            "prof-033",
+            "prof-034"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07031",
+          "professorIds": [
+            "prof-024",
+            "prof-038"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07036",
+          "professorIds": [
+            "prof-024",
+            "prof-038"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "09022",
+          "professorIds": [
+            "prof-026"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "00010",
+          "professorIds": [
+            "prof-029"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07046",
+          "professorIds": [
+            "prof-035",
+            "prof-043"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07084",
+          "professorIds": [
+            "prof-039"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "08022",
+          "professorIds": [
+            "prof-045",
+            "prof-052",
+            "prof-058",
+            "prof-059"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07068",
+          "professorIds": [
+            "prof-051"
+          ],
+          "schedule": "",
+          "classroom": ""
+        },
+        {
+          "subjectId": "07088",
+          "professorIds": [
+            "prof-054"
+          ],
+          "schedule": "",
+          "classroom": ""
+        }
+      ]
+    }
+  ],
+  "currentSemester": {
+    "id": "sem-2025-1",
+    "label": "1° Cuatrimestre 2025",
+    "code": "2025-1",
+    "startDate": "2025-03-17",
+    "endDate": "2025-07-19",
+    "isActive": true,
+    "offerings": [
+      {
+        "subjectId": "01021",
+        "professorIds": [
+          "prof-001",
+          "prof-048"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07030",
+        "professorIds": [
+          "prof-002",
+          "prof-010",
+          "prof-036",
+          "prof-039",
+          "prof-044",
+          "prof-051",
+          "prof-053"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07071",
+        "professorIds": [
+          "prof-003",
+          "prof-012",
+          "prof-038",
+          "prof-049"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07081",
+        "professorIds": [
+          "prof-003"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "02037",
+        "professorIds": [
+          "prof-003"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "01018",
+        "professorIds": [
+          "prof-004",
+          "prof-032",
+          "prof-034",
+          "prof-037"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07087",
+        "professorIds": [
+          "prof-005",
+          "prof-042"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07064",
+        "professorIds": [
+          "prof-006"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07052",
+        "professorIds": [
+          "prof-007",
+          "prof-050"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07017",
+        "professorIds": [
+          "prof-008",
+          "prof-016"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07033",
+        "professorIds": [
+          "prof-009",
+          "prof-028",
+          "prof-035"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07034",
+        "professorIds": [
+          "prof-011",
+          "prof-053"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07035",
+        "professorIds": [
+          "prof-013",
+          "prof-042",
+          "prof-047"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07032",
+        "professorIds": [
+          "prof-014",
+          "prof-040"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07054",
+        "professorIds": [
+          "prof-015"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07045",
+        "professorIds": [
+          "prof-017",
+          "prof-020"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "01023",
+        "professorIds": [
+          "prof-018",
+          "prof-041"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07023",
+        "professorIds": [
+          "prof-019"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "01019",
+        "professorIds": [
+          "prof-021",
+          "prof-030"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07051",
+        "professorIds": [
+          "prof-022",
+          "prof-027"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "01017",
+        "professorIds": [
+          "prof-023",
+          "prof-025",
+          "prof-033",
+          "prof-034"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07031",
+        "professorIds": [
+          "prof-024",
+          "prof-038"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07036",
+        "professorIds": [
+          "prof-024",
+          "prof-038"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "09021",
+        "professorIds": [
+          "prof-026"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07062",
+        "professorIds": [
+          "prof-029"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "00009",
+        "professorIds": [
+          "prof-031"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07043",
+        "professorIds": [
+          "prof-035"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07014",
+        "professorIds": [
+          "prof-035"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07044",
+        "professorIds": [
+          "prof-039"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07084",
+        "professorIds": [
+          "prof-039"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07040",
+        "professorIds": [
+          "prof-049"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07068",
+        "professorIds": [
+          "prof-051"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "08022",
+        "professorIds": [
+          "prof-052",
+          "prof-058",
+          "prof-059"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07088",
+        "professorIds": [
+          "prof-054"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "07086",
+        "professorIds": [
+          "prof-055",
+          "prof-056"
+        ],
+        "schedule": "",
+        "classroom": ""
+      },
+      {
+        "subjectId": "02038",
+        "professorIds": [
+          "prof-057"
+        ],
+        "schedule": "",
+        "classroom": ""
+      }
+    ]
+  },
+  "reviews": [],
+  "resources": [],
+  "news": [
+    {
+      "id": "news-001",
+      "category": "inscripciones",
+      "title": "Inscripción a materias — 1° Cuatrimestre 2025",
+      "body": "La inscripción a materias del primer cuatrimestre se realizará a través del sistema SIU Guaraní. Consultá las fechas en bedelía.",
+      "date": "2025-03-01",
+      "author": "Escuela de Informática — UNO",
+      "isHighlighted": true
+    },
+    {
+      "id": "news-002",
+      "category": "calendario",
+      "title": "Inicio de clases — 17 de marzo 2025",
+      "body": "El primer cuatrimestre del ciclo lectivo 2025 da inicio el lunes 17 de marzo. Fin de cursada estimado: 19 de julio.",
+      "date": "2025-02-20",
+      "author": "Bedelía — UNO",
+      "isHighlighted": true
+    },
+    {
+      "id": "news-003",
+      "category": "aviso",
+      "title": "Regularizaciones 2023 — próximo vencimiento",
+      "body": "Se recuerda que las regularidades de materias aprobadas en 2023 vencen en 2025. Quienes no hayan rendido el final deben hacerlo antes del turno de diciembre.",
+      "date": "2025-03-05",
+      "author": "Escuela de Informática — UNO",
+      "isHighlighted": true
+    }
+  ]
+}
