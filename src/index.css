@@ -856,14 +856,11 @@ body::before {
   inset: 0;
   background-image: url("../src/assets/Logo-UNO.png");
   background-repeat: no-repeat;
-  background-size: 400px;
+  background-size: 104%;
   background-position: center;
   opacity: 0.2;
   background-position: 50% 50% ;
   z-index: -1;
-
-  will-change: transform; /* 👈 mejora rendimiento */
-  transform: translateZ(0); /* 👈 fuerza GPU */
 }
 
 /* ================= TABLET ================= */
@@ -910,8 +907,8 @@ body::before {
   .container-info-carreas-area-cuatrimestre-activo {
     grid-template-columns: repeat(4, 1fr);
   }
-  body::before{
-    background-size: 55%;
+  body::before {
+    background-size: 40%;
   }
 }
 
