@@ -61,7 +61,7 @@ header {
   width: 100%;
   height: 60px;
   z-index: 1000;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-dark);
   backdrop-filter: blur(8px);
   display: flex;
   justify-content: space-between;
@@ -105,7 +105,7 @@ header {
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  background: var(--color-primary);
+  background: var(--color-primary-dark);
   backdrop-filter: blur(8px);
   gap: 1rem;
 }
@@ -145,6 +145,8 @@ section {
   padding: 8px;
   border-radius: 8px;
   text-align: center;
+  font-size: 13px;
+
 }
 
 .container-logo-header {
@@ -155,14 +157,13 @@ section {
 /* svg logo */
 /* contenedor */
 .container-svg-logo-header {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: .5px solid var(--color-dark);
   border-radius: 8px;
-  background: var(--color-card-bg);
+  border: .5px solid var(--color-dark);
 }
 
 /* svg */
@@ -732,6 +733,98 @@ section {
   list-style:circle;
 }
 
+/* ============= LOGIN ============= */
+.login-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+}
+
+.login-box {
+  width: 350px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.login-title {
+  font-size: 22px;
+  margin-bottom: 5px;
+  color: var(--color-primary);
+}
+
+.login-subtitle {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  width: 100%;
+  background-color:var(--color-btn);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary);
+}
+
+.login-divider {
+  margin: 20px 0 10px;
+  font-size: 13px;
+  color: #666;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: 0.2s;
+}
+
+.login-form input:focus {
+  border-color: var(--color-primary);
+}
+
+.forgot {
+  font-size: 12px;
+  color: #777;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* selec carrera */
+.select-input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: 0.2s;
+  background-color: white;
+}
+
+.select-input:focus {
+  border-color: var(--color-primary);
+}
+
+
 /* ================= TABLET ================= */
 
 @media (min-width: 768px) {
@@ -819,6 +912,8 @@ body::before {
     background-size: 55%;
   }
 }
+
+
 p.divisor{
   color: var(--color-bg);
 }

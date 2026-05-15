@@ -20,7 +20,7 @@ const Inicio =()=>{
             </div>
             <div className="buttons-inicio button children-block">
               <button className="btn btn-primary">Crear cuenta gratis</button>
-              <button className="btn btn-secondary">
+              <button className="btn btn-primary">
                 Ver cuatrimestre
                 <svg
                   width="12"

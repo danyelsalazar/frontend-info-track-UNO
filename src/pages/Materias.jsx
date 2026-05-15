@@ -20,20 +20,20 @@ const Materias = () => {
   };
 
   const filtradoMateria = subjects.filter((materia) =>
-    generalizarTexto(materia.name.toLowerCase()).includes(
+    generalizarTexto(materia.name).includes(
       generalizarTexto(dataFilter),
     ),
   );
 
   // estados para mantener persistida la paginacion de las materias
   const [searchParams, setSearchParams] = useSearchParams();
-  const paginaInicial = Number(searchParams.get("page")) || 1
+  const paginaInicial = Number(searchParams.get("page")) || 1;
 
   // guardamos los datos en la url
-  const cambiarpagina = (nuevaPagina)=>{
-    setPaginaActual(nuevaPagina)
-    setSearchParams({page: nuevaPagina})
-  }
+  const cambiarpagina = (nuevaPagina) => {
+    setPaginaActual(nuevaPagina);
+    setSearchParams({ page: nuevaPagina });
+  };
 
   //estados para paginacion
   const [paginaActual, setPaginaActual] = useState(paginaInicial);
@@ -44,9 +44,7 @@ const Materias = () => {
 
   const materiasActuales = filtradoMateria.slice(indicePrimero, indiceUltimo);
   // calculo cuantas paginas hay
-  const totalPaginas = Math.ceil(subjects.length / materiasPorpagina);
-
-
+  const totalPaginas = Math.ceil(filtradoMateria.length / materiasPorpagina);
 
   return (
     <>
@@ -60,6 +58,7 @@ const Materias = () => {
             type="text"
             onChange={(e) => {
               setdataFilter(e.target.value);
+              cambiarpagina(1);
             }}
             className="input-search-materia"
             placeholder="Buscar materia"

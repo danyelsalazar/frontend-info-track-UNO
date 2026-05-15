@@ -1,26 +1,30 @@
 import { Route, Routes } from "react-router-dom";
 import Materias from "./Materias";
 import Home from "./Home"
-import Header from "../components/Header";
 import ScrollTopTop from "../components/ScrollTopTop";
 import MateriaDetalle from "../components/MateriaDetalle";
-import Footer from "../components/Footer"
+import Login from "./Login";
+import MainLayout from "../components/MainLayout";
+import Register from "./Register";
 
 const App = () => {
   return (
     <>
-      <ScrollTopTop/>
-      <Header/>
-      
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/materias" element={<Materias/>}/>
-        <Route path="/materias/:id" element={<MateriaDetalle/>}/>
-      </Routes>
+      <ScrollTopTop />
 
-      <Footer/>
+      <Routes>
+        {/* RUTAS CON HEADER Y FOOTER */}
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/materias" element={<Materias />} />
+          <Route path="/materias/:id" element={<MateriaDetalle />} />
+        </Route>
+
+        {/* RUTA SIN HEADER NI FOOTER */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register/>}/>
+      </Routes>
     </>
-   
   );
 };
 
