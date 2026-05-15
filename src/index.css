@@ -4,26 +4,38 @@
   --color-bg: #1f1f1e;
   --color-surface: #2a2a28;
   --color-card: #30302e;
-  --color-border:var(--color-dark);
+  --color-border: var(--color-dark);
   --color-items-bg-dark: #1a1a1a;
   --color-light: #faf9f5;
   --color-dark: #b9b9b3;
-  --color-card-bg: #3A3A38;
-  --color-btn: rgb(214,44,91);
+  --color-card-bg: #3a3a38;
+  --color-btn: rgb(214, 44, 91);
   --color-primary: #009cd1;
-  --color-primary-dark: #144A75;
+  --color-primary-dark: #144a75;
   --color-border: #1e639b;
-  --color-accent: #2FA4A9;
+  --color-accent: #2fa4a9;
   --color-uno: #009cd1;
   --radius: 12px;
   --transition: all 0.25s ease;
 }
 html,
 body {
+  font-family: "Inter", sans-serif;
+  color: var(--color-light);
   overflow-x: hidden;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
+    url("../src/assets/Logo-UNO.png");
+
+  background-size: 400px;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  padding-top: 30px;
+  z-index: 0;
 }
 
-#root{
+#root {
   display: flex;
   flex-direction: column;
 }
@@ -37,18 +49,11 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  background: var(--);
-  font-family: "Inter", sans-serif;
-  color: var(--color-light);
-  padding-top: 60px;
-}
-
 li {
   list-style: none;
 }
 
-p.divisor{
+p.divisor {
   color: var(--color-bg);
 }
 
@@ -118,21 +123,24 @@ header {
   color: var(--color-light);
   text-decoration: none;
   font-size: 14px;
-  transition: opacity .2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .button-ingresar {
-  transition: background-color 0.2s ease,  transform .2s ease , opacity .2s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
   background-color: var(--color-btn);
   color: var(--color-light);
 }
 .button-ingresar:hover {
   cursor: pointer;
   transform: translateY(-2px);
-  opacity: .6;
+  opacity: 0.6;
 }
-nav ul li a:hover{
-  opacity: .8;
+nav ul li a:hover {
+  opacity: 0.8;
 }
 
 /* scroll en secciones */
@@ -146,7 +154,6 @@ section {
   border-radius: 8px;
   text-align: center;
   font-size: 13px;
-
 }
 
 .container-logo-header {
@@ -163,7 +170,7 @@ section {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  border: .5px solid var(--color-dark);
+  border: 0.5px solid var(--color-dark);
 }
 
 /* svg */
@@ -238,14 +245,13 @@ section {
   padding: 2rem 1rem;
 }
 
-
 .container-inicio-texto {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-.description-inicio{
+.description-inicio {
   color: var(--color-card-bg);
   font-size: 14px;
   font-weight: 500;
@@ -278,7 +284,7 @@ section {
 }
 
 .buttons-inicio button:hover {
-  opacity: .7;
+  opacity: 0.7;
   transform: translateY(-2px);
 }
 
@@ -297,13 +303,13 @@ section {
   font-size: 13px;
   transition: var(--transition);
 }
-.childrem-description-inicio:hover{
+.childrem-description-inicio:hover {
   transform: scale(1.04);
 }
 
 /* ================= SECTIONS ================= */
 
-.divisor{
+.divisor {
   color: var(--color-bg);
 }
 section {
@@ -374,12 +380,12 @@ section {
 }
 
 .materi-carrera {
-  background: var( --color-btn);
+  background: var(--color-btn);
   padding: 4px 8px;
   border-radius: 6px;
   font-size: 11px;
 }
-.index-carrera{
+.index-carrera {
   color: var(--color-light);
 }
 
@@ -406,7 +412,7 @@ section {
   flex-direction: column;
   gap: 6px;
 }
-.container-materia-en-curso .profe-initials{
+.container-materia-en-curso .profe-initials {
   font-size: 12px;
   color: var(--color-light);
   background-color: var(--color-btn);
@@ -418,7 +424,7 @@ section {
   flex-direction: column;
   gap: 9px;
 }
-.title-top-careras-cuatrimestre p{
+.title-top-careras-cuatrimestre p {
   color: var(--color-card-bg);
 }
 
@@ -447,10 +453,10 @@ section {
 .rating span {
   font-size: 14px;
 }
-.profe-initials, .index-profe{
+.profe-initials,
+.index-profe {
   color: var(--color-light);
 }
-
 
 /* ================= NOVEDADES ================= */
 
@@ -474,7 +480,7 @@ section {
   font-size: 13px;
   color: var(--color-light);
 }
-.categoria-novedad{
+.categoria-novedad {
   color: var(--color-primary);
 }
 
@@ -506,7 +512,7 @@ section {
 
 .footer-description {
   font-size: 13px;
-  color:#faf9f5;
+  color: #faf9f5;
   max-width: 300px;
 }
 
@@ -526,7 +532,7 @@ section {
 .footer-links a {
   display: block;
   font-size: 13px;
-  color:#ffffff;
+  color: #ffffff;
   text-decoration: none;
   margin-bottom: 6px;
   transition: 0.2s;
@@ -538,7 +544,7 @@ section {
 
 /* bottom */
 .footer-bottom {
-  border-top: .5px solid var(--color-dark);
+  border-top: 0.5px solid var(--color-dark);
   text-align: center;
   padding: 1rem;
   font-size: 12px;
@@ -567,9 +573,9 @@ section {
   padding: 16px;
   gap: 10px;
   cursor: pointer;
-  transition: transform ease .2s;
+  transition: transform ease 0.2s;
 }
-.materia-item:hover{
+.materia-item:hover {
   transform: scale(1.04);
 }
 .materia-name {
@@ -636,7 +642,7 @@ section {
 }
 
 /* paginacion de materias */
-.container-btn-paginacion{
+.container-btn-paginacion {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -647,7 +653,8 @@ section {
   color: var(--color-card-bg);
 }
 
-.pagina-anterior, .pagina-siguiente{
+.pagina-anterior,
+.pagina-siguiente {
   padding: 5px;
   border: none;
   border-radius: 10px;
@@ -656,81 +663,83 @@ section {
   cursor: pointer;
 }
 
-.pagina-anterior:disabled, .pagina-siguiente:disabled{
-  opacity: .6;
+.pagina-anterior:disabled,
+.pagina-siguiente:disabled {
+  opacity: 0.6;
 }
-.pagina-index{
+.pagina-index {
   font-weight: 600;
   font-size: 18px;
 }
 
 /* ============ MATERIA DETALLE ============ */
-.container-section-materia-detalle{
+.container-section-materia-detalle {
   min-height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.container-materia-detalle{
- display: flex;
- flex-direction: column;
- gap: 15px;
- padding: 40px;
- width: max-content;
+.container-materia-detalle {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 40px;
+  width: max-content;
 }
 
-.container-info-materia-detalle-profes{
+.container-info-materia-detalle-profes {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.title-profes-detalle{
+.title-profes-detalle {
   color: var(--color-light);
   font-weight: 700;
 }
 
-.cod-materia-detalle b, .profe-materia-detalle b{
+.cod-materia-detalle b,
+.profe-materia-detalle b {
   color: var(--color-light);
   background-color: var(--color-btn);
   padding: 2px 5px;
   border-radius: 10px;
 }
 
-.email-profe-materia-detalle{
+.email-profe-materia-detalle {
   font-size: 13px;
 }
-.info-mareria-detalle-profe{
+.info-mareria-detalle-profe {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.email-profe-materia-detalle{
-  color: #144A75;
+.email-profe-materia-detalle {
+  color: #144a75;
 }
-.email-profe{
+.email-profe {
   color: var(--color-light);
   padding: 2px 5px;
   border-radius: 10px;
   margin-right: 5px;
 }
 
-.list-coorrelativas{
+.list-coorrelativas {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
-.list-coorrelativas h5{
+.list-coorrelativas h5 {
   color: var(--color-light);
   width: max-content;
   background-color: var(--color-card-bg);
   padding: 2px 5px;
   border-radius: 10px;
 }
-.list-coorrelativas li{
+.list-coorrelativas li {
   color: var(--color-light);
   font-size: 13px;
-  list-style:circle;
+  list-style: circle;
 }
 
 /* ============= LOGIN ============= */
@@ -749,7 +758,7 @@ section {
   background: white;
   padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -767,7 +776,7 @@ section {
 
 .btn-primary {
   width: 100%;
-  background-color:var(--color-btn);
+  background-color: var(--color-btn);
   color: white;
   border: none;
   padding: 12px;
@@ -824,7 +833,6 @@ section {
   border-color: var(--color-primary);
 }
 
-
 /* ================= TABLET ================= */
 
 @media (min-width: 768px) {
@@ -844,27 +852,9 @@ section {
     max-width: 1200px;
     margin: auto;
   }
-  .container-materias-list{
-    grid-template-columns: 1fr 1fr 1fr ;
+  .container-materias-list {
+    grid-template-columns: 1fr 1fr 1fr;
   }
-}
-
-/* ================= BACKGROUND ================= */
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("../src/assets/Logo-UNO.png");
-  background-repeat: no-repeat;
-  background-size: 400px;
-  background-position: center;
-  opacity: 0.2;
-  background-position: 50% 50% ;
-  z-index: -1;
-
-  will-change: transform; /* 👈 mejora rendimiento */
-  transform: translateZ(0); /* 👈 fuerza GPU */
 }
 
 /* ================= TABLET ================= */
@@ -911,15 +901,11 @@ body::before {
   .container-info-carreas-area-cuatrimestre-activo {
     grid-template-columns: repeat(4, 1fr);
   }
-  body::before{
-    background-size: 55%;
-  }
 }
 
-
-p.divisor{
+p.divisor {
   color: var(--color-bg);
 }
- p.divisor i{
+p.divisor i {
   background-color: var(--color-bg);
- }
+}
