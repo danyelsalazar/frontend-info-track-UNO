@@ -25,12 +25,11 @@ const Materias = () => {
     ),
   );
 
-  // estrados para mantener persistida la paginacion de las materias
+  // estados para mantener persistida la paginacion de las materias
   const [searchParams, setSearchParams] = useSearchParams();
   const paginaInicial = Number(searchParams.get("page")) || 1
 
   // guardamos los datos en la url
-
   const cambiarpagina = (nuevaPagina)=>{
     setPaginaActual(nuevaPagina)
     setSearchParams({page: nuevaPagina})

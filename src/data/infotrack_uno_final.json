@@ -1,0 +1,3185 @@
+{
+  "meta": {
+    "institution": "Universidad Nacional del Oeste — Escuela de Ciencias Tecnológicas",
+    "generatedAt": "2026-05-14T13:08:23.774Z",
+    "sources": [
+      "Plan de Estudios Licenciatura en Informática 2022",
+      "Plan de Estudios Tecnicatura Universitaria en Tecnologías Web",
+      "Plan de Estudios Tecnicatura Universitaria en Redes Informáticas",
+      "Listado Docente Escuela de Informática",
+      "Mail_docentes_2023.xlsx",
+      "Oferta Materias 1er Cuatrimestre 2026 — PDF oficial"
+    ],
+    "stats": {
+      "careers": 4,
+      "subjects": 59,
+      "professors": 59,
+      "offerings": 40,
+      "reviews": 5,
+      "resources": 3,
+      "integrityErrors": 0
+    }
+  },
+  "careers": [
+    {
+      "id": "career-001",
+      "name": "Licenciatura en Informática",
+      "shortName": "Lic. Informática",
+      "type": "licenciatura",
+      "durationYears": 5,
+      "totalSubjects": 43,
+      "totalCredits": 3600,
+      "description": "Se propone formar egresados con significativos fundamentos teóricos de informática y conocimiento actualizado de las tecnologías, lo que le permitirá seguir capacitándose permanentemente al ritmo de la evolución tecnológica. Podrá planificar, dirigir y evaluar proyectos de diseño, verificación y mantenimiento de sistemas informáticos.",
+      "tags": [
+        "Algoritmos",
+        "Bases de datos",
+        "Redes",
+        "IA",
+        "Software"
+      ],
+      "isActive": true,
+      "degreeTitle": "Licenciado/a en Informática",
+      "intermediateTitle": "Analista en Informática (al completar 3° año)"
+    },
+    {
+      "id": "career-002",
+      "name": "Tecnicatura Universitaria en Tecnologías Web",
+      "shortName": "Tec. Web",
+      "type": "tecnicatura",
+      "durationYears": 3,
+      "totalSubjects": 28,
+      "totalCredits": 1750,
+      "description": "Se apunta a la formación de técnicos universitarios para el análisis y desarrollo de sistemas informáticos con principal énfasis en el desarrollo de sistemas web y móviles. Cuenta con formación en desarrollo web y diseño gráfico, además de amplia formación de trabajo en equipo.",
+      "tags": [
+        "Frontend",
+        "Backend",
+        "Diseño Gráfico",
+        "Mobile",
+        "Métodos Ágiles"
+      ],
+      "isActive": true,
+      "degreeTitle": "Técnico/a Universitario/a en Tecnologías Web",
+      "intermediateTitle": null
+    },
+    {
+      "id": "career-003",
+      "name": "Tecnicatura Universitaria en Redes Informáticas",
+      "shortName": "Tec. Redes",
+      "type": "tecnicatura",
+      "durationYears": 3,
+      "totalSubjects": 26,
+      "totalCredits": 1705,
+      "description": "Se propone formar técnicos universitarios para la implementación, mantenimiento, administración y actualización en redes de información. El egresado estará capacitado para la instalación y ampliación de redes de datos informáticos con conocimientos básicos de programación.",
+      "tags": [
+        "Redes",
+        "Seguridad",
+        "Infraestructura",
+        "Electrónica",
+        "Comunicaciones"
+      ],
+      "isActive": true,
+      "degreeTitle": "Técnico/a Universitario/a en Redes Informáticas",
+      "intermediateTitle": null
+    },
+    {
+      "id": "career-004",
+      "name": "Analista en Informática",
+      "shortName": "Analista",
+      "type": "analista",
+      "durationYears": 3,
+      "totalSubjects": 30,
+      "totalCredits": 2190,
+      "description": "Título intermedio de la Licenciatura en Informática. Comprende los primeros 3 años del plan. Forma profesionales capacitados para el análisis, diseño y gestión de sistemas de información.",
+      "tags": [
+        "Análisis",
+        "Diseño",
+        "Gestión",
+        "Programación",
+        "Bases de Datos"
+      ],
+      "isActive": true,
+      "degreeTitle": "Analista en Informática",
+      "intermediateTitle": null
+    }
+  ],
+  "subjects": [
+    {
+      "id": "sub-001",
+      "name": "Tecnología Aplicada",
+      "code": "7071",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-002",
+        "career-003",
+        "career-004"
+      ],
+      "year": 1,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Tecnología",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-002",
+      "name": "Álgebra y Geometría Analítica",
+      "code": "1017",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-002",
+        "career-003",
+        "career-004"
+      ],
+      "year": 1,
+      "semester": 1,
+      "credits": 5,
+      "weeklyHours": 5,
+      "totalHours": 75,
+      "area": "Matemática",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-003",
+      "name": "Algoritmos y Estructura de Datos",
+      "code": "7030",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-002",
+        "career-003",
+        "career-004"
+      ],
+      "year": 1,
+      "semester": 1,
+      "credits": 8,
+      "weeklyHours": 8,
+      "totalHours": 120,
+      "area": "Programación",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-004",
+      "name": "Análisis y Producción del Discurso",
+      "code": "2001",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-002",
+        "career-003",
+        "career-004"
+      ],
+      "year": 1,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Humanidades",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-005",
+      "name": "Teoría de Sistemas y Organizaciones",
+      "code": "7032",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-004"
+      ],
+      "year": 1,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Sistemas",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-006",
+      "name": "Matemática Discreta",
+      "code": "1018",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-002",
+        "career-003",
+        "career-004"
+      ],
+      "year": 1,
+      "semester": 1,
+      "credits": 6,
+      "weeklyHours": 6,
+      "totalHours": 90,
+      "area": "Matemática",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-007",
+      "name": "Problemática Regional",
+      "code": "2004",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-002",
+        "career-003",
+        "career-004"
+      ],
+      "year": 1,
+      "semester": 2,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Humanidades",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-008",
+      "name": "Arquitectura de Computadores I",
+      "code": "7031",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-002",
+        "career-003",
+        "career-004"
+      ],
+      "year": 1,
+      "semester": 2,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Hardware",
+      "prerequisites": [
+        "sub-001"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-009",
+      "name": "Programación con Objetos I",
+      "code": "7033",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-002",
+        "career-003",
+        "career-004"
+      ],
+      "year": 1,
+      "semester": 2,
+      "credits": 8,
+      "weeklyHours": 8,
+      "totalHours": 120,
+      "area": "Programación",
+      "prerequisites": [
+        "sub-003"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-010",
+      "name": "Programación Web I",
+      "code": "7084",
+      "careerId": "career-002",
+      "sharedWith": [],
+      "year": 1,
+      "semester": 2,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Web",
+      "prerequisites": [
+        "sub-003",
+        "sub-006"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-011",
+      "name": "Análisis Matemático I",
+      "code": "1019",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-003",
+        "career-004"
+      ],
+      "year": 2,
+      "semester": 1,
+      "credits": 6,
+      "weeklyHours": 6,
+      "totalHours": 90,
+      "area": "Matemática",
+      "prerequisites": [
+        "sub-002"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-012",
+      "name": "Programación con Objetos II",
+      "code": "7034",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-002",
+        "career-004"
+      ],
+      "year": 2,
+      "semester": 1,
+      "credits": 8,
+      "weeklyHours": 8,
+      "totalHours": 120,
+      "area": "Programación",
+      "prerequisites": [
+        "sub-009"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-013",
+      "name": "Arquitectura de Computadores II",
+      "code": "7036",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-003",
+        "career-004"
+      ],
+      "year": 2,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Hardware",
+      "prerequisites": [
+        "sub-008"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-014",
+      "name": "Lenguajes Formales",
+      "code": "7035",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-002",
+        "career-004"
+      ],
+      "year": 2,
+      "semester": 1,
+      "credits": 5,
+      "weeklyHours": 5,
+      "totalHours": 75,
+      "area": "Teoría",
+      "prerequisites": [
+        "sub-006"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-015",
+      "name": "Universidad, Ciencia y Sociedad",
+      "code": "2036",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-002",
+        "career-003",
+        "career-004"
+      ],
+      "year": 2,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Humanidades",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-016",
+      "name": "Ingeniería de Software I",
+      "code": "7041",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-002",
+        "career-004"
+      ],
+      "year": 2,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Ingeniería de Software",
+      "prerequisites": [
+        "sub-003",
+        "sub-005"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-017",
+      "name": "Sistemas Operativos I",
+      "code": "7039",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-002",
+        "career-004"
+      ],
+      "year": 2,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Sistemas",
+      "prerequisites": [
+        "sub-008"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-018",
+      "name": "Electiva",
+      "code": "00004",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-004"
+      ],
+      "year": 2,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Electiva",
+      "prerequisites": [],
+      "isElective": true,
+      "isActive": true
+    },
+    {
+      "id": "sub-019",
+      "name": "Probabilidad y Estadística",
+      "code": "1020",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-003",
+        "career-004"
+      ],
+      "year": 2,
+      "semester": 2,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Matemática",
+      "prerequisites": [
+        "sub-011"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-020",
+      "name": "Base de Datos I",
+      "code": "7014",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-002",
+        "career-003",
+        "career-004"
+      ],
+      "year": 2,
+      "semester": 2,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Bases de Datos",
+      "prerequisites": [
+        "sub-003",
+        "sub-006"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-021",
+      "name": "Comunicación y Redes I",
+      "code": "7040",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-003",
+        "career-004"
+      ],
+      "year": 2,
+      "semester": 2,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Redes",
+      "prerequisites": [
+        "sub-008"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-022",
+      "name": "Programación Web II",
+      "code": "7085",
+      "careerId": "career-002",
+      "sharedWith": [],
+      "year": 2,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Web",
+      "prerequisites": [
+        "sub-010"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-023",
+      "name": "Diseño Gráfico",
+      "code": "7086",
+      "careerId": "career-002",
+      "sharedWith": [],
+      "year": 2,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Diseño",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-024",
+      "name": "Medidas Electrónicas",
+      "code": "7081",
+      "careerId": "career-003",
+      "sharedWith": [],
+      "year": 2,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Electrónica",
+      "prerequisites": [
+        "sub-008"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-025",
+      "name": "Análisis Matemático II",
+      "code": "1021",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-004"
+      ],
+      "year": 3,
+      "semester": 1,
+      "credits": 6,
+      "weeklyHours": 6,
+      "totalHours": 90,
+      "area": "Matemática",
+      "prerequisites": [
+        "sub-011",
+        "sub-019"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-026",
+      "name": "Base de Datos II",
+      "code": "7017",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-004"
+      ],
+      "year": 3,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Bases de Datos",
+      "prerequisites": [
+        "sub-017",
+        "sub-020"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-027",
+      "name": "Comunicación y Redes II",
+      "code": "7045",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-003",
+        "career-004"
+      ],
+      "year": 3,
+      "semester": 1,
+      "credits": 6,
+      "weeklyHours": 6,
+      "totalHours": 90,
+      "area": "Redes",
+      "prerequisites": [
+        "sub-021"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-028",
+      "name": "Ingeniería de Software II",
+      "code": "7043",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-004"
+      ],
+      "year": 3,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Ingeniería de Software",
+      "prerequisites": [
+        "sub-016"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-029",
+      "name": "Explotación de Datos",
+      "code": "7046",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-004"
+      ],
+      "year": 3,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "IA / Datos",
+      "prerequisites": [
+        "sub-026"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-030",
+      "name": "Interfaces de Usuario y Tecnologías Web",
+      "code": "7044",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-004"
+      ],
+      "year": 3,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Web",
+      "prerequisites": [
+        "sub-012"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-031",
+      "name": "Taller de Redes",
+      "code": "7047",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-003",
+        "career-004"
+      ],
+      "year": 3,
+      "semester": 2,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Redes",
+      "prerequisites": [
+        "sub-027"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-032",
+      "name": "Programación con Objetos III",
+      "code": "7048",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-004"
+      ],
+      "year": 3,
+      "semester": 2,
+      "credits": 8,
+      "weeklyHours": 8,
+      "totalHours": 120,
+      "area": "Programación",
+      "prerequisites": [
+        "sub-017",
+        "sub-012",
+        "sub-026"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-033",
+      "name": "Matemática Aplicada",
+      "code": "1022",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-004"
+      ],
+      "year": 3,
+      "semester": 2,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Matemática",
+      "prerequisites": [
+        "sub-025"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-034",
+      "name": "Sistemas Operativos II",
+      "code": "7050",
+      "careerId": "career-001",
+      "sharedWith": [
+        "career-004"
+      ],
+      "year": 3,
+      "semester": 2,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Sistemas",
+      "prerequisites": [
+        "sub-017",
+        "sub-013",
+        "sub-027"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-035",
+      "name": "Programación Web III",
+      "code": "7088",
+      "careerId": "career-002",
+      "sharedWith": [],
+      "year": 3,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Web",
+      "prerequisites": [
+        "sub-023",
+        "sub-022"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-036",
+      "name": "Dispositivos Móviles",
+      "code": "7089",
+      "careerId": "career-002",
+      "sharedWith": [],
+      "year": 3,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Mobile",
+      "prerequisites": [
+        "sub-023"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-037",
+      "name": "Métodos Ágiles en la Web",
+      "code": "7090",
+      "careerId": "career-002",
+      "sharedWith": [],
+      "year": 3,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Gestión",
+      "prerequisites": [
+        "sub-016"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-038",
+      "name": "Seguridad en Redes",
+      "code": "7083",
+      "careerId": "career-003",
+      "sharedWith": [],
+      "year": 3,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Seguridad",
+      "prerequisites": [
+        "sub-027"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-039",
+      "name": "Dirección y Evaluación de Proyectos Informáticos",
+      "code": "7023",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Gestión",
+      "prerequisites": [
+        "sub-028"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-040",
+      "name": "Arquitectura de Software",
+      "code": "7051",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Ingeniería de Software",
+      "prerequisites": [
+        "sub-028",
+        "sub-013"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-041",
+      "name": "Modelos, Simulación y Teoría de la Decisión",
+      "code": "1023",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Matemática Aplicada",
+      "prerequisites": [
+        "sub-025"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-042",
+      "name": "Metodología de la Investigación",
+      "code": "2037",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Metodología",
+      "prerequisites": [
+        "sub-028",
+        "sub-033"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-043",
+      "name": "Paradigmas de Programación",
+      "code": "7052",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Programación",
+      "prerequisites": [
+        "sub-032",
+        "sub-014"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-044",
+      "name": "Lenguajes de Programación",
+      "code": "7054",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Programación",
+      "prerequisites": [
+        "sub-032",
+        "sub-014"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-045",
+      "name": "Infraestructura de Sistemas",
+      "code": "7057",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 2,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Sistemas",
+      "prerequisites": [
+        "sub-013",
+        "sub-031"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-046",
+      "name": "Inteligencia Artificial",
+      "code": "7059",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 2,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "IA",
+      "prerequisites": [
+        "sub-032"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-047",
+      "name": "Práctica Profesional",
+      "code": "7060",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 2,
+      "credits": 8,
+      "weeklyHours": 8,
+      "totalHours": 120,
+      "area": "Práctica",
+      "prerequisites": [
+        "sub-029",
+        "sub-040",
+        "sub-030",
+        "sub-039"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-048",
+      "name": "Desarrollo de Compiladores",
+      "code": "7058",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 4,
+      "semester": 2,
+      "credits": 6,
+      "weeklyHours": 6,
+      "totalHours": 90,
+      "area": "Teoría",
+      "prerequisites": [
+        "sub-044"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-049",
+      "name": "Optativa I — Ingeniería de Requisitos Avanzada",
+      "code": "00009",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Optativa",
+      "prerequisites": [],
+      "isElective": true,
+      "isActive": true
+    },
+    {
+      "id": "sub-050",
+      "name": "Aspectos Legales y Sociales de la Informática",
+      "code": "2038",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Humanidades",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-051",
+      "name": "Ingeniería de Software III",
+      "code": "7062",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Ingeniería de Software",
+      "prerequisites": [
+        "sub-028"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-052",
+      "name": "Sistemas de Tiempo Real y Misión Crítica",
+      "code": "7064",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Sistemas",
+      "prerequisites": [
+        "sub-034"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-053",
+      "name": "Teoría de la Computación",
+      "code": "7067",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Teoría",
+      "prerequisites": [
+        "sub-032",
+        "sub-043"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-054",
+      "name": "Economía I",
+      "code": "9021",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Economía",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-055",
+      "name": "Optativa II — Ingeniería de Software IV",
+      "code": "00010",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 1,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Optativa",
+      "prerequisites": [],
+      "isElective": true,
+      "isActive": true
+    },
+    {
+      "id": "sub-056",
+      "name": "Seguridad y Auditoría",
+      "code": "7065",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 2,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Seguridad",
+      "prerequisites": [
+        "sub-034",
+        "sub-026",
+        "sub-031"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-057",
+      "name": "Administración y Gestión de las Organizaciones",
+      "code": "8022",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 2,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Gestión",
+      "prerequisites": [],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-058",
+      "name": "Economía II",
+      "code": "9022",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 2,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 60,
+      "area": "Economía",
+      "prerequisites": [
+        "sub-054"
+      ],
+      "isElective": false,
+      "isActive": true
+    },
+    {
+      "id": "sub-059",
+      "name": "Trabajo Final",
+      "code": "7068",
+      "careerId": "career-001",
+      "sharedWith": [],
+      "year": 5,
+      "semester": 2,
+      "credits": 4,
+      "weeklyHours": 4,
+      "totalHours": 120,
+      "area": "Práctica",
+      "prerequisites": [
+        "sub-047",
+        "sub-046"
+      ],
+      "isElective": false,
+      "isActive": true
+    }
+  ],
+  "professors": [
+    {
+      "id": "prof-001",
+      "name": "Afonzo, Victoria",
+      "initials": "VA",
+      "email": "mafonso@uno.edu.ar",
+      "department": "Departamento de Matemática",
+      "subjectIds": [
+        "sub-025",
+        "sub-019"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-002",
+      "name": "Aguiar, Hector Ariel",
+      "initials": "HA",
+      "email": "aaguiar@uno.edu.ar",
+      "department": "Departamento de Programación",
+      "subjectIds": [
+        "sub-003"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-003",
+      "name": "Albarracín, Jorge",
+      "initials": "JA",
+      "email": "jalbarracin@uno.edu.ar",
+      "department": "Departamento de Tecnología",
+      "subjectIds": [
+        "sub-001",
+        "sub-024",
+        "sub-042",
+        "sub-045"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-004",
+      "name": "Alegre, Alejandro",
+      "initials": "AA",
+      "email": "aalegre@uno.edu.ar",
+      "department": "Departamento de Matemática",
+      "subjectIds": [
+        "sub-006"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-005",
+      "name": "Andrada, Alexander",
+      "initials": "AX",
+      "email": "alandrada@uno.edu.ar",
+      "department": "Departamento de Tecnologías Web",
+      "subjectIds": [
+        "sub-022",
+        "sub-035"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-006",
+      "name": "Barrientos, Daniel",
+      "initials": "DB",
+      "email": "dbarrientos@uno.edu.ar",
+      "department": "Departamento de Sistemas",
+      "subjectIds": [
+        "sub-052",
+        "sub-017",
+        "sub-034"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-007",
+      "name": "Bergonzi Colaneri, Vanesa",
+      "initials": "VB",
+      "email": "vbergonzi@uno.edu.ar",
+      "department": "Departamento de Programación",
+      "subjectIds": [
+        "sub-043",
+        "sub-053"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-008",
+      "name": "Blanco Pulleiro, María del Carmen",
+      "initials": "MB",
+      "email": "blancopulleiro@uno.edu.ar",
+      "department": "Departamento de Bases de Datos",
+      "subjectIds": [
+        "sub-026",
+        "sub-020"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-009",
+      "name": "Blautzik, Leonardo José",
+      "initials": "LB",
+      "email": "lblautzik@uno.edu.ar",
+      "department": "Departamento de Programación",
+      "subjectIds": [
+        "sub-009"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-010",
+      "name": "Buda, Jose Julian",
+      "initials": "JB",
+      "email": "jbuda@uno.edu.ar",
+      "department": "Departamento de Programación",
+      "subjectIds": [
+        "sub-003"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-011",
+      "name": "Cabrera, Jose Luis",
+      "initials": "JC",
+      "email": "jcabrera@uno.edu.ar",
+      "department": "Departamento de Programación",
+      "subjectIds": [
+        "sub-012",
+        "sub-032",
+        "sub-046"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-012",
+      "name": "Corsaro, Alejandro",
+      "initials": "AC",
+      "email": "acorsaro@uno.edu.ar",
+      "department": "Departamento de Tecnología",
+      "subjectIds": [
+        "sub-001"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-013",
+      "name": "Cuagliarelli, Silvia Marcela",
+      "initials": "SC",
+      "email": "scuagliarelli@uno.edu.ar",
+      "department": "Departamento de Teoría",
+      "subjectIds": [
+        "sub-014"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-014",
+      "name": "de Figueiredo, Analia",
+      "initials": "AF",
+      "email": "anfigueiredo@uno.edu.ar",
+      "department": "Departamento de Sistemas",
+      "subjectIds": [
+        "sub-005"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-015",
+      "name": "Doorn, Jorge Horacio",
+      "initials": "JD",
+      "email": "jdoorn@uno.edu.ar",
+      "department": "Departamento de Programación",
+      "subjectIds": [
+        "sub-044",
+        "sub-048"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-016",
+      "name": "Españadero, Juan Pablo",
+      "initials": "JE",
+      "email": "jespanadero@uno.edu.ar",
+      "department": "Departamento de Bases de Datos",
+      "subjectIds": [
+        "sub-026",
+        "sub-020"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-017",
+      "name": "Esperanza, Marcelo",
+      "initials": "ME",
+      "email": "mesperanza@uno.edu.ar",
+      "department": "Departamento de Redes",
+      "subjectIds": [
+        "sub-027",
+        "sub-021"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-018",
+      "name": "Espinoza, César",
+      "initials": "CE",
+      "email": "cespinoza@uno.edu.ar",
+      "department": "Departamento de Matemática Aplicada",
+      "subjectIds": [
+        "sub-041",
+        "sub-033"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-019",
+      "name": "Esterkin, Viviana",
+      "initials": "VE",
+      "email": "vesterkin@uno.edu.ar",
+      "department": "Departamento de Gestión",
+      "subjectIds": [
+        "sub-039",
+        "sub-047"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-020",
+      "name": "Estevez, Carlos Marcelo",
+      "initials": "CE",
+      "email": "cestevez@uno.edu.ar",
+      "department": "Departamento de Redes",
+      "subjectIds": [
+        "sub-027",
+        "sub-021",
+        "sub-031"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-021",
+      "name": "Fernández, Ana Laura",
+      "initials": "AF",
+      "email": "afernandez@uno.edu.ar",
+      "department": "Departamento de Matemática",
+      "subjectIds": [
+        "sub-011"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-022",
+      "name": "Fernandez, Enrique",
+      "initials": "EF",
+      "email": "enfernandez@uno.edu.ar",
+      "department": "Departamento de Ingeniería de Software",
+      "subjectIds": [
+        "sub-040",
+        "sub-016"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-023",
+      "name": "Figueroa, María Virginia",
+      "initials": "MF",
+      "email": "mfigueroa@uno.edu.ar",
+      "department": "Departamento de Matemática",
+      "subjectIds": [
+        "sub-002"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-024",
+      "name": "Frattini, Maximiliano",
+      "initials": "MF",
+      "email": "mfrattini@uno.edu.ar",
+      "department": "Departamento de Hardware",
+      "subjectIds": [
+        "sub-008",
+        "sub-013"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-025",
+      "name": "Garitonandia, Joaquin",
+      "initials": "JG",
+      "email": "jgaritonandia@uno.edu.ar",
+      "department": "Departamento de Matemática",
+      "subjectIds": [
+        "sub-002"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-026",
+      "name": "Gomez, Alejandro",
+      "initials": "AG",
+      "email": "alegomez@uno.edu.ar",
+      "department": "Departamento de Economía",
+      "subjectIds": [
+        "sub-054",
+        "sub-058"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-027",
+      "name": "Gomez, Walter",
+      "initials": "WG",
+      "email": "wgomez@uno.edu.ar",
+      "department": "Departamento de Ingeniería de Software",
+      "subjectIds": [
+        "sub-040",
+        "sub-016"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-028",
+      "name": "Guglielmino, Roberto",
+      "initials": "RG",
+      "email": "rguglielmino@uno.edu.ar",
+      "department": "Departamento de Programación",
+      "subjectIds": [
+        "sub-009"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-029",
+      "name": "Hadad, Graciela",
+      "initials": "GH",
+      "email": "ghadad@uno.edu.ar",
+      "department": "Departamento de Ingeniería de Software",
+      "subjectIds": [
+        "sub-051",
+        "sub-055"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-030",
+      "name": "Hrynkiewicz, Olga",
+      "initials": "OH",
+      "email": "ohrynkiewicz@uno.edu.ar",
+      "department": "Departamento de Matemática",
+      "subjectIds": [
+        "sub-011"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-031",
+      "name": "Kaplan, Gladys",
+      "initials": "GK",
+      "email": "gkaplan@uno.edu.ar",
+      "department": "Departamento de Ingeniería de Software",
+      "subjectIds": [
+        "sub-049"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-032",
+      "name": "López, Dario",
+      "initials": "DL",
+      "email": "rlopez@uno.edu.ar",
+      "department": "Departamento de Matemática",
+      "subjectIds": [
+        "sub-006"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-033",
+      "name": "Maldonado, Verónica",
+      "initials": "VM",
+      "email": "vmaldonado@uno.edu.ar",
+      "department": "Departamento de Matemática",
+      "subjectIds": [
+        "sub-002"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-034",
+      "name": "Malerba, Diego",
+      "initials": "DM",
+      "email": "dmalerba@uno.edu.ar",
+      "department": "Departamento de Matemática",
+      "subjectIds": [
+        "sub-006",
+        "sub-002"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-035",
+      "name": "Mendoza, Hector Dante",
+      "initials": "HM",
+      "email": "hmendoza@uno.edu.ar",
+      "department": "Departamento de Ingeniería de Software",
+      "subjectIds": [
+        "sub-028",
+        "sub-009",
+        "sub-020",
+        "sub-016",
+        "sub-029"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-036",
+      "name": "Menendez, Carlos",
+      "initials": "CM",
+      "email": "cmenendez@uno.edu.ar",
+      "department": "Departamento de Programación",
+      "subjectIds": [
+        "sub-003"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-037",
+      "name": "Miño, Nancy",
+      "initials": "NM",
+      "email": "nmino@uno.edu.ar",
+      "department": "Departamento de Matemática",
+      "subjectIds": [
+        "sub-006"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-038",
+      "name": "Nielsen, Hernan Ezequiel",
+      "initials": "HN",
+      "email": "hnielsen@uno.edu.ar",
+      "department": "Departamento de Hardware",
+      "subjectIds": [
+        "sub-001",
+        "sub-008",
+        "sub-013"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-039",
+      "name": "Occhipinti, Pedro Salvador",
+      "initials": "PO",
+      "email": "pocchipinti@uno.edu.ar",
+      "department": "Departamento de Programación",
+      "subjectIds": [
+        "sub-003",
+        "sub-030",
+        "sub-010"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-040",
+      "name": "Ochoa, María Alejandra",
+      "initials": "MO",
+      "email": "mochoa@uno.edu.ar",
+      "department": "Departamento de Sistemas",
+      "subjectIds": [
+        "sub-005"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-041",
+      "name": "Paez, Sebastián",
+      "initials": "SP",
+      "email": "spaez@uno.edu.ar",
+      "department": "Departamento de Matemática Aplicada",
+      "subjectIds": [
+        "sub-041",
+        "sub-033"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-042",
+      "name": "Pandolfo, Pablo",
+      "initials": "PP",
+      "email": "ppandolfo@uno.edu.ar",
+      "department": "Departamento de Programación",
+      "subjectIds": [
+        "sub-014",
+        "sub-022",
+        "sub-009",
+        "sub-035"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-043",
+      "name": "Perez, Silvia",
+      "initials": "SP",
+      "email": "sperez@uno.edu.ar",
+      "department": "Departamento de IA",
+      "subjectIds": [
+        "sub-029"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-044",
+      "name": "Pirovano, Pablo",
+      "initials": "PP",
+      "email": "ppirovano@uno.edu.ar",
+      "department": "Departamento de Programación",
+      "subjectIds": [
+        "sub-003"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-045",
+      "name": "Raffaele, Eduardo",
+      "initials": "ER",
+      "email": "hraffaele@uno.edu.ar",
+      "department": "Departamento de Gestión",
+      "subjectIds": [
+        "sub-057"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-046",
+      "name": "Ramirez, Daniela",
+      "initials": "DR",
+      "email": "dramirez@uno.edu.ar",
+      "department": "Departamento de Matemática",
+      "subjectIds": [
+        "sub-019"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-047",
+      "name": "Rechimon, Pablo Hernan",
+      "initials": "PR",
+      "email": "prechimon@uno.edu.ar",
+      "department": "Departamento de Programación",
+      "subjectIds": [
+        "sub-014",
+        "sub-009"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-048",
+      "name": "Rizzo, Carlos",
+      "initials": "CR",
+      "email": "crizzo@uno.edu.ar",
+      "department": "Departamento de Matemática",
+      "subjectIds": [
+        "sub-025"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-049",
+      "name": "Romero, Diego Javier",
+      "initials": "DR",
+      "email": "dromero@uno.edu.ar",
+      "department": "Departamento de Redes",
+      "subjectIds": [
+        "sub-001",
+        "sub-021"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-050",
+      "name": "Serritela, Alberto",
+      "initials": "AS",
+      "email": "aserritela@uno.edu.ar",
+      "department": "Departamento de Programación",
+      "subjectIds": [
+        "sub-043",
+        "sub-053"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-051",
+      "name": "Solla, Laura Mercedes",
+      "initials": "LS",
+      "email": "lsolla@uno.edu.ar",
+      "department": "Departamento de Programación",
+      "subjectIds": [
+        "sub-003",
+        "sub-059"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-052",
+      "name": "Sotelo, Gastón",
+      "initials": "GS",
+      "email": "ssotelo@uno.edu.ar",
+      "department": "Departamento de Gestión",
+      "subjectIds": [
+        "sub-057"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-053",
+      "name": "Toba, Marcela Alejandra",
+      "initials": "MT",
+      "email": "mtoba@uno.edu.ar",
+      "department": "Departamento de Programación",
+      "subjectIds": [
+        "sub-003",
+        "sub-012",
+        "sub-046"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-054",
+      "name": "Politano, Leandro",
+      "initials": "LP",
+      "email": "lpolitano@uno.edu.ar",
+      "department": "Departamento de Tecnologías Web",
+      "subjectIds": [
+        "sub-035"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-055",
+      "name": "Tarnoczy, Victoria",
+      "initials": "VT",
+      "email": "vtarnoczy@uno.edu.ar",
+      "department": "Departamento de Diseño",
+      "subjectIds": [
+        "sub-023"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-056",
+      "name": "Tarnoczy, Erica",
+      "initials": "ET",
+      "email": "etarnoczy@uno.edu.ar",
+      "department": "Departamento de Diseño",
+      "subjectIds": [
+        "sub-023"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-057",
+      "name": "Ferrario, Alberto",
+      "initials": "AF",
+      "email": "mferrario@uno.edu.ar",
+      "department": "Departamento de Humanidades",
+      "subjectIds": [
+        "sub-050"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-058",
+      "name": "Parra, Sergio",
+      "initials": "SP",
+      "email": "sparra@uno.edu.ar",
+      "department": "Departamento de Gestión",
+      "subjectIds": [
+        "sub-057"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
+      "id": "prof-059",
+      "name": "Ibañez, Natalia",
+      "initials": "NI",
+      "email": "nibaniez@uno.edu.ar",
+      "department": "Departamento de Gestión",
+      "subjectIds": [
+        "sub-057"
+      ],
+      "avgRating": 0,
+      "reviewCount": 0,
+      "isActive": true
+    }
+  ],
+  "currentSemester": {
+    "id": "sem-2026-1",
+    "label": "1° Cuatrimestre 2026",
+    "code": "2026-1",
+    "startDate": "2026-03-16",
+    "endDate": "2026-07-18",
+    "isActive": true,
+    "offerings": [
+      {
+        "subjectId": "sub-001",
+        "professorIds": [
+          "prof-003",
+          "prof-012",
+          "prof-038",
+          "prof-049"
+        ],
+        "schedule": "Lun 8-12 / Lun 14-18 / Lun 18-22",
+        "classroom": "Aula 1 / Aula 10 / Aula 11",
+        "careerId": "career-001",
+        "modalidad": "Presencial / Virtual",
+        "commissions": [
+          {
+            "num": "1",
+            "schedule": "Lun 8 a 12",
+            "classroom": "Aula 1",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "2",
+            "schedule": "Lun 8 a 12",
+            "classroom": "Aula 11",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "3",
+            "schedule": "Lun 14 a 18",
+            "classroom": "Aula 10",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "4",
+            "schedule": "Lun 18 a 22",
+            "classroom": "Aula 10",
+            "modalidad": "Virtual"
+          },
+          {
+            "num": "5",
+            "schedule": "Lun 18 a 22",
+            "classroom": "Aula 1",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "6",
+            "schedule": "Lun 18 a 22",
+            "classroom": "Aula 1",
+            "modalidad": "Presencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-002",
+        "professorIds": [
+          "prof-023",
+          "prof-025",
+          "prof-033",
+          "prof-034"
+        ],
+        "schedule": "Mar 8-13 / Mar 13-17 / Mar 18-23",
+        "classroom": "Aula 1 / Aula 4 / Aula 10 / Aula 11",
+        "careerId": "career-001",
+        "modalidad": "Presencial",
+        "commissions": [
+          {
+            "num": "1",
+            "schedule": "Mar 18 a 23",
+            "classroom": "Aula 10",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "2",
+            "schedule": "Mar 8 a 13",
+            "classroom": "Aula 1",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "3",
+            "schedule": "Mar 8 a 13",
+            "classroom": "Aula 11",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "4",
+            "schedule": "Mar 8 a 13",
+            "classroom": "Aula 4",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "5",
+            "schedule": "Mar 8 a 13",
+            "classroom": "Aula 10",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "6",
+            "schedule": "Mar 13 a 17",
+            "classroom": "Aula 11",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "7",
+            "schedule": "Mar 18 a 23",
+            "classroom": "Aula 1",
+            "modalidad": "Presencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-006",
+        "professorIds": [
+          "prof-004",
+          "prof-032",
+          "prof-034",
+          "prof-037"
+        ],
+        "schedule": "Lun/Mié 8-11 / Lun/Mié 14-17 / Lun/Jue 18-21 / Mié 12-15",
+        "classroom": "Aula 1 / Aula 2 / Aula 4 / Aula 10 / Aula 11",
+        "careerId": "career-001",
+        "modalidad": "Presencial",
+        "commissions": [
+          {
+            "num": "1",
+            "schedule": "Lun y Mié 14 a 17",
+            "classroom": "Aula 1",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "2",
+            "schedule": "Lun y Mié 14 a 17",
+            "classroom": "Aula 11",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "3",
+            "schedule": "Lun 18 a 21 / Mié 12 a 15",
+            "classroom": "Aula 11",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "4",
+            "schedule": "Lun 18 a 21 / Mié 12 a 15",
+            "classroom": "Aula 1",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "5",
+            "schedule": "Lun y Mié 8 a 11",
+            "classroom": "Aula 1",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "6",
+            "schedule": "Lun y Mié 8 a 11",
+            "classroom": "Aula 4",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "7",
+            "schedule": "Lun 18 a 21 / Mié 12 a 15",
+            "classroom": "Aula 10",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "8",
+            "schedule": "Lun y Mié 14 a 17",
+            "classroom": "Aula 2",
+            "modalidad": "Presencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-003",
+        "professorIds": [
+          "prof-002",
+          "prof-010",
+          "prof-036",
+          "prof-044",
+          "prof-051"
+        ],
+        "schedule": "Lun/Mié 8-12 / Lun/Mié 13-17 / Lun/Mié 14-18 / Lun/Mié 18-22",
+        "classroom": "Lab 1 / Lab 2 / Lab 3 / Lab 4 / Aula 1 / Aula 11",
+        "careerId": "career-001",
+        "modalidad": "Presencial",
+        "commissions": [
+          {
+            "num": "1",
+            "schedule": "Lun y Mié 8 a 12",
+            "classroom": "Lab 2",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "2",
+            "schedule": "Lun y Mié 8 a 12",
+            "classroom": "Lab 4 / Aula 11",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "3",
+            "schedule": "Lun y Mié 8 a 12",
+            "classroom": "Lab 3 / Lab 4",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "4",
+            "schedule": "Lun y Mié 14 a 18",
+            "classroom": "Lab 2",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "5",
+            "schedule": "Lun y Mié 18 a 22",
+            "classroom": "Lab 4",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "6",
+            "schedule": "Lun y Mié 18 a 22",
+            "classroom": "Lab 2",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "7",
+            "schedule": "Lun y Mié 14 a 18",
+            "classroom": "Lab 4",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "8",
+            "schedule": "Lun y Mié 13 a 17",
+            "classroom": "Lab 4 / Lab 1",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "9",
+            "schedule": "Lun y Mié 8 a 12",
+            "classroom": "Aula 1",
+            "modalidad": "Presencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-004",
+        "professorIds": [],
+        "schedule": "Mié 8-12 / Mié 18-22",
+        "classroom": "Virtual",
+        "careerId": "career-001",
+        "modalidad": "Virtual",
+        "commissions": [
+          {
+            "num": "1",
+            "schedule": "Mié 18 a 22",
+            "classroom": "Virtual",
+            "modalidad": "Virtual"
+          },
+          {
+            "num": "2",
+            "schedule": "Mié 8 a 12",
+            "classroom": "Virtual",
+            "modalidad": "Virtual"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-005",
+        "professorIds": [
+          "prof-014",
+          "prof-040"
+        ],
+        "schedule": "Jue 14-18 / Jue 18-22",
+        "classroom": "Aula 4 / Aula 10",
+        "careerId": "career-001",
+        "modalidad": "Presencial",
+        "commissions": [
+          {
+            "num": "1",
+            "schedule": "Jue 14 a 18",
+            "classroom": "Aula 4",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "2",
+            "schedule": "Jue 14 a 18",
+            "classroom": "Aula 4",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "3",
+            "schedule": "Jue 18 a 22",
+            "classroom": "Aula 10",
+            "modalidad": "Presencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-007",
+        "professorIds": [],
+        "schedule": "Lun/Mié 13-15 / Jue 18-22",
+        "classroom": "Semipresencial",
+        "careerId": "career-001",
+        "modalidad": "Semipresencial",
+        "commissions": [
+          {
+            "num": "1",
+            "schedule": "Lun y Mié 13 a 15",
+            "classroom": "—",
+            "modalidad": "Semipresencial"
+          },
+          {
+            "num": "2",
+            "schedule": "Lun y Mié 13 a 15",
+            "classroom": "—",
+            "modalidad": "Semipresencial"
+          },
+          {
+            "num": "3",
+            "schedule": "Jue 18 a 22",
+            "classroom": "—",
+            "modalidad": "Semipresencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-008",
+        "professorIds": [
+          "prof-024",
+          "prof-038"
+        ],
+        "schedule": "Vie 14-18",
+        "classroom": "Aula 4 / Virtual",
+        "careerId": "career-001",
+        "modalidad": "Presencial / Virtual",
+        "commissions": [
+          {
+            "num": "1",
+            "schedule": "Vie 14 a 18",
+            "classroom": "Virtual",
+            "modalidad": "Virtual"
+          },
+          {
+            "num": "2",
+            "schedule": "Vie 14 a 18",
+            "classroom": "Aula 4",
+            "modalidad": "Presencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-009",
+        "professorIds": [
+          "prof-009",
+          "prof-028",
+          "prof-035",
+          "prof-042",
+          "prof-047"
+        ],
+        "schedule": "Lun 8-12 / Lun 12:30-16:30 / Jue 8-12 / Jue 14-18",
+        "classroom": "Lab 1 / Lab 4",
+        "careerId": "career-001",
+        "modalidad": "Presencial",
+        "commissions": [
+          {
+            "num": "1",
+            "schedule": "Lun 8 a 12 / Jue 8 a 12",
+            "classroom": "Lab 1",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "2",
+            "schedule": "Lun 12:30 a 16:30 / Jue 14 a 18",
+            "classroom": "Lab 4",
+            "modalidad": "Presencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-010",
+        "professorIds": [
+          "prof-039"
+        ],
+        "schedule": "Mié 14-18 / Mié 18-22",
+        "classroom": "Lab 2 / Virtual",
+        "careerId": "career-002",
+        "modalidad": "Presencial / Virtual",
+        "commissions": [
+          {
+            "num": "1",
+            "schedule": "Mié 14 a 18",
+            "classroom": "Lab 2",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "2",
+            "schedule": "Mié 18 a 22",
+            "classroom": "Virtual",
+            "modalidad": "Virtual"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-011",
+        "professorIds": [
+          "prof-021",
+          "prof-030"
+        ],
+        "schedule": "Lun/Mié 9-12 / Lun 13-17 / Mié 9-12 / Jue 18-21",
+        "classroom": "Aula 10 / Aula 11",
+        "careerId": "career-001",
+        "modalidad": "Presencial / Semipresencial",
+        "commissions": [
+          {
+            "num": "1",
+            "schedule": "Lun y Mié 9 a 12",
+            "classroom": "Aula 10",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "2",
+            "schedule": "Jue 18 a 21 / Mié 9 a 12",
+            "classroom": "Aula 11",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "3",
+            "schedule": "Lun 13 a 17 / Mié 13 a 15",
+            "classroom": "Aula 11",
+            "modalidad": "Semipresencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-012",
+        "professorIds": [
+          "prof-011",
+          "prof-042"
+        ],
+        "schedule": "Mar y Jue 18-22",
+        "classroom": "Lab 2",
+        "careerId": "career-001",
+        "modalidad": "Semipresencial",
+        "commissions": [
+          {
+            "num": "1",
+            "schedule": "Mar y Jue 18 a 22",
+            "classroom": "Lab 2",
+            "modalidad": "Semipresencial"
+          },
+          {
+            "num": "2",
+            "schedule": "Mar y Jue 18 a 22",
+            "classroom": "Lab 2",
+            "modalidad": "Semipresencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-013",
+        "professorIds": [
+          "prof-024",
+          "prof-038"
+        ],
+        "schedule": "Lun 8-12 / Jue 18-22",
+        "classroom": "Aula 1 / Virtual",
+        "careerId": "career-001",
+        "modalidad": "Presencial / Virtual",
+        "commissions": [
+          {
+            "num": "1",
+            "schedule": "Jue 18 a 22",
+            "classroom": "Aula 1",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "2",
+            "schedule": "Lun 8 a 12",
+            "classroom": "Virtual",
+            "modalidad": "Virtual"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-014",
+        "professorIds": [
+          "prof-013",
+          "prof-047"
+        ],
+        "schedule": "Mié 8-12 / Mié 18-22",
+        "classroom": "Lab 2 / Virtual",
+        "careerId": "career-001",
+        "modalidad": "Presencial / Virtual",
+        "commissions": [
+          {
+            "num": "1",
+            "schedule": "Mié 8 a 12",
+            "classroom": "Lab 2",
+            "modalidad": "Presencial"
+          },
+          {
+            "num": "2",
+            "schedule": "Mié 18 a 22",
+            "classroom": "Virtual",
+            "modalidad": "Virtual"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-015",
+        "professorIds": [],
+        "schedule": "Lun y Mié 18-22",
+        "classroom": "Virtual",
+        "careerId": "career-001",
+        "modalidad": "Virtual",
+        "commissions": [
+          {
+            "num": "1",
+            "schedule": "Lun y Mié 18 a 22",
+            "classroom": "Virtual",
+            "modalidad": "Virtual"
+          },
+          {
+            "num": "2",
+            "schedule": "Virtual",
+            "classroom": "Virtual",
+            "modalidad": "Virtual"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-020",
+        "professorIds": [
+          "prof-008",
+          "prof-016",
+          "prof-035"
+        ],
+        "schedule": "Mié 14-18",
+        "classroom": "Lab 2",
+        "careerId": "career-001",
+        "modalidad": "Presencial",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Mié 14 a 18",
+            "classroom": "Lab 2",
+            "modalidad": "Presencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-021",
+        "professorIds": [
+          "prof-017",
+          "prof-020",
+          "prof-049"
+        ],
+        "schedule": "Vie 14-18",
+        "classroom": "Aula 10",
+        "careerId": "career-001",
+        "modalidad": "Presencial",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Vie 14 a 18",
+            "classroom": "Aula 10",
+            "modalidad": "Presencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-024",
+        "professorIds": [
+          "prof-003"
+        ],
+        "schedule": "Mié 13-17",
+        "classroom": "Lab 3",
+        "careerId": "career-003",
+        "modalidad": "Presencial",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Mié 13 a 17",
+            "classroom": "Lab 3",
+            "modalidad": "Presencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-022",
+        "professorIds": [
+          "prof-005"
+        ],
+        "schedule": "Lun 18-23",
+        "classroom": "Virtual",
+        "careerId": "career-002",
+        "modalidad": "Virtual",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Lun 18 a 23",
+            "classroom": "Virtual",
+            "modalidad": "Virtual"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-025",
+        "professorIds": [
+          "prof-001",
+          "prof-048"
+        ],
+        "schedule": "Lun 17-20 / Jue 12-15",
+        "classroom": "Aula 2",
+        "careerId": "career-001",
+        "modalidad": "Presencial",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Lun 17 a 20 / Jue 12 a 15",
+            "classroom": "Aula 2",
+            "modalidad": "Presencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-026",
+        "professorIds": [
+          "prof-008",
+          "prof-016"
+        ],
+        "schedule": "Jue 18-22",
+        "classroom": "Aula 11",
+        "careerId": "career-001",
+        "modalidad": "Presencial",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Jue 18 a 22",
+            "classroom": "Aula 11",
+            "modalidad": "Presencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-027",
+        "professorIds": [
+          "prof-017",
+          "prof-020"
+        ],
+        "schedule": "Mar y Jue 18-21",
+        "classroom": "Lab 3",
+        "careerId": "career-001",
+        "modalidad": "Presencial",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Mar y Jue 18 a 21",
+            "classroom": "Lab 3",
+            "modalidad": "Presencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-028",
+        "professorIds": [
+          "prof-035"
+        ],
+        "schedule": "Mié 8-12",
+        "classroom": "Lab 2",
+        "careerId": "career-001",
+        "modalidad": "Presencial",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Mié 8 a 12",
+            "classroom": "Lab 2",
+            "modalidad": "Presencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-030",
+        "professorIds": [
+          "prof-039"
+        ],
+        "schedule": "Mié 18-22",
+        "classroom": "Lab 4",
+        "careerId": "career-001",
+        "modalidad": "Presencial",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Mié 18 a 22",
+            "classroom": "Lab 4",
+            "modalidad": "Presencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-031",
+        "professorIds": [
+          "prof-020"
+        ],
+        "schedule": "Mar y Vie 18-22",
+        "classroom": "Virtual",
+        "careerId": "career-001",
+        "modalidad": "Virtual",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Mar y Vie 18 a 22",
+            "classroom": "Virtual",
+            "modalidad": "Virtual"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-035",
+        "professorIds": [
+          "prof-054"
+        ],
+        "schedule": "Mié 18-22",
+        "classroom": "Virtual",
+        "careerId": "career-002",
+        "modalidad": "Virtual",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Mié 18 a 22",
+            "classroom": "Virtual",
+            "modalidad": "Virtual"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-036",
+        "professorIds": [],
+        "schedule": "Virtual",
+        "classroom": "Virtual",
+        "careerId": "career-002",
+        "modalidad": "Virtual",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Virtual",
+            "classroom": "Virtual",
+            "modalidad": "Virtual"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-037",
+        "professorIds": [],
+        "schedule": "Vie 18-22",
+        "classroom": "Presencial",
+        "careerId": "career-002",
+        "modalidad": "Presencial",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Vie 18 a 22",
+            "classroom": "—",
+            "modalidad": "Presencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-039",
+        "professorIds": [
+          "prof-019"
+        ],
+        "schedule": "Mar y Vie 18-22",
+        "classroom": "Virtual",
+        "careerId": "career-001",
+        "modalidad": "Virtual",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Mar y Vie 18 a 22",
+            "classroom": "Virtual",
+            "modalidad": "Virtual"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-040",
+        "professorIds": [
+          "prof-022",
+          "prof-027"
+        ],
+        "schedule": "Jue 18-22",
+        "classroom": "Aula 4",
+        "careerId": "career-001",
+        "modalidad": "Presencial",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Jue 18 a 22",
+            "classroom": "Aula 4",
+            "modalidad": "Presencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-041",
+        "professorIds": [
+          "prof-018",
+          "prof-041"
+        ],
+        "schedule": "Mié 18-22",
+        "classroom": "Aula 2",
+        "careerId": "career-001",
+        "modalidad": "Semipresencial",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Mié 18 a 22",
+            "classroom": "Aula 2",
+            "modalidad": "Semipresencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-042",
+        "professorIds": [
+          "prof-003"
+        ],
+        "schedule": "Vie 8-12",
+        "classroom": "Lab 4",
+        "careerId": "career-001",
+        "modalidad": "Semipresencial",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Vie 8 a 12",
+            "classroom": "Lab 4",
+            "modalidad": "Semipresencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-043",
+        "professorIds": [
+          "prof-007",
+          "prof-050"
+        ],
+        "schedule": "Mié 18-22",
+        "classroom": "Virtual",
+        "careerId": "career-001",
+        "modalidad": "Virtual",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Mié 18 a 22",
+            "classroom": "Virtual",
+            "modalidad": "Virtual"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-044",
+        "professorIds": [
+          "prof-015"
+        ],
+        "schedule": "Jue 18-22",
+        "classroom": "Aula 3",
+        "careerId": "career-001",
+        "modalidad": "Semipresencial",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Jue 18 a 22",
+            "classroom": "Aula 3",
+            "modalidad": "Semipresencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-049",
+        "professorIds": [
+          "prof-031"
+        ],
+        "schedule": "Mié 18-22",
+        "classroom": "Lab 4",
+        "careerId": "career-001",
+        "modalidad": "Virtual",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Mié 18 a 22",
+            "classroom": "Lab 4",
+            "modalidad": "Virtual"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-050",
+        "professorIds": [
+          "prof-057"
+        ],
+        "schedule": "Vie 18-22",
+        "classroom": "Aula 4",
+        "careerId": "career-001",
+        "modalidad": "Presencial",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Vie 18 a 22",
+            "classroom": "Aula 4",
+            "modalidad": "Presencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-051",
+        "professorIds": [
+          "prof-029"
+        ],
+        "schedule": "Lun 18-22",
+        "classroom": "Aula 2",
+        "careerId": "career-001",
+        "modalidad": "Semipresencial",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Lun 18 a 22",
+            "classroom": "Aula 2",
+            "modalidad": "Semipresencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-052",
+        "professorIds": [
+          "prof-006"
+        ],
+        "schedule": "Jue 18-22",
+        "classroom": "Virtual",
+        "careerId": "career-001",
+        "modalidad": "Virtual",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Jue 18 a 22",
+            "classroom": "Virtual",
+            "modalidad": "Virtual"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-054",
+        "professorIds": [
+          "prof-026"
+        ],
+        "schedule": "Jue 18-22",
+        "classroom": "Aula 3",
+        "careerId": "career-001",
+        "modalidad": "Semipresencial",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Jue 18 a 22",
+            "classroom": "Aula 3",
+            "modalidad": "Semipresencial"
+          }
+        ]
+      },
+      {
+        "subjectId": "sub-059",
+        "professorIds": [
+          "prof-051"
+        ],
+        "schedule": "Vie 8-12",
+        "classroom": "Aula 2",
+        "careerId": "career-001",
+        "modalidad": "Semipresencial",
+        "commissions": [
+          {
+            "num": "Única",
+            "schedule": "Vie 8 a 12",
+            "classroom": "Aula 2",
+            "modalidad": "Semipresencial"
+          }
+        ]
+      }
+    ]
+  },
+  "reviews": [
+    {
+      "id": "rev-001",
+      "professorId": "prof-008",
+      "subjectId": "sub-026",
+      "rating": 5,
+      "comment": "Explica de forma muy clara, siempre disponible fuera de clase. El final es difícil pero justo.",
+      "isAnonymous": true,
+      "helpfulCount": 12,
+      "semester": "2025-1",
+      "createdAt": "2025-04-10"
+    },
+    {
+      "id": "rev-002",
+      "professorId": "prof-051",
+      "subjectId": "sub-003",
+      "rating": 5,
+      "comment": "La mejor para empezar a programar. Tiene mucha paciencia y explica de cero. Se nota que le importa que aprendas.",
+      "isAnonymous": true,
+      "helpfulCount": 20,
+      "semester": "2025-1",
+      "createdAt": "2025-04-08"
+    },
+    {
+      "id": "rev-003",
+      "professorId": "prof-024",
+      "subjectId": "sub-008",
+      "rating": 4,
+      "comment": "Muy buen profe de Arquitectura, explica bien los conceptos de bajo nivel. Los parciales son largos.",
+      "isAnonymous": true,
+      "helpfulCount": 7,
+      "semester": "2025-1",
+      "createdAt": "2025-04-05"
+    },
+    {
+      "id": "rev-004",
+      "professorId": "prof-015",
+      "subjectId": "sub-044",
+      "rating": 5,
+      "comment": "Doorn es una eminencia en teoría de lenguajes. Las clases son densas pero muy interesantes.",
+      "isAnonymous": false,
+      "helpfulCount": 9,
+      "semester": "2025-1",
+      "createdAt": "2025-04-12"
+    },
+    {
+      "id": "rev-005",
+      "professorId": "prof-029",
+      "subjectId": "sub-051",
+      "rating": 5,
+      "comment": "Hadad es muy exigente pero aprendo muchísimo. IS3 es difícil pero vale la pena con ella.",
+      "isAnonymous": true,
+      "helpfulCount": 14,
+      "semester": "2025-1",
+      "createdAt": "2025-04-09"
+    }
+  ],
+  "resources": [
+    {
+      "id": "res-001",
+      "subjectId": "sub-026",
+      "title": "Resumen completo Base de Datos II — Codd + SQL avanzado + Normalización",
+      "url": "https://drive.google.com/example/bd2-resumen",
+      "type": "apunte",
+      "description": "Cubre todo el programa: modelo relacional, álgebra relacional, SQL avanzado y formas normales hasta 3FN.",
+      "likeCount": 34,
+      "semester": "2025-1",
+      "createdAt": "2025-04-01"
+    },
+    {
+      "id": "res-002",
+      "subjectId": "sub-003",
+      "title": "Ejercicios resueltos de Algoritmos — Parcial 2024",
+      "url": "https://github.com/example/algo-ejercicios",
+      "type": "ejercicio",
+      "description": "Todos los ejercicios del parcial 2024 resueltos y comentados. Incluye recursividad, sorting y árboles.",
+      "likeCount": 41,
+      "semester": "2024-2",
+      "createdAt": "2024-11-10"
+    },
+    {
+      "id": "res-003",
+      "subjectId": "sub-009",
+      "title": "Guía de POO I — Conceptos y ejercicios en Java",
+      "url": "https://drive.google.com/example/poo1-guia",
+      "type": "apunte",
+      "description": "Herencia, polimorfismo, interfaces y colecciones. Con código de ejemplo para cada concepto.",
+      "likeCount": 28,
+      "semester": "2025-1",
+      "createdAt": "2025-03-25"
+    }
+  ],
+  "news": [
+    {
+      "id": "news-001",
+      "category": "inscripciones",
+      "title": "Inscripción a materias — 1° Cuatrimestre 2026",
+      "body": "La inscripción a materias del primer cuatrimestre 2026 se realiza a través del sistema SIU Guaraní. Consultá las fechas en bedelía de la Escuela de Ciencias Tecnológicas.",
+      "date": "2026-03-01",
+      "author": "Escuela de Ciencias Tecnológicas — UNO",
+      "isHighlighted": true
+    },
+    {
+      "id": "news-002",
+      "category": "calendario",
+      "title": "Inicio de clases — 1° Cuatrimestre 2026",
+      "body": "El primer cuatrimestre del ciclo lectivo 2026 ya está en curso. La oferta completa de materias está disponible en el sistema.",
+      "date": "2026-03-16",
+      "author": "Bedelía — UNO",
+      "isHighlighted": true
+    },
+    {
+      "id": "news-003",
+      "category": "aviso",
+      "title": "Regularizaciones 2024 — recordatorio de vencimiento",
+      "body": "Se recuerda a los alumnos que las regularidades de materias aprobadas en 2024 vencen en 2026. Quienes no hayan rendido el final deben hacerlo antes del turno de diciembre.",
+      "date": "2026-03-05",
+      "author": "Escuela de Informática — UNO",
+      "isHighlighted": false
+    },
+    {
+      "id": "news-004",
+      "category": "evento",
+      "title": "Jornadas de puertas abiertas — Carreras de Informática",
+      "body": "La Escuela de Ciencias Tecnológicas invita a futuros ingresantes a conocer las carreras del área de Informática. Actividades prácticas, charlas con docentes y recorrida por los laboratorios.",
+      "date": "2026-03-10",
+      "author": "Facultad — UNO",
+      "isHighlighted": false
+    }
+  ]
+}

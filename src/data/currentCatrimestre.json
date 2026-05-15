@@ -1,0 +1,63 @@
+{
+  "id": "2026-1",
+  "label": "1° Cuatrimestre 2026",
+  "offerings": [
+    { "subjectId": "07071", "commission": "Com 1", "schedule": "8 a 12 hs", "classroom": "Aula 1", "modality": "Presencial" },
+    { "subjectId": "07071", "commission": "Com 2", "schedule": "8 a 12 hs", "classroom": "Aula 11", "modality": "Presencial" },
+    { "subjectId": "07071", "commission": "Com 3", "schedule": "14 a 18 hs", "classroom": "Aula 10", "modality": "Presencial" },
+    { "subjectId": "07071", "commission": "Com 4", "schedule": "18 a 22 hs", "classroom": "Aula 10", "modality": "Virtual" },
+    { "subjectId": "07071", "commission": "Com 5", "schedule": "18 a 22 hs", "classroom": "Aula 1", "modality": "Presencial" },
+    { "subjectId": "07071", "commission": "Com 6", "schedule": "18 a 22 hs", "classroom": "Aula 1", "modality": "Presencial" },
+
+    { "subjectId": "01017", "commission": "Com 1", "schedule": "18 a 23 hs", "classroom": "Aula 10", "modality": "Presencial" },
+    { "subjectId": "01017", "commission": "Com 2", "schedule": "8 a 13 hs", "classroom": "Aula 1", "modality": "Presencial" },
+    { "subjectId": "01017", "commission": "Com 3", "schedule": "8 a 13 hs", "classroom": "Aula 11", "modality": "Presencial" },
+    { "subjectId": "01017", "commission": "Com 4", "schedule": "8 a 13 hs", "classroom": "Aula 4", "modality": "Presencial" },
+    { "subjectId": "01017", "commission": "Com 5", "schedule": "8 a 13 hs", "classroom": "Aula 10", "modality": "Presencial" },
+    { "subjectId": "01017", "commission": "Com 6", "schedule": "13 a 17 hs", "classroom": "Aula 11", "modality": "Presencial" },
+    { "subjectId": "01017", "commission": "Com 7", "schedule": "18 a 23 hs", "classroom": "Aula 1", "modality": "Presencial" },
+
+    { "subjectId": "01018", "commission": "Com 1", "schedule": "14 a 17 hs", "classroom": "Aula 1", "modality": "Presencial" },
+    { "subjectId": "01018", "commission": "Com 2", "schedule": "14 a 17 hs", "classroom": "Aula 11", "modality": "Presencial" },
+    { "subjectId": "01018", "commission": "Com 3", "schedule": "18 a 21 hs", "classroom": "Aula 11", "modality": "Presencial" },
+    { "subjectId": "01018", "commission": "Com 4", "schedule": "18 a 21 hs", "classroom": "Aula 1", "modality": "Presencial" },
+    { "subjectId": "01018", "commission": "Com 5", "schedule": "8 a 11 hs", "classroom": "Aula 1", "modality": "Presencial" },
+    { "subjectId": "01018", "commission": "Com 6", "schedule": "8 a 11 hs", "classroom": "Aula 4", "modality": "Presencial" },
+    { "subjectId": "01018", "commission": "Com 7", "schedule": "18 a 21 hs", "classroom": "Aula 10", "modality": "Presencial" },
+    { "subjectId": "01018", "commission": "Com 8", "schedule": "14 a 17 hs", "classroom": "Aula 2", "modality": "Presencial" },
+
+    { "subjectId": "07030", "commission": "Com 1", "schedule": "8 a 12 hs", "classroom": "Lab 2", "modality": "Presencial" },
+    { "subjectId": "07030", "commission": "Com 2", "schedule": "8 a 12 hs", "classroom": "Lab 4/Aula 11", "modality": "Presencial" },
+    { "subjectId": "07030", "commission": "Com 3", "schedule": "8 a 12 hs", "classroom": "Lab 3/Lab 4", "modality": "Presencial" },
+    { "subjectId": "07030", "commission": "Com 4", "schedule": "14 a 18 hs", "classroom": "Lab 2", "modality": "Presencial" },
+    { "subjectId": "07030", "commission": "Com 5", "schedule": "18 a 22 hs", "classroom": "Lab 4", "modality": "Presencial" },
+    { "subjectId": "07030", "commission": "Com 6", "schedule": "18 a 22 hs", "classroom": "Lab 2", "modality": "Presencial" },
+    { "subjectId": "07030", "commission": "Com 7", "schedule": "14 a 18 hs", "classroom": "Lab 4", "modality": "Presencial" },
+    { "subjectId": "07030", "commission": "Com 8", "schedule": "13 a 17 hs", "classroom": "Lab 4/Lab 1", "modality": "Presencial" },
+    { "subjectId": "07030", "commission": "Com 9", "schedule": "8 a 12 hs", "classroom": "Aula 1", "modality": "Presencial" },
+
+    { "subjectId": "02001", "commission": "Com 1", "schedule": "18 a 22 hs", "classroom": "Virtual", "modality": "Virtual" },
+    { "subjectId": "02001", "commission": "Com 2", "schedule": "8 a 12 hs", "classroom": "Virtual", "modality": "Virtual" },
+
+    { "subjectId": "07032", "commission": "Com 1", "schedule": "14 a 18 hs", "classroom": "Aula 4", "modality": "Presencial" },
+    { "subjectId": "07032", "commission": "Com 2", "schedule": "14 a 18 hs", "classroom": "Aula 4", "modality": "Presencial" },
+    { "subjectId": "07032", "commission": "Com 3", "schedule": "18 a 22 hs", "classroom": "Aula 10", "modality": "Presencial" },
+
+    { "subjectId": "02004", "commission": "Com 1", "schedule": "13 a 15 hs", "classroom": "Semipresencial", "modality": "Semipresencial" },
+    { "subjectId": "02004", "commission": "Com 2", "schedule": "13 a 15 hs", "classroom": "Semipresencial", "modality": "Semipresencial" },
+    { "subjectId": "02004", "commission": "Com 3", "schedule": "18 a 22 hs", "classroom": "Semipresencial", "modality": "Semipresencial" },
+
+    { "subjectId": "07031", "commission": "Com 1", "schedule": "14 a 18 hs", "classroom": "Virtual", "modality": "Virtual" },
+    { "subjectId": "07031", "commission": "Com 2", "schedule": "14 a 18 hs", "classroom": "Aula 4", "modality": "Presencial" },
+
+    { "subjectId": "07033", "commission": "Com 1", "schedule": "8 a 12 hs", "classroom": "Lab 1", "modality": "Presencial" },
+    { "subjectId": "07033", "commission": "Com 2", "schedule": "12:30 a 16:30 hs", "classroom": "Lab 4", "modality": "Presencial" },
+
+    { "subjectId": "07084", "commission": "Com 1", "schedule": "14 a 18 hs", "classroom": "Lab 2", "modality": "Presencial" },
+    { "subjectId": "07084", "commission": "Com 2", "schedule": "18 a 22 hs", "classroom": "Virtual", "modality": "Virtual" },
+
+    { "subjectId": "01019", "commission": "Com 1", "schedule": "9 a 12 hs", "classroom": "Aula 10", "modality": "Presencial" },
+    { "subjectId": "01019", "commission": "Com 2", "schedule": "18 a 21 hs", "classroom": "Aula 11", "modality": "Presencial" },
+    { "subjectId": "01019", "commission": "Com 3", "schedule": "13 a 17 hs", "classroom": "Aula 11", "modality": "Semipresencial" }
+  ]
+}
