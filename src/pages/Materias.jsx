@@ -49,7 +49,7 @@ const Materias = () => {
   return (
     <>
       <section className="container-materias">
-        <p className="title-secction-materias">
+        <p className="title-secction-materias divisor">
           <i className="line-title"></i>
           Materias
         </p>

@@ -26,6 +26,10 @@ body {
 #root{
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+}
+.container-materias{
+  flex: 1;
 }
 /* RESET */
 * {
@@ -53,19 +57,26 @@ p.divisor{
 
 /* ================= HEADER ================= */
 
-header {
+.header-fijo{
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 60px;
   z-index: 1000;
-  background-color: var(--color-primary-dark);
-  backdrop-filter: blur(8px);
+  /* background-color:var(--color-primary); */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.8rem 1rem;
+  z-index: 100;
+  /* Estado inicial: Oculto*/
+  transition: background-color 0.4s ease;
+}
+.header-fijo.visible {
+  opacity: 1;
+  background-color:#2fa5a9e4;
+  transform: translateY(0);
 }
 
 /* botón hamburguesa */
@@ -75,6 +86,10 @@ header {
   border: none;
   color: var(--color-light);
   cursor: pointer;
+  transition: opacity .2s ease;
+}
+.menu-toggle:hover{
+  opacity: .6;
 }
 
 /* NAV MOBILE */
@@ -82,17 +97,23 @@ header {
   position: absolute;
   top: 50.7px;
   right: 0;
-  width: 100%;
-  height: 0px;
   transform: translate(100vw, 0px);
   transition: all ease 0.3s;
+  background-color: #009dd1b7;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
 }
 
 .nav-container.active {
-  display: block;
+  width: 100%;
+  height: max-content;
   transform: translate(0, 0);
   transition: all ease 0.3s;
   z-index: 200;
+  padding-top: 60px;
+  position: absolute;
+  top: 0px;
+  z-index: -1;
 }
 .menu-toggle {
   transition: all ease 0.3s;
@@ -104,8 +125,8 @@ header {
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  background: var(--color-primary-dark);
-  backdrop-filter: blur(8px);
+  width: 100%;
+  height: 100%;
   gap: 1rem;
 }
 
@@ -162,7 +183,8 @@ section {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  border: .5px solid var(--color-dark);
+  border: .5px solid var(--color-light);
+  background-color: var(--color-card)
 }
 
 /* svg */
@@ -179,7 +201,7 @@ section {
 
 .svg-logo-header rect:nth-child(2),
 .svg-logo-header rect:nth-child(3) {
-  fill: var(--color-primary);
+  fill: var(--color-uno);
 }
 
 /* ================= DESKTOP ================= */
@@ -222,7 +244,8 @@ section {
   min-width: max-content;
   padding: 6px 10px;
   border-radius: 20px;
-  background: var(--color-primary);
+  background-color: #009dd1ab;
+  backdrop-filter: blur(8px);
   font-size: 12px;
   color: var(--color-light);
   display: flex;
@@ -237,25 +260,28 @@ section {
   padding: 2rem 1rem;
 }
 
-
 .container-inicio-texto {
+  background-color: #009dd147;
+  backdrop-filter: blur(8px);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  padding: 1rem;
+  border-radius: 10px;
 }
 
 .description-inicio{
-  color: var(--color-card-bg);
+  color: var(--color-light);
   font-size: 14px;
   font-weight: 500;
 }
 .title-principal h1 {
   font-size: clamp(1.8rem, 6vw, 3rem);
-  color: var(--color-primary);
+  color: var(--color-light);
 }
 
 .title-principal b {
-  color: var(--color-card-bg);
+  color: var(--color-primary);
 }
 
 /* botones */
@@ -286,6 +312,8 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+  justify-content: center;
+  align-items: center;
 }
 
 .childrem-description-inicio {
@@ -302,9 +330,6 @@ section {
 
 /* ================= SECTIONS ================= */
 
-.divisor{
-  color: var(--color-bg);
-}
 section {
   padding: 2.5rem 1rem;
 }
@@ -327,7 +352,8 @@ section {
 /* ================= CARDS ================= */
 
 .card {
-  background: var(--color-primary);
+  background-color: #009dd178;
+  backdrop-filter: blur(8px);
   border-radius: var(--radius);
   padding: 1rem;
   transition: var(--transition);
@@ -418,7 +444,7 @@ section {
   gap: 9px;
 }
 .title-top-careras-cuatrimestre p{
-  color: var(--color-card-bg);
+  color: var(--color-light);
 }
 
 /* ================= PROFESORES ================= */
@@ -480,7 +506,7 @@ section {
 /* ================= FOOTER ================= */
 
 .footer {
-  background: var(--color-primary-dark);
+  background:#2fa5a9dc;
   backdrop-filter: blur(10px);
 }
 
@@ -604,7 +630,8 @@ section {
   width: 100%;
   height: 40px;
   padding: 10px;
-  background-color: var(--color-primary);
+  background-color:#2fa5a9e8;
+  background-filter: blur(8px);
   border: none;
   color: var(--color-light);
   border-radius: 10px;
@@ -661,6 +688,7 @@ section {
 .pagina-index{
   font-weight: 600;
   font-size: 18px;
+  color: var(--color-light);
 }
 
 /* ============ MATERIA DETALLE ============ */
@@ -745,7 +773,8 @@ section {
 
 .login-box {
   width: 350px;
-  background: white;
+  background:#009dd161;
+  backdrop-filter: blur(8px);
   padding: 30px;
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
@@ -760,7 +789,7 @@ section {
 
 .login-subtitle {
   font-size: 14px;
-  color: gray;
+  color: var(--color-light);
   margin-bottom: 20px;
 }
 
@@ -783,7 +812,7 @@ section {
 .login-divider {
   margin: 20px 0 10px;
   font-size: 13px;
-  color: #666;
+  color: var(--color-light);
 }
 
 .login-form input {
@@ -794,15 +823,19 @@ section {
   border: 1px solid #ddd;
   outline: none;
   transition: 0.2s;
+  background-color:#ffffffdb;
+  backdrop-filter: blur(8px);
 }
 
 .login-form input:focus {
   border-color: var(--color-primary);
 }
-
+.login-form input:placeholder {
+  color: var(--color-light);
+}
 .forgot {
   font-size: 12px;
-  color: #777;
+  color: var(--color-light);
   margin-top: 10px;
   cursor: pointer;
 }
@@ -854,11 +887,11 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("../src/assets/Logo-UNO.png");
+  background-image: url("https://instagram.fepa9-2.fna.fbcdn.net/v/t51.82787-15/619219525_18099401224859344_5903998729435116129_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=MjU1MTY4NTYyMDE4NjQ2NDQyOQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=cvGujb6Ou4IQ7kNvwHwuk8l&_nc_oc=Adqy7obYPIsi1PbE8rtUNMakT50LL4q1oL5TeFh0YDSnSwx3tIW5iLuUXtBhZQGZ5GT7PJKQU1ZflJA4AoKr3X2S&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fepa9-2.fna&_nc_gid=roAJcxIM_4gGD4omm3j0qA&_nc_ss=7a22e&oh=00_Af45a-mt96Pc8ZegPbm80WQK_VgTsTny25J0TwDWrGNV-A&oe=6A11252A");
   background-repeat: no-repeat;
-  background-size: 104%;
-  background-position: center;
-  opacity: 0.2;
+  background-size: auto 100%;
+  /* background-position: -40px; */
+  opacity: 0.8;
   z-index: -1;
 }
 
@@ -885,6 +918,11 @@ body::before {
   .container-profes {
     grid-template-columns: repeat(2, 1fr);
   }
+  body::before{
+    background-image: url("https://scontent.fepa9-2.fna.fbcdn.net/v/t39.30808-6/481255170_1033243142182729_2319806888701087257_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=VokhM4UNw2wQ7kNvwEinyzW&_nc_oc=AdpYxu9LdCqA8Vq7G2qWcbeofw5przty28nEle11hkIaPdnDLi5dGGk8_VcXOlaBtbK6YqHiGB0n2v28fPCSPewB&_nc_zt=23&_nc_ht=scontent.fepa9-2.fna&_nc_gid=cJJAfTqj7Vu9f6eQAKvZDQ&_nc_ss=7b289&oh=00_Af5YGMwdhIP4JgAHoutGM0qvYrow_yjbrWTCaaUEeX7dSA&oe=6A1142B3");
+    background-size: cover;
+    background-position: center center;
+  }
 }
 
 /* ================= DESKTOP ================= */
@@ -906,15 +944,14 @@ body::before {
   .container-info-carreas-area-cuatrimestre-activo {
     grid-template-columns: repeat(4, 1fr);
   }
-  body::before {
-    background-size: 40%;
-  }
 }
 
 
 p.divisor{
-  color: var(--color-bg);
+  color: var(--color-light);
+  font-size: 14px;
 }
  p.divisor i{
-  background-color: var(--color-bg);
+  background-color: var(--color-light);
+  height: 2px;
  }

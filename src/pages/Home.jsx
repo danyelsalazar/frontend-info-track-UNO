@@ -23,6 +23,7 @@ const Home = () => {
       }
     }
   }, [location])
+  
   return (
     <>
       <InfoResum />

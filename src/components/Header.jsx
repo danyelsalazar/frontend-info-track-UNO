@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const [esVisible, setEsVisible] = useState(false);
 
   const navRef = useRef()
   const buttonRef = useRef()
@@ -18,14 +19,29 @@ const Header = () => {
     // abro un escuchador paran todosm los click de la pagina
     document.addEventListener("mousedown", handleClickFuera);
 
+    //controlo scroll para mostrar el header
+    const controlarScroll = () => {
+      // Cambia 200 por la cantidad de píxeles que tú quieras
+      if (window.scrollY > 5) {
+        setEsVisible(true);
+      } else {
+        setEsVisible(false);
+      }
+    };
+
+    // Escuchar el evento de scroll del navegador
+    window.addEventListener('scroll', controlarScroll);
+
     return()=>{
       // cierro el escuchador de clicks
           document.removeEventListener("mousedown", handleClickFuera);
+          // cierro el escuchador de scroll
+          window.removeEventListener('scroll', controlarScroll);
     }
   },[])
   const navigate = useNavigate();
   return (
-    <header ref={navRef}>
+    <header ref={navRef} className={`header-fijo ${esVisible ? 'visible' : ''}`}>
       <div className="container-logo-header">
         <div className="container-svg-logo-header">
           <svg

@@ -1,12 +1,12 @@
 const Inicio =()=>{
     return(
         <section className="inicio" id="inicio">
-          <div className="container-inicio-texto children-block">
             <div className="pre-title">
               <p className="divisor">
                 <i></i>Sistema académico · Informática
               </p>
             </div>
+          <div className="container-inicio-texto children-block">
             <div className="title-principal children-block">
               <h1>
                 Seguí tu carrera. <br /> <b>Sin excusas.</b>
