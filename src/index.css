@@ -99,8 +99,7 @@ p.divisor{
   right: 0;
   transform: translate(100vw, 0px);
   transition: all ease 0.3s;
-  background-color: #009dd1b7;
-  backdrop-filter: blur(8px);
+  background-color: var(--color-primary);
   -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
 }
 
