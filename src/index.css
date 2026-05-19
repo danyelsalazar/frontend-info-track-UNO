@@ -75,7 +75,7 @@ p.divisor{
 }
 .header-fijo.visible {
   opacity: 1;
-  background-color:#2fa5a9e4;
+  background-color: var(--color-primary);
   transform: translateY(0);
 }
 
@@ -352,7 +352,7 @@ section {
 /* ================= CARDS ================= */
 
 .card {
-  background-color: #009dd178;
+  background-color: #009dd1be;
   backdrop-filter: blur(8px);
   border-radius: var(--radius);
   padding: 1rem;
@@ -506,8 +506,7 @@ section {
 /* ================= FOOTER ================= */
 
 .footer {
-  background:#2fa5a9dc;
-  backdrop-filter: blur(10px);
+  background:#2fa5a9;
 }
 
 .footer-container {
@@ -773,7 +772,7 @@ section {
 
 .login-box {
   width: 350px;
-  background:#009dd161;
+  background:#ffffffc4;
   backdrop-filter: blur(8px);
   padding: 30px;
   border-radius: 16px;
@@ -789,7 +788,7 @@ section {
 
 .login-subtitle {
   font-size: 14px;
-  color: var(--color-light);
+  color: var(--color-bg);
   margin-bottom: 20px;
 }
 
@@ -812,7 +811,7 @@ section {
 .login-divider {
   margin: 20px 0 10px;
   font-size: 13px;
-  color: var(--color-light);
+  color: var(--color-card-bg);
 }
 
 .login-form input {
@@ -831,11 +830,11 @@ section {
   border-color: var(--color-primary);
 }
 .login-form input:placeholder {
-  color: var(--color-light);
+  color: var(--color-bg);
 }
 .forgot {
   font-size: 12px;
-  color: var(--color-light);
+  color: var(--color-bg);
   margin-top: 10px;
   cursor: pointer;
 }
@@ -886,13 +885,19 @@ section {
 body::before {
   content: "";
   position: fixed;
+  top: 0;
   inset: 0;
   background-image: url("https://instagram.fepa9-2.fna.fbcdn.net/v/t51.82787-15/619219525_18099401224859344_5903998729435116129_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=106&ig_cache_key=MjU1MTY4NTYyMDE4NjQ2NDQyOQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=cvGujb6Ou4IQ7kNvwHwuk8l&_nc_oc=Adqy7obYPIsi1PbE8rtUNMakT50LL4q1oL5TeFh0YDSnSwx3tIW5iLuUXtBhZQGZ5GT7PJKQU1ZflJA4AoKr3X2S&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fepa9-2.fna&_nc_gid=roAJcxIM_4gGD4omm3j0qA&_nc_ss=7a22e&oh=00_Af45a-mt96Pc8ZegPbm80WQK_VgTsTny25J0TwDWrGNV-A&oe=6A11252A");
   background-repeat: no-repeat;
-  background-size: auto 100%;
-  /* background-position: -40px; */
+  background-size: 600px 800px;
+  background-position: -70px 0px;
   opacity: 0.8;
   z-index: -1;
+   
+  /* Nuevas propiedades para el filtro oscuro */
+  background-color: rgba(0, 0, 0, 0.6); /* Modifica el 0.6 para cambiar la oscuridad */
+  background-blend-mode: multiply;       /* Mezcla la imagen con el fondo negro */
+
 }
 
 /* ================= TABLET ================= */

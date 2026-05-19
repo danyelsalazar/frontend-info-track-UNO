@@ -86,7 +86,7 @@ const Register = () => {
         <p className="forgot">
           ¿Ya tenés cuenta?{" "}
           <span
-            style={{ color: "var(--color-dark)", cursor: "pointer" }}
+            style={{ color: "var(--color-primary)", cursor: "pointer" }}
             onClick={() => navigate("/login")}
           >
             Iniciá sesión

@@ -50,7 +50,7 @@ const Login = () => {
           <p className="forgot">
             ¿No tenés cuenta?{" "}
             <span
-              style={{ color: "var(--color-dark)", cursor: "pointer" }}
+              style={{ color: "var(--color-primary)", cursor: "pointer" }}
               onClick={() => navigate("/register")}
             >
               Registrate
@@ -66,7 +66,7 @@ const Login = () => {
               style={{ cursor: "pointer"}}
               onClick={() => navigate("/")}
             >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1024 1024"><path fill="rgb(255, 255, 255)" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64"/><path fill="rgb(255, 255, 255)" d="m237.2 512l265.5 265.3a32 32 0 0 1-45.4 45.4l-288-288a32 32 0 0 1 0-45.4l288-288a32 32 0 1 1 45.4 45.4z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1024 1024"><path fill="rgb(57, 56, 56)" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64"/><path fill="rgb(49, 48, 48)" d="m237.2 512l265.5 265.3a32 32 0 0 1-45.4 45.4l-288-288a32 32 0 0 1 0-45.4l288-288a32 32 0 1 1 45.4 45.4z"/></svg>
             </span>
           </p>
       </div>
