@@ -261,8 +261,6 @@ section {
 }
 
 .container-inicio-texto {
-  background-color: #009dd147;
-  backdrop-filter: blur(8px);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
