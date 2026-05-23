@@ -6,6 +6,7 @@ import MateriaDetalle from "../components/MateriaDetalle";
 import Login from "./Login";
 import MainLayout from "../components/MainLayout";
 import Register from "./Register";
+import Dashboard from "./Dashboard";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         {/* RUTA SIN HEADER NI FOOTER */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register/>}/>
+        <Route path="/dashboard" element={<Dashboard/>}/>
       </Routes>
     </>
   );

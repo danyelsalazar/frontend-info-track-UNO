@@ -6,6 +6,7 @@ import Profesores from "../components/Profesores";
 import Novedades from "../components/Novedades";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import '../index.css'
 
 const Home = () => {
   // obtengo la localizacion de mi pagina
@@ -26,7 +27,6 @@ const Home = () => {
   
   return (
     <>
-      <InfoResum />
       <main>
         <Inicio />
         <CarrerasArea />

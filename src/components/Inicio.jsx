@@ -1,6 +1,8 @@
+import InfoResum from "./InfoResum"
 const Inicio =()=>{
     return(
-        <section className="inicio" id="inicio">
+      <section className="inicio" id="inicio">
+          <InfoResum />
             <div className="pre-title">
               <p className="divisor">              </p>
             </div>
