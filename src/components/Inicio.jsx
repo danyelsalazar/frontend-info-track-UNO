@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom"
 import InfoResum from "./InfoResum"
 const Inicio =()=>{
+  const navigate = useNavigate()
     return(
       <section className="inicio" id="inicio">
           <InfoResum />
@@ -19,7 +21,7 @@ const Inicio =()=>{
               </p>
             </div>
             <div className="buttons-inicio button children-block">
-              <button className="btn btn-primary">Crear cuenta gratis</button>
+              <button className="btn btn-primary" onClick={()=>{navigate("/dashboard")}}>Crear cuenta gratis</button>
               <button className="btn btn-primary">
                 Ver cuatrimestre
                 <svg

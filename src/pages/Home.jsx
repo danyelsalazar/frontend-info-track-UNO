@@ -1,4 +1,3 @@
-import InfoResum from "../components/InfoResum";
 import Inicio from "../components/Inicio";
 import CarrerasArea from "../components/CarrerasArea";
 import CuatrimestrCurso from "../components/CuatrimestreCurso";
