@@ -3,6 +3,7 @@ import GraficoMaterias from "../components/GraficoMaterias";
 import HeaderDashboard from "../components/HeaderDashboard";
 import "../styles/dashboard.css";
 import AddMateriaAlumno from "../components/AddMateriaAlumno";
+import { useState } from "react";
 // ── DATA ──────────────────────────────────────────────
 const STATS = [
   { value: "18",  label: "Materias aprobadas", colorClass: "stat-teal"    },
@@ -37,10 +38,17 @@ const dataMock = [
 // ── COMPONENT ─────────────────────────────────────────
 export default function Dashboard() {
   const navigate = useNavigate();
+
+  // cargar materia
+  const [abrirAddMateria , setAbrirAddMateria] = useState(false)
+
+  const handleOnClickAdd = ()=>{
+    abrirAddMateria ? setAbrirAddMateria(false) : setAbrirAddMateria(true)    
+  }
   return (
-    <div className="dashboard-page">
-      <AddMateriaAlumno/>
-      <HeaderDashboard />
+    <div className={`dashboard-page ${abrirAddMateria ? "desenfocar-fondo-dashboard" : ""}`}>
+      <AddMateriaAlumno abrirAddMateria={abrirAddMateria} setAbrirAddMateria={setAbrirAddMateria}/>
+      <HeaderDashboard handleOnClickAdd={handleOnClickAdd} />
       {/* HERO */}
       <div className="dashboard-hero">
         <h1 className="hero-greeting">Hola Equipo 👋</h1>
