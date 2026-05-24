@@ -1,7 +1,7 @@
 import { PieChart } from "@mui/x-charts";
 
 const settings = {
-  margin: { right: 5 },
+  margin: { right: 10 },
   width: 200,
   height: 200,
   hideLegend: true,
