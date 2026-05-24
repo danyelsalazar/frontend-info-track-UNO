@@ -278,6 +278,8 @@ section {
   flex-direction: column;
   width: 100%;
   align-items: center;
+  justify-content: center;
+  align-self: center;
 }
 .container-inicio-texto {
   display: flex;
