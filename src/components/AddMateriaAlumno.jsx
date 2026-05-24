@@ -1,6 +1,7 @@
 import { useState } from "react";
 import info from "../data/infotrack_data (1).json";
 import '../styles/formAddMateria.css'
+
 const AddMateriaAlumno = () => {
   const { careers, subjects } = info;
     //   informacion sobre la materia a cargar
