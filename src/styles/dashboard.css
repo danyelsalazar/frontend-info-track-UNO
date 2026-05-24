@@ -38,17 +38,19 @@
 /* ------ icono logo appp */
 .container-intro-dashboard{
   display: flex;
-  gap: 1rem;
-  align-items: center;
+  gap:.7rem;
+  margin-bottom: .5rem;
+  /* align-items: center; */
 }
 /* ---------- desenfoque al abrir form de materia---- */
-.desenfocar-fondo-dashboard{
+.dashboard-page-before{
+  width: 100%;
+  height: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  overflow: hidden;
 }
-.desenfocar-fondo-dashboard::before{
+.dashboard-page-before::before{
   content: "";
   position: fixed;
   top: 0;
