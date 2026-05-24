@@ -1,10 +1,10 @@
 import '../styles/HeaderDashboard.css'
 
-const HeaderDashboard = ()=>{
+const HeaderDashboard = ({handleOnClickAdd})=>{
     return(
         <header className="header-dasboard">
                 {/* BOTÓN CENTRAL (FUERA DEL UL) */}
-                <div className="btn-header-icon-add">
+                <div className="btn-header-icon-add" onClick={()=>{handleOnClickAdd()}} >
                    <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24"><path fill="#666666"  d="M11 13H5v-2h6V5h2v6h6v2h-6v6h-2z" width="1"/></svg>
                 </div>
             <nav className="nav-header-deshboard">
