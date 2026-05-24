@@ -8,7 +8,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color:var(--color-surface);
-    width: 90%;
+    width: 80%;
     height: max-content;
     z-index: 1000;
     border-radius: 15px;
@@ -62,7 +62,7 @@ option{
 }
 .title-form-task{
     color: var(--color-primary);
-    font-size: 22px;
+    font-size: 17px;
     text-align: center;
 }
 

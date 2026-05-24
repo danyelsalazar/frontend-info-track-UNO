@@ -35,8 +35,12 @@
   font-weight: 400;
   position: relative;
 }
-
-
+/* ------ icono logo appp */
+.container-intro-dashboard{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
 /* ---------- desenfoque al abrir form de materia---- */
 .desenfocar-fondo-dashboard{
   position: fixed;
@@ -139,8 +143,8 @@
 /* colores de valores */
 .stat-teal    { color: var(--color-accent); }
 .stat-primary { color: var(--color-primary); }
-.stat-red     { color: var(--color-btn); }
-.stat-muted   { color: #94a3b8; }
+.stat-red     { color: rgb(220, 199, 64); }
+.stat-muted   { color: var(--color-btn); }
 
 /* ── SECTION TITLE ──────────────────────────────── */
 .section-title {
@@ -181,7 +185,7 @@
   flex: 1;
   font-size: 13px;
   font-weight: 500;
-  color: var(--color-text);
+  color: var(--color-dark);
   /* evita overflow en pantallas chicas */
   overflow: hidden;
   text-overflow: ellipsis;
@@ -210,9 +214,9 @@
 .dot-blue   { background: var(--color-primary); }
 
 /* badges */
-.badge-red    { background: rgba(214,44,91,.1);  color: var(--color-btn);          border: 1px solid rgba(214,44,91,.2);  }
-.badge-yellow { background: var(--color-accent-light); color: var(--color-accent);                   border: 1px solid rgba(112, 109, 104, 0.2); }
-.badge-blue   { background: rgba(0,156,209,.1);  color: var(--color-primary-dark); border: 1px solid rgba(0,156,209,.2);  }
+.badge-red    { background: rgba(214,44,91,.1);  color: var(--color-btn);       }
+.badge-yellow { background: rgba(42, 213, 167, 0.1); color: var(--color-accent);                    }
+.badge-blue   { background: rgba(0,156,209,.1);  color: var(--color-primary-dark);  }
 
 /* ── ACCESOS ─────────────────────────────────────── */
 .accesos-grid {

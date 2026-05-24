@@ -3,7 +3,6 @@ import GraficoMaterias from "../components/GraficoMaterias";
 import HeaderDashboard from "../components/HeaderDashboard";
 import "../styles/dashboard.css";
 import AddMateriaAlumno from "../components/AddMateriaAlumno";
-import { useState } from "react";
 // ── DATA ──────────────────────────────────────────────
 const STATS = [
   { value: "18",  label: "Materias aprobadas", colorClass: "stat-teal"    },
@@ -31,27 +30,34 @@ const ACCESOS = [
 const dataMock = [
   { label: 'Aprobadas', value: STATS[0].value, color: 'var(--color-accent)' },
   { label: 'Cursando', value: STATS[1].value, color: 'var(--color-primary)' },
-  { label: 'Restantes', value: STATS[3].value , color: 'var(--color-dark)' },
+  { label: 'Restantes', value: STATS[3].value , color: 'var(--color-btn)' },
 ];
 
 
 // ── COMPONENT ─────────────────────────────────────────
 export default function Dashboard() {
   const navigate = useNavigate();
-
-  // cargar materia
-  const [abrirAddMateria , setAbrirAddMateria] = useState(false)
-
-  const handleOnClickAdd = ()=>{
-    abrirAddMateria ? setAbrirAddMateria(false) : setAbrirAddMateria(true)    
-  }
   return (
-    <div className={`dashboard-page ${abrirAddMateria ? "desenfocar-fondo-dashboard" : ""}`}>
-      <AddMateriaAlumno abrirAddMateria={abrirAddMateria} setAbrirAddMateria={setAbrirAddMateria}/>
-      <HeaderDashboard handleOnClickAdd={handleOnClickAdd} />
+    <div className="dashboard-page">
+      <AddMateriaAlumno/>
+      <HeaderDashboard />
       {/* HERO */}
       <div className="dashboard-hero">
-        <h1 className="hero-greeting">Hola Equipo 👋</h1>
+        <div className="container-intro-dashboard">
+        <h1 className="hero-greeting">Hola Equipo </h1>
+        <div className="container-svg-logo-header">
+          <svg
+            className="svg-logo-header"
+            viewBox="0 0 14 14"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <rect x="1" y="1" width="5" height="5" rx="1" />
+            <rect x="8" y="1" width="5" height="5" rx="1" />
+            <rect x="1" y="8" width="5" height="5" rx="1" />
+            <rect x="8" y="8" width="5" height="5" rx="1" />
+          </svg>
+        </div>
+        </div>
         <p className="hero-sub">Licenciatura en Informática · Año 2026</p>
         <button className="exit-dashboard" onClick={()=>{navigate("/")}}>
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 20 20"><path fill="white" d="M13 3v2h2v10h-2v2h4V3zm0 8V9H5.4l4.3-4.3l-1.4-1.4L1.6 10l6.7 6.7l1.4-1.4L5.4 11z"/></svg>
