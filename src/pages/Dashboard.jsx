@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import GraficoMaterias from "../components/GraficoMaterias";
 import HeaderDashboard from "../components/HeaderDashboard";
 import "../styles/dashboard.css";
+import AddMateriaAlumno from "../components/AddMateriaAlumno";
 // ── DATA ──────────────────────────────────────────────
 const STATS = [
   { value: "18",  label: "Materias aprobadas", colorClass: "stat-teal"    },
@@ -22,7 +23,7 @@ const ACCESOS = [
   { label: "Reseñas",          icon: <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path fill="none" stroke="#666666" strokeLinejoin="round" strokeWidth="2" d="m12 2l3.104 6.728l7.358.873l-5.44 5.03l1.444 7.268L12 18.28L5.534 21.9l1.444-7.268L1.538 9.6l7.359-.873z"/></svg>},
   { label: "Recursos",         icon: <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 20 20"><path fill="#666666" d="M18.405 4.799c-.111-.44-.655-.799-1.21-.799h-6.814c-.554 0-1.33-.318-1.722-.707l-.596-.588C7.671 2.316 6.896 2 6.342 2H3.087c-.555 0-1.059.447-1.12.994L1.675 6h16.931zM19.412 7H.588a.58.58 0 0 0-.577.635l.923 9.669A.77.77 0 0 0 1.7 18h16.6a.77.77 0 0 0 .766-.696l.923-9.669A.58.58 0 0 0 19.412 7"/></svg> },
   { label: "Mi perfil",        icon: <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><g fill="none" stroke="var(--color-primary)" strokeWidth="2"><path strokeLinejoin="round" d="M4 18a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><circle cx="12" cy="7" r="3"/></g></svg> },
-  { label: "Materias",        icon: <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><g fill="none"><path d="M20.5 2.5h-14a3 3 0 0 0-3 3v13a3 3 0 0 1 3-3h14z"/><path stroke="#666666" strokeLinecap="square" strokeWidth="2" d="M20.5 21.5h-14a3 3 0 1 1 0-6h14zm0 0v-19h-14a3 3 0 0 0-3 3v12m8-11h5"/></g></svg>}
+  { label: "Mis Materias",        icon: <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><g fill="none"><path d="M20.5 2.5h-14a3 3 0 0 0-3 3v13a3 3 0 0 1 3-3h14z"/><path stroke="#666666" strokeLinecap="square" strokeWidth="2" d="M20.5 21.5h-14a3 3 0 1 1 0-6h14zm0 0v-19h-14a3 3 0 0 0-3 3v12m8-11h5"/></g></svg>}
 
 ];
 
@@ -38,6 +39,7 @@ export default function Dashboard() {
   const navigate = useNavigate();
   return (
     <div className="dashboard-page">
+      <AddMateriaAlumno/>
       <HeaderDashboard />
       {/* HERO */}
       <div className="dashboard-hero">
