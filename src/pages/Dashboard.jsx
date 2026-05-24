@@ -1,7 +1,8 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import GraficoMaterias from "../components/GraficoMaterias";
 import HeaderDashboard from "../components/HeaderDashboard";
 import "../styles/dashboard.css";
+import { useState } from "react";
 import AddMateriaAlumno from "../components/AddMateriaAlumno";
 // ── DATA ──────────────────────────────────────────────
 const STATS = [
@@ -37,10 +38,16 @@ const dataMock = [
 // ── COMPONENT ─────────────────────────────────────────
 export default function Dashboard() {
   const navigate = useNavigate();
+  const [abrirAddMateria, setAbrirAddMateria] = useState(false);
+
+  const handleAbrirAddMateria = () => {
+    abrirAddMateria ? setAbrirAddMateria(false) : setAbrirAddMateria(true);
+  }
+
   return (
-    <div className="dashboard-page">
-      <AddMateriaAlumno/>
-      <HeaderDashboard />
+    <div className={`dashboard-page ${abrirAddMateria ? "dashboard-page-before" : ""}`}>
+      <AddMateriaAlumno abrirAddMateria={abrirAddMateria} setAbrirAddMateria={setAbrirAddMateria} />
+      <HeaderDashboard handleAbrirAddMateria={handleAbrirAddMateria} />
       {/* HERO */}
       <div className="dashboard-hero">
         <div className="container-intro-dashboard">
