@@ -61,6 +61,11 @@
   background-color: rgba(10, 10, 10, 0.568);
   backdrop-filter: blur(2px); 
   -webkit-backdrop-filter: blur(2px); 
+  /* El efecto de desfoque con su prefijo móvil */
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  transform: scale(1.1) translateZ(0); /* El scale oculta los bordes blancos */
+  will-change: filter, transform;    
   z-index: 12;
 }
 /* ── MAIN CARD ──────────────────────────────────── */
