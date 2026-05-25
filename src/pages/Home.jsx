@@ -5,33 +5,35 @@ import Profesores from "../components/Profesores";
 import Novedades from "../components/Novedades";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import '../index.css'
+import "../index.css";
 
 const Home = () => {
   // obtengo la localizacion de mi pagina
   const location = useLocation();
 
-  useEffect(()=>{
-    const params = new URLSearchParams(location.search)
-    const section = params.get("section")
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const section = params.get("section");
 
-    if(section){
+    if (section) {
       const element = document.getElementById(section);
 
-      if(element) {
-        element.scrollIntoView({behavior: "smooth"})
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
-  }, [location])
-  
+  }, [location]);
+
   return (
     <>
       <main>
         <Inicio />
-        <CarrerasArea />
-        <CuatrimestrCurso />
-        <Profesores />
-        <Novedades />
+        <div className="container-sections-landing-page">
+          <CarrerasArea />
+          <CuatrimestrCurso />
+          <Profesores />
+          <Novedades />
+        </div>
       </main>
     </>
   );

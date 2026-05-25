@@ -1068,30 +1068,40 @@ h1{
   width:max-content;
   /* justify-content: center; */
 }
-.title-principal{
-  /* background-color: #778b92; */
 }
+@media (min-width: 550px){
+  .container-info-carreas-area-cuatrimestre-activo {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-
 /* ================= DESKTOP ================= */
 @media (min-width: 1024px) {
   .inicio {
     max-width: 1200px;
   }
+  .container-sections-landing-page{
+    padding: 0px 5%;
+  }
   .container-materias-list {
     grid-template-columns: 1fr 1fr 1fr;
   }
   .container-info-carreas-area {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .container-profes {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .container-info-carreas-area-cuatrimestre-activo {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   .descripciones-top-visual{
     justify-content: center;
+  }
+  .description-inicio{
+    align-self: center;
+  }
+  .description-inicio p{
+    text-align: center;
   }
 }
 
