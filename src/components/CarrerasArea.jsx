@@ -1,7 +1,7 @@
-import data from "../data/infotrack_data (1).json";
+import data from "../data/infotrack_uno_final.json";
 
 const CarrerasArea = () => {
-  const { careers, subjects } = data;
+  const { careers } = data;
 
   return (
     <section className="carreras-area" id="carreras">
@@ -10,27 +10,29 @@ const CarrerasArea = () => {
           <i></i>Carreras del area
         </p>
       </div>
-      
-      <div className="container-info-carreas-area">
 
-        {careers.map((carrera, index) => (
+      <div className="container-info-carreas-area">
+        {careers.map((carrera) => (
           <div className=" card info-carrera-item" key={carrera.id}>
-            <p className="index-carrera">0{index+1}</p>
+            <p className="index-carrera">
+              {/* El SVG se inyecta en su propio contenedor span */}
+              <span dangerouslySetInnerHTML={{ __html: carrera.avatar }} />
+
+            </p>
             <h3 className="title-carrera">{carrera.name}</h3>
-            <p className="description-carrera">{carrera.type} - {carrera.durationYears} anos · {carrera.totalSubjects} materias</p>
+            <p className="description-carrera">
+              {carrera.type} - {carrera.durationYears} anos ·{" "}
+              {carrera.totalSubjects} materias
+            </p>
             <ul className="items-materias-por-carrera">
-                {
-                    subjects    
-                        .filter(materia=>(materia.careerId === carrera.id))
-                        .map(materia=>(
-                            <li key={materia.id} className="materi-carrera">{materia.name}</li>
-                        ))
-                }
+              {carrera.tags.map((tag, index) => (
+                <li key={index} className="materi-carrera">
+                  {tag}
+                </li>
+              ))}
             </ul>
           </div>
-
         ))}
-
       </div>
     </section>
   );

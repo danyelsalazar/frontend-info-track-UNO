@@ -1,4 +1,4 @@
-import data from "../data/infotrack_data (1).json";
+import data from "../data/infotrack_uno_final.json";
 const Profesores = () => {
   const { professors } = data;
 
@@ -10,7 +10,9 @@ const Profesores = () => {
         </p>
       </div>
       <div className="container-profes container-info-carreas-area">
-        {professors.map((profe, index) => {
+        {
+          professors.filter(profesor=> profesor.avgRating >= 4)
+          .map((profe, index) => {
           return (
             <div key={profe.id} className="card item-profesor-materia">
               <div className="descripcion-profe">

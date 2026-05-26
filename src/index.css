@@ -467,6 +467,11 @@ section {
 }
 
 /* ================= CUATRIMESTRE ================= */
+.container-info-carreas-area-cuatrimestre-activo{
+  height: 500px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
 .container-materia-en-curso {
   padding: 1.25rem;
   display: flex;
@@ -526,7 +531,7 @@ section {
   gap: 16px;
 }
 .item-profesor-materia h4{
-  color: var(--color-primary-dark);
+  color: var(--color-text);
 }
 .descripcion-profe {
   display: flex;
@@ -562,7 +567,7 @@ section {
 .rating span {
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-primary-dark);
+  color: var(--color-uno);
 }
 
 /* ================= NOVEDADES ================= */
@@ -572,6 +577,9 @@ section {
   gap: 1rem;
   overflow-x: auto;
   scrollbar-width: none;
+}
+.container-novedad p i{
+  color: var(--color-dark);
 }
 .container-novedades::-webkit-scrollbar {
   display: none;
@@ -599,6 +607,9 @@ section {
   color: var(--color-primary);
   margin-bottom: 8px;
   display: block;
+}
+.categoria-novedad-title{
+  color: var(--color-btn);
 }
 
 /* ================= DIVISOR ================= */
@@ -786,8 +797,11 @@ p.divisor i {
   min-height: 70vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding: 2rem 1.25rem;
+}
+.cuatri{
+  color: var(--color-dark);
 }
 .container-materia-detalle {
   display: flex;
@@ -809,9 +823,12 @@ p.divisor i {
 .title-profes-detalle {
   font-family: "DM Serif Display", serif;
   font-size: 17px;
-  color: var(--color-text);
+  color: var(--color-primary-dark);
   padding-bottom: 8px;
   border-bottom: 1.5px solid var(--color-border);
+}
+.title-name-materia-detalle{
+  color: var(--color-primary);
 }
 .cod-materia-detalle b,
 .profe-materia-detalle b {
@@ -892,6 +909,7 @@ p.divisor i {
 .login-subtitle {
   font-size: 14px;
   color: var(--color-text-muted);
+  text-align: center;
 }
 .btn-primary {
   width: 100%;
