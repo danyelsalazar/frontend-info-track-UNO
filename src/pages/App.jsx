@@ -7,6 +7,7 @@ import Login from "./Login";
 import MainLayout from "../components/MainLayout";
 import Register from "./Register";
 import Dashboard from "./Dashboard";
+import MateriasUser from "../components/MateriasUser";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="/dashboard/mis-materias" element={<MateriasUser/>}/>
       </Routes>
     </>
   );
