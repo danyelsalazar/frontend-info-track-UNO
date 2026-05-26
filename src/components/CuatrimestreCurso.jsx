@@ -1,4 +1,4 @@
-import data from "../data/infotrack_data (1).json";
+import data from "../data/infotrack_uno_final.json";
 
 const CuatrimestrCurso = () => {
   const { subjects, professors, careers, currentSemester } = data;

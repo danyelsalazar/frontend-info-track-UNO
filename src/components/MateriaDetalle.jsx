@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import data from "../data/infotrack_data (1).json";
+import data from "../data/infotrack_uno_final.json";
 const MateriaDetalle = () => {
   const { subjects, professors } = data;
   const { id } = useParams();
