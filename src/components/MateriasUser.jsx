@@ -60,15 +60,15 @@ const MateriasUser = () => {
       </div>
 
       <div className="container-mis-materias-anio">
-        {materiasPorAnio.map((materia) => (
-          <div className="container-mi-materia-year">
+        {materiasPorAnio.map((materia, index) => (
+          <div key={index} className="container-mi-materia-year">
              <div className="mi-materia-iten-title-year">
                 <p className="year-mi-materia"><b>{materia.anio}</b>{materia.anio === 1 ? "Primer" : materia.anio === 2 ? "Segundo" : materia.anio === 3 ? "Tercer" : "Cuarto" } anio</p>
                 <div className="conatiner-item-mi-materia-name">
 
                 {
-                    materia.materias.map(mate=>(
-                        <div className="item-mi-materi-name-item">
+                    materia.materias.map((mate, index) => (
+                        <div className="item-mi-materi-name-item" key={index}>
                             <p>{mate.name} NT</p>
                         </div>
                     ))
