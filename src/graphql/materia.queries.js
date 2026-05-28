@@ -11,7 +11,7 @@ export const MATERIAS = gql`
       }
       carreras {
         id
-        nombre
+        abreviacion
       }
     }
   }
