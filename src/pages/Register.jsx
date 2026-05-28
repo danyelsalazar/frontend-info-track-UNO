@@ -64,6 +64,7 @@ const Register = () => {
             className="select-input"
             required
           >
+            <option value="Licenciatura en Informática">Licenciatura en Informática</option>
             <option value="">Seleccionar carrera</option>
             {
               carreras.map(carrera => (
