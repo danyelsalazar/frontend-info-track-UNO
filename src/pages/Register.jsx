@@ -1,35 +1,10 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useCarreras } from "../hooks/useCarreras";
 import { useRegister } from "../hooks/useRegister";
 
 const Register = () => {
-  const [form, setForm] = useState({
-    nombre: "",
-    apellido: "",
-    email: "",
-    password: "",
-    carreraId: "",
-  });
-
-  const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(form)
-    register(form)
-  };
-
-  const navigate = useNavigate();
-
-  const { carreras } = useCarreras()
   // TODO: Mostrar errores, Mostrar cargando
-  const { register, error, loading } = useRegister()
+  const { error, loading, form, navigate, handleChange, handleSubmit } = useRegister()
+  const { carreras } = useCarreras()
 
   return (
     <div className="login-container">
