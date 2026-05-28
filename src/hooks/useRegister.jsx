@@ -10,7 +10,6 @@ export const useRegister = () => {
   const [registrarUsuario ,{loading, error}] = useMutation(REGISTER, {
     onCompleted: () => navigate('/login')
   })
-  const register = (form) => {registrarUsuario({variables: form})}
 
   const [form, setForm] = useState({
     nombre: "",
@@ -29,7 +28,7 @@ export const useRegister = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    register(form)
+    registrarUsuario({variables: form})
   };
 
   return {loading, error, form, navigate, handleChange, handleSubmit}
