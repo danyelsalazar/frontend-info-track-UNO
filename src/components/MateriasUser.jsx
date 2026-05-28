@@ -1,5 +1,5 @@
 import data from "../data/infotrack_uno_final.json";
-import '../styles/MateriasUser.css';
+import '../styles/materiasUser.css';
 
 const MateriasUser = () => {
   const { careers, subjects } = data;

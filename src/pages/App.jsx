@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Materias from "./Materias";
 import Home from "./Home"
 import ScrollTopTop from "../components/ScrollTopTop";
-import MateriaDetalle from "../components/MateriaDetalle";
+import Materia from "./Materia";
 import Login from "./Login";
 import MainLayout from "../components/MainLayout";
 import Register from "./Register";
@@ -19,7 +19,7 @@ const App = () => {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/materias" element={<Materias />} />
-          <Route path="/materias/:id" element={<MateriaDetalle />} />
+          <Route path="/materias/:id" element={<Materia />} />
         </Route>
 
         {/* RUTA SIN HEADER NI FOOTER */}
