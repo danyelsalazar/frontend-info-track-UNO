@@ -27,7 +27,7 @@ export const useLogin = () => {
     onCompleted: (data) => {
       const {loguearUsuario: accessToken} = data
       localStorage.setItem('accessToken', accessToken)
-      navigate('/')
+      navigate('/dashboard')
     }
   })
 
