@@ -16,3 +16,49 @@ export const MATERIAS = gql`
     }
   }
 `
+
+export const MATERIA_ID = gql`
+  query Materia($materiaId: ID!) {
+    materia(id: $materiaId) {
+      id
+      nombre
+      linkWhatsapp
+      promocion
+      cargaHorariaSemanal
+      cargaHorariaTotal
+      correlativas {
+        id
+        nombre
+      }
+      profesores {
+        id
+        nombre
+        email
+      }
+      comisiones {
+        id
+        numero
+        modalidad
+        salon {
+          tipo
+          numero
+        }
+        anio
+        cuatrimestre
+        horarios {
+          dia
+          horaFin
+          horaInicio
+        }
+      }
+      planEstudio {
+        anio
+        cuatrimestre
+        carrera {
+          id
+          nombre
+        }
+      }
+    }
+  }
+`
