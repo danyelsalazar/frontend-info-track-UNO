@@ -8,6 +8,7 @@ import MainLayout from "../components/MainLayout";
 import Register from "./Register";
 import Dashboard from "./Dashboard";
 import MateriasUser from "../components/MateriasUser";
+import Profesores from "./Profesores";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/materias" element={<Materias />} />
           <Route path="/materias/:id" element={<Materia />} />
+          <Route path="/profesores" element={<Profesores />} />
         </Route>
 
         {/* RUTA SIN HEADER NI FOOTER */}
