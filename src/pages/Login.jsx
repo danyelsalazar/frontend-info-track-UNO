@@ -1,15 +1,34 @@
-import { useLogin } from "../hooks/useLogin";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  // TODO: Mostrar error y loading
-  const {form, handleChange, handleSubmit, navigate, error, loading} = useLogin()
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
 
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(form);
+  };
+
+  const navigate = useNavigate();
   return (
     <div className="login-container">
       <div className="login-box">
         {/* LOGO / HEADER */}
         <h2 className="login-title">Acceso al sistema</h2>
         <p className="login-subtitle">Ingresá con tu cuenta para continuar</p>
+
+        <p className="login-divider">Alumnos / Administrador</p>
+
         {/* FORM */}
         <form onSubmit={handleSubmit} className="login-form">
           <input
@@ -18,7 +37,6 @@ const Login = () => {
             placeholder="Nombre de usuario o correo"
             value={form.email}
             onChange={handleChange}
-            required
           />
 
           <input
@@ -27,7 +45,6 @@ const Login = () => {
             placeholder="Contraseña"
             value={form.password}
             onChange={handleChange}
-            required
           />
 
           <p className="forgot">

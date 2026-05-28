@@ -1,10 +1,28 @@
-import { useCarreras } from "../hooks/useCarreras";
-import { useRegister } from "../hooks/useRegister";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  // TODO: Mostrar errores, Mostrar cargando
-  const { error, loading, form, navigate, handleChange, handleSubmit } = useRegister()
-  const { carreras } = useCarreras()
+  const [form, setForm] = useState({
+    nombre: "",
+    apellido: "",
+    email: "",
+    password: "",
+    carrera: "",
+  });
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(form);
+  };
+
+  const navigate = useNavigate();
 
   return (
     <div className="login-container">
@@ -13,6 +31,7 @@ const Register = () => {
         <p className="login-subtitle">
           Completá tus datos para crear una cuenta
         </p>
+
         <form onSubmit={handleSubmit} className="login-form">
           <input
             type="text"
@@ -20,9 +39,6 @@ const Register = () => {
             placeholder="Nombre"
             value={form.nombre}
             onChange={handleChange}
-            required
-            minLength={3}
-            maxLength={40}
           />
 
           <input
@@ -31,9 +47,6 @@ const Register = () => {
             placeholder="Apellido"
             value={form.apellido}
             onChange={handleChange}
-            required
-            minLength={3}
-            maxLength={40}
           />
 
           <input
@@ -42,7 +55,6 @@ const Register = () => {
             placeholder="Correo electrónico"
             value={form.email}
             onChange={handleChange}
-            required
           />
 
           <input
@@ -51,25 +63,20 @@ const Register = () => {
             placeholder="Contraseña"
             value={form.password}
             onChange={handleChange}
-            minLength={8}
-            maxLength={100}
-            required
           />
 
           {/* SELECT CARRERA */}
           <select
-            name="carreraId"
+            name="carrera"
             value={form.carrera}
             onChange={handleChange}
             className="select-input"
-            required
           >
             <option value="">Seleccionar carrera</option>
-            {
-              carreras.map(carrera => (
-                <option value={carrera.id} key={carrera.id}>{carrera.nombre}</option>
-              ))
-            }
+            <option value="programacion">Licenciatura informatica</option>
+            <option value="diseno">Tecnicatura en tecnologias web</option>
+            <option value="marketing">Tecnicatura en Redes Informáticas</option>
+            <option value="administracion">Analista de Sistemas</option>
           </select>
 
           <button type="submit" className="btn-primary">
@@ -85,7 +92,7 @@ const Register = () => {
             Iniciá sesión
           </span>
         </p>
-        <p className="forgot">
+         <p className="forgot">
             <span
               style={{ cursor: "pointer"}}
               onClick={() => navigate("/")}
