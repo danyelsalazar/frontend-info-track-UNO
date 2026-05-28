@@ -49,14 +49,16 @@ const Materias = () => {
                 </div>
                 <div className="container-profesor-name">
                   {
-                    materia.profesores.map(profesor => (
-                      <p
-                        key={profesor.id}
-                        className="materia-profesor-name"
-                      >
-                        {profesor.nombre}
-                      </p>
-                    ))
+                    materia.profesores.length === 0
+                      ? <p className="materia-profesor-name">No hay información</p>
+                      : materia.profesores.map(profesor => (
+                          <p
+                            key={profesor.id}
+                            className="materia-profesor-name"
+                          >
+                            {profesor.nombre}
+                          </p>
+                        ))
                   }
                 </div>
               </li>
