@@ -1,22 +1,58 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext"
+
+const BotonesAuth = ({setOpen, navigate}) => {
+  return (
+    <>
+      <li onClick={() =>{ 
+        setOpen(false)
+        navigate("/login")}} className="item-nav button-ingresar">
+        Ingresar
+      </li>
+      <li onClick={() => { 
+        setOpen(false)
+        navigate("/register")
+      } } className="item-nav button-ingresar btn-secondary">
+        Registrarse
+      </li>
+    </>
+  )
+}
+
+const BotonUsuario = ({userIdentity}) => {
+  return (
+    <Link 
+      className="button-usuario"
+      to="/dashboard"
+    >
+      {userIdentity.apellido}, {userIdentity.nombre}
+      <div className="avatar">
+        {userIdentity.siglas}
+      </div>
+    </Link>
+  )
+}
 
 const Header = () => {
+  // Menu abierto en mobile
   const [open, setOpen] = useState(false);
   const [esVisible, setEsVisible] = useState(false);
 
+  const navigate = useNavigate();
   const navRef = useRef()
   const buttonRef = useRef()
 
-  useEffect(()=>{
+  const { userIdentity } = useAuthContext()
 
+  useEffect(()=>{
     const handleClickFuera = (e)=>{
       if(navRef.current && !navRef.current.contains(e.target) && !buttonRef.current.contains(e.target)){
         setOpen(false)
       }
     };
-    // abro un escuchador paran todosm los click de la pagina
+    // abro un escuchador paran todos los click de la pagina
     document.addEventListener("mousedown", handleClickFuera);
 
     //controlo scroll para mostrar el header
@@ -32,14 +68,14 @@ const Header = () => {
     // Escuchar el evento de scroll del navegador
     window.addEventListener('scroll', controlarScroll);
 
-    return()=>{
+    return () => {
       // cierro el escuchador de clicks
-          document.removeEventListener("mousedown", handleClickFuera);
-          // cierro el escuchador de scroll
-          window.removeEventListener('scroll', controlarScroll);
+      document.removeEventListener("mousedown", handleClickFuera);
+      // cierro el escuchador de scroll
+      window.removeEventListener('scroll', controlarScroll);
     }
-  },[])
-  const navigate = useNavigate();
+  }, [])
+
   return (
     <header ref={navRef} className={`header-fijo ${esVisible ? 'visible' : ''}`}>
       <div className="container-logo-header">
@@ -61,7 +97,11 @@ const Header = () => {
       </div>
 
       {/* botón hamburguesa */}
-      <button ref={buttonRef} className={`menu-toggle ${open ? "hamburquesa-active": ""}`} onClick={() => setOpen(!open)}>
+      <button 
+        ref={buttonRef} 
+        className={`menu-toggle ${open ? "hamburquesa-active": ""}`} 
+        onClick={() => setOpen(!open)}
+      >
         ☰
       </button>
 
@@ -85,17 +125,12 @@ const Header = () => {
           <li className="item-nav">
             <Link to={"/?section=novedades"}  onClick={() => setOpen(false)}>Novedades</Link>
           </li>
-          <li onClick={() =>{ 
-            setOpen(false)
-            navigate("/login")}} className="item-nav button-ingresar">
-            Ingresar
-          </li>
-          <li onClick={() => { 
-            setOpen(false)
-            navigate("/register")
-          } } className="item-nav button-ingresar btn-secondary">
-             Registrarse
-          </li>
+          {
+            userIdentity.id
+              ? <BotonUsuario userIdentity={userIdentity}/>
+              : <BotonesAuth setOpen={setOpen} navigate={navigate}/>
+          }
+          
         </ul>
       </nav>
     </header>
