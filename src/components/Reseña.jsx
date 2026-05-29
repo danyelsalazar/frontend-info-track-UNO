@@ -1,3 +1,5 @@
+import { Rating } from "@mui/material"
+
 export const Reseña = ({puntuacion}) => {
   return (
     <li className="profesor-reseña">
@@ -10,9 +12,11 @@ export const Reseña = ({puntuacion}) => {
             <h4 className="profesor-reseña-nombre">
               {puntuacion.usuario.apellido}, {puntuacion.usuario.nombre}
             </h4>
-            <div>
-              ⭐⭐⭐⭐⭐
-            </div>
+            <Rating 
+              readOnly 
+              size="small"
+              defaultValue={puntuacion.puntuacion}
+            />
           </div>
           <p className="profesor-reseña-fecha">
             {puntuacion.fecha}

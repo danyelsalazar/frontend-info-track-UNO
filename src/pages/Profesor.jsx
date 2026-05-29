@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useProfesor } from "../hooks/useProfesor"
 import { Reseña } from "../components/Reseña"
+import { Rating } from "@mui/material"
 
 export const Profesor = () => {
   const { profesor, loading } = useProfesor()
@@ -24,10 +25,13 @@ export const Profesor = () => {
           </div>
           <div className="profesor-rating-container">
             <h2 className="profesor-rating-promedio">
-              {profesor?.promedioPuntuaciones || 0}
+              {profesor?.promedioPuntuaciones || 0}/5
             </h2>
-            <div>
-            </div>
+            <Rating 
+              size="small" 
+              readOnly 
+              defaultValue={profesor?.promedioPuntuaciones || 0}
+            />
             <p className="profesor-rating-cantidad">
               {`${profesor?.cantidadPuntuaciones} ${profesor?.cantidadPuntuaciones === 1 ? 'reseña' : 'reseñas'}`}
             </p>

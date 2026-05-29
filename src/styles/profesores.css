@@ -278,7 +278,8 @@
 
 .profesor-reseña-header-info-content {
   display: flex;
-  gap: 10px
+  align-items: center;
+  gap: 6px
 }
 
 .profesor-reseña-nombre {
