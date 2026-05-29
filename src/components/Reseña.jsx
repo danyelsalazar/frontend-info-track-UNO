@@ -2,14 +2,14 @@ import { Rating } from "@mui/material"
 
 export const Reseña = ({puntuacion}) => {
   return (
-    <li className="profesor-reseña">
-      <header className="profesor-reseña-header">
-        <div className="profesor-reseña-logo">
+    <li className="reseña-card">
+      <header className="reseña-header">
+        <div className="reseña-logo">
           {puntuacion.usuario.siglas}
         </div>
-        <div className="profesor-reseña-header-info">
-          <div className="profesor-reseña-header-info-content">
-            <h4 className="profesor-reseña-nombre">
+        <div className="reseña-header-info">
+          <div className="reseña-header-info-content">
+            <h4 className="reseña-nombre-usuario">
               {puntuacion.usuario.apellido}, {puntuacion.usuario.nombre}
             </h4>
             <Rating 
@@ -18,12 +18,12 @@ export const Reseña = ({puntuacion}) => {
               defaultValue={puntuacion.puntuacion}
             />
           </div>
-          <p className="profesor-reseña-fecha">
+          <p className="reseña-fecha">
             {puntuacion.fecha}
           </p>
         </div>
       </header>
-      <main className="profesor-reseña-comentario">
+      <main className="reseña-comentario">
         {puntuacion?.comentario}
       </main>
     </li>

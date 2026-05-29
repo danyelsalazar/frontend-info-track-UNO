@@ -23,13 +23,13 @@ export const Profesores = () => {
         profesores.map(profesor => (
           <li 
             key={profesor.id}
-            className="profesor-item"
+            className="profesor-card"
             onClick={() => navigate(`/profesor/${profesor.id}`)}
           >
             <div className="index-profe">
               {profesor.siglas}
             </div>
-            <p className="materia-name">
+            <p className="profesor-card-nombre">
               {profesor.apellido}, {profesor.nombre}
             </p>
             

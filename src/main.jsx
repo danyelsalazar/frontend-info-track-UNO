@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import App from './pages/App.jsx'
 import './styles/profesores.css'
 import './styles/dashboard.css'
+import './styles/reseña.css'
 import { BrowserRouter } from 'react-router-dom'
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/client/react";

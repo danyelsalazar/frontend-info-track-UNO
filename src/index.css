@@ -92,6 +92,8 @@ main{
   transition:
     background-color 0.1s ease,
     box-shadow 0.1s ease;
+  border-bottom: 1px solid var(--color-border);
+
 }
 .header-fijo.visible {
   background-color: var(--color-surface);
@@ -176,7 +178,7 @@ main{
 }
 .item-nav a {
   display: block;
-  padding: 10px 14px;
+  padding: 10px;
   border-radius: var(--radius-sm);
   color: var(--color-text);
   font-size: 14px;
@@ -228,7 +230,6 @@ section {
   .nav-container ul {
     flex-direction: row;
     align-items: center;
-    gap: 0.25rem;
     padding: 0;
   }
   .item-nav a {
