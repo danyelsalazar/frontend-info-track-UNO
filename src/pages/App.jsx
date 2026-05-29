@@ -9,6 +9,7 @@ import Register from "./Register";
 import Dashboard from "./Dashboard";
 import MateriasUser from "../components/MateriasUser";
 import Profesores from "./Profesores";
+import { Profesor } from "./Profesor";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/materias" element={<Materias />} />
           <Route path="/materias/:id" element={<Materia />} />
           <Route path="/profesores" element={<Profesores />} />
+          <Route path="/profesor/:id" element={<Profesor />} />
         </Route>
 
         {/* RUTA SIN HEADER NI FOOTER */}
