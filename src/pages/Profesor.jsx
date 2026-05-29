@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { useProfesor } from "../hooks/useProfesor"
+import { Reseña } from "../components/Reseña"
 
 export const Profesor = () => {
   const { profesor, loading } = useProfesor()
@@ -23,12 +24,12 @@ export const Profesor = () => {
           </div>
           <div className="profesor-rating-container">
             <h2 className="profesor-rating-promedio">
-              4.5
+              {profesor?.promedioPuntuaciones || 0}
             </h2>
             <div>
             </div>
             <p className="profesor-rating-cantidad">
-              2 reseñas
+              {`${profesor?.cantidadPuntuaciones} ${profesor?.cantidadPuntuaciones === 1 ? 'reseña' : 'reseñas'}`}
             </p>
           </div>
         </header>
@@ -37,7 +38,10 @@ export const Profesor = () => {
           <ul className="profesor-materias-container">
             {
               profesor.materias.map(materia => (
-                <Link to={`/materia/${materia.id}`} className="profesor-materia" key={materia.id}>
+                <Link 
+                  to={`/materia/${materia.id}`} className="profesor-materia"
+                  key={materia.id}
+                >
                   {materia.nombre}
                 </Link>
               ))
@@ -56,29 +60,13 @@ export const Profesor = () => {
         <section className="profesor-section">
           <h3>Reseñas</h3>
           <ul className="profesor-reseñas-container">
-            <li className="profesor-reseña">
-              <header className="profesor-reseña-header">
-                <div className="profesor-reseña-logo">
-                  AC
-                </div>
-                <div className="profesor-reseña-header-info">
-                  <div className="profesor-reseña-header-info-content">
-                    <h4 className="profesor-reseña-nombre">
-                      Agustín Calpe
-                    </h4>
-                    <div>
-                      ⭐⭐⭐⭐⭐
-                    </div>
-                  </div>
-                  <p className="profesor-reseña-fecha">
-                    24 de may 2026
-                  </p>
-                </div>
-              </header>
-              <main className="profesor-reseña-comentario">
-                "Explica muy bien"
-              </main>
-            </li>
+            {
+              profesor.puntuaciones.length === 0
+                ? <p>Todavía nadie dejó una reseña</p>
+                : profesor.puntuaciones.map(puntuacion => (
+                <Reseña puntuacion={puntuacion}/>
+                )) 
+            }
           </ul>
         </section>
       </div>

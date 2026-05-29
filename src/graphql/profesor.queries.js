@@ -30,6 +30,7 @@ export const PROFESOR_ID = gql`
           id
           nombre
           apellido
+          siglas
         }
         puntuacion
         fecha
