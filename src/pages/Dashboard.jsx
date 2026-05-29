@@ -2,8 +2,9 @@ import { useNavigate } from "react-router-dom";
 import GraficoMaterias from "../components/GraficoMaterias";
 import HeaderDashboard from "../components/HeaderDashboard";
 import "../styles/dashboard.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddMateriaAlumno from "../components/AddMateriaAlumno";
+import { useAuthContext } from "../hooks/useAuthContext"
 // ── DATA ──────────────────────────────────────────────
 const STATS = [
   { value: "18", label: "Materias aprobadas", colorClass: "stat-teal" },
@@ -168,6 +169,14 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const [abrirAddMateria, setAbrirAddMateria] = useState(false);
 
+  const { userIdentity } = useAuthContext()
+  useEffect(() => {
+    if(!userIdentity.id) {
+      navigate("/")
+    }
+  }, [navigate, userIdentity.id])
+  
+
   const handleAbrirAddMateria = () => {
     abrirAddMateria ? setAbrirAddMateria(false) : setAbrirAddMateria(true);
   };
@@ -178,7 +187,7 @@ export default function Dashboard() {
         setAbrirAddMateria={setAbrirAddMateria}
       />
       {/* Overlay oscuro separado */}
-       {abrirAddMateria && <div className="dashboard-overlay" />}
+      {abrirAddMateria && <div className="dashboard-overlay" />}
       <div
         className={`dashboard-page ${abrirAddMateria ? "blurred" : ""}`}
       >
