@@ -11,3 +11,32 @@ export const PROFESORES = gql`
     }
   }
 `
+
+export const PROFESOR_ID = gql`
+  query Profesor($profesorId: ID!) {
+    profesor(id: $profesorId) {
+      id
+      nombre
+      apellido
+      siglas
+      email
+      materias {
+        id
+        nombre
+      }
+      puntuaciones {
+        id
+        usuario {
+          id
+          nombre
+          apellido
+        }
+        puntuacion
+        fecha
+        comentario
+      }
+      cantidadPuntuaciones
+      promedioPuntuaciones
+    }
+  }
+`
