@@ -6,7 +6,7 @@ export const useSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams()
 
   const paginaInicial = Number(searchParams.get("page")) || 1
-  const searchInicial = searchParams.get(search) || ""
+  const searchInicial = searchParams.get("search") || ""
 
   const [search, setSearch] = useState(searchInicial)
   const [page, setPage] = useState(paginaInicial)
