@@ -1,7 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './styles/dashboard.css'
 import App from './pages/App.jsx'
+import './styles/profesores.css'
+import './styles/dashboard.css'
 import { BrowserRouter } from 'react-router-dom'
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/client/react";
