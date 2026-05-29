@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useProfesor } from "../hooks/useProfesor"
 import { Reseña } from "../components/Reseña"
 import { Rating } from "@mui/material"
 
 export const Profesor = () => {
   const { profesor, loading } = useProfesor()
+  const navigate = useNavigate()
 
   if(loading) {
     return (
@@ -14,6 +15,13 @@ export const Profesor = () => {
 
   return (
     <section className="container-section-profesor">
+
+      <header className="section-header">
+        <button className="btn-volver" onClick={() => navigate(-1)}>
+          ← Volver
+        </button>
+      </header>
+
       <div className="container-profesor">
         <header className="profesor-container-header profesor-section">
           <div className="profesor-header-logo">

@@ -1103,3 +1103,30 @@ h1{
   background: rgba(0, 156, 209, 0.2);
   color: var(--color-primary-dark);
 }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.btn-volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-volver:hover {
+  background: var(--color-btn);
+  color: var(--color-light);
+  border-color: #cbd5e1;
+}
