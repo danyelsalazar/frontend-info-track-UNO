@@ -20,11 +20,11 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/materias" element={<Materias />} />
           <Route path="/materias/:id" element={<Materia />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register/>}/>
         </Route>
 
         {/* RUTA SIN HEADER NI FOOTER */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/dashboard/mis-materias" element={<MateriasUser/>}/>
       </Routes>

@@ -66,7 +66,6 @@ a {
 #root {
   display: flex;
   flex-direction: column;
-  min-height: 100dvh;
 }
 .container-materias {
   flex: 1;
@@ -926,13 +925,12 @@ p.divisor i {
 
 /* ================= LOGIN ================= */
 .login-container {
-  min-height: 100vh;
+  margin-top: -64px;
+  min-height: 100dvh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 0;
   background: var(--color-bg);
   padding: 1.5rem;
 }

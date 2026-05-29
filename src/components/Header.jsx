@@ -79,7 +79,7 @@ const Header = () => {
   return (
     <header ref={navRef} className={`header-fijo ${esVisible ? 'visible' : ''}`}>
       <div className="header-fijo-content">
-        <div className="container-logo-header">
+        <Link to="/" className="container-logo-header">
           <div className="container-svg-logo-header">
             <svg
               className="svg-logo-header"
@@ -95,7 +95,7 @@ const Header = () => {
           <div className="text-logo">
             <p>InfoTrack</p>
           </div>
-        </div>
+        </Link>
 
         {/* botón hamburguesa */}
         <button 
