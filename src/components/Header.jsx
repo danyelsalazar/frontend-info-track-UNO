@@ -78,61 +78,63 @@ const Header = () => {
 
   return (
     <header ref={navRef} className={`header-fijo ${esVisible ? 'visible' : ''}`}>
-      <div className="container-logo-header">
-        <div className="container-svg-logo-header">
-          <svg
-            className="svg-logo-header"
-            viewBox="0 0 14 14"
-            preserveAspectRatio="xMidYMid meet"
-          >
-            <rect x="1" y="1" width="5" height="5" rx="1" />
-            <rect x="8" y="1" width="5" height="5" rx="1" />
-            <rect x="1" y="8" width="5" height="5" rx="1" />
-            <rect x="8" y="8" width="5" height="5" rx="1" />
-          </svg>
+      <div className="header-fijo-content">
+        <div className="container-logo-header">
+          <div className="container-svg-logo-header">
+            <svg
+              className="svg-logo-header"
+              viewBox="0 0 14 14"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <rect x="1" y="1" width="5" height="5" rx="1" />
+              <rect x="8" y="1" width="5" height="5" rx="1" />
+              <rect x="1" y="8" width="5" height="5" rx="1" />
+              <rect x="8" y="8" width="5" height="5" rx="1" />
+            </svg>
+          </div>
+          <div className="text-logo">
+            <p>InfoTrack</p>
+          </div>
         </div>
-        <div className="text-logo">
-          <p>InfoTrack</p>
-        </div>
+
+        {/* botón hamburguesa */}
+        <button 
+          ref={buttonRef} 
+          className={`menu-toggle ${open ? "hamburquesa-active": ""}`} 
+          onClick={() => setOpen(!open)}
+        >
+          ☰
+        </button>
+
+        <nav className={`nav-container ${open ? "active" : ""}` }>
+          <ul>
+            <li className="item-nav">
+              <Link to={"/?section=inicio"} onClick={() => setOpen(false)}>Home</Link>
+            </li>
+            <li className="item-nav">
+              <Link to={"/?section=carreras"} onClick={() => setOpen(false)}>Carreras</Link>
+            </li>
+            <li className="item-nav">
+              <Link to={"/?section=cuatrimestre"}  onClick={() => setOpen(false)}>Cuatrimestre</Link>
+            </li>
+            <li className="item-nav">
+              <Link to={"/?section=profesores"}  onClick={() => setOpen(false)}>Top profesores</Link>
+            </li>
+            <li className="item-nav">
+              <Link to={"/materias"} onClick={() => setOpen(false)}>Materias</Link>
+            </li>
+            <li className="item-nav">
+              <Link to={"/?section=novedades"}  onClick={() => setOpen(false)}>Novedades</Link>
+            </li>
+            {
+              userIdentity.id
+                ? <BotonUsuario userIdentity={userIdentity}/>
+                : <BotonesAuth setOpen={setOpen} navigate={navigate}/>
+            }
+            
+          </ul>
+        </nav>
       </div>
-
-      {/* botón hamburguesa */}
-      <button 
-        ref={buttonRef} 
-        className={`menu-toggle ${open ? "hamburquesa-active": ""}`} 
-        onClick={() => setOpen(!open)}
-      >
-        ☰
-      </button>
-
-      <nav className={`nav-container ${open ? "active" : ""}` }>
-        <ul>
-          <li className="item-nav">
-            <Link to={"/?section=inicio"} onClick={() => setOpen(false)}>Home</Link>
-          </li>
-          <li className="item-nav">
-            <Link to={"/?section=carreras"} onClick={() => setOpen(false)}>Carreras</Link>
-          </li>
-          <li className="item-nav">
-            <Link to={"/?section=cuatrimestre"}  onClick={() => setOpen(false)}>Cuatrimestre</Link>
-          </li>
-          <li className="item-nav">
-            <Link to={"/?section=profesores"}  onClick={() => setOpen(false)}>Top profesores</Link>
-          </li>
-          <li className="item-nav">
-            <Link to={"/materias"} onClick={() => setOpen(false)}>Materias</Link>
-          </li>
-          <li className="item-nav">
-            <Link to={"/?section=novedades"}  onClick={() => setOpen(false)}>Novedades</Link>
-          </li>
-          {
-            userIdentity.id
-              ? <BotonUsuario userIdentity={userIdentity}/>
-              : <BotonesAuth setOpen={setOpen} navigate={navigate}/>
-          }
-          
-        </ul>
-      </nav>
     </header>
   );
 };
