@@ -25,7 +25,7 @@ const Materias = () => {
           <li
             key={materia.id}
             className="materia-item card"
-            onClick={() => navigate(`/materias/${materia.id}`)}
+            onClick={() => navigate(`/materia/${materia.id}`)}
           >
             <p className="materia-name">
               {materia.nombre}
