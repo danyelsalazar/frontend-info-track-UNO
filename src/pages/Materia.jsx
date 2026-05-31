@@ -1,16 +1,18 @@
-import { IconBrandWhatsapp, IconCalendarCheck, IconPoint, IconStar } from "@tabler/icons-react";
+import { IconBrandWhatsapp, IconCalendarCheck, IconStar } from "@tabler/icons-react";
 import { useMateria } from "../hooks/useMateria"
+import { MateriaBadge } from "../components/MateriaBadge";
 
 const MateriaDetalle = () => {
   // TODO: Mostrar el loading
   const { materia, loading } = useMateria()
+  console.log(materia)
 
   return (
     <section className="container-section">
       <div className="container-materia">
         <header className="section">
           <h3 className="materia-title">
-            Algebra y Geometría Analítica <strong>(01017)</strong>
+            {materia.nombre} <strong>({materia.id})</strong>
           </h3>
           <div className="materia-badge-container">
             <p className="badge">
@@ -51,6 +53,15 @@ const MateriaDetalle = () => {
             <h3 className="section-title">
               Correlativas
             </h3>
+            <ul className="materia-correlativas-container">
+              {
+                materia.correlativas
+                ? materia.correlativas.map(correlativa => {
+                    return <MateriaBadge materia={correlativa}/>
+                  })
+                : ''
+              }
+            </ul>
           </section>
           <section className="section">
             <h3 className="section-title">

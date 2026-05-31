@@ -57,6 +57,11 @@
   color: #065F46;
   border: 1px solid #065F46;
 }
+.materia-correlativas-container {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
 
 .title-profes-detalle {
   font-family: "DM Serif Display", serif;
@@ -112,4 +117,21 @@
   font-size: 13px;
   list-style: disc;
   margin-left: 1.2rem;
+}
+
+/*============BADGE==============*/
+.materia-badge {
+  background: var(--color-card-bg);
+  color: var(--color-primary-dark);
+  border: 1px solid #bfdbef;
+  border-radius: 10px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.materia-badge:hover {
+  border-color: var(--color-btn);
+  color: var(--color-btn);
 }
