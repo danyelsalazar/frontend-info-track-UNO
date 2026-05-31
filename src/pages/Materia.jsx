@@ -17,16 +17,37 @@ const MateriaDetalle = () => {
           <div className="materia-badge-container">
             <p className="badge">
               <IconCalendarCheck size={14}/>
-              1º y 2º cuatrimestre
+              {
+                materia.cuatrimestreDictado.length === 2
+                  ? "1º y 2º cuatrimestre"
+                  : `${materia.cuatrimestreDictado[0]}º cuatrimestre`
+              }
+              
             </p>
-            <p className="badge">
-              <IconStar size={14}/>
-              Promocionable
-            </p>
-            <a className="materia-whatsapp-btn">
-              <IconBrandWhatsapp size={15}/>
-              Whatsapp
-            </a>
+            {
+              materia.promocionable 
+              && (
+                <p className="badge">
+                  <IconStar size={14}/>
+                  Promocionable
+                </p>
+              )
+            }
+            {
+              materia.linkWhatsapp 
+              && (
+                <a 
+                  className="materia-whatsapp-btn"
+                  href={materia.linkWhatsapp}
+                  target="noblank"
+                >
+                  <IconBrandWhatsapp size={15}/>
+                  Whatsapp
+                </a>
+              )
+            }
+            
+            
           </div>
         </div>
         <aside className="materia-header-estado">

@@ -26,6 +26,7 @@ export const MATERIA_ID = gql`
       promocion
       cargaHorariaSemanal
       cargaHorariaTotal
+      cuatrimestreDictado
       correlativas {
         id
         nombre
