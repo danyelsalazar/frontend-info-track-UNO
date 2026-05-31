@@ -1,15 +1,4 @@
-/* ================= MATERIA DETALLE ================= */
-.container-section-materia-detalle {
-  min-height: 70vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 1.25rem;
-}
-.cuatri{
-  color: var(--color-dark);
-}
-.container-materia-detalle {
+.container-materia {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -21,11 +10,29 @@
   padding: 2rem;
   box-shadow: var(--shadow);
 }
-.container-info-materia-detalle-profes {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+.materia-title{
+  font-size: 26px;
+  color: var(--color-primary);
 }
+.materia-title>strong{
+  font-size: 16px;
+  color: var(--color-text-muted);
+}
+.materia-badge-container {
+  margin-top: 4px;
+  display: flex;
+  gap: 4px
+}
+.materia-whatsapp-btn {
+  background-color: #25D366;
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+}
+
 .title-profes-detalle {
   font-family: "DM Serif Display", serif;
   font-size: 17px;
@@ -33,9 +40,7 @@
   padding-bottom: 8px;
   border-bottom: 1.5px solid var(--color-border);
 }
-.title-name-materia-detalle{
-  color: var(--color-primary);
-}
+
 .cod-materia-detalle b,
 .profe-materia-detalle b {
   color: #fff;

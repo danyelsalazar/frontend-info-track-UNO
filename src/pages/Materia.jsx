@@ -5,15 +5,23 @@ const MateriaDetalle = () => {
   const { materia, loading } = useMateria()
 
   return (
-    <section className="container-section-materia-detalle">
-      <div className="container-materia-detalle">
+    <section className="container-section">
+      <div className="container-materia">
         <header>
-          <h3 className="title-name-materia-detalle">
-            <strong>
-              {materia.id}
-            </strong>
-            - {materia.nombre}
+          <h3 className="materia-title">
+            Algebra y Geometría Analítica <strong>(01017)</strong>
           </h3>
+          <div className="materia-badge-container">
+            <p className="badge">
+              1º y 2º cuatrimestre
+            </p>
+            <p className="badge">
+              Promocionable
+            </p>
+            <button className="materia-whatsapp-btn">
+              Whatsapp
+            </button>
+          </div>
         </header>
         <main>
           <section className="section">
