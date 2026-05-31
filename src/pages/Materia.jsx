@@ -7,7 +7,7 @@ const MateriaDetalle = () => {
   return (
     <section className="container-section">
       <div className="container-materia">
-        <header>
+        <header className="section">
           <h3 className="materia-title">
             Algebra y Geometría Analítica <strong>(01017)</strong>
           </h3>
