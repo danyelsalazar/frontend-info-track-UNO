@@ -18,9 +18,11 @@ const MateriaDetalle = () => {
             <p className="badge">
               <IconCalendarCheck size={14}/>
               {
-                materia.cuatrimestreDictado.length === 2
-                  ? "1º y 2º cuatrimestre"
-                  : `${materia.cuatrimestreDictado[0]}º cuatrimestre`
+                materia.cuatrimestreDictado 
+                  ? materia?.cuatrimestreDictado.length === 2
+                    ? "1º y 2º cuatrimestre"
+                    : `${materia.cuatrimestreDictado[0]}º cuatrimestre`
+                  : ''                
               }
               
             </p>
