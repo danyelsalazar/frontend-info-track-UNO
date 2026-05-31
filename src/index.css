@@ -1095,8 +1095,11 @@ h1{
 .badge {
   color: #fff;
   background: var(--color-btn);
-  padding: 3px 12px;
+  padding: 3px 10px;
   border-radius: 100px;
   font-size: 12px;
   font-weight: 600;
+  display: flex;
+  gap: 4px;
+  align-items: center;
 }

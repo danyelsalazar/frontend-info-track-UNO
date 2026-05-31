@@ -1,3 +1,4 @@
+import { IconBrandWhatsapp, IconCalendarCheck, IconStar } from "@tabler/icons-react";
 import { useMateria } from "../hooks/useMateria"
 
 const MateriaDetalle = () => {
@@ -13,12 +14,15 @@ const MateriaDetalle = () => {
           </h3>
           <div className="materia-badge-container">
             <p className="badge">
+              <IconCalendarCheck size={14}/>
               1º y 2º cuatrimestre
             </p>
             <p className="badge">
+              <IconStar size={14}/>
               Promocionable
             </p>
             <button className="materia-whatsapp-btn">
+              <IconBrandWhatsapp size={15}/>
               Whatsapp
             </button>
           </div>
