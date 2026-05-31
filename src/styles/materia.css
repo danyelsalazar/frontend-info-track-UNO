@@ -24,6 +24,39 @@
   gap: 4px;
   align-items: center;
 }
+.materia-estados-container {
+  display: flex;
+  gap: 6px
+}
+.materia-estados-container>button {
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.button-cursando {
+  background-color: #EFF6FF;
+  color: #1E40AF;
+  border: 1px solid #1E40AF;
+}
+.button-regularizada {
+  background-color: #FFF7ED ;
+  color: #9A3412;
+  border: 1px solid #9A3412;
+}
+.button-aprobada {
+  background-color: #F0FDF4  ;
+  color: #166534;
+  border: 1px solid #166534;
+}
+.button-promocionada {
+  background-color: #ECFDF5  ;
+  color: #065F46;
+  border: 1px solid #065F46;
+}
 
 .title-profes-detalle {
   font-family: "DM Serif Display", serif;

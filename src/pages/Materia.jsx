@@ -1,4 +1,4 @@
-import { IconBrandWhatsapp, IconCalendarCheck, IconStar } from "@tabler/icons-react";
+import { IconBrandWhatsapp, IconCalendarCheck, IconPoint, IconStar } from "@tabler/icons-react";
 import { useMateria } from "../hooks/useMateria"
 
 const MateriaDetalle = () => {
@@ -32,6 +32,20 @@ const MateriaDetalle = () => {
             <h3 className="section-title">
               Mi estado
             </h3>
+            <div className="materia-estados-container">
+              <button className="button-cursando">
+                Cursando
+              </button>
+              <button className="button-regularizada">
+                Regularizada
+              </button>
+              <button className="button-aprobada">
+                Aprobada
+              </button>
+              <button className="button-promocionada">
+                Promocionada
+              </button>
+            </div>
           </section>
           <section className="section">
             <h3 className="section-title">
