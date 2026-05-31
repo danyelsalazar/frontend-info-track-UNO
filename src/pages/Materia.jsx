@@ -1,4 +1,4 @@
-import { IconBrandWhatsapp, IconCalendarCheck, IconCirclePlus, IconStar } from "@tabler/icons-react";
+import { IconBrandWhatsapp, IconBuilding, IconCalendarCheck, IconCalendarWeek, IconCirclePlus, IconLink, IconStar, IconUser } from "@tabler/icons-react";
 import { useMateria } from "../hooks/useMateria"
 import { MateriaBadge } from "../components/MateriaBadge";
 
@@ -38,6 +38,7 @@ const MateriaDetalle = () => {
       <main>
         <section className="section">
           <h3 className="section-title">
+            <IconLink size={16}/>
             Correlativas
           </h3>
           <ul className="materia-correlativas-container">
@@ -52,16 +53,19 @@ const MateriaDetalle = () => {
         </section>
         <section className="section">
           <h3 className="section-title">
+            <IconUser size={16}/>
             Profesores
           </h3>
         </section>
         <section className="section">
           <h3 className="section-title">
+            <IconCalendarWeek size={16}/>
             Comisiones
           </h3>
         </section>
         <section className="section">
           <h3 className="section-title">
+            <IconBuilding size={16}/>
             Carreras
           </h3>
         </section>

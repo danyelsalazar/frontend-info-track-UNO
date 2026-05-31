@@ -1085,12 +1085,15 @@ h1{
   border-bottom: 0;
 }
 .section-title {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin: 0 0 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 .badge {
   color: #fff;
