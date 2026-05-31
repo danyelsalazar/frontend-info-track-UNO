@@ -20,7 +20,7 @@ const MateriaDetalle = () => {
             {materia.profesores?.map(profesor => (
               <div key={profesor.id} className="info-mareria-detalle-profe">
                 <p className="profe-materia-detalle">
-                  <b>{'XX'}</b> {profesor.nombre}
+                  <b>{profesor.siglas}</b> {profesor.apellido}, {profesor.nombre}
                 </p>
                 <p className="email-profe-materia-detalle"> <b className="email-profe">Email: </b>{profesor.email}</p>
               </div>
