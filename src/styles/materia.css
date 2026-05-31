@@ -1,3 +1,10 @@
+.materia-header {
+  display: flex;
+  justify-content: space-between;
+}
+.materia-header-info {
+  flex: 1;
+}
 .materia-title{
   font-size: 26px;
   color: var(--color-primary);
@@ -5,6 +12,18 @@
 .materia-title>strong{
   font-size: 16px;
   color: var(--color-text-muted);
+}
+.materia-button-estado {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--color-light);
+  background-color: var(--color-btn);
+  border: none;
 }
 .materia-badge-container {
   margin-top: 4px;
