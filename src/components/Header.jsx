@@ -77,7 +77,7 @@ const Header = () => {
             <Link to={"/?section=cuatrimestre"}  onClick={() => setOpen(false)}>Cuatrimestre</Link>
           </li>
           <li className="item-nav">
-            <Link to={"/?section=profesores"}  onClick={() => setOpen(false)}>Top profesores</Link>
+            <Link to={"/profesores"}  onClick={() => setOpen(false)}>Profesores</Link>
           </li>
           <li className="item-nav">
             <Link to={"/materias"} onClick={() => setOpen(false)}>Materias</Link>

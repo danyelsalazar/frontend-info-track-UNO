@@ -8,6 +8,7 @@ export const MATERIAS = gql`
       profesores {
         id
         nombre
+        apellido
       }
       carreras {
         id
