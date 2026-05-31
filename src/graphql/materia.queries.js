@@ -33,6 +33,8 @@ export const MATERIA_ID = gql`
       profesores {
         id
         nombre
+        apellido
+        siglas
         email
       }
       comisiones {

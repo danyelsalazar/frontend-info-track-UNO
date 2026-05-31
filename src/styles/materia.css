@@ -56,86 +56,44 @@
   align-items: center;
   cursor: pointer;
 }
-.button-cursando {
-  background-color: #EFF6FF;
-  color: #1E40AF;
-  border: 1px solid #1E40AF;
-}
-.button-regularizada {
-  background-color: #FFF7ED ;
-  color: #9A3412;
-  border: 1px solid #9A3412;
-}
-.button-aprobada {
-  background-color: #F0FDF4  ;
-  color: #166534;
-  border: 1px solid #166534;
-}
-.button-promocionada {
-  background-color: #ECFDF5  ;
-  color: #065F46;
-  border: 1px solid #065F46;
-}
 .materia-correlativas-container {
   display: flex;
   gap: 4px;
   align-items: center;
 }
-
-.title-profes-detalle {
-  font-family: "DM Serif Display", serif;
-  font-size: 17px;
-  color: var(--color-primary-dark);
-  padding-bottom: 8px;
-  border-bottom: 1.5px solid var(--color-border);
-}
-
-.cod-materia-detalle b,
-.profe-materia-detalle b {
-  color: #fff;
-  background: var(--color-btn);
-  padding: 2px 9px;
-  border-radius: 100px;
-  font-size: 12px;
-}
-.info-mareria-detalle-profe {
+.materia-profesores-container {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
-.email-profe-materia-detalle {
-  font-size: 13px;
+.materia-profesor-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
 }
-.email-profe {
+.materia-profesor-avatar {
+  width: 36px;
+  height: 36px;
+  background: #e0f3fb;
+  border-radius: 50%;
   color: var(--color-primary-dark);
   font-weight: 600;
-  padding: 2px 8px;
-  border-radius: 6px;
-  background: rgba(20, 74, 117, 0.08);
-  margin-right: 4px;
-  font-size: 13px;
-}
-.list-coorrelativas {
+  font-size: 15px;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: 0.5px;
 }
-.list-coorrelativas h5 {
-  color: var(--color-text-muted);
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  background: var(--color-card-bg);
-  padding: 4px 10px;
-  border-radius: 6px;
-  width: max-content;
+.materia-profesor-card-content>h4 {
+  font-weight: 600;
+  margin-bottom: -6px;
 }
-.list-coorrelativas li {
+.materia-profesor-card-content>p {
+  font-weight: 100;
+  font-size: 12px;
   color: var(--color-text-muted);
-  font-size: 13px;
-  list-style: disc;
-  margin-left: 1.2rem;
 }
 
 /*============BADGE==============*/

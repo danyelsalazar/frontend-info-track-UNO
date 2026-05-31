@@ -1,6 +1,7 @@
 import { IconBrandWhatsapp, IconBuilding, IconCalendarCheck, IconCalendarWeek, IconCirclePlus, IconLink, IconStar, IconUser } from "@tabler/icons-react";
 import { useMateria } from "../hooks/useMateria"
 import { MateriaBadge } from "../components/MateriaBadge";
+import { Link } from "react-router-dom";
 
 const MateriaDetalle = () => {
   // TODO: Mostrar el loading
@@ -56,6 +57,30 @@ const MateriaDetalle = () => {
             <IconUser size={16}/>
             Profesores
           </h3>
+          <ul className="materia-profesores-container">
+            {
+              materia.profesores 
+              ? materia?.profesores.map(profesor => (
+                <Link 
+                  className="materia-profesor-card"
+                  to={`/profesor/${profesor.id}`}
+                >
+                  <div className="materia-profesor-avatar">
+                    {profesor.siglas}
+                  </div>
+                  <div className="materia-profesor-card-content">
+                    <h4>
+                      {profesor.apellido}, {profesor.nombre}
+                    </h4>
+                    <p>
+                      {profesor.email}
+                    </p>
+                  </div>
+                </Link>
+              ))
+              : ''
+            }
+          </ul>
         </section>
         <section className="section">
           <h3 className="section-title">
