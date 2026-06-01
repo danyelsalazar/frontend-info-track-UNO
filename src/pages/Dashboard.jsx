@@ -169,12 +169,12 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const [abrirAddMateria, setAbrirAddMateria] = useState(false);
 
-  const { userIdentity } = useAuthContext()
+  const { token } = useAuthContext()
   useEffect(() => {
-    if(!userIdentity.id) {
+    if(!token) {
       navigate("/")
     }
-  }, [navigate, userIdentity.id])
+  }, [navigate, token])
   
 
   const handleAbrirAddMateria = () => {

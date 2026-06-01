@@ -26,6 +26,11 @@ const App = () => {
           <Route path="/materia/:id" element={<Materia />} />
           <Route path="/profesores" element={<Profesores />} />
           <Route path="/profesor/:id" element={<Profesor />} />
+          <Route path="/materia/:id" element={<Materia />} />
+          <Route path="/profesores" element={<Profesores />} />
+          <Route path="/profesor/:id" element={<Profesor />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register/>}/>
         </Route>
 
         {/* RUTA SIN HEADER NI FOOTER */}

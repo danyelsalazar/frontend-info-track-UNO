@@ -14,7 +14,6 @@ export const useLogin = () => {
       navigate('/dashboard')
     }
   }, [navigate, userIdentity])
-  
   const [loguearUsuario, {loading, error}] = useMutation(LOGIN, {
     onCompleted: (data) => {
       const {loguearUsuario: accessToken} = data
