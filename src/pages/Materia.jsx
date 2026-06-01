@@ -3,9 +3,58 @@ import { useMateria } from "../hooks/useMateria"
 import { MateriaBadge } from "../components/MateriaBadge";
 import { Link } from "react-router-dom";
 
+const ProfesorCard = ({profesor}) => {
+  return (
+    <Link 
+      className="materia-profesor-card"
+      to={`/profesor/${profesor.id}`}
+    >
+      <div className="materia-profesor-avatar">
+        {profesor.siglas}
+      </div>
+      <div className="materia-profesor-card-content">
+        <h4>
+          {profesor.apellido}, {profesor.nombre}
+        </h4>
+        <p>
+          {profesor.email}
+        </p>
+      </div>
+    </Link>
+  )
+}
+
+const NoCorrelativas = () => {
+  return (
+    <p className="section-text">
+      Esta materia no tiene correlativas
+    </p>
+  )
+}
+
+const NoProfesores = () => {
+  return (
+    <p className="section-text">
+      No hay información sobre profesores
+    </p>
+  )
+}
+
 const MateriaDetalle = () => {
   // TODO: Mostrar el loading
   const { materia, loading } = useMateria()
+
+  if(loading) {
+    return (
+      <p>Cargando...</p>
+    )
+  }
+
+  if(!materia) {
+    return (
+      <p>Materia no existe</p>
+    )
+  }
 
   return (
     <section className="container-section">
@@ -18,11 +67,9 @@ const MateriaDetalle = () => {
             <p className="badge">
               <IconCalendarCheck size={14}/>
               {
-                materia.cuatrimestreDictado 
-                  ? materia?.cuatrimestreDictado.length === 2
-                    ? "1º y 2º cuatrimestre"
-                    : `${materia.cuatrimestreDictado[0]}º cuatrimestre`
-                  : ''                
+                materia?.cuatrimestreDictado.length === 2
+                  ? "1º y 2º cuatrimestre"
+                  : `${materia.cuatrimestreDictado[0]}º cuatrimestre`             
               }
               
             </p>
@@ -67,11 +114,9 @@ const MateriaDetalle = () => {
           </h3>
           <ul className="materia-correlativas-container">
             {
-              materia.correlativas
-              ? materia.correlativas.map(correlativa => {
-                  return <MateriaBadge materia={correlativa}/>
-                })
-              : ''
+              materia.correlativas.length > 0
+              ? materia.correlativas.map(correlativa => <MateriaBadge materia={correlativa}/>)
+              : <NoCorrelativas />
             }
           </ul>
         </section>
@@ -82,26 +127,9 @@ const MateriaDetalle = () => {
           </h3>
           <ul className="materia-profesores-container">
             {
-              materia.profesores 
-              ? materia?.profesores.map(profesor => (
-                <Link 
-                  className="materia-profesor-card"
-                  to={`/profesor/${profesor.id}`}
-                >
-                  <div className="materia-profesor-avatar">
-                    {profesor.siglas}
-                  </div>
-                  <div className="materia-profesor-card-content">
-                    <h4>
-                      {profesor.apellido}, {profesor.nombre}
-                    </h4>
-                    <p>
-                      {profesor.email}
-                    </p>
-                  </div>
-                </Link>
-              ))
-              : ''
+              materia.profesores.length > 0 
+              ? materia?.profesores.map(profesor => <ProfesorCard profesor={profesor}/>)
+              : <NoProfesores />
             }
           </ul>
         </section>

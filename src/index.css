@@ -1047,6 +1047,13 @@ h1{
   align-items: center;
   gap: 4px;
 }
+.section-text {
+  color: var(--color-text-muted);
+  font-weight: 100;
+  font-size: 14px;
+  padding-left: 6px;
+  margin-top: -6px;
+}
 .badge {
   color: #fff;
   background: var(--color-btn);
