@@ -21,14 +21,19 @@ const App = () => {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/materias" element={<Materias />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register/>}/>
           <Route path="/materia/:id" element={<Materia />} />
           <Route path="/profesores" element={<Profesores />} />
           <Route path="/profesor/:id" element={<Profesor />} />
+          <Route path="/materia/:id" element={<Materia />} />
+          <Route path="/profesores" element={<Profesores />} />
+          <Route path="/profesor/:id" element={<Profesor />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register/>}/>
         </Route>
 
         {/* RUTA SIN HEADER NI FOOTER */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/dashboard/mis-materias" element={<MateriasUser/>}/>
       </Routes>
