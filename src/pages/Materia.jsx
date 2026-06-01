@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { IconBrandWhatsapp, IconBuilding, IconCalendarCheck, IconCalendarWeek, IconCirclePlus, IconLink, IconStar, IconUser } from "@tabler/icons-react";
+import { IconBrandWhatsapp, IconBuilding, IconCalendarCheck, IconCalendarWeek, IconCirclePlus, IconLink, IconStar, IconUsersGroup } from "@tabler/icons-react";
 import { useMateria } from "../hooks/useMateria"
 import { MateriaBadge } from "../components/MateriaBadge";
 import { BackButton } from "../components/BackButton";
@@ -43,7 +43,7 @@ const ProfesoresSection = ({profesores}) => {
   return (
     <section className="section">
       <h3 className="section-title">
-        <IconUser size={16}/>
+        <IconUsersGroup size={16}/>
         Profesores
       </h3>
       <ul className="materia-profesores-container">
@@ -64,6 +64,14 @@ const ComisionesSection = () => {
         <IconCalendarWeek size={16}/>
         Comisiones
       </h3>
+      <div>
+        <h4>
+          2026 - 1ER CUATRIMESTRE
+        </h4>
+        <ul className="materia-comisiones-container">
+          <Comision />
+        </ul>
+      </div>
     </section>
   )
 }
@@ -136,6 +144,28 @@ const ProfesorCard = ({profesor}) => {
         </p>
       </div>
     </Link>
+  )
+}
+
+const Comision = ({comision}) => {
+  return (
+    <li>
+      <header>
+        <h4>Comisión única</h4>
+        <p>AULA 4</p>
+      </header>
+      <p>Presencial</p>
+      <ul>
+        <li>
+          <p>LUNES</p>
+          <p>09:00 - 12:00</p>
+        </li>
+        <li>
+          <p>MARTES</p>
+          <p>09:00 - 12:00</p>
+        </li>
+      </ul>
+    </li>
   )
 }
 

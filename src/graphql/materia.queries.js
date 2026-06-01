@@ -39,7 +39,23 @@ export const MATERIA_ID = gql`
         siglas
         email
       }
-      comisiones {
+      comisionesActuales {
+        id
+        numero
+        modalidad
+        salon {
+          tipo
+          numero
+        }
+        anio
+        cuatrimestre
+        horarios {
+          dia
+          horaFin
+          horaInicio
+        }
+      }
+      comisionesAnteriores {
         id
         numero
         modalidad
