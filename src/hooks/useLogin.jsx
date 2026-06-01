@@ -9,17 +9,14 @@ export const useLogin = () => {
   const { guardarToken, userIdentity } = useAuthContext()
 
   useEffect(() => {
-    if(userIdentity?.id) {
-      // Si está logueado entonces ir a home
-      navigate('/')
-    }
-  }, [navigate, userIdentity])
-  
+    if(userIdentity?.id) navigate('/')
+  }, [userIdentity, navigate])
+
   const [loguearUsuario, {loading, error}] = useMutation(LOGIN, {
     onCompleted: (data) => {
       const {loguearUsuario: accessToken} = data
       guardarToken(accessToken)
-      navigate(-1)
+      navigate("/dashboard")
     }
   })
 
