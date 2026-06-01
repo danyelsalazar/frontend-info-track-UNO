@@ -11,7 +11,7 @@ export const useLogin = () => {
   useEffect(() => {
     if(userIdentity?.id) {
       // Si está logueado entonces ir a home
-      navigate('/')
+      navigate('/dashboard')
     }
   }, [navigate, userIdentity])
   
@@ -19,7 +19,7 @@ export const useLogin = () => {
     onCompleted: (data) => {
       const {loguearUsuario: accessToken} = data
       guardarToken(accessToken)
-      navigate(-1)
+      navigate("/dashboard")
     }
   })
 
