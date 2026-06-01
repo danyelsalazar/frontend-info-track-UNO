@@ -1,65 +1,30 @@
 .materia-header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 6px;
 }
-.materia-header-info {
-  flex: 1;
-}
-.materia-title{
-  font-size: 26px;
-  color: var(--color-primary);
-}
-.materia-title>strong{
-  font-size: 16px;
-  color: var(--color-text-muted);
-}
-.materia-button-estado {
+.materia-header-top {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 4px;
-  padding: 8px 10px;
-  border-radius: 10px;
-  font-size: 14px;
-  cursor: pointer;
-  color: var(--color-light);
-  background-color: var(--color-btn);
-  border: none;
+  gap: 10px;
 }
 .materia-badge-container {
-  margin-top: 4px;
-  display: flex;
-  gap: 4px
-}
-.materia-whatsapp-btn {
-  background-color: #25D366;
-  color: #fff;
-  padding: 3px 10px;
-  border-radius: 100px;
-  font-size: 12px;
-  cursor: pointer;
-  border: none;
-  font-weight: 600;
   display: flex;
   gap: 4px;
-  align-items: center;
-}
-.materia-estados-container {
-  display: flex;
-  gap: 6px
-}
-.materia-estados-container>button {
-  padding: 6px 12px;
-  border-radius: 10px;
-  font-size: 16px;
-  background-color: none;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  padding-bottom: 4px;
+  margin-bottom: -4px;
 }
 .materia-correlativas-container {
   display: flex;
   gap: 4px;
   align-items: center;
+  overflow-x: auto;
+}
+.materia-correlativas-container::-webkit-scrollbar {
+  display: none;
 }
 .materia-profesores-container {
   display: flex;
@@ -72,14 +37,53 @@
   gap: 10px;
   cursor: pointer;
 }
+
+.materia-title{
+  font-size: 2rem;
+  color: var(--color-primary);
+  line-height: 2.3rem;
+}
+.materia-title>strong{
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+}
+.materia-button-estado {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--color-light);
+  background-color: var(--color-btn);
+  border: none;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+.badge {
+  color: #fff;
+  background: var(--color-btn);
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  white-space: nowrap;
+}
+#whatsapp-btn {
+  background-color: #25D366;
+}
 .materia-profesor-avatar {
-  width: 36px;
-  height: 36px;
+  width: 2.75rem;
+  height: 2.75rem;
   background: #e0f3fb;
   border-radius: 50%;
   color: var(--color-primary-dark);
   font-weight: 600;
-  font-size: 15px;
+  font-size: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,7 +96,7 @@
 }
 .materia-profesor-card-content>p {
   font-weight: 100;
-  font-size: 12px;
+  font-size: 0.9rem;
   color: var(--color-text-muted);
 }
 
@@ -103,11 +107,11 @@
   border: 1px solid #bfdbef;
   border-radius: 10px;
   padding: 4px 12px;
-  font-size: 13px;
+  font-size: 1rem;
   font-weight: 500;
   transition: var(--transition);
+  white-space: nowrap;
 }
-
 .materia-badge:hover {
   border-color: var(--color-btn);
   color: var(--color-btn);

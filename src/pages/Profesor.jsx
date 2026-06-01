@@ -15,15 +15,13 @@ export const Profesor = () => {
 
   return (
     <section className="container-section-profesor">
-
       <header className="section-header">
         <button className="btn-volver" onClick={() => navigate(-1)}>
           ← Volver
         </button>
       </header>
-
-      <div className="container-profesor">
-        <header className="profesor-container-header profesor-section">
+      <div className="container-section">
+        <header className="profesor-container-header section">
           <div className="profesor-header-logo">
             {profesor.siglas}
           </div>
@@ -45,13 +43,15 @@ export const Profesor = () => {
             </p>
           </div>
         </header>
-        <section className="profesor-section">
-          <h3>Materias que dicta</h3>
+        <section className="section">
+          <h3 className="section-title">
+            Materias que dicta
+          </h3>
           <ul className="profesor-materias-container">
             {
               profesor.materias.map(materia => (
                 <Link 
-                  to={`/materia/${materia.id}`} className="profesor-materia"
+                  to={`/materia/${materia.id}`} className="materia-badge"
                   key={materia.id}
                 >
                   {materia.nombre}
@@ -60,17 +60,21 @@ export const Profesor = () => {
             }
           </ul>
         </section>
-        <section className="profesor-section">
-          <h3>Mi reseña</h3>
+        <section className="section">
+          <h3 className="section-title">
+            Mi reseña
+          </h3>
           <div className="mi-reseña-section">
-            <p>Todavía no dejaste una reseña para este profesor</p>
+            <p className="section-text">Todavía no dejaste una reseña para este profesor</p>
             <button className="boton-mi-reseña">
               + Dejar reseña
             </button>
           </div>
         </section>
-        <section className="profesor-section">
-          <h3>Reseñas</h3>
+        <section className="section">
+          <h3 className="section-title">
+            Reseñas
+          </h3>
           <ul className="profesor-reseñas-container">
             {
               profesor.puntuaciones.length === 0

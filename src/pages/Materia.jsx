@@ -59,52 +59,49 @@ const MateriaDetalle = () => {
   return (
     <section className="container-section">
       <header className="materia-header section">
-        <div className="materia-header-info">
+        <div className="materia-header-top">
           <h3 className="materia-title">
             {materia.nombre} <strong>({materia.id})</strong>
           </h3>
-          <div className="materia-badge-container">
-            <p className="badge">
-              <IconCalendarCheck size={14}/>
-              {
-                materia?.cuatrimestreDictado.length === 2
-                  ? "1º y 2º cuatrimestre"
-                  : `${materia.cuatrimestreDictado[0]}º cuatrimestre`             
-              }
-              
-            </p>
-            {
-              materia.promocionable 
-              && (
-                <p className="badge">
-                  <IconStar size={14}/>
-                  Promocionable
-                </p>
-              )
-            }
-            {
-              materia.linkWhatsapp 
-              && (
-                <a 
-                  className="materia-whatsapp-btn"
-                  href={materia.linkWhatsapp}
-                  target="noblank"
-                >
-                  <IconBrandWhatsapp size={15}/>
-                  Whatsapp
-                </a>
-              )
-            }
-            
-            
-          </div>
-        </div>
-        <aside className="materia-header-estado">
           <button className="materia-button-estado">
             <IconCirclePlus size={16}/>
-            Indicar mi estado
+            Indicar estado
           </button>
-        </aside>
+        </div>
+        <div className="materia-badge-container">
+          <p className="badge">
+            <IconCalendarCheck size={14}/>
+            {
+              materia?.cuatrimestreDictado.length === 2
+                ? "1º y 2º cuatrimestre"
+                : `${materia.cuatrimestreDictado[0]}º cuatrimestre`             
+            }
+            
+          </p>
+          {
+            materia.promocionable 
+            && (
+              <p className="badge">
+                <IconStar size={14}/>
+                Promocionable
+              </p>
+            )
+          }
+          {
+            materia.linkWhatsapp 
+            && (
+              <a 
+                id="whatsapp-btn"
+                className="badge"
+                href={materia.linkWhatsapp}
+                target="noblank"
+              >
+                <IconBrandWhatsapp size={15}/>
+                Whatsapp
+              </a>
+            )
+          }
+        </div>
       </header>
       <main>
         <section className="section">
@@ -128,7 +125,7 @@ const MateriaDetalle = () => {
           <ul className="materia-profesores-container">
             {
               materia.profesores.length > 0 
-              ? materia?.profesores.map(profesor => <ProfesorCard profesor={profesor}/>)
+              ? materia?.profesores.map(profesor => <ProfesorCard profesor={profesor} key={profesor.id}/>)
               : <NoProfesores />
             }
           </ul>
