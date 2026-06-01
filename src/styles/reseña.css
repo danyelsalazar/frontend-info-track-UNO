@@ -1,0 +1,57 @@
+.reseña-card {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+}
+
+.reseña-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.reseña-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #e0f3fb;
+  color: var(--color-primary-dark);
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.reseña-header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.reseña-header-info-content {
+  display: flex;
+  align-items: center;
+  gap: 6px
+}
+
+.reseña-nombre-usuario {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 2px;
+}
+
+.reseña-fecha {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.reseña-comentario {
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 1.55;
+  font-style: italic;
+}
