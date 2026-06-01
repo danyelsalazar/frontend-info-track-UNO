@@ -1,8 +1,9 @@
-import { useNavigate } from "react-router-dom"
+import { Rating } from "@mui/material"
+import { IconBook2, IconStar, IconUser } from "@tabler/icons-react"
 import { useProfesor } from "../hooks/useProfesor"
 import { Reseña } from "../components/Reseña"
-import { Rating } from "@mui/material"
 import { MateriaBadge } from "../components/MateriaBadge"
+import { BackButton } from "../components/BackButton"
 
 const HeaderSection = ({profesor}) => {
   return (
@@ -35,6 +36,7 @@ const MateriasSection = ({materias}) => {
   return (
     <section className="section">
       <h3 className="section-title">
+        <IconBook2 size={16}/>
         Materias que dicta
       </h3>
       <ul className="profesor-materias-container">
@@ -50,6 +52,7 @@ const MiReseñaSection = ({puntuaciones}) => {
   return (
     <section className="section">
       <h3 className="section-title">
+        <IconUser size={16}/>
         Mi reseña
       </h3>
       <div className="mi-reseña-section">
@@ -66,15 +69,14 @@ const ReseñasSection = ({puntuaciones}) => {
   return (
     <section className="section">
       <h3 className="section-title">
+        <IconStar size={16}/>
         Reseñas
       </h3>
       <ul className="profesor-reseñas-container">
         {
           puntuaciones.length === 0
-            ? <p>Todavía nadie dejó una reseña</p>
-            : puntuaciones.map(puntuacion => (
-            <Reseña puntuacion={puntuacion}/>
-            )) 
+            ? <p className="section-text">Sé el primero en dejar una reseña!</p>
+            : puntuaciones.map(puntuacion => <Reseña puntuacion={puntuacion} key={puntuacion.id}/>) 
         }
       </ul>
     </section>
@@ -83,7 +85,6 @@ const ReseñasSection = ({puntuaciones}) => {
 
 export const Profesor = () => {
   const { profesor, loading } = useProfesor()
-  const navigate = useNavigate()
 
   if(loading) {
     return (
@@ -92,18 +93,14 @@ export const Profesor = () => {
   }
 
   return (
-    <section className="container-section-profesor">
-      <header className="section-header">
-        <button className="btn-volver" onClick={() => navigate(-1)}>
-          ← Volver
-        </button>
-      </header>
+    <main className="page-content">
+      <BackButton />
       <div className="container-section">
         <HeaderSection profesor={profesor}/>
         <MateriasSection materias={profesor.materias}/>
         <MiReseñaSection puntuaciones={profesor.puntuaciones}/>
         <ReseñasSection puntuaciones={profesor.puntuaciones}/>
       </div>
-    </section>
+    </main>
   )
 }

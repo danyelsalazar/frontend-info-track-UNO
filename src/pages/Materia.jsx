@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import { IconBrandWhatsapp, IconBuilding, IconCalendarCheck, IconCalendarWeek, IconCirclePlus, IconLink, IconStar, IconUser } from "@tabler/icons-react";
 import { useMateria } from "../hooks/useMateria"
 import { MateriaBadge } from "../components/MateriaBadge";
-import { Link } from "react-router-dom";
+import { BackButton } from "../components/BackButton";
 
 const HeaderSection = ({materia}) => {
   return (
@@ -154,15 +155,18 @@ const Materia = () => {
   }
 
   return (
-    <section className="container-section">
-      <HeaderSection materia={materia}/>
-      <main>
-        <CorrelativasSection correlativas={materia.correlativas}/>
-        <ProfesoresSection profesores={materia.profesores}/>
-        <ComisionesSection />
-        <CarrerasSection />
-      </main>
-    </section>
+    <main className="page-content">
+      <BackButton />
+      <section className="container-section">
+        <HeaderSection materia={materia}/>
+        <main>
+          <CorrelativasSection correlativas={materia.correlativas}/>
+          <ProfesoresSection profesores={materia.profesores}/>
+          <ComisionesSection />
+          <CarrerasSection />
+        </main>
+      </section>
+    </main>
   );
 };
 
