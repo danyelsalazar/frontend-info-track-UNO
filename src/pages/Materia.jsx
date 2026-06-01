@@ -57,22 +57,48 @@ const ProfesoresSection = ({profesores}) => {
   )
 }
 
-const ComisionesSection = () => {
+const ComisionesSection = ({comisionesActuales, comisionesAnteriores}) => {
+  const cuatrimestreActual = new Date().getMonth() < 7 ? 1 : 2
+  const anioActual = new Date().getFullYear()
+  const cuatrimestreAnterior = cuatrimestreActual === 1 ? 2 : 1
+  const anioAnterior = cuatrimestreActual === 1 ? anioActual - 1 : anioActual
   return (
     <section className="section">
       <h3 className="section-title">
         <IconCalendarWeek size={16}/>
         Comisiones
       </h3>
-      <div>
-        <h4 className="materia-comisiones-title">
-          2026 1º CUATRIMESTRE - En curso
-        </h4>
-        <ul className="materia-comisiones-container">
-          <Comision />
-          <Comision />
-          <Comision />
-        </ul>
+      <div className="materia-comisiones-container">
+        {
+          comisionesActuales.length > 0
+          && (
+            <div>
+              <h4 className="materia-comisiones-title">
+                {anioActual} {cuatrimestreActual}º CUATRIMESTRE - En curso
+              </h4>
+              <ul className="materia-comisiones-list">
+                {
+                  comisionesActuales.map(comision => <Comision comision={comision} key={comision.id}/>)
+                }
+              </ul>
+            </div>
+          )
+        }
+        {
+          comisionesAnteriores.length > 0
+          && (
+            <div>
+              <h4 className="materia-comisiones-title">
+                {anioAnterior} {cuatrimestreAnterior}º CUATRIMESTRE - Cuatrimestre anterior
+              </h4>
+              <ul className="materia-comisiones-list">
+                {
+                  comisionesAnteriores.map(comision => <Comision comision={comision} key={comision.id}/>)
+                }
+              </ul>
+            </div>
+          )
+        }        
       </div>
     </section>
   )
@@ -150,22 +176,32 @@ const ProfesorCard = ({profesor}) => {
 }
 
 const Comision = ({comision}) => {
+  // Formatear a 'capitalize'
+  const modalidad = comision.modalidad.slice(0,1) + comision.modalidad.toLowerCase().slice(1)
   return (
     <li className="materia-comision-container card">
       <header className="materia-comision-header">
-        <h4 className="materia-comision-numero">Comisión 1</h4>
-        <p className="badge">AULA 4</p>
+        <h4 className="materia-comision-numero">
+          Comisión {comision.numero !== 0 ? comision.numero : 'única'}
+        </h4>
+        <p className="badge">
+          {comision.salon.tipo === "AULA" ? "AULA" : "LAB"} {comision.salon.numero}
+        </p>
       </header>
-      <p className="materia-comision-modalidad">Presencial</p>
+      <p className="materia-comision-modalidad">
+        {modalidad}
+      </p>
       <ul className="materia-comision-horarios">
-        <li className="materia-comision-horario">
-          <p className="materia-comision-dia">LUNES</p>
-          <p>09:00 - 12:00</p>
-        </li>
-        <li className="materia-comision-horario">
-          <p className="materia-comision-dia">MARTES</p>
-          <p>09:00 - 12:00</p>
-        </li>
+        {
+          comision.horarios?.map(horario => {
+            return (
+              <li className="materia-comision-horario">
+                <p className="materia-comision-dia">{horario.dia}</p>
+                <p>{horario.horaInicio} - {horario.horaFin}</p>
+              </li>
+            )
+          })
+        }
       </ul>
     </li>
   )
@@ -194,7 +230,7 @@ const Materia = () => {
         <main>
           <CorrelativasSection correlativas={materia.correlativas}/>
           <ProfesoresSection profesores={materia.profesores}/>
-          <ComisionesSection />
+          <ComisionesSection comisionesActuales={materia.comisionesActuales} comisionesAnteriores={materia.comisionesAnteriores}/>
           <CarrerasSection />
         </main>
       </section>
