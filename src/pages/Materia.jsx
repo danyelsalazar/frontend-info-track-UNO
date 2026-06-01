@@ -65,10 +65,12 @@ const ComisionesSection = () => {
         Comisiones
       </h3>
       <div>
-        <h4>
-          2026 - 1ER CUATRIMESTRE
+        <h4 className="materia-comisiones-title">
+          2026 1º CUATRIMESTRE - En curso
         </h4>
         <ul className="materia-comisiones-container">
+          <Comision />
+          <Comision />
           <Comision />
         </ul>
       </div>
@@ -149,19 +151,19 @@ const ProfesorCard = ({profesor}) => {
 
 const Comision = ({comision}) => {
   return (
-    <li>
-      <header>
-        <h4>Comisión única</h4>
-        <p>AULA 4</p>
+    <li className="materia-comision-container card">
+      <header className="materia-comision-header">
+        <h4 className="materia-comision-numero">Comisión 1</h4>
+        <p className="badge">AULA 4</p>
       </header>
-      <p>Presencial</p>
-      <ul>
-        <li>
-          <p>LUNES</p>
+      <p className="materia-comision-modalidad">Presencial</p>
+      <ul className="materia-comision-horarios">
+        <li className="materia-comision-horario">
+          <p className="materia-comision-dia">LUNES</p>
           <p>09:00 - 12:00</p>
         </li>
-        <li>
-          <p>MARTES</p>
+        <li className="materia-comision-horario">
+          <p className="materia-comision-dia">MARTES</p>
           <p>09:00 - 12:00</p>
         </li>
       </ul>

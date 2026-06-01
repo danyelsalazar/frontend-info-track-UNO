@@ -37,6 +37,15 @@
   gap: 10px;
   cursor: pointer;
 }
+.materia-comisiones-container {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  margin-top: 0.75rem;
+}
+.materia-comisiones-container::-webkit-scrollbar {
+  display: none;
+}
 
 .materia-title{
   font-size: 2rem;
@@ -99,8 +108,52 @@
   font-size: 0.9rem;
   color: var(--color-text-muted);
 }
+.materia-comisiones-title {
+  color: var(--color-text-muted);
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.materia-comision-container {
+  min-width: 17rem;
+}
+.materia-comision-header {
+  display: flex;
+  white-space: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.materia-comision-numero {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+.materia-comision-modalidad {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  margin-top: -0.25rem;
+}
+.materia-comision-horarios {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.materia-comision-horario {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 900;
+  border-top: 1px solid var(--color-border);
+  padding: 0.25rem;
+}
+.materia-comision-horario:last-child {
+  padding-bottom: 0;
+}
+.materia-comision-dia {
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
 
-/*============BADGE==============*/
+/*============GLOBAL==============*/
 .materia-badge {
   background: var(--color-card-bg);
   color: var(--color-primary-dark);
