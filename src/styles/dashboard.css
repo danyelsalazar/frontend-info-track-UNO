@@ -1,91 +1,91 @@
 /* ── PÁGINA ─────────────────────────────────────── */
 .dashboard-page {
+  margin-top: 20px;
   min-height: 100vh;
   background: var(--color-bg);
   font-family: "DM Sans", system-ui, sans-serif;
-  padding-bottom: 100px;
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  overflow-x: hidden;
-}
-.dashboard-page.blurred {
-  filter: blur(4px);
-  transition: filter 0.3s ease;
-  pointer-events: none;
-}
-/* El overlay solo pone el tono oscuro */
-.dashboard-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(10, 10, 10, 0.55);
-  z-index: 12;
-  transition: background-color 0.3s ease;
-}
-/* ── HERO ───────────────────────────────────────── */
-.dashboard-hero {
-  background: var(--color-primary);
-  padding: 40px 20px 60px;
-  overflow: hidden;
-}
-
-.hero-deco {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.hero-greeting {
-  font-size: clamp(20px, 5vw, 28px);
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 4px;
-  position: relative;
-}
-.hero-sub {
-  font-size: clamp(12px, 3vw, 14px);
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 400;
-  position: relative;
-}
-/* ------ icono logo appp */
-.container-intro-dashboard{
-  display: flex;
-  gap:.7rem;
-  margin-bottom: .5rem;
-  /* align-items: center; */
+  height: 100%;
 }
 
 /* ── MAIN CARD ──────────────────────────────────── */
 .dashboard-card {
-  margin: -28px 12px 0;
-  background: var(--color-surface);
-  border-radius: 20px;
-  padding: 18px 14px;
+  width: 100%;
+  height: 100%;
+  padding: 0px 0px;
   box-shadow: 0 8px 32px rgba(20, 74, 117, 0.1);
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* ── PROGRESO ───────────────────────────────────── */
-.progress-row {
+/* Barrra de progreso */
+.multi-progress-container {
+  width: 100%;
+}
+
+.multi-progress-bar {
+  display: flex;
+  height: 13px;
+  width: 100%;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.multi-progress-segment {
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+.multi-progress-labels {
   display: flex;
   justify-content: space-between;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.multi-progress-label {
+  display: flex;
   align-items: center;
+  gap: 5px;
+}
+
+.color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* ── PROGRESO ───────────────────────────────────── */
+.progress-section{
+  padding: 0px 20px;
+}
+.progress-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   margin-bottom: 10px;
   gap: 8px;
 }
 .progress-label {
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 800;
   color: var(--color-text);
 }
 .progress-value {
   font-size: 13px;
-  font-weight: 600;
-  color: var(--color-primary);
+  font-weight: 400;
+  color:#9a9fa5;
   white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.progress-value b{
+  font-size: 30px;
+  color:  var(--color-text);
 }
 .progress-track {
   height: 8px;
@@ -102,12 +102,36 @@
 /* contenedor de materias y grafico */
 .container-materias-grafico{
   display: flex;
+  border-bottom: .5px solid rgba(83, 83, 83, 0.312);
+  padding: 0px 20px 20px 20px;
 }
 /* ── STATS ──────────────────────────────────────── */
 .stats-grid {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
+}
+.icono-info-user-materias{
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icono-info-user-materias-aprobadas{
+  background-color: #31bb8d;
+}
+.icono-info-user-materias-cursando{
+  background-color:  #7c3aed;
+}
+.icono-info-user-materias-restantes{
+  background-color: #fb9609;
+}
+.icono-info-user-materias-promedio{
+  background-color: var(--color-primary);
 }
 .stat-card {
   background: var(--color-bg);
@@ -116,6 +140,8 @@
   padding: 14px 12px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 4px;
   height: max-content;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -153,10 +179,16 @@
 }
 
 /* ── TAREAS ─────────────────────────────────────── */
+.tareas-section{
+  /* padding-bottom: 10px; */
+}
 .tareas-list {
   list-style: none;
-  padding: 0;
+  padding: 0px 20px 20px 20px;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .tarea-item {
   display: flex;
@@ -166,6 +198,13 @@
   border-radius: 12px;
   cursor: default;
   transition: box-shadow 0.15s ease;
+  border: 1px solid var(--color-border);
+}
+.tarea-item-description{
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  padding: 10px;
 }
 .tarea-item:hover{
    box-shadow: 0 10px 6px rgba(0, 0, 0, 0.048);
@@ -301,7 +340,7 @@
 
   /* stats en fila de 4 */
   .stats-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 10px;
   }
   .stat-card { padding: 16px 14px; }

@@ -1,23 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import GraficoMaterias from "../components/GraficoMaterias";
-import HeaderDashboard from "../components/HeaderDashboard";
 import "../styles/dashboard.css";
 import { useEffect, useState } from "react";
-import AddMateriaAlumno from "../components/AddMateriaAlumno";
-import { useAuthContext } from "../hooks/useAuthContext"
+import { useAuthContext } from "../hooks/useAuthContext";
+import Header from "../components/Header";
+import MultiProgressBar from "../components/MultiProgressBar";
 // ── DATA ──────────────────────────────────────────────
-const STATS = [
-  { value: "18", label: "Materias aprobadas", colorClass: "stat-teal" },
-  { value: "4", label: "Cursando ahora", colorClass: "stat-primary" },
-  { value: "7.8", label: "Promedio general", colorClass: "stat-red" },
-  { value: "25", label: "Materias restantes", colorClass: "stat-muted" },
-];
-
 const TAREAS = [
   {
     title: "Parcial de Bases de Datos",
     dia: "Hoy",
     tipo: "Final",
+    horario: "09:00",
     dotClass: "dot-red",
     badgeClass: "badge-red",
   },
@@ -25,6 +18,7 @@ const TAREAS = [
     title: "TP Algoritmos — entrega",
     dia: "Jue 17",
     tipo: "Tarea",
+    horario: "09:00",
     dotClass: "dot-yellow",
     badgeClass: "badge-yellow",
   },
@@ -32,6 +26,7 @@ const TAREAS = [
     title: "Parcial de Redes II",
     dia: "Vie 18",
     tipo: "Parcial",
+    horario: "09:00",
     dotClass: "dot-blue",
     badgeClass: "badge-blue",
   },
@@ -158,116 +153,134 @@ const ACCESOS = [
   },
 ];
 
-const dataMock = [
-  { label: "Aprobadas", value: STATS[0].value, color: "var(--color-accent)" },
-  { label: "Cursando", value: STATS[1].value, color: "var(--color-primary)" },
-  { label: "Restantes", value: STATS[3].value, color: "var(--color-btn)" },
-];
-
 // ── COMPONENT ─────────────────────────────────────────
 export default function Dashboard() {
   const navigate = useNavigate();
-  const [abrirAddMateria, setAbrirAddMateria] = useState(false);
-
-  const { token } = useAuthContext()
+  const { token } = useAuthContext();
   useEffect(() => {
-    if(!token) {
-      navigate("/")
+    if (!token) {
+      navigate("/");
     }
-  }, [navigate, token])
-  
+  }, [navigate, token]);
 
-  const handleAbrirAddMateria = () => {
-    abrirAddMateria ? setAbrirAddMateria(false) : setAbrirAddMateria(true);
-  };
   return (
     <>
-      <AddMateriaAlumno
-        abrirAddMateria={abrirAddMateria}
-        setAbrirAddMateria={setAbrirAddMateria}
-      />
-      {/* Overlay oscuro separado */}
-      {abrirAddMateria && <div className="dashboard-overlay" />}
-      <div
-        className={`dashboard-page ${abrirAddMateria ? "blurred" : ""}`}
-      >
-        <HeaderDashboard handleAbrirAddMateria={handleAbrirAddMateria} />
-        {/* HERO */}
-        <div className="dashboard-hero">
-          <div className="container-intro-dashboard">
-            <h1 className="hero-greeting">Hola Equipo </h1>
-            <div className="container-svg-logo-header">
-              <svg
-                className="svg-logo-header"
-                viewBox="0 0 14 14"
-                preserveAspectRatio="xMidYMid meet"
-              >
-                <rect x="1" y="1" width="5" height="5" rx="1" />
-                <rect x="8" y="1" width="5" height="5" rx="1" />
-                <rect x="1" y="8" width="5" height="5" rx="1" />
-                <rect x="8" y="8" width="5" height="5" rx="1" />
-              </svg>
-            </div>
-          </div>
-          <p className="hero-sub">Licenciatura en Informática · Año 2026</p>
-          <button
-            className="exit-dashboard"
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="28"
-              height="28"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fill="white"
-                d="M13 3v2h2v10h-2v2h4V3zm0 8V9H5.4l4.3-4.3l-1.4-1.4L1.6 10l6.7 6.7l1.4-1.4L5.4 11z"
-              />
-            </svg>
-          </button>
-        </div>
-
+      <Header />
+      <div className="dashboard-page">
         {/* MAIN CARD */}
         <div className="dashboard-card">
           {/* PROGRESO */}
           <div className="progress-section">
             <div className="progress-row">
               <span className="progress-label">Progreso de la carrera</span>
-              <span className="progress-value">42% completado</span>
+              <span className="progress-value">
+                <b>42%</b> Total activiti
+              </span>
             </div>
-            <div className="progress-track">
-              <div className="progress-fill" style={{ width: "42%" }} />
-            </div>
+            <MultiProgressBar
+              data={[
+                { value: 12, color: "#31bb8d" },
+                { value: 5, color: "#7c3aed" },
+                { value: 3, color: "#fb9609" },
+              ]}
+            />
           </div>
 
-          {/* STATS */}
+          {/* Iconos info de las materias*/}
           <div className="container-materias-grafico">
             <div className="stats-grid">
-              {STATS.map((s, i) => (
-                <div key={i} className="stat-card">
-                  <span className={`stat-value ${s.colorClass}`}>
-                    {s.value}
-                  </span>
-                  <span className="stat-label">{s.label}</span>
+              <div className="stat-card">
+                <div className="icono-info-user-materias icono-info-user-materias-aprobadas">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 1024 1024"
+                  >
+                    <path
+                      fill="#ffffff"
+                      d="M512 0C229.232 0 0 229.232 0 512c0 282.784 229.232 512 512 512c282.784 0 512-229.216 512-512C1024 229.232 794.784 0 512 0m0 961.008c-247.024 0-448-201.984-448-449.01c0-247.024 200.976-448 448-448s448 200.977 448 448s-200.976 449.01-448 449.01m204.336-636.352L415.935 626.944l-135.28-135.28c-12.496-12.496-32.752-12.496-45.264 0c-12.496 12.496-12.496 32.752 0 45.248l158.384 158.4c12.496 12.48 32.752 12.48 45.264 0c1.44-1.44 2.673-3.009 3.793-4.64l318.784-320.753c12.48-12.496 12.48-32.752 0-45.263c-12.512-12.496-32.768-12.496-45.28 0"
+                    />
+                  </svg>
                 </div>
-              ))}
+                <span>18</span>
+                <span className="stat-label">Aprobadas</span>
+              </div>
+              <div className="stat-card">
+                <div className="icono-info-user-materias icono-info-user-materias-cursando">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="#ffffff"
+                      d="M11.5 3a9.5 9.5 0 0 1 9.5 9.5a9.5 9.5 0 0 1-9.5 9.5A9.5 9.5 0 0 1 2 12.5A9.5 9.5 0 0 1 11.5 3m0 1A8.5 8.5 0 0 0 3 12.5a8.5 8.5 0 0 0 8.5 8.5a8.5 8.5 0 0 0 8.5-8.5A8.5 8.5 0 0 0 11.5 4M11 7h1v5.42l4.7 2.71l-.5.87l-5.2-3z"
+                    />
+                  </svg>
+                </div>
+                <span>5</span>
+                <span className="stat-label">Cursando</span>
+              </div>
+              <div className="stat-card">
+                <div className="icono-info-user-materias icono-info-user-materias-restantes">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                  >
+                    <g fill="none">
+                      <path
+                        fill="#ffffff"
+                        d="M4 7v2h16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2"
+                      />
+                      <path
+                        stroke="#ffffff"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M16 5h2a2 2 0 0 1 2 2v2H4V7a2 2 0 0 1 2-2h2m8 0V3m0 2H8m0-2v2M4 9.5V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9.5"
+                      />
+                    </g>
+                  </svg>
+                </div>
+                <span>34</span>
+                <span className="stat-label">Restantes</span>
+              </div>
+              <div className="stat-card">
+                <div className="icono-info-user-materias icono-info-user-materias-promedio">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="#ffffff"
+                      d="M14.363 4.638Q14 4.275 14 3.75t.363-.888t.887-.362t.888.363t.362.887t-.363.888T15.25 5t-.888-.363m0 16.5Q14 20.776 14 20.25t.363-.888t.887-.362t.888.363t.362.887t-.363.888t-.887.362t-.888-.363m4-13Q18 7.775 18 7.25t.363-.888T19.25 6t.888.363t.362.887t-.363.888t-.887.362t-.888-.363m0 9.5Q18 17.276 18 16.75t.363-.888t.887-.362t.888.363t.362.887t-.363.888t-.887.362t-.888-.363m1.5-4.75Q19.5 12.526 19.5 12t.363-.888t.887-.362t.888.363T22 12t-.363.888t-.887.362t-.888-.363M4.613 5.25q2.613-2.825 6.413-3.2q.4-.05.688.238T12 3q0 .4-.262.7t-.663.35q-3.025.35-5.05 2.6T4 12q0 3.125 2.025 5.363t5.05 2.587q.4.05.663.35T12 21q0 .425-.288.713t-.687.237Q7.2 21.575 4.6 18.75T2 12t2.613-6.75m5.975 8.163Q10 12.825 10 12q0-.125.013-.262t.062-.263L8.7 10.1q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l1.375 1.375q.1-.025.525-.075q.825 0 1.413.588T14 12t-.587 1.413T12 14t-1.412-.587"
+                    />
+                  </svg>
+                </div>
+                <span>7</span>
+                <span className="stat-label">Promedio</span>
+              </div>
             </div>
-            <GraficoMaterias data={dataMock} />
           </div>
           {/* TAREAS */}
           <div className="tareas-section">
-            <p className="section-title title-dashboard">Próximas tareas</p>
             <ul className="tareas-list">
               {TAREAS.map((t, i) => (
                 <li key={i} className="tarea-item">
-                  <span className="tarea-title">{t.title}</span>
-                  <span className="tarea-dia">{t.dia}</span>
-                  <span className={`tarea-badge ${t.badgeClass}`}>
-                    {t.tipo}
-                  </span>
+                    <div>{t.horario}</div>
+                    <div className="tarea-item-description">
+                      <span className="tarea-title">{t.title}</span>
+                      <span className="tarea-dia">{t.dia}</span>
+                      <span className={`tarea-badge ${t.badgeClass}`}>
+                        {t.tipo}
+                      </span>
+                    </div>
                 </li>
               ))}
             </ul>
