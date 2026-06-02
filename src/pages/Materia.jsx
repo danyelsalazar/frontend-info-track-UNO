@@ -116,23 +116,27 @@ const CarrerasSection = () => {
           <h4 className="materia-carrera-nombre">
             Licenciatura en Informática
           </h4>
-          <p className="badge">
-            Año 2
-          </p>
-          <p className="badge">
-            1º Cuatrimestre
-          </p>
+          <div className="materia-carrera-badges-container">
+            <p className="badge">
+              Año 2
+            </p>
+            <p className="badge">
+              1º Cuatrimestre
+            </p>
+          </div>
         </li>
         <li className="materia-carrera-item">
           <h4 className="materia-carrera-nombre">
-            Licenciatura en Informática
+            Tecnicatura Universitaria en Redes Informáticas
           </h4>
-          <p className="badge">
-            Año 2
-          </p>
-          <p className="badge">
-            1º Cuatrimestre
-          </p>
+          <div className="materia-carrera-badges-container">
+            <p className="badge">
+              Año 2
+            </p>
+            <p className="badge">
+              1º Cuatrimestre
+            </p>
+          </div>
         </li>
       </ul>
     </section>
