@@ -85,36 +85,30 @@ const ComisionesSection = ({comisionesActuales, comisionesAnteriores}) => {
         Comisiones
       </h3>
       <div className="materia-comisiones-container">
-        {
-          comisionesActuales.length > 0
-          && (
-            <div>
-              <h4 className="materia-comisiones-title">
-                {anioActual} {cuatrimestreActual}º CUATRIMESTRE - En curso
-              </h4>
-              <ul className="materia-comisiones-list">
-                {
-                  comisionesActuales.map(comision => <Comision comision={comision} key={comision.id}/>)
-                }
-              </ul>
-            </div>
-          )
-        }
-        {
-          comisionesAnteriores.length > 0
-          && (
-            <div>
-              <h4 className="materia-comisiones-title">
-                {anioAnterior} {cuatrimestreAnterior}º CUATRIMESTRE - Cuatrimestre anterior
-              </h4>
-              <ul className="materia-comisiones-list">
-                {
-                  comisionesAnteriores.map(comision => <Comision comision={comision} key={comision.id}/>)
-                }
-              </ul>
-            </div>
-          )
-        }        
+        <div>
+          <h4 className="materia-comisiones-title">
+            {anioActual} {cuatrimestreActual}º Cuatrimestre - En curso
+          </h4>
+          <ul className="materia-comisiones-list">
+            {
+              comisionesActuales.length > 0
+                ? comisionesActuales.map(comision => <Comision comision={comision} key={comision.id}/>)
+                : <p className="section-text">No hay comisiones en este periodo</p>
+            }
+          </ul>
+        </div>
+        <div>
+          <h4 className="materia-comisiones-title">
+            {anioAnterior} {cuatrimestreAnterior}º Cuatrimestre - Cuatrimestre anterior
+          </h4>
+          <ul className="materia-comisiones-list">
+            {
+              comisionesAnteriores.length > 0
+                ? comisionesAnteriores.map(comision => <Comision comision={comision} key={comision.id}/>)
+                : <p className="section-text">No hay comisiones en este periodo</p>
+            }
+          </ul>
+        </div>      
       </div>
     </section>
   )
@@ -234,9 +228,9 @@ const Comision = ({comision}) => {
       </p>
       <ul className="materia-comision-horarios">
         {
-          comision.horarios?.map(horario => {
+          comision.horarios?.map((horario, index) => {
             return (
-              <li className="materia-comision-horario">
+              <li className="materia-comision-horario" key={index}>
                 <p className="materia-comision-dia">{horario.dia}</p>
                 <p>{horario.horaInicio} - {horario.horaFin}</p>
               </li>
