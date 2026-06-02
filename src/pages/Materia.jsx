@@ -13,7 +13,7 @@ const HeaderSection = ({materia}) => {
           {materia.nombre} <strong>({materia.id})</strong>
         </h3>
         <button className="materia-button-estado">
-          <IconCirclePlus size={16}/>
+          <IconCirclePlus size={14}/>
           Indicar estado
         </button>
       </div>
@@ -158,7 +158,6 @@ const BadgesContainer = ({materia}) => {
                 ? "1º y 2º Cuatrimestre"
                 : `${materia.cuatrimestreDictado[0]}º Cuatrimestre`             
             }
-            
           </p>
         )
       }
@@ -199,11 +198,11 @@ const ProfesorCard = ({profesor}) => {
       <div className="materia-profesor-avatar">
         {profesor.siglas}
       </div>
-      <div className="materia-profesor-card-content">
-        <h4>
+      <div className="materia-profesor-info">
+        <h4 className="materia-profesor-nombre">
           {profesor.apellido}, {profesor.nombre}
         </h4>
-        <p>
+        <p className="materia-profesor-email">
           {profesor.email}
         </p>
       </div>

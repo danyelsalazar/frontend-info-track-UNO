@@ -79,7 +79,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 8px;
+  padding: 6px;
   border-radius: 10px;
   font-size: 1rem;
   cursor: pointer;
@@ -88,6 +88,10 @@
   border: none;
   white-space: nowrap;
   align-self: flex-start;
+  transition: var(--transition);
+}
+.materia-button-estado:hover {
+  background-color: var(--color-btn-hover);
 }
 .badge {
   color: #fff;
@@ -101,8 +105,16 @@
   align-items: center;
   white-space: nowrap;
 }
+.badge svg {
+  margin-bottom: 0.1rem;
+}
 #whatsapp-btn {
   background-color: #25D366;
+  transition: var(--transition);
+  gap: 2px;
+}
+#whatsapp-btn:hover {
+  background-color: #1da54f;
 }
 .materia-profesor-card {
   display: flex;
@@ -127,14 +139,14 @@
   flex-shrink: 0;
   letter-spacing: 0.5px;
 }
-.materia-profesor-card-content {
+.materia-profesor-info {
   flex: 1;
 }
-.materia-profesor-card-content>h4 {
+.materia-profesor-nombre {
   font-weight: 600;
-  margin-bottom: -6px;
+  margin-bottom: -4px;
 }
-.materia-profesor-card-content>p {
+.materia-profesor-email {
   font-weight: 100;
   font-size: 0.9rem;
   color: var(--color-text-muted);
@@ -204,6 +216,10 @@
   .materia-carrera-item {
     flex-direction: column;
     align-items: start;
+  }
+
+  .materia-profesor-puntuacion {
+    display: none;
   }
 }
 
