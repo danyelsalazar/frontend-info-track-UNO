@@ -69,7 +69,7 @@
 }
 .progress-label {
   font-size: 18px;
-  font-weight: 800;
+  font-weight: 500;
   color: var(--color-text);
 }
 .progress-value {
@@ -102,7 +102,7 @@
 /* contenedor de materias y grafico */
 .container-materias-grafico{
   display: flex;
-  border-bottom: .5px solid rgba(83, 83, 83, 0.312);
+  border-bottom: .5px solid var(--color-border);
   padding: 0px 20px 20px 20px;
 }
 /* ── STATS ──────────────────────────────────────── */
@@ -146,6 +146,7 @@
   height: max-content;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   cursor: default;
+  cursor:auto;
 }
 .stat-card:hover {
   transform: translateY(-2px);
@@ -179,9 +180,6 @@
 }
 
 /* ── TAREAS ─────────────────────────────────────── */
-.tareas-section{
-  /* padding-bottom: 10px; */
-}
 .tareas-list {
   list-style: none;
   padding: 0px 20px 20px 20px;
@@ -189,9 +187,11 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  border-bottom: 1px solid var(--color-border);
 }
 .tarea-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr .5px 6fr;
   align-items: center;
   gap: 10px;
   padding: 12px 5px;
@@ -199,18 +199,34 @@
   cursor: default;
   transition: box-shadow 0.15s ease;
   border: 1px solid var(--color-border);
+  padding: 10px;
+  cursor: pointer;
+}
+.divisor-horario-info{
+  height: 100%;
+  background-color: var(--color-border);
 }
 .tarea-item-description{
-  display: flex;
-  flex-direction: column;
-  background-color: var(--color-bg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
   padding: 10px;
+  border-radius: 10px;
 }
 .tarea-item:hover{
    box-shadow: 0 10px 6px rgba(0, 0, 0, 0.048);
 }
 .tarea-item:last-child { border-bottom: none; }
 
+.task-day{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.task-description-sub{
+  display: flex;
+  flex-direction: column;
+}
 .tarea-dot {
   width: 8px; height: 8px;
   border-radius: 50%;
@@ -228,11 +244,14 @@
 }
 .tarea-dia {
   font-size: 11px;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   text-align: right;
   line-height: 1.3;
   white-space: nowrap;
   flex-shrink: 0;
+  height: max-content;
+  padding: 2px 4px 2px 4px;
+  border-radius: 10px;
 }
 .tarea-badge {
   padding: 3px 9px;
@@ -241,6 +260,13 @@
   font-weight: 600;
   white-space: nowrap;
   flex-shrink: 0;
+  width: max-content;
+}
+
+.horario-task{
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
 }
 
 /* dots */
@@ -254,10 +280,28 @@
 .badge-blue   { background: rgba(0,156,209,.1);  color: var(--color-primary-dark);  }
 
 /* ── ACCESOS ─────────────────────────────────────── */
+.accesos-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
 .accesos-grid {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 8px;
+  padding: 0px 20px 20px 20px;
+}
+.container-icon-acces-sped{
+  width: 35px;
+  height: 35px;
+  background-color: var(--color-btn);
+  border-radius: 50%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .acceso-btn {
   display: flex;
@@ -270,18 +314,16 @@
   border: 1px solid var(--color-border);
   border-radius: 14px;
   cursor: pointer;
-  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
   font-family: inherit;
 }
 .acceso-btn:hover {
   transform: translateY(-2px);
-  background: rgba(0,156,209,.06);
-  border-color: rgba(0,156,209,.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
 }
 .acceso-btn:hover .acceso-label { color: var(--color-primary-dark); }
 .acceso-btn:active { transform: scale(0.96); }
 
-.acceso-icon  { font-size: 22px; line-height: 1; }
 .acceso-label {
   font-size: 10px;
   font-weight: 500;

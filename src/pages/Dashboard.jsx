@@ -38,20 +38,20 @@ const ACCESOS = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="28"
-        height="28"
+        width="20"
+        height="20"
         viewBox="0 0 24 24"
       >
         <g fill="none">
           <path d="M20 22V4h-4v2H8V4H4v18z" />
           <path d="M16 6H8V2h8z" />
           <path
-            stroke="#666666"
+            stroke="#fff"
             strokeWidth="2"
             d="M16 4h4v18H4V4h4m8 0V2H8v2m8 0v2H8V4"
           />
           <path
-            stroke="#666666"
+            stroke="#fff"
             strokeLinecap="square"
             strokeWidth="2"
             d="M10 12h4m-4 4h4"
@@ -61,51 +61,16 @@ const ACCESOS = [
     ),
   },
   {
-    label: "Calendario",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="28"
-        height="28"
-        viewBox="0 0 24 24"
-      >
-        <path
-          fill="var(--color-primary)"
-          d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"
-        />
-      </svg>
-    ),
-  },
-  {
-    label: "Reseñas",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="28"
-        height="28"
-        viewBox="0 0 24 24"
-      >
-        <path
-          fill="none"
-          stroke="#666666"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="m12 2l3.104 6.728l7.358.873l-5.44 5.03l1.444 7.268L12 18.28L5.534 21.9l1.444-7.268L1.538 9.6l7.359-.873z"
-        />
-      </svg>
-    ),
-  },
-  {
     label: "Recursos",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="28"
-        height="28"
+        width="20"
+        height="20"
         viewBox="0 0 20 20"
       >
         <path
-          fill="#666666"
+          fill="#fff"
           d="M18.405 4.799c-.111-.44-.655-.799-1.21-.799h-6.814c-.554 0-1.33-.318-1.722-.707l-.596-.588C7.671 2.316 6.896 2 6.342 2H3.087c-.555 0-1.059.447-1.12.994L1.675 6h16.931zM19.412 7H.588a.58.58 0 0 0-.577.635l.923 9.669A.77.77 0 0 0 1.7 18h16.6a.77.77 0 0 0 .766-.696l.923-9.669A.58.58 0 0 0 19.412 7"
         />
       </svg>
@@ -116,11 +81,11 @@ const ACCESOS = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="28"
-        height="28"
+        width="20"
+        height="20"
         viewBox="0 0 24 24"
       >
-        <g fill="none" stroke="var(--color-primary)" strokeWidth="2">
+        <g fill="none" stroke="#fff" strokeWidth="2">
           <path
             strokeLinejoin="round"
             d="M4 18a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"
@@ -135,14 +100,14 @@ const ACCESOS = [
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="28"
-        height="28"
+        width="20"
+        height="20"
         viewBox="0 0 24 24"
       >
         <g fill="none">
           <path d="M20.5 2.5h-14a3 3 0 0 0-3 3v13a3 3 0 0 1 3-3h14z" />
           <path
-            stroke="#666666"
+            stroke="#fff"
             strokeLinecap="square"
             strokeWidth="2"
             d="M20.5 21.5h-14a3 3 0 1 1 0-6h14zm0 0v-19h-14a3 3 0 0 0-3 3v12m8-11h5"
@@ -163,6 +128,12 @@ export default function Dashboard() {
     }
   }, [navigate, token]);
 
+  // stado tarea lista
+  const [tarea, setTarea] = useState(true);
+  // clik tarea
+  const handleClickTast = ()=>{
+    setTarea(!tarea)
+  }
   return (
     <>
       <Header />
@@ -174,7 +145,7 @@ export default function Dashboard() {
             <div className="progress-row">
               <span className="progress-label">Progreso de la carrera</span>
               <span className="progress-value">
-                <b>42%</b> Total activiti
+                <b>42%</b> Progreso
               </span>
             </div>
             <MultiProgressBar
@@ -273,13 +244,25 @@ export default function Dashboard() {
             <ul className="tareas-list">
               {TAREAS.map((t, i) => (
                 <li key={i} className="tarea-item">
-                    <div>{t.horario}</div>
-                    <div className="tarea-item-description">
-                      <span className="tarea-title">{t.title}</span>
+                    <div className="horario-task">{t.horario}
                       <span className="tarea-dia">{t.dia}</span>
+                    </div>
+                    <div className="divisor-horario-info"></div>
+                    <div className="tarea-item-description">
+                      <div className="task-description-sub">
+                      <span className="tarea-title">{t.title}</span>
                       <span className={`tarea-badge ${t.badgeClass}`}>
                         {t.tipo}
                       </span>
+                      </div>
+                      <div className="task-day" onClick={()=>{handleClickTast()}}>
+                        {
+                          tarea 
+                          ? <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#009cd1" d="M11.5 3a9.5 9.5 0 0 1 9.5 9.5a9.5 9.5 0 0 1-9.5 9.5A9.5 9.5 0 0 1 2 12.5A9.5 9.5 0 0 1 11.5 3m0 1A8.5 8.5 0 0 0 3 12.5a8.5 8.5 0 0 0 8.5 8.5a8.5 8.5 0 0 0 8.5-8.5A8.5 8.5 0 0 0 11.5 4"/></svg>
+
+                          : <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#009cd1" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+                        }
+                      </div>
                     </div>
                 </li>
               ))}
@@ -288,11 +271,12 @@ export default function Dashboard() {
 
           {/* ACCESOS RÁPIDOS */}
           <div className="accesos-section">
-            <p className="section-title title-dashboard">Accesos rápidos</p>
             <div className="accesos-grid">
               {ACCESOS.map((a, i) => (
                 <button key={i} className="acceso-btn">
+                  <div className="container-icon-acces-sped">
                   <span className="acceso-icon">{a.icon}</span>
+                  </div>
                   <span className="acceso-label">{a.label}</span>
                 </button>
               ))}
