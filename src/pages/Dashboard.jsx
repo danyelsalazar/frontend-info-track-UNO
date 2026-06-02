@@ -209,9 +209,9 @@ export default function Dashboard() {
                       />
                       <path
                         stroke="#ffffff"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M16 5h2a2 2 0 0 1 2 2v2H4V7a2 2 0 0 1 2-2h2m8 0V3m0 2H8m0-2v2M4 9.5V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9.5"
                       />
                     </g>
@@ -244,7 +244,8 @@ export default function Dashboard() {
             <ul className="tareas-list">
               {TAREAS.map((t, i) => (
                 <li key={i} className="tarea-item">
-                    <div className="horario-task">{t.horario}
+                    <div className="horario-task">
+                      {t.horario}
                       <span className="tarea-dia">{t.dia}</span>
                     </div>
                     <div className="divisor-horario-info"></div>

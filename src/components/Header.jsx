@@ -27,7 +27,6 @@ const BotonUsuario = ({userIdentity}) => {
       className="button-usuario"
       to="/dashboard"
     >
-      {userIdentity.apellido}, {userIdentity.nombre}
       <div className="avatar">
         {userIdentity.siglas}
       </div>

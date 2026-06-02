@@ -64,12 +64,12 @@ a {
 }
 
 #root {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-.container-materias {
-  flex: 1;
-}
+
 main{
   display: flex;
   flex-direction: column;
@@ -197,15 +197,16 @@ main{
 .button-usuario {
   font-size: 13px;
   display: flex;
-  flex-direction: row-reverse;
   justify-content: start;
   align-items: center;
   gap: 8px;
-  padding: 9px 13px;
+  padding: 5px;
   background-color: var(--color-btn);
   color: var(--color-light);
-  border-radius: var(--radius-sm);
+  border-radius: 50%;
   transition: var(--transition);
+  width: max-content;
+  margin-left: 10px;
 }
 .button-usuario:hover {
   background-color: var(--color-btn-hover);
@@ -238,6 +239,7 @@ main{
   transition: var(--transition);
   display: inline-block;
   text-align: center;
+  width: 20px;
 }
 .button-ingresar:hover {
   background-color: var(--color-btn-hover);
@@ -464,6 +466,7 @@ section {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  /* flex: 1; */
 }
 
 /* ================= CARRERAS ================= */
@@ -516,6 +519,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  flex: 1;
 }
 .title-top-careras-cuatrimestre{
   display: flex;
