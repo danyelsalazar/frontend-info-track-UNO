@@ -104,7 +104,7 @@ const ComisionesSection = ({comisionesActuales, comisionesAnteriores}) => {
   )
 }
 
-const CarrerasSection = () => {
+const CarrerasSection = ({ planEstudio }) => {
   return (
     <section className="section">
       <h3 className="section-title">
@@ -112,32 +112,23 @@ const CarrerasSection = () => {
         Carreras
       </h3>
       <ul className="materia-carreras-container">
-        <li className="materia-carrera-item">
-          <h4 className="materia-carrera-nombre">
-            Licenciatura en Informática
-          </h4>
-          <div className="materia-carrera-badges-container">
-            <p className="badge">
-              Año 2
-            </p>
-            <p className="badge">
-              1º Cuatrimestre
-            </p>
-          </div>
-        </li>
-        <li className="materia-carrera-item">
-          <h4 className="materia-carrera-nombre">
-            Tecnicatura Universitaria en Redes Informáticas
-          </h4>
-          <div className="materia-carrera-badges-container">
-            <p className="badge">
-              Año 2
-            </p>
-            <p className="badge">
-              1º Cuatrimestre
-            </p>
-          </div>
-        </li>
+        {
+          planEstudio.map(pe => (
+            <li className="materia-carrera-item" key={pe.carrera.id}>
+              <h4 className="materia-carrera-nombre">
+                { pe.carrera.nombre }
+              </h4>
+              <div className="materia-carrera-badges-container">
+                <p className="badge">
+                  { pe.anio }º Año 
+                </p>
+                <p className="badge">
+                  {pe.cuatrimestre}º Cuatrimestre
+                </p>
+              </div>
+            </li>
+          ))
+        }
       </ul>
     </section>
   )
@@ -259,7 +250,7 @@ const Materia = () => {
           <CorrelativasSection correlativas={materia.correlativas}/>
           <ProfesoresSection profesores={materia.profesores}/>
           <ComisionesSection comisionesActuales={materia.comisionesActuales} comisionesAnteriores={materia.comisionesAnteriores}/>
-          <CarrerasSection />
+          <CarrerasSection planEstudio={materia.planEstudio}/>
         </main>
       </section>
     </main>
