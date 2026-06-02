@@ -67,7 +67,6 @@ a {
 #root {
   display: flex;
   flex-direction: column;
-  min-height: 100dvh;
 }
 .container-materias {
   flex: 1;
@@ -87,7 +86,7 @@ main{
   height: 64px;
   z-index: 1000;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 0 1.25rem;
   transition:
@@ -101,6 +100,12 @@ main{
   box-shadow:
     0 1px 0 var(--color-border),
     var(--shadow-sm);
+}
+.header-fijo-content {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  justify-content: space-between;
 }
 
 /* Logo */
@@ -190,6 +195,36 @@ main{
   background-color: var(--color-card-bg);
   color: var(--color-primary);
 }
+.button-usuario {
+  font-size: 13px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: start;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  background-color: var(--color-btn);
+  color: var(--color-light);
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.button-usuario:hover {
+  background-color: var(--color-btn-hover);
+}
+.avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #e0f3fb;
+  color: var(--color-primary-dark);
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+}
 
 /* Botón ingresar */
 .button-ingresar {
@@ -235,6 +270,9 @@ main{
   }
   .header-fijo.visible .item-nav a {
     color: var(--color-text);
+  }
+  .button-usuario {
+    flex-direction: row;
   }
 }
 
@@ -581,6 +619,7 @@ p.divisor i {
 .container-materias {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 .container-materias-list {
   display: grid;
@@ -751,13 +790,12 @@ p.divisor i {
 
 /* ================= LOGIN ================= */
 .login-container {
-  min-height: 100vh;
+  margin-top: -64px;
+  min-height: 100dvh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 0;
   background: var(--color-bg);
   padding: 1.5rem;
 }
