@@ -3,6 +3,7 @@ import { IconBrandWhatsapp, IconBuilding, IconCalendarCheck, IconCalendarWeek, I
 import { useMateria } from "../hooks/useMateria"
 import { MateriaBadge } from "../components/MateriaBadge";
 import { BackButton } from "../components/BackButton";
+import { Rating } from "@mui/material";
 
 const HeaderSection = ({materia}) => {
   return (
@@ -192,7 +193,7 @@ const BadgesContainer = ({materia}) => {
 const ProfesorCard = ({profesor}) => {
   return (
     <Link 
-      className="materia-profesor-card"
+      className="card materia-profesor-card"
       to={`/profesor/${profesor.id}`}
     >
       <div className="materia-profesor-avatar">
@@ -205,6 +206,12 @@ const ProfesorCard = ({profesor}) => {
         <p>
           {profesor.email}
         </p>
+      </div>
+      <div className="materia-profesor-puntuacion">
+        <p>
+          {profesor.promedioPuntuaciones || "-"}
+        </p>
+        <Rating size="small" readOnly defaultValue={profesor.promedioPuntuaciones}/>
       </div>
     </Link>
   )
@@ -220,7 +227,7 @@ const Comision = ({comision}) => {
           Comisión {comision.numero !== 0 ? comision.numero : 'única'}
         </h4>
         {
-          (comision.salon.tipo && comision.salon.aula)
+          (comision.salon.tipo && comision.salon.numero)
             && (
               <p className="badge">
                 {comision.salon.tipo === "AULA" ? "AULA" : "LAB"} {comision.salon.numero}

@@ -29,13 +29,7 @@
 .materia-profesores-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-}
-.materia-profesor-card {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
+  gap: 6px;
 }
 .materia-comisiones-container {
   display: flex;
@@ -110,6 +104,15 @@
 #whatsapp-btn {
   background-color: #25D366;
 }
+.materia-profesor-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 15px;
+}
 .materia-profesor-avatar {
   width: 2.75rem;
   height: 2.75rem;
@@ -124,6 +127,9 @@
   flex-shrink: 0;
   letter-spacing: 0.5px;
 }
+.materia-profesor-card-content {
+  flex: 1;
+}
 .materia-profesor-card-content>h4 {
   font-weight: 600;
   margin-bottom: -6px;
@@ -132,6 +138,13 @@
   font-weight: 100;
   font-size: 0.9rem;
   color: var(--color-text-muted);
+}
+.materia-profesor-puntuacion {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
 }
 .materia-comisiones-title {
   color: var(--color-primary-dark);

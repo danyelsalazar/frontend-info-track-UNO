@@ -38,6 +38,7 @@ export const MATERIA_ID = gql`
         apellido
         siglas
         email
+        promedioPuntuaciones
       }
       comisionesActuales {
         id
