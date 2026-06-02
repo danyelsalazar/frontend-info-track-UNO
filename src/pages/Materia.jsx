@@ -153,15 +153,21 @@ const CarrerasSection = ({ planEstudio }) => {
 const BadgesContainer = ({materia}) => {
   return (
     <div className="materia-badge-container">
-      <p className="badge">
-        <IconCalendarCheck size={14}/>
-        {
-          materia?.cuatrimestreDictado.length === 2
-            ? "1º y 2º Cuatrimestre"
-            : `${materia.cuatrimestreDictado[0]}º Cuatrimestre`             
-        }
-        
-      </p>
+      {
+        materia?.cuatrimestreDictado.length > 0
+        && (
+          <p className="badge">
+            <IconCalendarCheck size={14}/>
+            {
+              materia?.cuatrimestreDictado.length === 2
+                ? "1º y 2º Cuatrimestre"
+                : `${materia.cuatrimestreDictado[0]}º Cuatrimestre`             
+            }
+            
+          </p>
+        )
+      }
+      
       {
         materia.promocionable 
         && (
