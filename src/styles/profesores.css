@@ -1,35 +1,3 @@
-.item-profesor-materia {
-  padding: 1.25rem 1rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-}
-.item-profesor-materia h4{
-  color: var(--color-text);
-}
-
-.descripcion-profe {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-}
-.profe-initials {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-text);
-}
-.departament-profe {
-  font-size: 12px;
-  color: var(--color-text-muted);
-}
-.rating span {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-uno);
-}
-
 .index-profe {
   width: 30px;
   height: 30px;
@@ -97,31 +65,52 @@
 }
 
 /*-------PROFESOR PAGINA-------*/
-.container-section-profesor {
-  background: var(--color-bg);
-  padding: 1.5rem;
-  max-width: 900px;
-  width: 100%;
-  margin: auto;
-}
-
 .container-profesor {
   background: var(--color-card);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
   overflow: hidden;
 }
-
 .profesor-container-header {
   display: flex;
   align-items: center;
   gap: 1rem;
   padding: 1rem;
 }
+.profesor-rating-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  margin-left: auto;
+}
+.profesor-materias-container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 6px;
+  overflow-x: scroll;
+}
+.profesor-materias-container::-webkit-scrollbar {
+  display: none;
+}
+.mi-reseña-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profesor-reseñas-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
 .profesor-header-logo {
-  width: 52px;
-  height: 52px;
+  width: 4rem;
+  height: 4rem;
   background: #e0f3fb;
   border-radius: 50%;
   color: var(--color-primary-dark);
@@ -133,99 +122,30 @@
   flex-shrink: 0;
   letter-spacing: 0.5px;
 }
-
-.profesor-header-info {
-  flex: 1;
-}
-
 .profesor-nombre {
-  font-size: 20px;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
   font-weight: 600;
   color: var(--color-text);
   margin: 0 0 2px;
 }
-
 .profesor-email {
-  font-size: 16px;
+  font-size: 1.1rem;
   color: var(--color-text-muted);
   margin-top: -6px;
 }
-
-.profesor-rating-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 2px;
-  margin-left: auto;
-}
-
 .profesor-rating-promedio {
-  font-size: 26px;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--color-text);
   line-height: 1;
   margin: 0;
 }
-
 .profesor-rating-cantidad {
-  font-size: 12px;
+  font-size: 0.9rem;
   color: var(--color-text-muted);
   margin: 0;
 }
-
-.profesor-section {
-  padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.profesor-section > h3 {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin: 0 0 0.75rem;
-}
-
-.container-profesor > div:last-child {
-  border-bottom: none;
-}
-
-.profesor-materias-container {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.profesor-materia {
-  background: var(--color-card-bg);
-  color: var(--color-primary-dark);
-  border: 1px solid #bfdbef;
-  border-radius: 99px;
-  padding: 4px 12px;
-  font-size: 13px;
-  font-weight: 500;
-  transition: var(--transition);
-}
-
-.profesor-materia:hover {
-  border-color: var(--color-btn);
-  color: var(--color-btn);
-}
-
-.mi-reseña-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.mi-reseña-section p {
-  color: var(--color-text-muted);
-}
-
 .boton-mi-reseña {
   display: inline-flex;
   align-items: center;
@@ -234,20 +154,13 @@
   color: #fff;
   border: none;
   border-radius: var(--radius-sm);
-  padding: 8px 16px;
-  font-size: 14px;
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   transition: var(--transition);
   margin-top: 0.75rem;
 }
-
 .boton-mi-reseña:hover {
   background: var(--color-btn-hover);
-}
-
-.profesor-reseñas-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 }

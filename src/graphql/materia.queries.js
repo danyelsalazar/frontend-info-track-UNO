@@ -27,6 +27,7 @@ export const MATERIA_ID = gql`
       promocion
       cargaHorariaSemanal
       cargaHorariaTotal
+      cuatrimestreDictado
       correlativas {
         id
         nombre
@@ -37,8 +38,25 @@ export const MATERIA_ID = gql`
         apellido
         siglas
         email
+        promedioPuntuaciones
       }
-      comisiones {
+      comisionesActuales {
+        id
+        numero
+        modalidad
+        salon {
+          tipo
+          numero
+        }
+        anio
+        cuatrimestre
+        horarios {
+          dia
+          horaFin
+          horaInicio
+        }
+      }
+      comisionesAnteriores {
         id
         numero
         modalidad
