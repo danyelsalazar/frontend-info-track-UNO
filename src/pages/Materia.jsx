@@ -219,9 +219,14 @@ const Comision = ({comision}) => {
         <h4 className="materia-comision-numero">
           Comisión {comision.numero !== 0 ? comision.numero : 'única'}
         </h4>
-        <p className="badge">
-          {comision.salon.tipo === "AULA" ? "AULA" : "LAB"} {comision.salon.numero}
-        </p>
+        {
+          (comision.salon.tipo && comision.salon.aula)
+            && (
+              <p className="badge">
+                {comision.salon.tipo === "AULA" ? "AULA" : "LAB"} {comision.salon.numero}
+              </p>
+            )
+        }
       </header>
       <p className="materia-comision-modalidad">
         {modalidad}
