@@ -33,7 +33,7 @@ const App = () => {
           <Route path="/register" element={<Register/>}/>
         </Route>
 
-        {/* RUTA SIN HEADER NI FOOTER */}
+        {/* RUTA SIN HEADER o FOOTER */}
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/dashboard/mis-materias" element={<MateriasUser/>}/>
       </Routes>
