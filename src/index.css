@@ -330,11 +330,13 @@ main{
 }
 .title-principal h1 {
   font-family: "DM Serif Display", serif;
-  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-size: clamp(2rem, 8vw, 3.5rem);
   color: var(--color-text);
   line-height: 1.15;
   letter-spacing: -0.02em;
   display: flex;
+  justify-content: center;
+  /* flex-direction: column; */
   flex-wrap: wrap;
   gap: 10px;
 }
@@ -348,13 +350,14 @@ main{
   font-weight: 400;
   max-width: 480px;
   line-height: 1.7;
+  text-align: center;
 }
 
 /* Buttons */
 .buttons-inicio {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0px;
 }
 .buttons-inicio button {
   padding: 13px 24px;
@@ -984,6 +987,7 @@ p.divisor i {
   }
   .buttons-inicio {
     flex-direction: row;
+    gap: 1rem;
   }
   .nav-container ul {
     gap: 0.5rem;
