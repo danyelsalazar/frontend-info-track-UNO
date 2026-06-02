@@ -131,9 +131,9 @@ const CarrerasSection = ({ planEstudio }) => {
         {
           planEstudio.map(pe => (
             <li className="materia-carrera-item" key={pe.carrera.id}>
-              <h4 className="materia-carrera-nombre">
+              <Link to={`/carrera/${pe.carrera.id}`} className="materia-carrera-nombre">
                 { pe.carrera.nombre }
-              </h4>
+              </Link>
               <div className="materia-carrera-badges-container">
                 <p className="badge">
                   { pe.anio }º Año 
