@@ -111,6 +111,19 @@ const CarrerasSection = () => {
         <IconBuilding size={16}/>
         Carreras
       </h3>
+      <ul>
+        <li>
+          <h4>
+            Licenciatura en Informática
+          </h4>
+          <p>
+            Año 2
+          </p>
+          <p>
+            1º Cuatrimestre
+          </p>
+        </li>
+      </ul>
     </section>
   )
 } 
@@ -122,8 +135,8 @@ const BadgesContainer = ({materia}) => {
         <IconCalendarCheck size={14}/>
         {
           materia?.cuatrimestreDictado.length === 2
-            ? "1º y 2º cuatrimestre"
-            : `${materia.cuatrimestreDictado[0]}º cuatrimestre`             
+            ? "1º y 2º Cuatrimestre"
+            : `${materia.cuatrimestreDictado[0]}º Cuatrimestre`             
         }
         
       </p>
