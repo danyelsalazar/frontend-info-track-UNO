@@ -3,11 +3,7 @@ import { REGISTER } from "../graphql/usuario.mutations";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
 import { useAuthContext } from "../hooks/useAuthContext"
-
-// para la alerte de registro
-const MySwal = withReactContent(Swal);
 
 export const useRegister = () => {
   const navigate = useNavigate();
