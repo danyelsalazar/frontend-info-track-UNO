@@ -1,3 +1,4 @@
+import { IconArrowLeft } from "@tabler/icons-react"
 import { useNavigate } from "react-router-dom"
 
 export const BackButton = () => {
@@ -5,7 +6,7 @@ export const BackButton = () => {
 
   return (
     <button className="btn-volver" onClick={() => navigate(-1)}>
-      ← Volver
+      <IconArrowLeft size={13}/> Volver
     </button>
   )
 }
