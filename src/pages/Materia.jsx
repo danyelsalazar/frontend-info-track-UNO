@@ -62,6 +62,22 @@ const ComisionesSection = ({comisionesActuales, comisionesAnteriores}) => {
   const anioActual = new Date().getFullYear()
   const cuatrimestreAnterior = cuatrimestreActual === 1 ? 2 : 1
   const anioAnterior = cuatrimestreActual === 1 ? anioActual - 1 : anioActual
+
+  // Si no hay comisiones
+  if(Object.keys(comisionesActuales).length === 0 && Object.keys(comisionesAnteriores).length === 0) {
+    return (
+      <section className="section">
+        <h3 className="section-title">
+          <IconCalendarWeek size={16}/>
+          Comisiones
+        </h3>
+        <p className="section-text">
+          No hay información sobre comisiones
+        </p>
+    </section>
+    )
+  }
+
   return (
     <section className="section">
       <h3 className="section-title">
