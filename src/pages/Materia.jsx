@@ -111,15 +111,26 @@ const CarrerasSection = () => {
         <IconBuilding size={16}/>
         Carreras
       </h3>
-      <ul>
-        <li>
-          <h4>
+      <ul className="materia-carreras-container">
+        <li className="materia-carrera-item">
+          <h4 className="materia-carrera-nombre">
             Licenciatura en Informática
           </h4>
-          <p>
+          <p className="badge">
             Año 2
           </p>
-          <p>
+          <p className="badge">
+            1º Cuatrimestre
+          </p>
+        </li>
+        <li className="materia-carrera-item">
+          <h4 className="materia-carrera-nombre">
+            Licenciatura en Informática
+          </h4>
+          <p className="badge">
+            Año 2
+          </p>
+          <p className="badge">
             1º Cuatrimestre
           </p>
         </li>

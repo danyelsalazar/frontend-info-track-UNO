@@ -1081,7 +1081,7 @@ h1{
 .section-title {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--color-text-muted);
+  color: var(--color-primary-dark);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin: 0 0 0.75rem;

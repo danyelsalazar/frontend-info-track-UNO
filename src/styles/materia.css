@@ -50,6 +50,11 @@
   padding: 0.25rem;
   padding-left: 0;
 }
+.materia-carreras-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px
+}
 
 .materia-title{
   font-size: 2rem;
@@ -155,6 +160,18 @@
 .materia-comision-dia {
   color: var(--color-text-muted);
   font-weight: 600;
+}
+.materia-carrera-item {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding: 0.5rem;
+  border-top: 1px solid var(--color-border);
+}
+.materia-carrera-nombre {
+  flex: 1;
+  font-size: 1.2rem;
+  color: var(--color-primary);
 }
 
 /*============GLOBAL==============*/
