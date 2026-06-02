@@ -239,7 +239,7 @@ main{
   transition: var(--transition);
   display: inline-block;
   text-align: center;
-  width: 20px;
+  width: 100%;
 }
 .button-ingresar:hover {
   background-color: var(--color-btn-hover);
