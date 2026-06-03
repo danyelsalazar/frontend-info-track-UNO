@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client/react";
 import { useAuthContext } from '../hooks/useAuthContext'
 import { LOGIN } from "../graphql/usuario.mutations";
+import Swal from "sweetalert2";
+
 
 export const useLogin = () => {
   const navigate = useNavigate();
@@ -35,9 +37,21 @@ export const useLogin = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    loguearUsuario({variables: form})
+    try{
+      await loguearUsuario({variables: form})
+    }catch(err){
+      // si hay algun error con el in icio le mostramos que no se rpuede acceder
+      Swal.fire({
+          title: "Error",
+          text: err.message,
+          icon: "error",
+          width: "350px",
+          showConfirmButton: false,
+          timer: 2300
+      });
+    }
   };
 
   return {
