@@ -34,7 +34,7 @@ const Materias = () => {
               {
                 materia.carreras.map(carrera => (
                   <p className="materia-carrera-name" key={carrera.id}>
-                    {carrera.abreviacion} |
+                    {carrera.abreviacion}
                   </p>
                 ))
               }

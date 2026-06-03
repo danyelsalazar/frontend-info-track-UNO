@@ -11,6 +11,8 @@
 .container-section {
   width: 100%;
   margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
 /* secciones */
@@ -102,6 +104,10 @@
   color: inherit;
   text-decoration: none;
 }
+.bage-carreras{
+  background: black;
+  color: white;
+}
 
 /* listas */
 ul {
@@ -115,6 +121,14 @@ ul {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+.name-correlativa-materia{
+  background-color:aliceblue;
+  border-radius: 10px;
+  padding: 5px;
+}
+.name-correlativa-materia:hover{
+  outline: .5px solid var(--color-primary);
 }
 
 /* profesores */
@@ -206,6 +220,7 @@ ul {
   border-radius: var(--radius);
   border: 1px solid var(--color-border);
   background: var(--color-card-bg);
+  height: max-content;
 }
 
 .materia-comision-header {
@@ -266,10 +281,12 @@ ul {
 }
 
 .materia-carrera-badges-container .badge {
-  background: var(--color-primary);
+  background: var(--color-btn) ;
   color: white;
 }
-
+.badge-calendar-container{
+  background-color: #d62c5c;;
+}
 /* -------------------- */
 /* RESPONSIVE */
 /* -------------------- */
@@ -277,6 +294,10 @@ ul {
 @media (min-width: 768px) {
   .page-content {
     padding: 24px;
+  }
+  .materia-carreras-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .materia-header-top {
@@ -293,7 +314,10 @@ ul {
     grid-template-columns: repeat(2, 1fr);
   }
   .materia-cuatrimestre-block {
-    max-height: max-content; 
+    max-height: max-content;
+    border: .5px solid var(--color-border);
+    padding: 12px;
+    border-radius: var(--radius);
 }
 
   .materia-comisiones-container {

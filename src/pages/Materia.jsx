@@ -131,10 +131,10 @@ const CarrerasSection = ({ planEstudio }) => {
                 { pe.carrera.nombre }
               </Link>
               <div className="materia-carrera-badges-container">
-                <p className="badge">
+                <p className="badge bage-carreras">
                   { pe.anio }º Año 
                 </p>
-                <p className="badge">
+                <p className="badge bage-carreras">
                   {pe.cuatrimestre}º Cuatrimestre
                 </p>
               </div>
@@ -152,7 +152,7 @@ const BadgesContainer = ({materia}) => {
       {
         materia?.cuatrimestreDictado.length > 0
         && (
-          <p className="badge">
+          <p className="badge badge-calendar-container">
             <IconCalendarCheck size={14}/>
             {
               materia?.cuatrimestreDictado.length === 2
@@ -181,7 +181,7 @@ const BadgesContainer = ({materia}) => {
             href={materia.linkWhatsapp}
             target="noblank"
           >
-            <IconBrandWhatsapp size={15}/>
+            <IconBrandWhatsapp size={15} color={"#fff"} fill={"#25D366"}/>
             Whatsapp
           </a>
         )
