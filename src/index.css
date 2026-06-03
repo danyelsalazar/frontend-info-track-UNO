@@ -565,6 +565,16 @@ section {
   display: inline-block;
 }
 
+/* ===============Profesores mejores valorados */
+.item-profesor-materia{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  font-size: 12px;
+}
+
 /* ================= NOVEDADES ================= */
 .container-novedades {
   padding: 0.5rem 0;

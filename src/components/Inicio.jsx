@@ -7,7 +7,7 @@ const Inicio =()=>{
       <section className="inicio" id="inicio">
           <InfoResum />
             <div className="pre-title">
-              <p className="divisor">              </p>
+              <p className="divisor"></p>
             </div>
           <div className="container-inicio-texto children-block">
             <div className="title-principal children-block">
