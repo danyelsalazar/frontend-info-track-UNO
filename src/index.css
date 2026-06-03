@@ -1069,8 +1069,9 @@ h1{
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
-  align-self: center;
 }
 .container-section {
   background: var(--color-card);
@@ -1117,6 +1118,7 @@ h1{
   font-size: 1rem;
   cursor: pointer;
   transition: var(--transition);
+  height: max-content;
 }
 .btn-volver:hover {
   background: var(--color-btn);

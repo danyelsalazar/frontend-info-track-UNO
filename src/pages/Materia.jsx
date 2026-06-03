@@ -181,7 +181,7 @@ const BadgesContainer = ({materia}) => {
             href={materia.linkWhatsapp}
             target="noblank"
           >
-            <IconBrandWhatsapp size={15}/>
+            <IconBrandWhatsapp size={15} color={"#fff"} fill={"#25D366"}/>
             Whatsapp
           </a>
         )

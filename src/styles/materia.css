@@ -11,6 +11,8 @@
 .container-section {
   width: 100%;
   margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
 /* secciones */
@@ -278,6 +280,10 @@ ul {
   .page-content {
     padding: 24px;
   }
+  .materia-carreras-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   .materia-header-top {
     flex-direction: row;
@@ -293,7 +299,10 @@ ul {
     grid-template-columns: repeat(2, 1fr);
   }
   .materia-cuatrimestre-block {
-    max-height: max-content; 
+    max-height: max-content;
+    border: .5px solid var(--color-border);
+    padding: 12px;
+    border-radius: var(--radius);
 }
 
   .materia-comisiones-container {

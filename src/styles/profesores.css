@@ -15,7 +15,9 @@
   color: #fff;
   flex-shrink: 0;
 }
-
+.page-content-profesor{
+  
+}
 
 
 /*-------PROFESOR CARD---------*/
@@ -65,102 +67,142 @@
 }
 
 /*-------PROFESOR PAGINA-------*/
-.container-profesor {
-  background: var(--color-card);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
+/* -------------------- */
+/* HEADER PROFESOR */
+/* -------------------- */
+
 .profesor-container-header {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
+  flex-direction: column;
+  gap: 12px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  color: white;
+  border-radius: 20px;
+  padding: 16px;
+  justify-content: space-between;
 }
+.info-header-profesor{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.container-data-header-profesor{
+  width: 100;
+  display:flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* avatar */
+.siglas-profe{
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 5px;
+}
+.profesor-header-logo {
+  width: 100%;
+  color: var(--color-primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* info */
+.profesor-header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profesor-nombre {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.profesor-email {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* rating */
 .profesor-rating-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 2px;
-  margin-left: auto;
+  gap: 4px;
 }
+
+.profesor-rating-promedio {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.profesor-rating-cantidad {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* -------------------- */
+/* MATERIAS */
+/* -------------------- */
+
 .profesor-materias-container {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  gap: 6px;
-  overflow-x: scroll;
+  flex-wrap: wrap;
+  gap: 8px;
 }
-.profesor-materias-container::-webkit-scrollbar {
-  display: none;
-}
+
+/* -------------------- */
+/* MI RESEÑA */
+/* -------------------- */
+
 .mi-reseña-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 10px;
 }
+
+.boton-mi-reseña {
+  align-self: flex-start;
+  background: var(--color-btn);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.boton-mi-reseña:hover {
+  background: var(--color-btn-hover);
+  transform: translateY(-1px);
+}
+
+/* -------------------- */
+/* RESEÑAS */
+/* -------------------- */
+
 .profesor-reseñas-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 10px;
 }
 
-.profesor-header-logo {
-  width: 4rem;
-  height: 4rem;
-  background: #e0f3fb;
-  border-radius: 50%;
-  color: var(--color-primary-dark);
-  font-weight: 600;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  letter-spacing: 0.5px;
-}
-.profesor-nombre {
-  font-size: 1.5rem;
-  line-height: 1.8rem;
-  font-weight: 600;
-  color: var(--color-text);
-  margin: 0 0 2px;
-}
-.profesor-email {
-  font-size: 1.1rem;
-  color: var(--color-text-muted);
-  margin-top: -6px;
-}
-.profesor-rating-promedio {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--color-text);
-  line-height: 1;
-  margin: 0;
-}
-.profesor-rating-cantidad {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  margin: 0;
-}
-.boton-mi-reseña {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--color-btn);
-  color: #fff;
-  border: none;
-  border-radius: var(--radius-sm);
-  padding: 0.7rem 1rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: var(--transition);
-  margin-top: 0.75rem;
-}
-.boton-mi-reseña:hover {
-  background: var(--color-btn-hover);
+/* -------------------- */
+/* RESPONSIVE */
+/* -------------------- */
+
+@media (min-width: 768px) {
+  .profesor-container-header {
+  }
+
+  .profesor-header-info {
+    flex: 1;
+  }
 }
