@@ -131,10 +131,10 @@ const CarrerasSection = ({ planEstudio }) => {
                 { pe.carrera.nombre }
               </Link>
               <div className="materia-carrera-badges-container">
-                <p className="badge">
+                <p className="badge bage-carreras">
                   { pe.anio }º Año 
                 </p>
-                <p className="badge">
+                <p className="badge bage-carreras">
                   {pe.cuatrimestre}º Cuatrimestre
                 </p>
               </div>
@@ -152,7 +152,7 @@ const BadgesContainer = ({materia}) => {
       {
         materia?.cuatrimestreDictado.length > 0
         && (
-          <p className="badge">
+          <p className="badge badge-calendar-container">
             <IconCalendarCheck size={14}/>
             {
               materia?.cuatrimestreDictado.length === 2

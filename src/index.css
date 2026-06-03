@@ -654,11 +654,7 @@ p.divisor i {
   top: 0;
   bottom: 0;
   width: 3px;
-  background: linear-gradient(
-    180deg,
-    var(--color-primary),
-    var(--color-accent)
-  );
+  background:var(--color-primary);
   border-radius: 3px 0 0 3px;
   opacity: 0;
   transition: var(--transition);
@@ -678,9 +674,11 @@ p.divisor i {
   color: var(--color-primary-dark);
 }
 .materia-carrera-name {
-  font-size: 13px;
+  font-size: 10px;
   color: var(--color-text-muted);
   font-weight: 500;
+  border-right: solid 1px var(--color-border) ;
+  padding: 0px 5px 0px 5px;
 }
 .container-carrera-name {
   display: flex;
@@ -694,11 +692,13 @@ p.divisor i {
   overflow: hidden;
   text-wrap: nowrap;
   gap: 6px;
+  overflow-y: hidden;
+  overflow-x: scroll;
 }
 .materia-profesor-name {
   font-size: 10px;
   font-weight: 600;
-  padding: 4px 10px;
+  padding: 0px 5px 0px 5px;
   border-radius: 100px;
   color: var(--color-btn);
   background: rgba(214, 44, 91, 0.1);

@@ -15,9 +15,6 @@
   color: #fff;
   flex-shrink: 0;
 }
-.page-content-profesor{
-  
-}
 
 
 /*-------PROFESOR CARD---------*/
@@ -201,6 +198,10 @@
 @media (min-width: 768px) {
   .profesor-container-header {
   }
+  .page-content-profesor{
+    width: 60%;
+    align-self: center;
+}
 
   .profesor-header-info {
     flex: 1;
