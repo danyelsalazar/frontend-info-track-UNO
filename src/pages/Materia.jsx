@@ -10,13 +10,14 @@ const HeaderSection = ({materia}) => {
     <header className="materia-header section">
       <div className="materia-header-top">
         <h3 className="materia-title">
-          {materia.nombre} <strong>({materia.id})</strong>
+          <b>{materia.nombre} <strong>({materia.id})</strong></b>
+          <BackButton/>
         </h3>
+      </div>
         <button className="materia-button-estado">
           <IconCirclePlus size={14}/>
           Indicar estado
         </button>
-      </div>
       <BadgesContainer materia={materia}/>
     </header>
   )
@@ -86,7 +87,7 @@ const ComisionesSection = ({comisionesActuales, comisionesAnteriores}) => {
         Comisiones
       </h3>
       <div className="materia-comisiones-container">
-        <div>
+        <div className="materia-cuatrimestre-block">
           <h4 className="materia-comisiones-title">
             {anioActual} {cuatrimestreActual}º Cuatrimestre - En curso
           </h4>
@@ -98,7 +99,7 @@ const ComisionesSection = ({comisionesActuales, comisionesAnteriores}) => {
             }
           </ul>
         </div>
-        <div>
+        <div className="materia-cuatrimestre-block">
           <h4 className="materia-comisiones-title">
             {anioAnterior} {cuatrimestreAnterior}º Cuatrimestre - Cuatrimestre anterior
           </h4>
@@ -270,7 +271,6 @@ const Materia = () => {
 
   return (
     <main className="page-content">
-      <BackButton />
       <section className="container-section">
         <HeaderSection materia={materia}/>
         <main>
