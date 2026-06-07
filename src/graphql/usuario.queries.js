@@ -28,6 +28,7 @@ export const ME = gql`
           }
         }
         anio
+        estado
       }
       puntuaciones {
         puntuacion
