@@ -59,6 +59,7 @@ const ACCESOS = [
         </g>
       </svg>
     ),
+    path: "/plan-estudio",
   },
   {
     label: "Recursos",
@@ -75,6 +76,7 @@ const ACCESOS = [
         />
       </svg>
     ),
+    path: "/recursos",
   },
   {
     label: "Mi perfil",
@@ -94,6 +96,7 @@ const ACCESOS = [
         </g>
       </svg>
     ),
+    path: "/mi-perfil",
   },
   {
     label: "Mis Materias",
@@ -115,6 +118,7 @@ const ACCESOS = [
         </g>
       </svg>
     ),
+    path: "/mis-materias",
   },
 ];
 
@@ -131,9 +135,9 @@ export default function Dashboard() {
   // stado tarea lista
   const [tarea, setTarea] = useState(true);
   // clik tarea
-  const handleClickTast = ()=>{
-    setTarea(!tarea)
-  }
+  const handleClickTast = () => {
+    setTarea(!tarea);
+  };
   return (
     <>
       <Header />
@@ -244,27 +248,51 @@ export default function Dashboard() {
             <ul className="tareas-list">
               {TAREAS.map((t, i) => (
                 <li key={i} className="tarea-item">
-                    <div className="horario-task">
-                      {t.horario}
-                      <span className="tarea-dia">{t.dia}</span>
-                    </div>
-                    <div className="divisor-horario-info"></div>
-                    <div className="tarea-item-description">
-                      <div className="task-description-sub">
+                  <div className="horario-task">
+                    {t.horario}
+                    <span className="tarea-dia">{t.dia}</span>
+                  </div>
+                  <div className="divisor-horario-info"></div>
+                  <div className="tarea-item-description">
+                    <div className="task-description-sub">
                       <span className="tarea-title">{t.title}</span>
                       <span className={`tarea-badge ${t.badgeClass}`}>
                         {t.tipo}
                       </span>
-                      </div>
-                      <div className="task-day" onClick={()=>{handleClickTast()}}>
-                        {
-                          tarea 
-                          ? <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#009cd1" d="M11.5 3a9.5 9.5 0 0 1 9.5 9.5a9.5 9.5 0 0 1-9.5 9.5A9.5 9.5 0 0 1 2 12.5A9.5 9.5 0 0 1 11.5 3m0 1A8.5 8.5 0 0 0 3 12.5a8.5 8.5 0 0 0 8.5 8.5a8.5 8.5 0 0 0 8.5-8.5A8.5 8.5 0 0 0 11.5 4"/></svg>
-
-                          : <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#009cd1" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
-                        }
-                      </div>
                     </div>
+                    <div
+                      className="task-day"
+                      onClick={() => {
+                        handleClickTast();
+                      }}
+                    >
+                      {tarea ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="#009cd1"
+                            d="M11.5 3a9.5 9.5 0 0 1 9.5 9.5a9.5 9.5 0 0 1-9.5 9.5A9.5 9.5 0 0 1 2 12.5A9.5 9.5 0 0 1 11.5 3m0 1A8.5 8.5 0 0 0 3 12.5a8.5 8.5 0 0 0 8.5 8.5a8.5 8.5 0 0 0 8.5-8.5A8.5 8.5 0 0 0 11.5 4"
+                          />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="#009cd1"
+                            d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2"
+                          />
+                        </svg>
+                      )}
+                    </div>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -273,10 +301,14 @@ export default function Dashboard() {
           {/* ACCESOS RÁPIDOS */}
           <div className="accesos-section">
             <div className="accesos-grid">
-              {ACCESOS.map((a, i) => (
-                <button key={i} className="acceso-btn">
+              {ACCESOS.map((a) => (
+                <button
+                  key={a.path}
+                  className="acceso-btn"
+                  onClick={() => navigate(a.path)}
+                >
                   <div className="container-icon-acces-sped">
-                  <span className="acceso-icon">{a.icon}</span>
+                    <span className="acceso-icon">{a.icon}</span>
                   </div>
                   <span className="acceso-label">{a.label}</span>
                 </button>

@@ -20,6 +20,11 @@ export const ME = gql`
           planEstudio {
             anio
             cuatrimestre
+            carrera{
+              id
+              nombre
+              abreviacion
+            }
           }
         }
         anio

@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Materias from "./Materias";
-import Home from "./Home"
+import Home from "./Home";
 import ScrollTopTop from "../components/ScrollTopTop";
 import Materia from "./Materia";
 import Login from "./Login";
@@ -22,7 +22,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/materias" element={<Materias />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register/>}/>
+          <Route path="/register" element={<Register />} />
           <Route path="/materia/:id" element={<Materia />} />
           <Route path="/profesores" element={<Profesores />} />
           <Route path="/profesor/:id" element={<Profesor />} />
@@ -30,12 +30,12 @@ const App = () => {
           <Route path="/profesores" element={<Profesores />} />
           <Route path="/profesor/:id" element={<Profesor />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register/>}/>
+          <Route path="/register" element={<Register />} />
         </Route>
 
         {/* RUTA SIN HEADER o FOOTER */}
-        <Route path="/dashboard" element={<Dashboard/>}/>
-        <Route path="/dashboard/mis-materias" element={<MateriasUser/>}/>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/mis-materias" element={<MateriasUser/>} />
       </Routes>
     </>
   );
