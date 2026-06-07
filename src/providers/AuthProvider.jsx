@@ -1,28 +1,42 @@
-import { useQuery } from "@apollo/client/react"
+import { useQuery, useApolloClient } from "@apollo/client/react";
 import { ME } from "../graphql/usuario.queries";
 import { AuthContext } from "../contexts/AuthContext";
 import { useState } from "react";
 
-export const AuthProvider = ({children}) => {
-  const [token, setToken] = useState(localStorage.getItem('accessToken'))
-  const {data: {me: userIdentity = {}} = {}, loading, error} = useQuery(ME, {
-    // Solo ejecuta la query si hay token
-    skip: !token
-  })
+export const AuthProvider = ({ children }) => {
+  const [token, setToken] = useState(localStorage.getItem("accessToken"));
+  const client = useApolloClient();
 
-  const guardarToken = (newToken) => {
-    localStorage.setItem('accessToken', newToken)
-    setToken(newToken)
-  }
+  const { data, loading, error } = useQuery(ME, {
+    skip: !token,
+  });
 
-  const eliminarToken = () => {
-    localStorage.removeItem('accessToken')
-    setToken(null)
-  }
+  const userIdentity = data?.me ?? null;
+
+  const guardarToken = async (newToken) => {
+    localStorage.setItem("accessToken", newToken);
+    setToken(newToken);
+    await client.resetStore();
+  };
+
+  const eliminarToken = async () => {
+    localStorage.removeItem("accessToken");
+    setToken(null);
+    await client.clearStore();
+  };
 
   return (
-    <AuthContext.Provider value={{userIdentity, loading, error, guardarToken, eliminarToken, token}}>
+    <AuthContext.Provider
+      value={{
+        userIdentity,
+        loading,
+        error,
+        guardarToken,
+        eliminarToken,
+        token,
+      }}
+    >
       {children}
     </AuthContext.Provider>
-  )
-}
+  );
+};
