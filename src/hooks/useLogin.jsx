@@ -42,7 +42,7 @@ export const useLogin = () => {
     try{
       await loguearUsuario({variables: form})
     }catch(err){
-      // si hay algun error con el in icio le mostramos que no se rpuede acceder
+      // si hay algun error con el inicio le mostramos que no se rpuede acceder
       Swal.fire({
           title: "Error",
           text: err.message,

@@ -5,6 +5,7 @@ export const CARRERAS_NOMBRE = gql`
     carreras {
       id
       nombre
+      duracion
     }
   }
 `

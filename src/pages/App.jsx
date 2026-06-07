@@ -7,7 +7,7 @@ import Login from "./Login";
 import MainLayout from "../components/MainLayout";
 import Register from "./Register";
 import Dashboard from "./Dashboard";
-import MateriasUser from "../components/MateriasUser";
+import MateriasUser from "../pages/MateriasUser";
 import Profesores from "./Profesores";
 import { Profesor } from "./Profesor";
 
