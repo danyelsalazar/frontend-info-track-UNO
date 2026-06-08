@@ -6,7 +6,7 @@ import { useCarreras } from "../hooks/useCarreras";
 import { useMaterias } from "../hooks/useMaterias";
 
 // componente para agregar o editar materia
-const AddMateriaUser = () => {
+const AddMateriaUser = ({activo}) => {
   // estados del formulario
   const [carrera, setCarrera] = useState("");
   const [materiavalue, setMateriavalue] = useState("");
@@ -29,31 +29,25 @@ const AddMateriaUser = () => {
 
   if (loadingCarrera || loadingMaterias) return <p>Cargando ...</p>;
 
-  if (errorCarrera || errorMaterias)
-    return <p>Error al cargar datos</p>;
+  if (errorCarrera || errorMaterias) return <p>Error al cargar datos</p>;
 
   // filtramos las materias por carrera
   const materiasFiltradas = carrera
-    ? materias.filter((m) =>
-        m.carreras?.some((carre) => carre.id === carrera)
-      )
+    ? materias.filter((m) => m.carreras?.some((carre) => carre.id === carrera))
     : [];
 
   // para evitar cargar el formulariuo sin que este todo ya cargado
   const isReady =
-    !loadingCarrera &&
-    !loadingMaterias &&
-    !errorCarrera &&
-    !errorMaterias;
+    !loadingCarrera && !loadingMaterias && !errorCarrera && !errorMaterias;
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   return (
-    <div className="componet-add-materia-user">
-      <form onSubmit={handleSubmit}>
-        <fieldset disabled={!isReady}>
+    <div className={`${activo ? 'componet-add-materia-user-active' : 'componet-add-materia-user'} componet-add-materia-user-forever`}>
+      <form onSubmit={handleSubmit} className="form-materia-user">
+        <fieldset disabled={!isReady} className="container-internal-form card">
           <select
             name="carreraUser"
             id="carreras"
@@ -98,7 +92,46 @@ const AddMateriaUser = () => {
             ))}
           </select>
 
-          <button type="submit">Enviar</button>
+          <select
+            name=""
+            id=""
+            value={estado}
+            onChange={(e) => {
+              setEstado(e.target.value);
+            }}
+            disabled={!materiavalue}
+            required
+          >
+            <option value="" disabled hidden>
+              Seleciona estado
+            </option>
+            <option value="APROBADA">APROBADA</option>
+            <option value="CURSANDO">CURSANDO</option>
+            <option value="PROMOCIONADA">PROMOCIONADA</option>
+            <option value="REGULARIZADA">REGULARIZADA</option>
+          </select>
+
+          <select
+            name=""
+            id=""
+            value={calificacion}
+            onChange={(e) => {
+              setCalificacion(Number(e.target.value));
+            }}
+            disabled={!(estado === "APROBADA" || estado === "PROMOCIONADA")}
+            required
+          >
+            <option value="">Calificacion</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+
+          <button type="submit" className="card btn-enviar-materia">Enviar</button>
         </fieldset>
       </form>
     </div>
@@ -106,6 +139,8 @@ const AddMateriaUser = () => {
 };
 
 const MateriasUser = () => {
+  // estado para clases
+  const [activo, setAvtivo] = useState(false)
   // Obtenemos los datos del usuario desde el contexto
   const { userIdentity, loading, error } = useAuthContext();
 
@@ -149,6 +184,10 @@ const MateriasUser = () => {
     REGULARIZADA: "regularizada",
     PROMOCIONADA: "promocionada",
   };
+
+  const handleClick = () =>{
+    setAvtivo(!activo)
+  }
 
   return (
     <div className="materias-user-container">
@@ -196,18 +235,13 @@ const MateriasUser = () => {
           materiasFiltradas.map((m) => (
             <div key={m.materia.id} className="materia-card card">
               <div className="title-estad-materia-user">
-                <h3 className="title-materia-user-card">
-                  {m.materia.nombre}
-                </h3>
+                <h3 className="title-materia-user-card">{m.materia.nombre}</h3>
                 <div className="container-estado-nota-materia">
                   <p className={`${estadosMateria[m.estado] || ""} estado`}>
                     {m.estado}
                   </p>
                   <p className="nota-materia">
-                    Nota final:{" "}
-                    <b className="number-nota">
-                      {m.notaFinal}
-                    </b>
+                    Nota final: <b className="number-nota">{m.notaFinal}</b>
                   </p>
                 </div>
               </div>
@@ -235,9 +269,11 @@ const MateriasUser = () => {
         )}
       </div>
 
-      <button className="add-materia card">Agregar materia</button>
+      <button className="add-materia card" onClick={()=>{
+        handleClick();
+      }}>Agregar materia</button>
 
-      <AddMateriaUser />
+      <AddMateriaUser activo={activo} />
     </div>
   );
 };
