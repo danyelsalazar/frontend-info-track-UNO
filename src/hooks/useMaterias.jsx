@@ -1,19 +1,23 @@
 import { useQuery } from "@apollo/client/react";
 import { MATERIAS } from "../graphql/materia.queries";
 
-export const useMaterias = ({search, page, limit}) => {
-  
-  const { data: {materias = []} = {}, loading} = useQuery(MATERIAS, {
+export const useMaterias = (params = {}) => {
+  const { search = "", page = 1, limit = 10 } = params;
+
+  const { data, loading, error } = useQuery(MATERIAS, {
     variables: {
       search,
-      page: page,
-      limit
-    }
-  })
+      page,
+      limit,
+    },
+  });
+
+  const materias = data?.materias ?? [];
 
   return {
     materias,
     loading,
-    nextPage: materias.length === limit
-  }
-}
+    error,
+    nextPage: materias.length === limit,
+  };
+};

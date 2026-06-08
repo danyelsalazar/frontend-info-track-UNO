@@ -54,7 +54,7 @@
 .container-edit-materia-user{
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 .container-edit-materia-user button{
     background-color: var(--color-bg);
@@ -68,18 +68,36 @@
     align-items: center;
     cursor: pointer;
 }
+.title-estad-materia-user{
+    display: grid;
+    grid-template-columns: 1fr 70px;
+}
 .title-materia-user-card{
-    color: var(--color-text);
-    font-size: 11px;
+    color: var(--color-dark);
+    font-size: 15px;
+    font-weight: 300;
 }
 
 .title-materias-user{
-    color: var(--color-text);
+    color: var(--color-dark);
 }
 
+.container-estado-nota-materia{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-self: center;
+}
+.nota-materia{
+    color: var(--color-text-muted);
+}
+.number-nota{
+    color: var(--color-text);
+}
 /* colores estado materia */
 .estado{
     width: max-content;
+    height: max-content;
     border-radius: 10px;
     padding: 2px 5px;
     font-size: 8px;
@@ -95,8 +113,8 @@
     color: #d62c5c;
 }
 .regularizada{
-    background-color: #009dd135;
-    color: #009dd1;
+    background-color: #1449754b;
+    color: #144a75;
 }
 .promocionada{
     background-color: #eff310 ;
@@ -104,8 +122,21 @@
 
 /* boton agregar materia */
 
+.add-materia{
+    
+}
 .add-materia:hover{
     background-color: var(--color-btn);
     color: #fff;
     cursor: pointer;
 }
+/* boton editar materia */
+.edit-materia-user{
+    margin-left: 10px;
+    transition: transform ease .2s;
+}
+.edit-materia-user:hover{
+    transform: scale(1.05);
+    background-color: #02020219;
+}
+

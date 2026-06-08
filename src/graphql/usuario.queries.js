@@ -29,6 +29,7 @@ export const ME = gql`
         }
         anio
         estado
+        notaFinal
       }
       puntuaciones {
         puntuacion
