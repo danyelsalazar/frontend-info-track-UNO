@@ -4,6 +4,7 @@ import { useMateria } from "../hooks/useMateria"
 import { MateriaBadge } from "../components/MateriaBadge";
 import { BackButton } from "../components/BackButton";
 import { Rating } from "@mui/material";
+import MateriaSkeleton from "../skeletons/MateriaSkeleton";
 
 const HeaderSection = ({materia}) => {
   return (
@@ -255,12 +256,10 @@ const Comision = ({comision}) => {
 }
 
 const Materia = () => {
-  const { materia, loading } = useMateria()
+  const { materia, loading} = useMateria()
 
   if(loading) {
-    return (
-      <p>Cargando...</p>
-    )
+    return <MateriaSkeleton />
   }
 
   if(!materia) {
