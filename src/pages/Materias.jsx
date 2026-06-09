@@ -32,9 +32,9 @@ const Materias = () => {
             </p>
             <div className="container-carrera-name">
               {
-                materia.carreras.map(carrera => (
-                  <p className="materia-carrera-name" key={carrera.id}>
-                    {carrera.abreviacion}
+                materia.planEstudio?.map(pe => (
+                  <p className="materia-carrera-name" key={pe.carrera.id}>
+                    {pe.carrera.abreviacion}
                   </p>
                 ))
               }
