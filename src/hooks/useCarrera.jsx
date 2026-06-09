@@ -6,5 +6,11 @@ export const useCarrera = () => {
   const { id } = useParams();
   const { data: { carrera } = {}, loading } = useQuery(CARRERA_ID, {variables: { carreraId: id }})
 
-  return { carrera, loading }
+  // Separar materias por año en un array
+  const materias = []
+  for(let i = 0; i < carrera?.duracion; i++) {
+    materias[i] = carrera.materias.filter(m => m.anio === i+1)
+  }
+
+  return { carrera, materias, loading }
 }
