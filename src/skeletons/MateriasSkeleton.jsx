@@ -5,7 +5,7 @@ export const MateriasSkeleton = () => {
     <li
       className="materia-item card"
     >
-      <Skeleton variant="text" sx={{fontSize: "3rem"}}/>
+      <Skeleton variant="text" sx={{fontSize: "2rem"}}/>
       <Skeleton variant="rounded" height={15}/>
       <Skeleton variant="rounded" height={20}/>
     </li>

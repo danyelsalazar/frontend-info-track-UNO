@@ -7,7 +7,6 @@ import { MateriasSkeleton } from "../skeletons/MateriasSkeleton";
 const MateriaCard = ({materia, navigate}) => {
   return (
     <li
-      key={materia.id}
       className="materia-item card"
       onClick={() => navigate(`/materia/${materia.id}`)}
     >
@@ -61,7 +60,7 @@ const Materias = () => {
       {
         loading 
           ? Array.from({ length: 10 }, (_, i) => <MateriasSkeleton key={i} />)
-          : materias.map(materia => <MateriaCard materia={materia} navigate={navigate} />)
+          : materias.map(materia => <MateriaCard materia={materia} navigate={navigate} key={materia.id} />)
       }
     </SearchLayout>
   );
