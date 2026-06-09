@@ -31,11 +31,11 @@ const App = () => {
           <Route path="/profesores" element={<Profesores />} />
           <Route path="/profesor/:id" element={<Profesor />} />
           <Route path="/carrera/:id" element={<Carrera />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
         </Route>
 
         {/* RUTA SIN HEADER o FOOTER */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/mis-materias" element={<MateriasUser/>} />
       </Routes>
