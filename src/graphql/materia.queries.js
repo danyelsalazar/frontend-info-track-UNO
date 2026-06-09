@@ -10,9 +10,11 @@ export const MATERIAS = gql`
         nombre
         apellido
       }
-      carreras {
-        id
-        abreviacion
+      planEstudio {
+        carrera {
+          id
+          abreviacion
+        }
       }
     }
   }

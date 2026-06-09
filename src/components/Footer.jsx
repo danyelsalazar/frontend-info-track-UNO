@@ -32,6 +32,7 @@ const Footer = () => {
             <a href="#">Carreras</a>
             <a href="#">Cuatrimestre</a>
             <Link to="/profesores">Profesores</Link>
+            <Link to="/materias">Materias</Link>
             <a href="#">Novedades</a>
           </div>
 

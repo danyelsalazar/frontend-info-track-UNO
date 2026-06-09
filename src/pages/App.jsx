@@ -10,6 +10,7 @@ import Dashboard from "./Dashboard";
 import MateriasUser from "../components/MateriasUser";
 import Profesores from "./Profesores";
 import { Profesor } from "./Profesor";
+import { Carrera } from "./Carrera";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/materia/:id" element={<Materia />} />
           <Route path="/profesores" element={<Profesores />} />
           <Route path="/profesor/:id" element={<Profesor />} />
+          <Route path="/carrera/:id" element={<Carrera />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register/>}/>
         </Route>
