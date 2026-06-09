@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import data from "../data/infotrack_uno_final.json";
 
 const CarrerasArea = () => {
@@ -13,7 +14,7 @@ const CarrerasArea = () => {
 
       <div className="container-info-carreas-area">
         {careers.map((carrera) => (
-          <div className=" card info-carrera-item" key={carrera.id}>
+          <Link to={`/carrera/${carrera.id}`} className=" card info-carrera-item" key={carrera.id}>
             <p className="index-carrera">
               {/* El SVG se inyecta en su propio contenedor span */}
               <span dangerouslySetInnerHTML={{ __html: carrera.avatar }} />
@@ -31,7 +32,7 @@ const CarrerasArea = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
