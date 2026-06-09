@@ -8,3 +8,26 @@ export const CARRERAS_NOMBRE = gql`
     }
   }
 `
+
+export const CARRERA_ID = gql`
+  query Carrera($carreraId: ID!) {
+    carrera(id: $carreraId) {
+      id
+      nombre
+      abreviacion
+      tituloOtorgado
+      descripcion
+      duracion
+      cargaHorariaTotal
+      cantidadMaterias
+      materias {
+        anio
+        materia {
+          id
+          nombre
+        }
+        cuatrimestre
+      }
+    }
+  }
+`
