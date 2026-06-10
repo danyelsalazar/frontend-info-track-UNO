@@ -1,5 +1,5 @@
 .reseña-card {
-  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   padding: 1rem;
 }
@@ -12,17 +12,16 @@
 }
 
 .reseña-logo {
-  width: 34px;
-  height: 34px;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.15rem;
   border-radius: 50%;
-  background: #e0f3fb;
-  color: var(--color-primary-dark);
-  font-size: 12px;
-  font-weight: 600;
+  background: var(--color-primary);
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  font-weight: 600;
 }
 
 .reseña-header-info {
@@ -37,20 +36,20 @@
 }
 
 .reseña-nombre-usuario {
-  font-size: 14px;
+  font-size: 1.3rem;
   font-weight: 600;
   color: var(--color-text);
-  margin: 0 0 2px;
 }
 
 .reseña-fecha {
-  font-size: 12px;
+  font-size: 1.1rem;
   color: var(--color-text-muted);
   white-space: nowrap;
 }
 
 .reseña-comentario {
-  font-size: 14px;
+  font-size: 1.2rem;
+  padding-left: 6px;
   color: var(--color-text);
   line-height: 1.55;
   font-style: italic;

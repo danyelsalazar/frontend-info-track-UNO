@@ -1,6 +1,9 @@
 import { Rating } from "@mui/material"
 
 export const Reseña = ({puntuacion}) => {
+  const fecha = new Date(Number(puntuacion.fecha));
+  const fechaFormateada = fecha.toLocaleDateString('es-AR');
+  
   return (
     <li className="reseña-card">
       <header className="reseña-header">
@@ -19,7 +22,7 @@ export const Reseña = ({puntuacion}) => {
             />
           </div>
           <p className="reseña-fecha">
-            {puntuacion.fecha}
+            {fechaFormateada}
           </p>
         </div>
       </header>
