@@ -1,6 +1,7 @@
 import { Rating } from "@mui/material";
 import { IconBook2, IconStar } from "@tabler/icons-react";
 import { useProfesor } from "../hooks/useProfesor";
+import { useAuthContext } from "../hooks/useAuthContext";
 import { Reseña } from "../components/Reseña";
 import { MateriaBadge } from "../components/MateriaBadge";
 import { BackButton } from "../components/BackButton";
@@ -56,6 +57,16 @@ const MateriasSection = ({ materias }) => {
 };
 
 const ValoracionesSection = ({ puntuaciones }) => {
+  const { userIdentity } = useAuthContext();
+
+  const miValoracion = userIdentity
+    ? puntuaciones.find((p) => p.usuario.id === userIdentity.id)
+    : null
+
+  const otrasValoraciones = miValoracion
+    ? puntuaciones.filter((p) => p.id !== miValoracion.id)
+    : puntuaciones
+
   return (
     <section className="section">
       <h3 className="section-title">
@@ -63,22 +74,26 @@ const ValoracionesSection = ({ puntuaciones }) => {
         Valoraciones
       </h3>
       <ul className="profesor-reseñas-container">
-        <MiValoracion />
-        <ListarValoraciones puntuaciones={puntuaciones} />
+        <MiValoracion valoracion={miValoracion}/>
+        <ListarValoraciones puntuaciones={otrasValoraciones} />
       </ul>
     </section>
-  );
-};
-
-const MiValoracion = () => {
-  return (
-    <div className="mi-reseña-section">
-      <p className="section-text">
-        Todavía no dejaste una valoración para este profesor
-      </p>
-      <button className="boton-mi-reseña">+ Dejar valoración</button>
-    </div>
   )
+}
+
+const MiValoracion = ({ valoracion }) => {
+  if(!valoracion) {
+    return (
+      <div className="mi-reseña-section">
+        <p className="section-text">
+          Todavía no dejaste una valoración para este profesor
+        </p>
+        <button className="boton-mi-reseña">+ Dejar valoración</button>
+      </div>
+    )
+  }
+
+  return <Reseña puntuacion={valoracion} mine/>
 }
 
 const ListarValoraciones = ({puntuaciones}) => {

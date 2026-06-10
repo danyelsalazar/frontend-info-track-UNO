@@ -129,6 +129,8 @@ ul {
   background-color:aliceblue;
   border-radius: 10px;
   padding: 5px 8px;
+  outline: transparent;
+  transition: var(--transition);
 }
 .name-correlativa-materia:hover{
   outline: .5px solid var(--color-primary);

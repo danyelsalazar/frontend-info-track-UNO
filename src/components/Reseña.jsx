@@ -1,9 +1,10 @@
 import { Rating } from "@mui/material"
+import { IconEdit, IconTrash } from "@tabler/icons-react";
 
-export const Reseña = ({puntuacion}) => {
+export const Reseña = ({puntuacion, mine = false}) => {
   const fecha = new Date(Number(puntuacion.fecha));
   const fechaFormateada = fecha.toLocaleDateString('es-AR');
-  
+
   return (
     <li className="reseña-card">
       <header className="reseña-header">
@@ -25,6 +26,21 @@ export const Reseña = ({puntuacion}) => {
             {fechaFormateada}
           </p>
         </div>
+        {
+          mine
+          && (
+            <div>
+              <button>
+                <IconEdit size={16} />
+                Editar
+              </button>
+              <button>
+                <IconTrash size={16}/>
+                Borrar
+              </button>
+            </div>
+          )
+        }
       </header>
       <main className="reseña-comentario">
         {puntuacion?.comentario}
