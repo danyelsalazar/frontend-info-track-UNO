@@ -55,12 +55,12 @@ const MateriasSection = ({ materias }) => {
   );
 };
 
-const ReseñasSection = ({ puntuaciones }) => {
+const ValoracionesSection = ({ puntuaciones }) => {
   return (
     <section className="section">
       <h3 className="section-title">
         <IconStar size={16} />
-        Reseñas
+        Valoraciones
       </h3>
       <ul className="profesor-reseñas-container">
         <MiValoracion />
@@ -76,7 +76,7 @@ const MiValoracion = () => {
       <p className="section-text">
         Todavía no dejaste una valoración para este profesor
       </p>
-      <button className="boton-mi-reseña">+ Dejar reseña</button>
+      <button className="boton-mi-reseña">+ Dejar valoración</button>
     </div>
   )
 }
@@ -104,7 +104,7 @@ export const Profesor = () => {
       <div className="container-section">
         <HeaderSection profesor={profesor} />
         <MateriasSection materias={profesor.materias} />
-        <ReseñasSection puntuaciones={profesor.puntuaciones} />
+        <ValoracionesSection puntuaciones={profesor.puntuaciones} />
       </div>
     </main>
   );
