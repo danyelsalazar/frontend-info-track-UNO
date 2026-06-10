@@ -24,7 +24,6 @@ const BotonesAuth = ({setOpen, navigate}) => {
 const BotonUsuario = ({userIdentity}) => {
   return (
     <Link 
-      className="button-usuario"
       to="/dashboard"
     >
       <div className="avatar">
