@@ -5,6 +5,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { Reseña } from "../components/Reseña";
 import { MateriaBadge } from "../components/MateriaBadge";
 import { BackButton } from "../components/BackButton";
+import { ProfesorSkeleton } from "../skeletons/ProfesorSkeleton";
 
 const HeaderSection = ({ profesor }) => {
   return (
@@ -110,9 +111,7 @@ const ListarValoraciones = ({puntuaciones}) => {
 export const Profesor = () => {
   const { profesor, loading } = useProfesor();
 
-  if (loading) {
-    return <p>Cargando...</p>;
-  }
+  if (loading) return <ProfesorSkeleton />
 
   return (
     <main className="page-content page-content-profesor">
