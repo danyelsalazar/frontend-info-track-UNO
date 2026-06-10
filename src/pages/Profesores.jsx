@@ -2,6 +2,24 @@ import { SearchLayout } from "../components/SearchLayout";
 import { useSearch } from "../hooks/useSearch";
 import { useProfesores } from "../hooks/useProfesores";
 import { useNavigate } from "react-router-dom";
+import { ProfesoresSkeleton } from "../skeletons/ProfesoresSkeleton";
+
+const ProfesorCard = ({ profesor, navigate }) => {
+  return (
+    <li 
+      key={profesor.id}
+      className="profesor-card"
+      onClick={() => navigate(`/profesor/${profesor.id}`)}
+    >
+      <div className="index-profe">
+        {profesor.siglas}
+      </div>
+      <p className="profesor-card-nombre">
+        {profesor.apellido}, {profesor.nombre}
+      </p>
+    </li>
+  )
+}
 
 export const Profesores = () => {
   const { search, limit, page, cambiarPagina, cambiarSearch, sectionRef } = useSearch()
@@ -20,21 +38,9 @@ export const Profesores = () => {
       nextPage={nextPage}
     >
       {
-        profesores.map(profesor => (
-          <li 
-            key={profesor.id}
-            className="profesor-card"
-            onClick={() => navigate(`/profesor/${profesor.id}`)}
-          >
-            <div className="index-profe">
-              {profesor.siglas}
-            </div>
-            <p className="profesor-card-nombre">
-              {profesor.apellido}, {profesor.nombre}
-            </p>
-            
-          </li>
-        ))
+        loading
+          ? Array.from({ length: 10 }, (_, i) => <ProfesoresSkeleton key={i} />)
+          : profesores.map(profesor => <ProfesorCard navigate={navigate} profesor={profesor}/>)
       }
     </SearchLayout>
   )
