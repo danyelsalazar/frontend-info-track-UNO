@@ -7,7 +7,7 @@ export const MateriaBadge = ({materia}) => {
       className="materia-badge"
       key={materia.id}
     >
-      <spam className="name-correlativa-materia">{materia.nombre}</spam>
+      <span className="name-correlativa-materia">{materia.nombre}</span>
     </Link>
   )
 }

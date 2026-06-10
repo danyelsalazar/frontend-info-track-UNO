@@ -1,7 +1,7 @@
 /* layout general */
 .page-content {
   background: var(--color-bg);
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
   width: 100%;
   padding: 16px;
   margin: 0px;
@@ -51,7 +51,7 @@
 }
 
 .materia-title {
-  font-size: 18px;
+  font-size: 2rem;
   font-weight: 600;
   display: flex;
   flex-direction: row;
@@ -61,6 +61,7 @@
 }
 
 .materia-title strong {
+  font-size: 1.8rem;
   opacity: 0.8;
   font-weight: 500;
 }
@@ -69,13 +70,14 @@
   align-self: flex-start;
   display: flex;
   align-items: center;
+  margin-top: 4px;
   gap: 6px;
   background: white;
   color: var(--color-primary-dark);
   border: none;
-  padding: 6px 10px;
+  padding: 6px;
   border-radius: var(--radius-sm);
-  font-size: 12px;
+  font-size: 1.3rem;
   cursor: pointer;
   transition: var(--transition);
 }
@@ -89,7 +91,7 @@
 .materia-badge-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   margin-top: 10px;
 }
 
@@ -97,7 +99,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: 1.1rem;
   background: rgba(255, 255, 255, 0.15);
   padding: 5px 10px;
   border-radius: 999px;
@@ -120,12 +122,13 @@ ul {
 .materia-correlativas-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 5px;
+  row-gap: 10px;
 }
 .name-correlativa-materia{
   background-color:aliceblue;
   border-radius: 10px;
-  padding: 5px;
+  padding: 5px 8px;
 }
 .name-correlativa-materia:hover{
   outline: .5px solid var(--color-primary);
@@ -142,7 +145,7 @@ ul {
   align-items: center;
   gap: 12px;
   text-decoration: none;
-  padding: 12px;
+  padding: 1rem;
   border-radius: var(--radius);
   background: var(--color-card);
   border: 1px solid var(--color-border);
@@ -155,8 +158,9 @@ ul {
 }
 
 .materia-profesor-avatar {
-  width: 40px;
-  height: 40px;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.15rem;
   border-radius: 50%;
   background: var(--color-primary);
   color: white;
@@ -171,12 +175,12 @@ ul {
 }
 
 .materia-profesor-nombre {
-  font-size: 14px;
+  font-size: 1.3rem;
   color: var(--color-text);
 }
 
 .materia-profesor-email {
-  font-size: 12px;
+  font-size: 1.1rem;
   color: var(--color-text-muted);
 }
 
@@ -304,10 +308,6 @@ ul {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-  }
-
-  .materia-title {
-    font-size: 22px;
   }
 
   .materia-profesores-container {
