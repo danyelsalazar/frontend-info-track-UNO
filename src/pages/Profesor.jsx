@@ -1,5 +1,5 @@
 import { Rating } from "@mui/material";
-import { IconBook2, IconStar, IconUser } from "@tabler/icons-react";
+import { IconBook2, IconStar } from "@tabler/icons-react";
 import { useProfesor } from "../hooks/useProfesor";
 import { Reseña } from "../components/Reseña";
 import { MateriaBadge } from "../components/MateriaBadge";
@@ -55,23 +55,6 @@ const MateriasSection = ({ materias }) => {
   );
 };
 
-const MiReseñaSection = ({ puntuaciones }) => {
-  return (
-    <section className="section">
-      <h3 className="section-title">
-        <IconUser size={16} />
-        Mi reseña
-      </h3>
-      <div className="mi-reseña-section">
-        <p className="section-text">
-          Todavía no dejaste una reseña para este profesor
-        </p>
-        <button className="boton-mi-reseña">+ Dejar reseña</button>
-      </div>
-    </section>
-  );
-};
-
 const ReseñasSection = ({ puntuaciones }) => {
   return (
     <section className="section">
@@ -80,17 +63,34 @@ const ReseñasSection = ({ puntuaciones }) => {
         Reseñas
       </h3>
       <ul className="profesor-reseñas-container">
-        {puntuaciones.length === 0 ? (
-          <p className="section-text">Sé el primero en dejar una reseña!</p>
-        ) : (
-          puntuaciones.map((puntuacion) => (
-            <Reseña puntuacion={puntuacion} key={puntuacion.id} />
-          ))
-        )}
+        <MiValoracion />
+        <ListarValoraciones puntuaciones={puntuaciones} />
       </ul>
     </section>
   );
 };
+
+const MiValoracion = () => {
+  return (
+    <div className="mi-reseña-section">
+      <p className="section-text">
+        Todavía no dejaste una valoración para este profesor
+      </p>
+      <button className="boton-mi-reseña">+ Dejar reseña</button>
+    </div>
+  )
+}
+
+const ListarValoraciones = ({puntuaciones}) => {
+  if(puntuaciones.length === 0) {
+    return null
+  }
+
+  return puntuaciones.map((puntuacion) => (
+    <Reseña puntuacion={puntuacion} key={puntuacion.id} />
+  ))
+  
+}
 
 export const Profesor = () => {
   const { profesor, loading } = useProfesor();
@@ -104,7 +104,6 @@ export const Profesor = () => {
       <div className="container-section">
         <HeaderSection profesor={profesor} />
         <MateriasSection materias={profesor.materias} />
-        <MiReseñaSection puntuaciones={profesor.puntuaciones} />
         <ReseñasSection puntuaciones={profesor.puntuaciones} />
       </div>
     </main>

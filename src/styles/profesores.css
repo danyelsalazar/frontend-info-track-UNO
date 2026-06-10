@@ -167,17 +167,21 @@
 .mi-reseña-section {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  padding-top: 3rem;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
 }
 
 .boton-mi-reseña {
-  align-self: flex-start;
   background: var(--color-btn);
   color: white;
   border: none;
-  padding: 8px 14px;
+  padding: 0.8rem 1rem;
   border-radius: var(--radius-sm);
-  font-size: 13px;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: var(--transition);
 }
