@@ -11,31 +11,8 @@ const MateriaCard = ({materia, navigate}) => {
       onClick={() => navigate(`/materia/${materia.id}`)}
     >
       <p className="materia-name">
-        {materia.nombre}
+        <span>({materia.id})</span> {materia.nombre}
       </p>
-      <div className="container-carrera-name">
-        {
-          materia.planEstudio?.map(pe => (
-            <p className="materia-carrera-name" key={pe.carrera.id}>
-              {pe.carrera.abreviacion}
-            </p>
-          ))
-        }
-      </div>
-      <div className="container-profesor-name">
-        {
-          materia.profesores.length === 0
-            ? <p className="materia-profesor-name">No hay información</p>
-            : materia.profesores.map(profesor => (
-                <p
-                  key={profesor.id}
-                  className="materia-profesor-name"
-                >
-                  {profesor.apellido}, {profesor.nombre}
-                </p>
-              ))
-        }
-      </div>
     </li>
   )
 }
@@ -48,21 +25,22 @@ const Materias = () => {
   const navigate = useNavigate()
 
   return (
-    <SearchLayout
-      titulo={"materias"}
-      search={search}
-      page={page}
-      cambiarPagina={cambiarPagina}
-      cambiarSearch={cambiarSearch}
-      sectionRef={sectionRef}
-      nextPage={nextPage}
-    >
-      {
-        loading 
-          ? Array.from({ length: 10 }, (_, i) => <MateriasSkeleton key={i} />)
-          : materias.map(materia => <MateriaCard materia={materia} navigate={navigate} key={materia.id} />)
-      }
-    </SearchLayout>
+    <main className="page-content" sectionRef={sectionRef}>
+      <SearchLayout
+        titulo={"materias"}
+        search={search}
+        page={page}
+        cambiarPagina={cambiarPagina}
+        cambiarSearch={cambiarSearch}
+        nextPage={nextPage}
+      >
+        {
+          loading 
+            ? Array.from({ length: 10 }, (_, i) => <MateriasSkeleton key={i} />)
+            : materias.map(materia => <MateriaCard materia={materia} navigate={navigate} key={materia.id} />)
+        }
+      </SearchLayout>
+    </main>
   );
 };
 

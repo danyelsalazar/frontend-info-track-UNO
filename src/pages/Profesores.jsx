@@ -28,21 +28,22 @@ export const Profesores = () => {
   const navigate = useNavigate()
 
   return (
-    <SearchLayout
-      titulo="profesores" 
-      page={page}
-      search={search}
-      cambiarSearch={cambiarSearch}
-      cambiarPagina={cambiarPagina}
-      sectionRef={sectionRef}
-      nextPage={nextPage}
-    >
-      {
-        loading
-          ? Array.from({ length: 10 }, (_, i) => <ProfesoresSkeleton key={i} />)
-          : profesores.map(profesor => <ProfesorCard navigate={navigate} profesor={profesor}/>)
-      }
-    </SearchLayout>
+    <main className="page-content" sectionRef={sectionRef}>
+      <SearchLayout
+        titulo="profesores" 
+        page={page}
+        search={search}
+        cambiarSearch={cambiarSearch}
+        cambiarPagina={cambiarPagina}
+        nextPage={nextPage}
+      >
+        {
+          loading
+            ? Array.from({ length: 10 }, (_, i) => <ProfesoresSkeleton key={i} />)
+            : profesores.map(profesor => <ProfesorCard navigate={navigate} profesor={profesor}/>)
+        }
+      </SearchLayout>
+    </main>
   )
 }
 

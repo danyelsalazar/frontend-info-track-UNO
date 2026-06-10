@@ -16,7 +16,11 @@
   height: 3rem;
   font-size: 1.15rem;
   border-radius: 50%;
-  background: var(--color-primary);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
   color: white;
   display: flex;
   align-items: center;
