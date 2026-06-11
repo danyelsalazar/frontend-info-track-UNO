@@ -1,7 +1,7 @@
 
 export const SearchLayout = ({titulo, sectionRef, search, page, cambiarPagina, cambiarSearch, nextPage, children}) => {
   return (
-    <section ref={sectionRef} className="container-materias">
+    <div ref={sectionRef} className="container-materias">
       <p className="title-secction-materias divisor">
         <i className="line-title"></i>
         {titulo}
@@ -40,6 +40,6 @@ export const SearchLayout = ({titulo, sectionRef, search, page, cambiarPagina, c
           Siguiente
         </button>
       </div>
-    </section>
+    </div>
   )
 }

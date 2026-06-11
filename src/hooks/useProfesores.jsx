@@ -1,13 +1,20 @@
 import { useQuery } from "@apollo/client/react"
 import { PROFESORES } from "../graphql/profesor.queries"
+import { useDebounce } from "./useDebounce"
 
-export const useProfesores = (args) => {
+export const useProfesores = ({search, limit, page}) => {
+  const {isDebouncing, debouncedValue} = useDebounce({value: search, delay: 300})
+
   const { data: {profesores = []} = {}, loading } = useQuery(PROFESORES, {
-    variables: args
+    variables: { 
+      search: debouncedValue,
+      limit,
+      page
+    }
   })
   return {
     profesores,
-    loading,
-    nextPage: profesores.length === args.limit
+    loading: isDebouncing || loading,
+    nextPage: profesores.length === limit
   }
 }

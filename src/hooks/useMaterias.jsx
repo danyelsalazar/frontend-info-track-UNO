@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client/react";
 import { MATERIAS } from "../graphql/materia.queries";
+import { useDebounce } from "./useDebounce";
 
 export const useMaterias = (params = {}) => {
   const { search = "", page = 1, limit = 10 } = params;

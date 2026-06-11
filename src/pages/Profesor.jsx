@@ -1,9 +1,11 @@
 import { Rating } from "@mui/material";
-import { IconBook2, IconStar, IconUser } from "@tabler/icons-react";
+import { IconBook2, IconStar } from "@tabler/icons-react";
 import { useProfesor } from "../hooks/useProfesor";
+import { useAuthContext } from "../hooks/useAuthContext";
 import { Reseña } from "../components/Reseña";
 import { MateriaBadge } from "../components/MateriaBadge";
 import { BackButton } from "../components/BackButton";
+import { ProfesorSkeleton } from "../skeletons/ProfesorSkeleton";
 
 const HeaderSection = ({ profesor }) => {
   return (
@@ -55,57 +57,68 @@ const MateriasSection = ({ materias }) => {
   );
 };
 
-const MiReseñaSection = ({ puntuaciones }) => {
-  return (
-    <section className="section">
-      <h3 className="section-title">
-        <IconUser size={16} />
-        Mi reseña
-      </h3>
-      <div className="mi-reseña-section">
-        <p className="section-text">
-          Todavía no dejaste una reseña para este profesor
-        </p>
-        <button className="boton-mi-reseña">+ Dejar reseña</button>
-      </div>
-    </section>
-  );
-};
+const ValoracionesSection = ({ puntuaciones }) => {
+  const { userIdentity } = useAuthContext();
 
-const ReseñasSection = ({ puntuaciones }) => {
+  const miValoracion = userIdentity
+    ? puntuaciones.find((p) => p.usuario.id === userIdentity.id)
+    : null
+
+  const otrasValoraciones = miValoracion
+    ? puntuaciones.filter((p) => p.id !== miValoracion.id)
+    : puntuaciones
+
   return (
     <section className="section">
       <h3 className="section-title">
         <IconStar size={16} />
-        Reseñas
+        Valoraciones
       </h3>
       <ul className="profesor-reseñas-container">
-        {puntuaciones.length === 0 ? (
-          <p className="section-text">Sé el primero en dejar una reseña!</p>
-        ) : (
-          puntuaciones.map((puntuacion) => (
-            <Reseña puntuacion={puntuacion} key={puntuacion.id} />
-          ))
-        )}
+        <MiValoracion valoracion={miValoracion}/>
+        <ListarValoraciones puntuaciones={otrasValoraciones} />
       </ul>
     </section>
-  );
-};
+  )
+}
+
+const MiValoracion = ({ valoracion }) => {
+  if(!valoracion) {
+    return (
+      <div className="mi-reseña-section">
+        <p className="section-text">
+          Todavía no dejaste una valoración para este profesor
+        </p>
+        <button className="boton-mi-reseña">+ Dejar valoración</button>
+      </div>
+    )
+  }
+
+  return <Reseña puntuacion={valoracion} mine/>
+}
+
+const ListarValoraciones = ({puntuaciones}) => {
+  if(puntuaciones.length === 0) {
+    return null
+  }
+
+  return puntuaciones.map((puntuacion) => (
+    <Reseña puntuacion={puntuacion} key={puntuacion.id} />
+  ))
+  
+}
 
 export const Profesor = () => {
   const { profesor, loading } = useProfesor();
 
-  if (loading) {
-    return <p>Cargando...</p>;
-  }
+  if (loading) return <ProfesorSkeleton />
 
   return (
     <main className="page-content page-content-profesor">
       <div className="container-section">
         <HeaderSection profesor={profesor} />
         <MateriasSection materias={profesor.materias} />
-        <MiReseñaSection puntuaciones={profesor.puntuaciones} />
-        <ReseñasSection puntuaciones={profesor.puntuaciones} />
+        <ValoracionesSection puntuaciones={profesor.puntuaciones} />
       </div>
     </main>
   );
