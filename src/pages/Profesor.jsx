@@ -20,7 +20,20 @@ const HeaderSection = ({ profesor }) => {
             <h2 className="profesor-nombre">
               {profesor.apellido}, {profesor.nombre}
             </h2>
-            <p className="profesor-email">{profesor.email}</p>
+            <a className="profesor-email" href={`mailto:${profesor.email}`}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="#ffffff"
+                  d="m20 8l-8 5l-8-5V6l8 5l8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"
+                />
+              </svg>
+              {profesor.email}
+            </a>
           </div>
           <div className="profesor-rating-container">
             <h2 className="profesor-rating-promedio">
@@ -62,11 +75,11 @@ const ValoracionesSection = ({ puntuaciones }) => {
 
   const miValoracion = userIdentity
     ? puntuaciones.find((p) => p.usuario.id === userIdentity.id)
-    : null
+    : null;
 
   const otrasValoraciones = miValoracion
     ? puntuaciones.filter((p) => p.id !== miValoracion.id)
-    : puntuaciones
+    : puntuaciones;
 
   return (
     <section className="section">
@@ -75,15 +88,15 @@ const ValoracionesSection = ({ puntuaciones }) => {
         Valoraciones
       </h3>
       <ul className="profesor-reseñas-container">
-        <MiValoracion valoracion={miValoracion}/>
+        <MiValoracion valoracion={miValoracion} />
         <ListarValoraciones puntuaciones={otrasValoraciones} />
       </ul>
     </section>
-  )
-}
+  );
+};
 
 const MiValoracion = ({ valoracion }) => {
-  if(!valoracion) {
+  if (!valoracion) {
     return (
       <div className="mi-reseña-section">
         <p className="section-text">
@@ -91,27 +104,26 @@ const MiValoracion = ({ valoracion }) => {
         </p>
         <button className="boton-mi-reseña">+ Dejar valoración</button>
       </div>
-    )
+    );
   }
 
-  return <Reseña puntuacion={valoracion} mine/>
-}
+  return <Reseña puntuacion={valoracion} mine />;
+};
 
-const ListarValoraciones = ({puntuaciones}) => {
-  if(puntuaciones.length === 0) {
-    return null
+const ListarValoraciones = ({ puntuaciones }) => {
+  if (puntuaciones.length === 0) {
+    return null;
   }
 
   return puntuaciones.map((puntuacion) => (
     <Reseña puntuacion={puntuacion} key={puntuacion.id} />
-  ))
-  
-}
+  ));
+};
 
 export const Profesor = () => {
   const { profesor, loading } = useProfesor();
 
-  if (loading) return <ProfesorSkeleton />
+  if (loading) return <ProfesorSkeleton />;
 
   return (
     <main className="page-content page-content-profesor">

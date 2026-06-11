@@ -293,6 +293,19 @@ ul {
 .badge-calendar-container{
   background-color: #d62c5c;;
 }
+
+/* estilos de las materias en el compoente de carreras  */
+.card-materias-carrera{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 400px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.card-materias-carrera li {
+  cursor: pointer;
+}
 /* -------------------- */
 /* RESPONSIVE */
 /* -------------------- */

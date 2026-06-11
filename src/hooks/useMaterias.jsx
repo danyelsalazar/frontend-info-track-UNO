@@ -2,23 +2,21 @@ import { useQuery } from "@apollo/client/react";
 import { MATERIAS } from "../graphql/materia.queries";
 import { useDebounce } from "./useDebounce";
 
-export const useMaterias = (params = {}) => {
-  const { search = "", page = 1, limit = 10 } = params;
 
-  const { data, loading, error } = useQuery(MATERIAS, {
+export const useMaterias = ({search, page, limit}) => {
+  const {isDebouncing, debouncedValue} = useDebounce({value: search, delay: 300})
+
+  const { data: {materias = []} = {}, loading} = useQuery(MATERIAS, {
     variables: {
-      search,
-      page,
-      limit,
-    },
-  });
-
-  const materias = data?.materias ?? [];
+      search: debouncedValue,
+      page: page,
+      limit
+    }
+  })
 
   return {
     materias,
-    loading,
-    error,
-    nextPage: materias.length === limit,
-  };
-};
+    loading: loading || isDebouncing,
+    nextPage: materias.length === limit
+  }
+}
