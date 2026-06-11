@@ -916,7 +916,7 @@ section {
 /* ============================= */
 
 .profesores {
-  padding: 60px 16px;
+  padding: 10px 16px;
 }
 
 /* ============================= */
@@ -1182,7 +1182,7 @@ section {
 /* ================= NOVEDADES ================= */
 
 .section-novedades {
-  padding: 60px 16px;
+  padding: 20px 16px;
 }
 
 /* contenedor scroll */
@@ -1705,7 +1705,7 @@ p.divisor i {
 /* ================= HOW ================= */
 
 .how-section {
-  padding: 80px 16px;
+  padding: 20px 16px;
 }
 
 .how-grid {
@@ -1806,7 +1806,7 @@ p.divisor i {
 /* ================= CTA FINAL PRO ================= */
 
 .cta-final {
-  padding: 120px 16px;
+  padding: 40px 16px;
   display: flex;
   justify-content: center;
 }
