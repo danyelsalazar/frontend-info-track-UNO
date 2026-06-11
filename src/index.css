@@ -422,6 +422,24 @@ main{
   box-shadow: var(--shadow);
   border-color: rgba(0, 156, 209, 0.35);
 }
+.container-inicio-texto > * {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.container-inicio-texto > *:nth-child(1) { animation-delay: 0.05s; }
+.container-inicio-texto > *:nth-child(2) { animation-delay: 0.1s; }
+.container-inicio-texto > *:nth-child(3) { animation-delay: 0.15s; }
+.container-inicio-texto > *:nth-child(4) { animation-delay: 0.2s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* ================= SECTIONS ================= */
 section {
@@ -474,62 +492,236 @@ section {
 }
 
 /* ================= CARRERAS ================= */
+/* CONTENEDOR */
+.carreras-area {
+  padding: 60px 16px;
+}
+
+.container-info-carreas-area {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+/* CARD */
 .info-carrera-item {
-  padding: 1.5rem;
+  position: relative;
+  padding: 24px;
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  text-decoration: none;
+  color: inherit;
+
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
+
+  transition: all 0.45s cubic-bezier(.2,.8,.2,1);
+  overflow: hidden;
 }
+
+/* GRADIENTE DE FONDO SUAVE */
+.info-carrera-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at 20% 20%,
+    rgba(255,255,255,0.12),
+    transparent 40%
+  );
+
+  opacity: 0;
+  transition: 0.6s;
+}
+
+/* BORDE GLOW PREMIUM */
+.info-carrera-item::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 22px;
+
+  background: linear-gradient(
+    120deg,
+    var(--color-primary),
+    var(--color-accent),
+    transparent 60%
+  );
+
+  opacity: 0;
+  z-index: 0;
+  transition: 0.5s;
+}
+
+/* contenido por encima */
+.info-carrera-item > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* HOVER SUAVE */
+.info-carrera-item:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.25),
+    0 0 0 1px rgba(255,255,255,0.05);
+}
+
+.info-carrera-item:hover::before {
+  opacity: 1;
+}
+
+.info-carrera-item:hover::after {
+  opacity: 0.2;
+}
+.info-carrera-item:hover .cta{
+  color: var(--color-primary);
+}
+
+/* ICONO */
 .index-carrera {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-accent);
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.5s cubic-bezier(.2,.8,.2,1);
 }
+
+/* animación sutil */
+.info-carrera-item:hover .index-carrera {
+  transform: scale(1.08);
+}
+
+.index-carrera svg {
+  width: 28px;
+  height: 28px;
+  color: white;
+}
+
+/* TITULO */
 .title-carrera {
-  font-family: "DM Serif Display", serif;
-  font-size: 18px;
-  color: var(--color-primary-dark);
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: var(--color-text);
 }
+
+/* DESCRIPCION */
 .description-carrera {
-  font-size: 13px;
+  font-size: 1.05rem;
   color: var(--color-text-muted);
-  line-height: 1.6;
+  line-height: 1.4;
 }
+
+/* TAGS */
 .items-materias-por-carrera {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
+  margin-top: 6px;
 }
+
 .materi-carrera {
-  background: rgba(214, 44, 91, 0.1);
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.06);
+  color: var(--color-text);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  transition: all 0.3s ease;
+}
+
+/* hover elegante */
+.info-carrera-item:hover .materi-carrera {
+  background: rgba(255,255,255,0.12);
+}
+
+/* CTA SUTIL (muy Apple) */
+.info-carrera-item .cta {
+  margin-top: auto;
+  font-size: 0.95rem;
+  font-weight: 500;
   color: var(--color-btn);
-  border: 1px solid rgba(214, 44, 91, 0.2);
-  padding: 4px 10px;
-  border-radius: 100px;
-  font-size: 11px;
-  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.info-carrera-item:hover .cta {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* ENTRADA */
+.info-carrera-item {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: appleFade 0.7s cubic-bezier(.2,.8,.2,1) forwards;
+}
+
+.info-carrera-item:nth-child(1) { animation-delay: 0.05s; }
+.info-carrera-item:nth-child(2) { animation-delay: 0.1s; }
+.info-carrera-item:nth-child(3) { animation-delay: 0.15s; }
+.info-carrera-item:nth-child(4) { animation-delay: 0.2s; }
+
+@keyframes appleFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+  .container-info-carreas-area {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-info-carreas-area {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* ================= CUATRIMESTRE ================= */
-.container-info-carreas-area-cuatrimestre-activo{
-  height: 500px;
-  overflow-x: hidden;
-  overflow-y: scroll;
+
+.cuatrimestre-activo {
+  padding: 40px 16px;
 }
-.container-materia-en-curso {
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 1;
-}
+
+/* HEADER */
 .title-top-careras-cuatrimestre{
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
 }
+
 .title-top-careras-cuatrimestre p {
   color: var(--color-text-muted);
   font-size: 12px;
@@ -537,87 +729,585 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
+
+.description-cuatri-active-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ================= SCROLL ================= */
+
+.container-info-carreas-area-cuatrimestre-activo{
+  max-height: 500px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-right: 6px;
+}
+
+/* scrollbar */
+.container-info-carreas-area-cuatrimestre-activo::-webkit-scrollbar {
+  width: 6px;
+}
+
+.container-info-carreas-area-cuatrimestre-activo::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px;
+}
+
+/* ================= CARD ================= */
+
+.container-materia-en-curso {
+  position: relative;
+  padding: 16px 16px 16px 18px;
+  border-radius: 14px;
+
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  transition: all 0.25s ease;
+}
+
+/* hover */
+.container-materia-en-curso:hover {
+  position: relative;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* ================= HEADER CARD ================= */
+
+.title-materia-en-curso-cuatrimestre {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .title-materia-curso {
   font-family: "DM Serif Display", serif;
   font-size: 17px;
-  color: var(--color-primary);
+  color: var(--color-text);
 }
-.schedule {
+
+/* código tipo chip */
+.materia-code {
+  font-size: 11px;
+  color: var(--color-primary);
+  background: rgba(0, 156, 209, 0.1);
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+/* ================= INFO ================= */
+
+.carrera-cuatri-activo-materia {
   font-size: 12px;
   color: var(--color-text-muted);
-  font-weight: 500;
 }
+
+/* schedule como etiqueta */
+.schedule {
+  font-size: 12px;
+  color: var(--color-text);
+
+  background: rgba(255,255,255,0.05);
+  padding: 6px 8px;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+/* ================= PROFESORES ================= */
+
 .list-profesores-materia-cuatrimestre {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* cada profesor como chip */
+.item-list-materia-curso-pro {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 12px;
+
+  background: rgba(255,255,255,0.04);
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+/* initials */
+.profe-initials {
+  font-size: 10px;
+  font-weight: 600;
+
+  color: white;
+  background: var(--color-primary);
+
+  padding: 3px 6px;
+  border-radius: 999px;
+}
+
+/* ================= ANIMACIÓN SUAVE ================= */
+
+.container-materia-en-curso {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeSoft 0.4s ease forwards;
+}
+
+@keyframes fadeSoft {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============Profesores mejores valorados=========
+========================================================= */
+/* ============================= */
+/* SECTION */
+/* ============================= */
+
+.profesores {
+  padding: 60px 16px;
+}
+
+/* ============================= */
+/* GRID */
+/* ============================= */
+
+.container-profes {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* ============================= */
+/* CARD */
+/* ============================= */
+
+.item-profesor-materia {
+  position: relative;
+  padding: 18px;
+  border-radius: 18px;
+
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* gradiente SOLO en hover */
+.item-profesor-materia::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at top left,
+    var(--color-primary),
+    transparent 60%
+  );
+
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.item-profesor-materia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at bottom right,
+    var(--color-accent),
+    transparent 60%
+  );
+
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+/* HOVER */
+.item-profesor-materia:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.25);
+}
+
+.item-profesor-materia:hover::before {
+  opacity: 0.15;
+}
+
+.item-profesor-materia:hover::after {
+  opacity: 0.1;
+}
+
+/* ============================= */
+/* HEADER PROFESOR */
+/* ============================= */
+
+.descripcion-profe {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ============================= */
+/* INDEX (ANIMADO) */
+/* ============================= */
+
+.index-profe {
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
+
+  transition: all 0.3s ease;
+}
+
+/* animación en hover */
+.item-profesor-materia:hover .index-profe {
+  transform: scale(1.2) translateY(-2px);
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+}
+
+/* ============================= */
+/* TEXTO */
+/* ============================= */
+
+.description-profe-departament h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.departament-profe {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* ============================= */
+/* RATING */
+/* ============================= */
+
+.rating {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.rating span {
+  color: #f5c518;
+}
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+
+.rating-resenias-profe {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ratting-profe {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* ============================= */
+/* ANIMACIÓN ENTRADA */
+/* ============================= */
+
+.item-profesor-materia {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeProf 0.4s ease forwards;
+}
+
+.item-profesor-materia:nth-child(1) { animation-delay: 0.05s; }
+.item-profesor-materia:nth-child(2) { animation-delay: 0.1s; }
+.item-profesor-materia:nth-child(3) { animation-delay: 0.15s; }
+.item-profesor-materia:nth-child(4) { animation-delay: 0.2s; }
+
+@keyframes fadeProf {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (min-width: 768px) {
+  .container-profes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-profes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* top profesor */
+.top-profesor-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  padding: 5px 10px;
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  transform: scale(0.9);
+  opacity: 0;
+  animation: badgeIn 0.4s ease forwards;
+  animation-delay: 0.3s;
+  /* gradiente premium */
+  color: #1a1a1a;
+
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.161);
+
+  z-index: 2;
+}
+/* 🥇 */
+.rank-0 {
+  background: linear-gradient(
+    135deg,
+    #f5c518ba,
+    #ff8c0066
+  );
+}
+
+/* 🥈 */
+.rank-1 {
+  background: linear-gradient(135deg, #d1d5db8f, #9ca3af80);
+}
+
+/* 🥉 */
+.rank-2 {
+  background: linear-gradient(135deg, #cd803279, #a9704265);
+}
+
+/* animación */
+@keyframes badgeIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes badgeIn {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ================= NOVEDADES ================= */
+
+.section-novedades {
+  padding: 60px 16px;
+}
+
+/* contenedor scroll */
+.container-novedades {
+  display: flex;
+  gap: 16px;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+
+  padding: 10px 4px 20px;
+  scrollbar-width: none;
+}
+
+.container-novedades::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================= CARD ================= */
+
+.container-novedad {
+  position: relative;
+
+  min-width: 280px;
+  max-width: 320px;
+
+  padding: 20px;
+
+  border-radius: 20px;
+  background: var(--color-card);
+
+  border: 1px solid var(--color-border);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+
+  scroll-snap-align: start;
+
+  transition: all 0.35s ease;
+  overflow: hidden;
+}
+
+/* gradiente premium hover */
+.container-novedad::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at top left,
+    var(--color-btn),
+    transparent 60%
+  );
+
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.container-novedad:hover::before {
+  opacity: 0.15;
+}
+
+/* hover */
+.container-novedad:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 10px rgba(0,0,0,0.25);
+  border-color: var(--color-btn);
+}
+
+/* ================= DESTACADA (PRIMER CARD) ================= */
+
+.container-novedad:first-child {
+  min-width: 340px;
+  max-width: 380px;
+
+  background: linear-gradient(
+    135deg,
+    var(--color-btn),
+    var(--color-btn-hover)
+  );
+
+  color: white;
+  border: none;
+}
+
+.container-novedad:first-child .text-novedad,
+.container-novedad:first-child .categoria-novedad-title,
+.container-novedad:first-child .indice-novedad i {
+  color: rgba(255,255,255,0.9);
+}
+
+.container-novedad:first-child .title-dia {
+  color: white;
+}
+
+/* ================= FECHA ================= */
+
+.indice-novedad {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* día */
+.title-dia {
+  font-family: "DM Serif Display", serif;
+  font-size: 26px;
+  color: var(--color-text);
+}
+
+/* mes */
+.indice-novedad i {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+/* ================= CONTENIDO ================= */
+
+.info-novedad {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
-.container-materia-en-curso ul {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.container-materia-en-curso .profe-initials {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--color-primary-dark);
-  background-color: rgba(0, 156, 209, 0.1);
-  border: 1px solid rgba(0, 156, 209, 0.2);
-  padding: 4px 10px;
-  border-radius: 100px;
-  display: inline-block;
-}
 
-/* ===============Profesores mejores valorados */
-.item-profesor-materia{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  font-size: 12px;
-}
-
-/* ================= NOVEDADES ================= */
-.container-novedades {
-  padding: 0.5rem 0;
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.container-novedad p i{
-  color: var(--color-dark);
-}
-.container-novedades::-webkit-scrollbar {
-  display: none;
-}
-.container-novedad {
-  min-width: 240px;
-  padding: 1.25rem;
-}
-.title-dia {
-  font-family: "DM Serif Display", serif;
-  font-size: 20px;
-  color: var(--color-text);
-  margin-bottom: 4px;
-}
-.text-novedad {
-  font-size: 13px;
-  color: var(--color-text-muted);
-  line-height: 1.6;
-}
-.categoria-novedad {
+/* categoría */
+.categoria-novedad-title {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-primary);
-  margin-bottom: 8px;
-  display: block;
-}
-.categoria-novedad-title{
+
   color: var(--color-btn);
+}
+
+/* título */
+.text-novedad {
+  font-size: 15px;
+  color: var(--color-text);
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* ================= ANIMACIÓN ENTRADA ================= */
+
+.container-novedad {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeCarousel 0.5s ease forwards;
+}
+
+.container-novedad:nth-child(1) { animation-delay: 0.05s; }
+.container-novedad:nth-child(2) { animation-delay: 0.1s; }
+.container-novedad:nth-child(3) { animation-delay: 0.15s; }
+.container-novedad:nth-child(4) { animation-delay: 0.2s; }
+
+@keyframes fadeCarousel {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ================= DIVISOR ================= */
@@ -634,6 +1324,7 @@ p.divisor i {
   height: 1.5px;
   /* flex: 1; */
 }
+
 
 /* ================= MATERIAS ================= */
 .container-materias {
