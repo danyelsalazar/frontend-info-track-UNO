@@ -17,13 +17,19 @@ export const ME = gql`
         materia {
           id
           nombre
+          planEstudio {
+            anio
+            cuatrimestre
+            carrera{
+              id
+              nombre
+              abreviacion
+            }
+          }
         }
         anio
-        cuatrimestre
         estado
         notaFinal
-        llamadosUsados
-        vencimiento
       }
       puntuaciones {
         puntuacion
@@ -36,4 +42,4 @@ export const ME = gql`
       }
     }
   }
-`
+`;

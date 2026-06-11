@@ -59,22 +59,25 @@ const ACCESOS = [
         </g>
       </svg>
     ),
+    path: "/plan-estudio",
   },
   {
     label: "Recursos",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
+        width="100%"
+        height="100%"
+        viewBox="0 0 24 24"
       >
         <path
-          fill="#fff"
-          d="M18.405 4.799c-.111-.44-.655-.799-1.21-.799h-6.814c-.554 0-1.33-.318-1.722-.707l-.596-.588C7.671 2.316 6.896 2 6.342 2H3.087c-.555 0-1.059.447-1.12.994L1.675 6h16.931zM19.412 7H.588a.58.58 0 0 0-.577.635l.923 9.669A.77.77 0 0 0 1.7 18h16.6a.77.77 0 0 0 .766-.696l.923-9.669A.58.58 0 0 0 19.412 7"
+          fill="#ffffff"
+          fillRule="evenodd"
+          d="M11.934 7.406a1 1 0 0 0 .914.594H19a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V6a.5.5 0 0 1 .5-.5h5.764a.5.5 0 0 1 .447.276zm1.064-1.216a.5.5 0 0 0 .462.31H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.764a2 2 0 0 1 1.789 1.106zM8.5 10.5h7V12h-7zm7 3.5h-7v1.5h7z"
         />
       </svg>
     ),
+    path: "/recursos",
   },
   {
     label: "Mi perfil",
@@ -94,6 +97,7 @@ const ACCESOS = [
         </g>
       </svg>
     ),
+    path: "/mi-perfil",
   },
   {
     label: "Mis Materias",
@@ -115,6 +119,7 @@ const ACCESOS = [
         </g>
       </svg>
     ),
+    path: "/mis-materias",
   },
 ];
 
@@ -131,9 +136,9 @@ export default function Dashboard() {
   // stado tarea lista
   const [tarea, setTarea] = useState(true);
   // clik tarea
-  const handleClickTast = ()=>{
-    setTarea(!tarea)
-  }
+  const handleClickTast = () => {
+    setTarea(!tarea);
+  };
   return (
     <>
       <Header />
@@ -160,7 +165,7 @@ export default function Dashboard() {
           {/* Iconos info de las materias*/}
           <div className="container-materias-grafico">
             <div className="stats-grid">
-              <div className="stat-card">
+              <div className="stat-card card">
                 <div className="icono-info-user-materias icono-info-user-materias-aprobadas">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -177,7 +182,7 @@ export default function Dashboard() {
                 <span>18</span>
                 <span className="stat-label">Aprobadas</span>
               </div>
-              <div className="stat-card">
+              <div className="stat-card card">
                 <div className="icono-info-user-materias icono-info-user-materias-cursando">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -194,7 +199,7 @@ export default function Dashboard() {
                 <span>5</span>
                 <span className="stat-label">Cursando</span>
               </div>
-              <div className="stat-card">
+              <div className="stat-card card">
                 <div className="icono-info-user-materias icono-info-user-materias-restantes">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -220,7 +225,7 @@ export default function Dashboard() {
                 <span>34</span>
                 <span className="stat-label">Restantes</span>
               </div>
-              <div className="stat-card">
+              <div className="stat-card card">
                 <div className="icono-info-user-materias icono-info-user-materias-promedio">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -242,41 +247,71 @@ export default function Dashboard() {
           {/* TAREAS */}
           <div className="tareas-section">
             <ul className="tareas-list">
+              <h3 className="title-tareas-user">Tareas</h3>
               {TAREAS.map((t, i) => (
-                <li key={i} className="tarea-item">
-                    <div className="horario-task">
-                      {t.horario}
-                      <span className="tarea-dia">{t.dia}</span>
-                    </div>
-                    <div className="divisor-horario-info"></div>
-                    <div className="tarea-item-description">
-                      <div className="task-description-sub">
+                <li key={i} className="tarea-item card">
+                  <div className="horario-task">
+                    {t.horario}
+                    <span className="tarea-dia">{t.dia}</span>
+                  </div>
+                  <div className="divisor-horario-info"></div>
+                  <div className="tarea-item-description">
+                    <div className="task-description-sub">
                       <span className="tarea-title">{t.title}</span>
                       <span className={`tarea-badge ${t.badgeClass}`}>
                         {t.tipo}
                       </span>
-                      </div>
-                      <div className="task-day" onClick={()=>{handleClickTast()}}>
-                        {
-                          tarea 
-                          ? <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#009cd1" d="M11.5 3a9.5 9.5 0 0 1 9.5 9.5a9.5 9.5 0 0 1-9.5 9.5A9.5 9.5 0 0 1 2 12.5A9.5 9.5 0 0 1 11.5 3m0 1A8.5 8.5 0 0 0 3 12.5a8.5 8.5 0 0 0 8.5 8.5a8.5 8.5 0 0 0 8.5-8.5A8.5 8.5 0 0 0 11.5 4"/></svg>
-
-                          : <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#009cd1" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
-                        }
-                      </div>
                     </div>
+                    <div
+                      className="task-day"
+                      onClick={() => {
+                        handleClickTast();
+                      }}
+                    >
+                      {tarea ? (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="#009cd1"
+                            d="M11.5 3a9.5 9.5 0 0 1 9.5 9.5a9.5 9.5 0 0 1-9.5 9.5A9.5 9.5 0 0 1 2 12.5A9.5 9.5 0 0 1 11.5 3m0 1A8.5 8.5 0 0 0 3 12.5a8.5 8.5 0 0 0 8.5 8.5a8.5 8.5 0 0 0 8.5-8.5A8.5 8.5 0 0 0 11.5 4"
+                          />
+                        </svg>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="#009cd1"
+                            d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2"
+                          />
+                        </svg>
+                      )}
+                    </div>
+                  </div>
                 </li>
               ))}
+              <button className="card btn-add-tarea-user">Agregar tarea</button>
             </ul>
           </div>
 
           {/* ACCESOS RÁPIDOS */}
           <div className="accesos-section">
             <div className="accesos-grid">
-              {ACCESOS.map((a, i) => (
-                <button key={i} className="acceso-btn">
+              {ACCESOS.map((a) => (
+                <button
+                  key={a.path}
+                  className="acceso-btn card"
+                  onClick={() => navigate(a.path)}
+                >
                   <div className="container-icon-acces-sped">
-                  <span className="acceso-icon">{a.icon}</span>
+                    <span className="acceso-icon">{a.icon}</span>
                   </div>
                   <span className="acceso-label">{a.label}</span>
                 </button>

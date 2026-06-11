@@ -127,10 +127,11 @@ const CarrerasSection = ({ planEstudio }) => {
       <ul className="materia-carreras-container">
         {
           planEstudio.map(pe => (
-            <li className="materia-carrera-item" key={pe.carrera.id}>
-              <Link to={`/carrera/${pe.carrera.id}`} className="materia-carrera-nombre">
+              <Link to={`/carrera/${pe.carrera.id}`}>
+            <li className="materia-carrera-item card" key={pe.carrera.id}>
+              <p className="materia-carrera-nombre">
                 { pe.carrera.nombre }
-              </Link>
+              </p>
               <div className="materia-carrera-badges-container">
                 <p className="badge bage-carreras">
                   { pe.anio }º Año 
@@ -140,6 +141,7 @@ const CarrerasSection = ({ planEstudio }) => {
                 </p>
               </div>
             </li>
+            </Link>
           ))
         }
       </ul>

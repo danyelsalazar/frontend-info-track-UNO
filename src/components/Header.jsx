@@ -1,27 +1,34 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useAuthContext } from "../hooks/useAuthContext"
+import { useAuthContext } from "../hooks/useAuthContext";
 
-const BotonesAuth = ({setOpen, navigate}) => {
+const BotonesAuth = ({ setOpen, navigate }) => {
   return (
     <>
-      <li onClick={() =>{ 
-        setOpen(false)
-        navigate("/login")}} className="item-nav button-ingresar">
+      <li
+        onClick={() => {
+          setOpen(false);
+          navigate("/login");
+        }}
+        className="item-nav button-ingresar"
+      >
         Ingresar
       </li>
-      <li onClick={() => { 
-        setOpen(false)
-        navigate("/register")
-      } } className="item-nav button-ingresar btn-secondary">
+      <li
+        onClick={() => {
+          setOpen(false);
+          navigate("/register");
+        }}
+        className="item-nav button-ingresar btn-secondary"
+      >
         Registrarse
       </li>
     </>
-  )
-}
+  );
+};
 
-const BotonUsuario = ({userIdentity}) => {
+const BotonUsuario = ({ userIdentity }) => {
   return (
     <Link 
       to="/dashboard"
@@ -30,8 +37,8 @@ const BotonUsuario = ({userIdentity}) => {
         {userIdentity.siglas}
       </div>
     </Link>
-  )
-}
+  );
+};
 
 const Header = () => {
   // Menu abierto en mobile
@@ -39,15 +46,19 @@ const Header = () => {
   const [esVisible, setEsVisible] = useState(false);
 
   const navigate = useNavigate();
-  const navRef = useRef()
-  const buttonRef = useRef()
+  const navRef = useRef();
+  const buttonRef = useRef();
 
-  const { userIdentity } = useAuthContext()
+  const { userIdentity, loading } = useAuthContext();
 
-  useEffect(()=>{
-    const handleClickFuera = (e)=>{
-      if(navRef.current && !navRef.current.contains(e.target) && !buttonRef.current.contains(e.target)){
-        setOpen(false)
+  useEffect(() => {
+    const handleClickFuera = (e) => {
+      if (
+        navRef.current &&
+        !navRef.current.contains(e.target) &&
+        !buttonRef.current.contains(e.target)
+      ) {
+        setOpen(false);
       }
     };
     // abro un escuchador paran todos los click de la pagina
@@ -64,18 +75,23 @@ const Header = () => {
     };
 
     // Escuchar el evento de scroll del navegador
-    window.addEventListener('scroll', controlarScroll);
+    window.addEventListener("scroll", controlarScroll);
 
     return () => {
       // cierro el escuchador de clicks
       document.removeEventListener("mousedown", handleClickFuera);
       // cierro el escuchador de scroll
-      window.removeEventListener('scroll', controlarScroll);
-    }
-  }, [])
+      window.removeEventListener("scroll", controlarScroll);
+    };
+  }, []);
+
+  if(loading) return null;
 
   return (
-    <header ref={navRef} className={`header-fijo ${esVisible ? 'visible' : ''}`}>
+    <header
+      ref={navRef}
+      className={`header-fijo ${esVisible ? "visible" : ""}`}
+    >
       <div className="header-fijo-content">
         <Link to="/" className="container-logo-header">
           <div className="container-svg-logo-header">
@@ -96,40 +112,54 @@ const Header = () => {
         </Link>
 
         {/* botón hamburguesa */}
-        <button 
-          ref={buttonRef} 
-          className={`menu-toggle ${open ? "hamburquesa-active": ""}`} 
+        <button
+          ref={buttonRef}
+          className={`menu-toggle ${open ? "hamburquesa-active" : ""}`}
           onClick={() => setOpen(!open)}
         >
           ☰
         </button>
 
-        <nav className={`nav-container ${open ? "active" : ""}` }>
+        <nav className={`nav-container ${open ? "active" : ""}`}>
           <ul>
             <li className="item-nav">
-              <Link to={"/?section=inicio"} onClick={() => setOpen(false)}>Home</Link>
+              <Link to={"/?section=inicio"} onClick={() => setOpen(false)}>
+                Home
+              </Link>
             </li>
             <li className="item-nav">
-              <Link to={"/?section=carreras"} onClick={() => setOpen(false)}>Carreras</Link>
+              <Link to={"/?section=carreras"} onClick={() => setOpen(false)}>
+                Carreras
+              </Link>
             </li>
             <li className="item-nav">
-              <Link to={"/?section=cuatrimestre"}  onClick={() => setOpen(false)}>Cuatrimestre</Link>
+              <Link
+                to={"/cuatrimestre-activo"}
+                onClick={() => setOpen(false)}
+              >
+                Cuatrimestre
+              </Link>
             </li>
             <li className="item-nav">
-              <Link to={"/profesores"}  onClick={() => setOpen(false)}>Profesores</Link>
+              <Link to={"/profesores"} onClick={() => setOpen(false)}>
+                Profesores
+              </Link>
             </li>
             <li className="item-nav">
-              <Link to={"/materias"} onClick={() => setOpen(false)}>Materias</Link>
+              <Link to={"/materias"} onClick={() => setOpen(false)}>
+                Materias
+              </Link>
             </li>
             <li className="item-nav">
-              <Link to={"/?section=novedades"}  onClick={() => setOpen(false)}>Novedades</Link>
+              <Link to={"/?section=novedades"} onClick={() => setOpen(false)}>
+                Novedades
+              </Link>
             </li>
-            {
-              userIdentity.id
-                ? <BotonUsuario userIdentity={userIdentity}/>
-                : <BotonesAuth setOpen={setOpen} navigate={navigate}/>
-            }
-            
+            {userIdentity?.id ? (
+              <BotonUsuario userIdentity={userIdentity} />
+            ) : (
+              <BotonesAuth setOpen={setOpen} navigate={navigate} />
+            )}
           </ul>
         </nav>
       </div>

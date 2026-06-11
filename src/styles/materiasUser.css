@@ -1,0 +1,185 @@
+.materias-user-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px 20px;
+}
+.container-sub-materias-user {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.materia-card {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+}
+/* selects */
+.container-filter-materias-user {
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.select-materia-user {
+  padding: 5px;
+  border-radius: 10px;
+  color: var(--color-text);
+  border: none;
+}
+.select-materia-user:focus {
+  outline: 1px solid var(--color-border);
+}
+
+/* card de materia */
+
+.container-items-carreras-cuatri-anio-badge {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding-left: 5px;
+  border-left: 1px solid var(--color-border);
+}
+.container-items-carreras-cuatri-anio-badge p {
+  background-color: var(--color);
+  border: 1px solid var(--color-border);
+  padding: 0px 5px;
+  font-size: 9px;
+  border-radius: 10px;
+  display: flex;
+  color: var(--color-text-muted);
+  font-weight: 300;
+}
+
+.container-edit-materia-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-edit-materia-user button {
+  background-color: var(--color-bg);
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.title-estad-materia-user {
+  display: grid;
+  grid-template-columns: 1fr 70px;
+}
+.title-materia-user-card {
+  color: var(--color-dark);
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.title-materias-user {
+  color: var(--color-dark);
+}
+
+.container-estado-nota-materia {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-self: center;
+}
+.nota-materia {
+  color: var(--color-text-muted);
+}
+.number-nota {
+  color: var(--color-text);
+}
+/* colores estado materia */
+.estado {
+  width: max-content;
+  height: max-content;
+  border-radius: 10px;
+  padding: 2px 5px;
+  font-size: 8px;
+  border: 0.5px solid var(--color-border);
+  font-weight: 600;
+}
+.aprobada {
+  background-color: #2fa5a950;
+  color: #2fa4a9;
+}
+.cursando {
+  background-color: #d62c5c41;
+  color: #d62c5c;
+}
+.regularizada {
+  background-color: #1449754b;
+  color: #144a75;
+}
+.promocionada {
+  background-color: #eff310;
+}
+
+/* boton agregar materia */
+
+.add-materia:hover {
+  background-color: var(--color-btn);
+  color: #fff;
+  cursor: pointer;
+}
+/* boton editar materia */
+.edit-materia-user {
+  margin-left: 10px;
+  transition: transform ease 0.2s;
+}
+.edit-materia-user:hover {
+  transform: scale(1.05);
+  background-color: #02020219;
+}
+
+/* formulario de materia*/
+.componet-add-materia-user-forever {
+  transition: left ease .3s;
+}
+.componet-add-materia-user-active {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.componet-add-materia-user {
+  position: absolute;
+  top: 50%;
+  left: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.container-internal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.container-internal-form select,
+input {
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-primary-dark);
+  border-radius: 10px;
+  transition: background-color ease 0.2s;
+  cursor: pointer;
+}
+select:focus {
+  outline: 1px solid var(--color-border);
+}
+select:hover {
+  background-color: #00000023;
+}
+.container-internal-form input::placeholder {
+  color: var(--color-primary-dark);
+}
+.btn-enviar-materia:hover {
+  background-color: var(--color-btn);
+  color: #fff;
+  cursor: pointer;
+}

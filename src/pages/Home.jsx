@@ -6,6 +6,9 @@ import Novedades from "../components/Novedades";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import "../index.css";
+import Features from "../components/Features";
+import HowItWorks from "../components/HowItWorks";
+import CTAFinal from "../components/CTAFinal";
 
 const Home = () => {
   // obtengo la localizacion de mi pagina
@@ -29,9 +32,11 @@ const Home = () => {
       <main>
         <Inicio />
         <div className="container-sections-landing-page">
+          <Features/>
+          <HowItWorks/>
           <CarrerasArea />
-          <CuatrimestrCurso />
           <Profesores />
+          <CTAFinal/>
           <Novedades />
         </div>
       </main>
