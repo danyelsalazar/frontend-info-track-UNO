@@ -5,7 +5,7 @@ const Profesores = () => {
 
   // ordenar correctamente
   const topProfes = [...professors]
-    .filter(p => p.avgRating >= 4)
+    .filter((p) => p.avgRating >= 4)
     .sort((a, b) => {
       if (b.avgRating !== a.avgRating) {
         return b.avgRating - a.avgRating;
@@ -22,9 +22,13 @@ const Profesores = () => {
 
   return (
     <section id="profesores" className="profesores">
-      <div className="pre-title title-top-careras-uno container-title-secction-profes">
-        <p className="title-secction-profes divisor">
-          <i></i>Profesores mejor valorados
+      <div className="section-header">
+        <p className="section-badge">COMUNIDAD</p>
+
+        <h2>Profesores mejor valorados</h2>
+
+        <p className="section-sub">
+          Basado en reseñas reales de estudiantes que ya cursaron.
         </p>
       </div>
 
@@ -34,7 +38,6 @@ const Profesores = () => {
 
           return (
             <div key={profe.id} className="card item-profesor-materia">
-
               {badge && (
                 <div className={`top-profesor-badge rank-${index}`}>
                   {badge}
@@ -48,9 +51,7 @@ const Profesores = () => {
 
                 <div className="description-profe-departament">
                   <h4>{profe.name}</h4>
-                  <p className="departament-profe">
-                    {profe.department}
-                  </p>
+                  <p className="departament-profe">{profe.department}</p>
                 </div>
               </div>
 
@@ -63,14 +64,9 @@ const Profesores = () => {
               </div>
 
               <div className="rating-resenias-profe">
-                <p className="ratting-profe">
-                  {profe.avgRating}/5
-                </p>
-                <p className="departament-profe">
-                  {profe.reviewCount} reseñas
-                </p>
+                <p className="ratting-profe">{profe.avgRating}/5</p>
+                <p className="departament-profe">{profe.reviewCount} reseñas</p>
               </div>
-
             </div>
           );
         })}

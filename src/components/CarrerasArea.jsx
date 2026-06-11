@@ -6,9 +6,11 @@ const CarrerasArea = () => {
 
   return (
     <section className="carreras-area" id="carreras">
-      <div className="pre-title title-top-careras-uno">
-        <p className="divisor">
-          <i></i>Carreras del area
+      <div className="section-header">
+        <p className="section-badge">OFERTA ACADÉMICA</p>
+        <h2>Explorá las carreras disponibles</h2>
+        <p className="section-sub">
+          Elegí tu camino y conocé todas las materias, duración y enfoque.
         </p>
       </div>
 

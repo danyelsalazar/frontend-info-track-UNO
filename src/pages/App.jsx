@@ -11,6 +11,7 @@ import MateriasUser from "../pages/MateriasUser";
 import Profesores from "./Profesores";
 import { Profesor } from "./Profesor";
 import { Carrera } from "./Carrera";
+import CuatrimestrCurso from "../components/CuatrimestreCurso";
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/profesores" element={<Profesores />} />
           <Route path="/profesor/:id" element={<Profesor />} />
           <Route path="/carrera/:id" element={<Carrera />} />
+          <Route path="/cuatrimestre-activo" element={<CuatrimestrCurso/>}/>
         </Route>
 
         {/* RUTA SIN HEADER o FOOTER */}

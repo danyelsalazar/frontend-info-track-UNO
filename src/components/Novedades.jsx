@@ -4,14 +4,17 @@ const Novedades = () => {
   const { news } = data;
   return (
     <section id="novedades" className="section-novedades">
-      <div className="pre-title title-top-careras-uno container-title-secction-profes">
-        <p className="title-secction-profes divisor">
-          <i></i>Novedades
+      <div className="section-header">
+        <p className="section-badge">ACTUALIZACIONES</p>
+
+        <h2>Últimas novedades</h2>
+
+        <p className="section-sub">
+          Enterate de cambios importantes, avisos y noticias de la carrera.
         </p>
       </div>
       <div className="container-info-carreas-area container-novedades">
         {news.map((novedad) => {
-            
           const fechaStr = novedad.date;
           const [anio, mes, dia] = fechaStr.split("-");
           const fechaObjeto = new Date(anio, mes - 1, dia);
@@ -19,7 +22,6 @@ const Novedades = () => {
           const nombreMes = new Intl.DateTimeFormat("es-ES", {
             month: "long",
           }).format(fechaObjeto);
-
 
           return (
             <div key={novedad.id} className="container-novedad">
@@ -30,7 +32,9 @@ const Novedades = () => {
                 </p>
               </div>
               <div className="info-novedad">
-                <h3 className="title-light categoria-novedad-title">{novedad.category}</h3>
+                <h3 className="title-light categoria-novedad-title">
+                  {novedad.category}
+                </h3>
                 <p className="text-darck text-novedad">{novedad.title}</p>
               </div>
             </div>

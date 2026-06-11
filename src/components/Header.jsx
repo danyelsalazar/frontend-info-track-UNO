@@ -134,7 +134,7 @@ const Header = () => {
             </li>
             <li className="item-nav">
               <Link
-                to={"/?section=cuatrimestre"}
+                to={"/cuatrimestre-activo"}
                 onClick={() => setOpen(false)}
               >
                 Cuatrimestre
