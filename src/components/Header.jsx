@@ -20,7 +20,7 @@ const BotonesAuth = ({ setOpen, navigate }) => {
           setOpen(false);
           navigate("/register");
         }}
-        className="item-nav button-ingresar btn-secondary"
+        className="item-nav button-ingresar"
       >
         Registrarse
       </li>
