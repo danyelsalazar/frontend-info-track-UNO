@@ -6,9 +6,6 @@ const Inicio = () => {
   return (
     <section className="inicio" id="inicio">
       <InfoResum />
-      <div className="pre-title">
-        <p className="divisor"></p>
-      </div>
       <div className="container-inicio-texto children-block">
         <div className="title-principal children-block">
           <h1>
@@ -16,7 +13,7 @@ const Inicio = () => {
           </h1>
         </div>
         <div className="description-inicio">
-          <p>
+          <p className="texto-inicio">
             Progreso, materias, profesores, tareas y comunidad. Todo lo que un
             estudiante de Informática necesita, en un solo lugar.
           </p>

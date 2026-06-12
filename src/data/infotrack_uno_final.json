@@ -1254,6 +1254,20 @@
   ],
   "professors": [
     {
+      "id": "prof-024",
+      "name": "Frattini, Maximiliano",
+      "initials": "MF",
+      "email": "mfrattini@uno.edu.ar",
+      "department": "Departamento de Hardware",
+      "subjectIds": [
+        "sub-008",
+        "sub-013"
+      ],
+      "avgRating": 5,
+      "reviewCount": 0,
+      "isActive": true
+    },
+    {
       "id": "prof-039",
       "name": "Occhipinti, Pedro Salvador",
       "initials": "PO",
@@ -1581,20 +1595,6 @@
       "department": "Departamento de Matemática",
       "subjectIds": [
         "sub-002"
-      ],
-      "avgRating": 5,
-      "reviewCount": 0,
-      "isActive": true
-    },
-    {
-      "id": "prof-024",
-      "name": "Frattini, Maximiliano",
-      "initials": "MF",
-      "email": "mfrattini@uno.edu.ar",
-      "department": "Departamento de Hardware",
-      "subjectIds": [
-        "sub-008",
-        "sub-013"
       ],
       "avgRating": 5,
       "reviewCount": 0,
