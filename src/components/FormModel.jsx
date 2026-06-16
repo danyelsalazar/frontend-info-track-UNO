@@ -1,11 +1,18 @@
-export const FormModel = ({children, onSubmit, active}) => {
+export const FormModel = ({children, title, onSubmit, active, setActive}) => {
   return (
-    <div className={`${active ? 'componet-add-materia-user-active' : 'componet-add-materia-user'} componet-add-materia-user-forever`}>
-      <form onSubmit={onSubmit} className="form-materia-user">
-        <fieldset className="container-internal-form card">
+    <div className="form-model-container">
+      <form onSubmit={onSubmit}  className={`${active ? 'form-model-active' : 'form-model-desactive'} form-model`}>
+        <h2 className="form-model-title">
+          {title}
+        </h2>
+        <fieldset className="internal-container-form-model">
           {children}
-          <button type="submit" className="card btn-enviar-materia">Enviar</button>
-          <button type="button" className="card btn-enviar-materia">Cancelar</button>
+          <button type="submit" className="btn-form-model btn-enviar-form-model">Guardar</button>
+          <button 
+            type="button"
+            className="btn-form-model btn-cancelar-form-model"
+            onClick={() => setActive(false)}
+          >Cancelar</button>
         </fieldset>
       </form>
     </div>

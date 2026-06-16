@@ -7,7 +7,7 @@ import { useMaterias } from "../hooks/useMaterias";
 import { FormModel } from "../components/FormModel";
 
 // componente para agregar o editar materia
-const AddMateriaUser = ({activo}) => {
+const AddMateriaUser = ({active, setActive}) => {
   // estados del formulario
   const [carrera, setCarrera] = useState("");
   const [materiavalue, setMateriavalue] = useState("");
@@ -42,7 +42,7 @@ const AddMateriaUser = ({activo}) => {
   };
 
   return (
-    <FormModel onSubmit={handleSubmit} active={activo}>
+    <FormModel onSubmit={handleSubmit} active={active} setActive={setActive} title="Guardar Estado de Materia">
       <select
         name="carreraUser"
         id="carreras"
@@ -131,7 +131,7 @@ const AddMateriaUser = ({activo}) => {
 
 const MateriasUser = () => {
   // estado para clases
-  const [activo, setAvtivo] = useState(false)
+  const [active, setActive] = useState(false)
   // Obtenemos los datos del usuario desde el contexto
   const { userIdentity, loading, error } = useAuthContext();
 
@@ -176,10 +176,6 @@ const MateriasUser = () => {
     PROMOCIONADA: "promocionada",
   };
 
-  const handleClick = () =>{
-    setAvtivo(!activo)
-  }
-
   return (
     <div className="materias-user-container">
       <Header />
@@ -215,9 +211,7 @@ const MateriasUser = () => {
             </select>
           </div>
 
-          <button className="add-materia card" onClick={()=>{
-            handleClick();
-          }}>Agregar materia</button>
+          <button className="add-materia card" onClick={() => setActive(true)}>Agregar materia</button>
 
           <h2 className="title-materias-user">
             {carreraSelect ? carreraSelect.nombre : ""}
@@ -263,7 +257,7 @@ const MateriasUser = () => {
           ))
         )}
       </div>
-      <AddMateriaUser activo={activo} />
+      <AddMateriaUser active={active} setActive={setActive}/>
     </div>
   );
 };

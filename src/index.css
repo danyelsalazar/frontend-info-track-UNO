@@ -84,7 +84,7 @@ main {
   left: 0;
   width: 100%;
   height: 64px;
-  z-index: 1000;
+  z-index: 500;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2449,6 +2449,96 @@ p.divisor i {
   background: var(--color-btn);
   color: var(--color-light);
   border-color: #cbd5e1;
+}
+
+/*========FORMULARIO=========*/
+
+.form-model-container {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity ease .3s;
+}
+.form-model-container:has(.form-model-active) {
+  opacity: 1;
+  pointer-events: all;
+}
+.form-model {
+  margin: auto;
+  transition: left ease .3s;
+  max-width: 500px;
+  width: calc(100% - 40px);
+  position: fixed;
+  padding: 1.5rem;
+  background-color: var(--color-card);
+  border-radius: var(--radius);
+}
+.form-model-active {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.form-model-desactive {
+  top: 50%;
+  left: -50%;
+  transform: translate(-50%, -50%);
+}
+.form-model-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  padding-bottom: 1rem;
+}
+.internal-container-form-model {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: none;
+}
+.internal-container-form-model select,
+.internal-container-form-model input {
+  font-size: 1.3rem;
+  padding: 8px 5px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-primary-dark);
+  border-radius: 10px;
+  transition: background-color ease 0.2s;
+  cursor: pointer;
+}
+.internal-container-form-model select:focus {
+  outline: 1px solid var(--color-border);
+}
+.internal-container-form-model select:hover {
+  background-color: #00000023;
+}
+.internal-container-form-model input::placeholder {
+  color: var(--color-primary-dark);
+}
+.btn-form-model {
+  font-size: 1.3rem;
+  padding: 7px;
+  border-radius: var(--radius);
+  border: none;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+.btn-enviar-form-model {
+  background-color: var(--color-btn);
+  color: #fff;
+}
+.btn-enviar-form-model:hover {
+  background-color: var(--color-btn-hover);
+}
+.btn-cancelar-form-model:hover {
+  background-color: var(--color-btn);
+  color: #fff;
 }
 
 @media (max-width: 520px) {
