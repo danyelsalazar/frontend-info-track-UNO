@@ -2,85 +2,69 @@ import "../styles/materiasUser.css";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useState } from "react";
 import Header from "../components/Header";
-import { useCarreras } from "../hooks/useCarreras";
 import { useMaterias } from "../hooks/useMaterias";
 import { FormModel } from "../components/FormModel";
 
-// componente para agregar o editar materia
 const AddMateriaUser = ({active, setActive}) => {
   // estados del formulario
-  const [carrera, setCarrera] = useState("");
-  const [materiavalue, setMateriavalue] = useState("");
-  const [estado, setEstado] = useState("");
-  const [calificacion, setCalificacion] = useState("");
+  const [form, setForm] = useState({
+    materiaId: "",
+    estado: "",
+    nota: "",
+    anio: "",
+    cuatrimestre: "",
+  });
 
-  // traigo las carreras
-  const {
-    carreras,
-    loading: loadingCarrera,
-    error: errorCarrera,
-  } = useCarreras();
+  const anioActual = new Date().getFullYear();
+  const anios = Array.from(
+    { length: anioActual - 2015 + 1 },
+    (_, i) => anioActual - i
+  )
+
+  const getCuatrimestreActual = () => {
+    const mes = new Date().getMonth() + 1
+    return mes >= 8 ? "2" : "1"
+  };
 
   // traigo las materias
-  const {
-    materias,
-    loading: loadingMaterias,
-    error: errorMaterias,
-  } = useMaterias({ limit: 1000 });
+  const {materias} = useMaterias({ limit: 1000 });
 
-  if (loadingCarrera || loadingMaterias) return <p>Cargando ...</p>;
+  // actualiza un campo por name
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  }
 
-  if (errorCarrera || errorMaterias) return <p>Error al cargar datos</p>;
-
-  // filtramos las materias por carrera
-  const materiasFiltradas = carrera
-    ? materias.filter((m) => m.carreras?.some((carre) => carre.id === carrera))
-    : [];
+  // caso especial: al cambiar estado, hay que limpiar campos que ya no aplican
+  const handleEstadoChange = (e) => {
+    const nuevoEstado = e.target.value;
+    setForm((prev) => ({
+      ...prev,
+      estado: nuevoEstado,
+      calificacion: "",
+      anio: anioActual,
+      cuatrimestre: getCuatrimestreActual(),
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(form)
   };
+
+  const requiereCalificacion = form.estado === "APROBADA" || form.estado === "PROMOCIONADA"
+  const requiereAnioYCuatrimestre = form.estado === "REGULARIZADA"
 
   return (
     <FormModel onSubmit={handleSubmit} active={active} setActive={setActive} title="Guardar Estado de Materia">
       <select
-        name="carreraUser"
-        id="carreras"
-        onChange={(e) => {
-          setCarrera(e.target.value);
-          setMateriavalue(""); // reset materia al cambiar carrera
-        }}
-        value={carrera}
+        name="materiaId"
+        value={form.materiaId}
         required
+        onChange={handleChange}
       >
-        <option value="" disabled hidden>
-          Seleciona una carrera
-        </option>
-
-        {/*value ahora es ID */}
-        {carreras.map((carrera) => (
-          <option key={carrera.id} value={carrera.id}>
-            {carrera.nombre}
-          </option>
-        ))}
-      </select>
-
-      <select
-        name=""
-        id="materias"
-        value={materiavalue}
-        required
-        disabled={!carrera} //evita seleccionar sin carrera
-        onChange={(e) => {
-          setMateriavalue(e.target.value);
-        }}
-      >
-        <option value="" disabled hidden>
-          Seleciona una materia
-        </option>
-
-        {/* USAR FILTRADAS */}
-        {materiasFiltradas.map((materi) => (
+        <option value="" disabled hidden>Seleciona una materia</option>
+        {materias.map((materi) => (
           <option key={materi.id} value={materi.id}>
             {materi.nombre}
           </option>
@@ -88,43 +72,68 @@ const AddMateriaUser = ({active, setActive}) => {
       </select>
 
       <select
-        name=""
-        id=""
-        value={estado}
-        onChange={(e) => {
-          setEstado(e.target.value);
-        }}
-        disabled={!materiavalue}
+        name="estado"
+        value={form.estado}
+        onChange={handleEstadoChange}
+        disabled={!form.materiaId}
         required
       >
         <option value="" disabled hidden>
           Seleciona estado
         </option>
-        <option value="APROBADA">APROBADA</option>
-        <option value="CURSANDO">CURSANDO</option>
-        <option value="PROMOCIONADA">PROMOCIONADA</option>
-        <option value="REGULARIZADA">REGULARIZADA</option>
+        <option value="CURSANDO">Cursando</option>
+        <option value="REGULARIZADA">Regularizada</option>
+        <option value="APROBADA">Aprobada</option>
+        <option value="PROMOCIONADA">Promocionada</option>
       </select>
+      
+      {requiereCalificacion && (
+          <select
+            name="nota"
+            value={form.nota}
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled hidden>Calificacion</option>
+            {form.estado === "APROBADA"
+                ? (
+                  <>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </>
+                )
+                : (
+                  <>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </>
+                )
+            }
+          </select>
+        )
+      }
 
-      <select
-        name=""
-        id=""
-        value={calificacion}
-        onChange={(e) => {
-          setCalificacion(Number(e.target.value));
-        }}
-        disabled={!(estado === "APROBADA" || estado === "PROMOCIONADA")}
-        required
-      >
-        <option value="">Calificacion</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
+      {requiereAnioYCuatrimestre && (
+        <>
+          <select name="anio" value={form.anio} onChange={handleChange} required>
+            {anios.map((a) => (
+              <option key={a} value={a}>{a}</option>
+            ))}
+          </select>
+
+          <select name="cuatrimestre" value={form.cuatrimestre} onChange={handleChange} required>
+            <option value="1">1º cuatrimestre</option>
+            <option value="2">2º cuatrimestre</option>
+          </select>
+        </>
+      )}
     </FormModel>
   );
 };
