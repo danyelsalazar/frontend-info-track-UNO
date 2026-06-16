@@ -4,6 +4,7 @@ import { useState } from "react";
 import Header from "../components/Header";
 import { useCarreras } from "../hooks/useCarreras";
 import { useMaterias } from "../hooks/useMaterias";
+import { FormModel } from "../components/FormModel";
 
 // componente para agregar o editar materia
 const AddMateriaUser = ({activo}) => {
@@ -36,105 +37,95 @@ const AddMateriaUser = ({activo}) => {
     ? materias.filter((m) => m.carreras?.some((carre) => carre.id === carrera))
     : [];
 
-  // para evitar cargar el formulariuo sin que este todo ya cargado
-  const isReady =
-    !loadingCarrera && !loadingMaterias && !errorCarrera && !errorMaterias;
-
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   return (
-    <div className={`${activo ? 'componet-add-materia-user-active' : 'componet-add-materia-user'} componet-add-materia-user-forever`}>
-      <form onSubmit={handleSubmit} className="form-materia-user">
-        <fieldset disabled={!isReady} className="container-internal-form card">
-          <select
-            name="carreraUser"
-            id="carreras"
-            onChange={(e) => {
-              setCarrera(e.target.value);
-              setMateriavalue(""); // reset materia al cambiar carrera
-            }}
-            value={carrera}
-            required
-          >
-            <option value="" disabled hidden>
-              Seleciona una carrera
-            </option>
+    <FormModel onSubmit={handleSubmit} active={activo}>
+      <select
+        name="carreraUser"
+        id="carreras"
+        onChange={(e) => {
+          setCarrera(e.target.value);
+          setMateriavalue(""); // reset materia al cambiar carrera
+        }}
+        value={carrera}
+        required
+      >
+        <option value="" disabled hidden>
+          Seleciona una carrera
+        </option>
 
-            {/*value ahora es ID */}
-            {carreras.map((carrera) => (
-              <option key={carrera.id} value={carrera.id}>
-                {carrera.nombre}
-              </option>
-            ))}
-          </select>
+        {/*value ahora es ID */}
+        {carreras.map((carrera) => (
+          <option key={carrera.id} value={carrera.id}>
+            {carrera.nombre}
+          </option>
+        ))}
+      </select>
 
-          <select
-            name=""
-            id="materias"
-            value={materiavalue}
-            required
-            disabled={!carrera} //evita seleccionar sin carrera
-            onChange={(e) => {
-              setMateriavalue(e.target.value);
-            }}
-          >
-            <option value="" disabled hidden>
-              Seleciona una materia
-            </option>
+      <select
+        name=""
+        id="materias"
+        value={materiavalue}
+        required
+        disabled={!carrera} //evita seleccionar sin carrera
+        onChange={(e) => {
+          setMateriavalue(e.target.value);
+        }}
+      >
+        <option value="" disabled hidden>
+          Seleciona una materia
+        </option>
 
-            {/* USAR FILTRADAS */}
-            {materiasFiltradas.map((materi) => (
-              <option key={materi.id} value={materi.id}>
-                {materi.nombre}
-              </option>
-            ))}
-          </select>
+        {/* USAR FILTRADAS */}
+        {materiasFiltradas.map((materi) => (
+          <option key={materi.id} value={materi.id}>
+            {materi.nombre}
+          </option>
+        ))}
+      </select>
 
-          <select
-            name=""
-            id=""
-            value={estado}
-            onChange={(e) => {
-              setEstado(e.target.value);
-            }}
-            disabled={!materiavalue}
-            required
-          >
-            <option value="" disabled hidden>
-              Seleciona estado
-            </option>
-            <option value="APROBADA">APROBADA</option>
-            <option value="CURSANDO">CURSANDO</option>
-            <option value="PROMOCIONADA">PROMOCIONADA</option>
-            <option value="REGULARIZADA">REGULARIZADA</option>
-          </select>
+      <select
+        name=""
+        id=""
+        value={estado}
+        onChange={(e) => {
+          setEstado(e.target.value);
+        }}
+        disabled={!materiavalue}
+        required
+      >
+        <option value="" disabled hidden>
+          Seleciona estado
+        </option>
+        <option value="APROBADA">APROBADA</option>
+        <option value="CURSANDO">CURSANDO</option>
+        <option value="PROMOCIONADA">PROMOCIONADA</option>
+        <option value="REGULARIZADA">REGULARIZADA</option>
+      </select>
 
-          <select
-            name=""
-            id=""
-            value={calificacion}
-            onChange={(e) => {
-              setCalificacion(Number(e.target.value));
-            }}
-            disabled={!(estado === "APROBADA" || estado === "PROMOCIONADA")}
-            required
-          >
-            <option value="">Calificacion</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
-
-          <button type="submit" className="card btn-enviar-materia">Enviar</button>
-        </fieldset>
-      </form>
-    </div>
+      <select
+        name=""
+        id=""
+        value={calificacion}
+        onChange={(e) => {
+          setCalificacion(Number(e.target.value));
+        }}
+        disabled={!(estado === "APROBADA" || estado === "PROMOCIONADA")}
+        required
+      >
+        <option value="">Calificacion</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+    </FormModel>
   );
 };
 
@@ -224,6 +215,10 @@ const MateriasUser = () => {
             </select>
           </div>
 
+          <button className="add-materia card" onClick={()=>{
+            handleClick();
+          }}>Agregar materia</button>
+
           <h2 className="title-materias-user">
             {carreraSelect ? carreraSelect.nombre : ""}
           </h2>
@@ -268,11 +263,6 @@ const MateriasUser = () => {
           ))
         )}
       </div>
-
-      <button className="add-materia card" onClick={()=>{
-        handleClick();
-      }}>Agregar materia</button>
-
       <AddMateriaUser activo={activo} />
     </div>
   );
