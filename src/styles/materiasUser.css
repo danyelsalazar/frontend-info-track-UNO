@@ -1,4 +1,7 @@
 .materias-user-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -9,10 +12,7 @@
   flex-direction: column;
   gap: 15px;
 }
-.materia-card {
-  display: grid;
-  grid-template-columns: 1fr max-content;
-}
+
 /* selects */
 .container-filter-materias-user {
   padding: 10px 0px;
@@ -32,34 +32,30 @@
 }
 
 /* card de materia */
-
-.container-items-carreras-cuatri-anio-badge {
+.materia-user-card {
   display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  padding-left: 5px;
-  border-left: 1px solid var(--color-border);
+  flex-direction: column;
 }
-.container-items-carreras-cuatri-anio-badge p {
-  background-color: var(--color);
-  border: 1px solid var(--color-border);
-  padding: 0px 5px;
-  font-size: 9px;
-  border-radius: 10px;
+.materia-user-card-header {
   display: flex;
-  color: var(--color-text-muted);
+  justify-content: space-between;
+  align-items: center;
+}
+.title-materia-user-card {
+  color: var(--color-dark);
+  font-size: 1.5rem;
   font-weight: 300;
 }
-
-.container-edit-materia-user {
+.buttons-container-materia-user {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.container-edit-materia-user button {
+.materia-user-button {
   background-color: var(--color-bg);
-  width: 30px;
-  height: 30px;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-left: 10px;
   border: none;
   border-radius: 50%;
   padding: 5px;
@@ -67,16 +63,23 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: transform ease 0.2s;
 }
-.title-estad-materia-user {
-  display: grid;
-  grid-template-columns: 1fr 70px;
+.materia-user-button:hover {
+  transform: scale(1.05);
+  background-color: #02020219;
 }
-.title-materia-user-card {
-  color: var(--color-dark);
-  font-size: 15px;
-  font-weight: 300;
+.materia-user-content {
+  width: 100%;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  row-gap: 5px;
+  align-items: center;
 }
+
 
 .title-materias-user {
   color: var(--color-dark);
@@ -100,24 +103,29 @@
   height: max-content;
   border-radius: 10px;
   padding: 2px 5px;
-  font-size: 8px;
+  font-size: 0.8rem;
   border: 0.5px solid var(--color-border);
   font-weight: 600;
 }
 .aprobada {
-  background-color: #2fa5a950;
-  color: #2fa4a9;
+  background-color: #3fd4a050;
+  color: #134446;
+  border: 1px solid #0db808;
 }
 .cursando {
-  background-color: #d62c5c41;
-  color: #d62c5c;
+  background-color: #2551e241;
+  color: #071b69;
+  border: 1px solid #092cef;
 }
 .regularizada {
-  background-color: #1449754b;
-  color: #144a75;
+  background-color: #e199074b;
+  color: #4b2a01;
+  border: 1px solid #cc9a12;
 }
 .promocionada {
-  background-color: #eff310;
+  background-color: #a2ef88;
+  color: #042d03;
+  border: 1px solid #08a000;
 }
 
 /* boton agregar materia */
@@ -126,13 +134,4 @@
   background-color: var(--color-btn);
   color: #fff;
   cursor: pointer;
-}
-/* boton editar materia */
-.edit-materia-user {
-  margin-left: 10px;
-  transition: transform ease 0.2s;
-}
-.edit-materia-user:hover {
-  transform: scale(1.05);
-  background-color: #02020219;
 }

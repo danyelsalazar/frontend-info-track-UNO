@@ -8,24 +8,22 @@ const estadosMateria = {
 }
 
 export const MiMateria = ({materia}) => {
-  console.log(materia)
   return (
-    <div className="materia-card card">
-      <header>
+    <div className="materia-user-card card">
+      <header className="materia-user-card-header">
         <h3 className="title-materia-user-card">{materia.materia.nombre}</h3>
-        <div className="container-edit-materia-user">
-          <button className="edit-materia-user">
+        <div className="buttons-container-materia-user">
+          <button className="materia-user-button">
             <IconEdit color="var(--color-btn)"/>
           </button>
-          <button className="edit-materia-user">
+          <button className="materia-user-button">
             <IconTrash color="var(--color-btn)"/>
           </button>
         </div>
       </header>
 
-      <main className="title-estado-materia-user">
-        <div className="container-estado-nota-materia">
-          <p className={`${estadosMateria[materia.estado] || ""} estado`}>
+      <main className="materia-user-content">
+        <p className={`${estadosMateria[materia.estado] || ""} estado`}>
             {materia.estado}
           </p>
           <p className="nota-materia">
@@ -53,7 +51,6 @@ export const MiMateria = ({materia}) => {
               </p>
             </> 
           )}
-        </div>
       </main>
 
     </div>
