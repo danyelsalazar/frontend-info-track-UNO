@@ -2,12 +2,12 @@ import "../styles/materiasUser.css";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useState } from "react";
 import Header from "../components/Header";
-import { EstadoMateriaForm } from "../components/EstadoMateriaForm";
 import { MiMateria } from "../components/MiMateria";
+import { CrearEstadoMateriaForm } from "../components/CrearEstadoMateriaForm"
 
 const MateriasUser = () => {
-  const [estadoMateriaActive, setEstadoMateriaActive] = useState(false)
   const { userIdentity, loading, error } = useAuthContext()
+  const [estadoMateriaActive, setEstadoMateriaActive] = useState(false)
   const [filtroAnio, setFiltroAnio] = useState("");
 
   // Manejo de estados de carga y error
@@ -49,7 +49,12 @@ const MateriasUser = () => {
           : (materiasFiltradas.map((m) => <MiMateria materia={m} key={m.materia.id}/>)
           )}
       </div>
-      <EstadoMateriaForm active={estadoMateriaActive} setActive={setEstadoMateriaActive}/>
+      {estadoMateriaActive && (
+        <CrearEstadoMateriaForm
+          active={estadoMateriaActive} 
+          setActive={setEstadoMateriaActive}
+        />
+      )}
     </div>
   );
 };

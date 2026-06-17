@@ -1,5 +1,7 @@
 import { IconEdit, IconTrash } from "@tabler/icons-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { EditarEstadoMateriaForm } from "./EditarEstadoMateriaForm";
 
 const estadosMateria = {
   APROBADA: "aprobada",
@@ -9,6 +11,8 @@ const estadosMateria = {
 }
 
 export const MiMateria = ({materia}) => {
+  const [editMateriaActive, setEditMateriaActive] = useState(false)
+
   return (
     <div className="materia-user-card">
       <header className="materia-user-card-header">
@@ -19,7 +23,7 @@ export const MiMateria = ({materia}) => {
           {materia.materia.nombre}
         </Link>
         <div className="buttons-container-materia-user">
-          <button className="materia-user-button">
+          <button className="materia-user-button" onClick={() => setEditMateriaActive(true)}>
             <IconEdit color="var(--color-btn)"/>
           </button>
           <button className="materia-user-button">
@@ -59,7 +63,13 @@ export const MiMateria = ({materia}) => {
             </> 
           )}
       </main>
-
+      {editMateriaActive && (
+        <EditarEstadoMateriaForm
+          active={editMateriaActive}
+          setActive={setEditMateriaActive}
+          materia={materia}
+        />
+      )}
     </div>
   )
 }

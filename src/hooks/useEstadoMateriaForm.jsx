@@ -3,15 +3,7 @@ import { useState } from "react"
 import { ESTABLECER_MATERIA } from "../graphql/materia.mutations";
 import { useAuthContext } from "./useAuthContext";
 
-const initialForm = {
-  materiaId: "",
-  estado: "",
-  nota: "",
-  cuatrimestre: "",
-  anio: ""
-}
-
-export const useEstadoMateriaForm = ({ onSuccess }) => {
+export const useEstadoMateriaForm = ({ onSuccess, initialForm = {materiaId: "", estado: "", nota: "", cuatrimestre: "", anio: ""}}) => {
   const [form, setForm] = useState(initialForm)
   const [establecerMateria, { loading, error }] = useMutation(ESTABLECER_MATERIA)
   const { setMaterias } = useAuthContext()
