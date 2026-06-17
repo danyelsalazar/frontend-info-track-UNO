@@ -1,4 +1,5 @@
 import { IconEdit, IconTrash } from "@tabler/icons-react";
+import { Link } from "react-router-dom";
 
 const estadosMateria = {
   APROBADA: "aprobada",
@@ -9,9 +10,14 @@ const estadosMateria = {
 
 export const MiMateria = ({materia}) => {
   return (
-    <div className="materia-user-card card">
+    <div className="materia-user-card">
       <header className="materia-user-card-header">
-        <h3 className="title-materia-user-card">{materia.materia.nombre}</h3>
+        <Link 
+          className="title-materia-user-card"
+          to={`/materia/${materia.materia.id}`}
+        >
+          {materia.materia.nombre}
+        </Link>
         <div className="buttons-container-materia-user">
           <button className="materia-user-button">
             <IconEdit color="var(--color-btn)"/>
@@ -27,10 +33,11 @@ export const MiMateria = ({materia}) => {
             {materia.estado}
           </p>
           <p className="nota-materia">
-            Año: <b className="number-nota">{materia.anio || "?"}</b>
-          </p>
-          <p className="nota-materia">
-            Cuatrimestre: <b className="number-nota">{materia.cuatrimestre || "?"}</b>
+            Cursada: <b className="number-nota">{
+              materia.cuatrimestre && materia.anio
+                ? `${materia.cuatrimestre}C ${materia.anio}`
+                : "?"
+            }</b>
           </p>
 
           {materia.estado === "REGULARIZADA" && (

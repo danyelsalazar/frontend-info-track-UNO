@@ -35,6 +35,10 @@
 .materia-user-card {
   display: flex;
   flex-direction: column;
+  background-color: var(--color-card);
+  padding: 10px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 .materia-user-card-header {
   display: flex;
@@ -42,9 +46,13 @@
   align-items: center;
 }
 .title-materia-user-card {
-  color: var(--color-dark);
+  color: var(--color-primary-dark);
   font-size: 1.5rem;
   font-weight: 300;
+  transition: var(--transition);
+}
+.title-materia-user-card:hover {
+  color: var(--color-primary);
 }
 .buttons-container-materia-user {
   display: flex;
