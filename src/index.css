@@ -847,7 +847,6 @@ section {
 
   transition: all 0.25s ease;
   z-index: 100;
-
 }
 .container-materia-en-curso::after {
   content: "";
@@ -871,16 +870,18 @@ section {
   transform: translateY(-3px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
-.container-materia-en-curso:hover::after{
+.container-materia-en-curso:hover::after {
   opacity: .2;
   z-index: 10;
 }
-.container-materia-en-curso:hover .materia-code{
-  background-color: #d62c5c;
+.container-materia-en-curso:hover .materia-code {
   transform: scale(1.02);
   color: #fff;
-  box-shadow: 0px 5px 45px rgb(8, 8, 8);
-
+  box-shadow: 0px 5px 35px rgba(8, 8, 8, 0.401);
+}
+.container-materia-en-curso:hover .profe-initials{
+  background-color: #d62c5b;
+  color: #fff;
 }
 
 /* ================= HEADER CARD ================= */
@@ -900,11 +901,20 @@ section {
 /* código tipo chip */
 .materia-code {
   font-size: 11px;
-  color: var(--color-primary);
-  background: rgba(0, 156, 209, 0.1);
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
   padding: 4px 8px;
   border-radius: 8px;
-  transition: background-color ease .2s, color ease .2s, box-shadow ease.2s, transform ease .2s;
+  transition:
+    background-color ease 0.2s,
+    color ease 0.2s,
+    box-shadow ease.2s,
+    transform ease 0.2s;
+    font-weight: 800;
 }
 
 /* ================= INFO ================= */
@@ -923,6 +933,7 @@ section {
   padding: 6px 8px;
   border-radius: 8px;
   width: fit-content;
+  z-index: 200;
 }
 
 /* ================= PROFESORES ================= */
@@ -944,18 +955,22 @@ section {
   background: rgba(255, 255, 255, 0.04);
   padding: 4px 8px;
   border-radius: 999px;
+  z-index: 200;
 }
 
 /* initials */
 .profe-initials {
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 400;
 
-  color: white;
-  background: var(--color-primary);
+  color: var(--color-text);
+  /* background: var(--color-primary); */
 
-  padding: 3px 6px;
-  border-radius: 999px;
+  padding: 6px;
+  border-radius: 50%;
+  border: 0.5px solid #64748b42;
+  z-index: 200;
+  transition: background-color ease .4s;
 }
 
 /* ================= ANIMACIÓN SUAVE ================= */
@@ -2319,7 +2334,7 @@ p.divisor i {
     width: max-content;
     /* justify-content: center; */
   }
-  .cuatrimestre-activo{
+  .cuatrimestre-activo {
     display: flex;
     flex-direction: column;
     justify-content: center;
