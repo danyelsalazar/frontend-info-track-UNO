@@ -1,3 +1,4 @@
+import { useAuthContext } from "../hooks/useAuthContext";
 import { useEstadoMateriaForm } from "../hooks/useEstadoMateriaForm";
 import { useMaterias } from "../hooks/useMaterias";
 import { FormModel } from "./FormModel";
@@ -5,8 +6,9 @@ import { FormModel } from "./FormModel";
 export const EstadoMateriaForm = ({active, setActive}) => {
   const onSuccess = () => {setActive(false)}
 
-  const {materias} = useMaterias({ limit: 1000 });
-  const {form, handleChange, handleEstadoChange, handleSubmit} = useEstadoMateriaForm({ onSuccess })
+  const { materias } = useMaterias({ limit: 1000 })
+  const { userIdentity } = useAuthContext()
+  const { form, handleChange, handleEstadoChange, handleSubmit } = useEstadoMateriaForm({ onSuccess })
 
   const mostrarCalificacion = form.estado === "APROBADA" || form.estado === "PROMOCIONADA"
   const mostrarAnioCuatrimestre = mostrarCalificacion || form.estado === "REGULARIZADA"
@@ -16,6 +18,10 @@ export const EstadoMateriaForm = ({active, setActive}) => {
     { length: anioActual - 2015 + 1 },
     (_, i) => anioActual - i
   )
+
+  const materiasFiltradas = materias
+    .filter((m) => !userIdentity?.materias?.some((um) => um.materia?.id === m.id))
+    .sort((a, b) => a.nombre.localeCompare(b.nombre))
   
   return (
     <FormModel onSubmit={handleSubmit} active={active} setActive={setActive} title="Guardar Estado de Materia">
@@ -26,7 +32,7 @@ export const EstadoMateriaForm = ({active, setActive}) => {
         onChange={handleChange}
       >
         <option value="" disabled hidden>Seleciona una materia</option>
-        {materias.map((materi) => (
+        {materiasFiltradas.map((materi) => (
           <option key={materi.id} value={materi.id}>
             {materi.nombre}
           </option>

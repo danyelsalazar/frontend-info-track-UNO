@@ -18,8 +18,15 @@ export const ESTABLECER_MATERIA = gql`
           }
         }
         anio
+        cuatrimestre
         estado
         notaFinal
+        vencimiento {
+          fecha
+          anio
+        }
+        llamadosUsados
+        updatedAt
       }
     }
   }
