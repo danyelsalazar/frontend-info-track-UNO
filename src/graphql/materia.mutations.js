@@ -31,3 +31,27 @@ export const ESTABLECER_MATERIA = gql`
     }
   }
 `
+
+export const REMOVE_MATERIA = gql`
+  mutation Mutation($materiaId: String!) {
+    eliminarEstadoMateria(materiaId: $materiaId) {
+      materias {
+        anio
+        createdAt
+        cuatrimestre
+        estado
+        llamadosUsados
+        notaFinal
+        updatedAt
+        materia {
+          id
+          nombre
+        }
+        vencimiento {
+          fecha
+          anio
+        }
+      }
+    }
+  }
+`
