@@ -28,8 +28,15 @@ export const ME = gql`
           }
         }
         anio
+        cuatrimestre
         estado
         notaFinal
+        vencimiento {
+          fecha
+          anio
+        }
+        llamadosUsados
+        updatedAt
       }
       puntuaciones {
         puntuacion
