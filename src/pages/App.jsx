@@ -6,7 +6,7 @@ import Materia from "./Materia";
 import Login from "./Login";
 import MainLayout from "../components/MainLayout";
 import Register from "./Register";
-import Dashboard from "./Dashboard";
+import Perfil from "./Perfil";
 import MateriasUser from "../pages/MateriasUser";
 import Profesores from "./Profesores";
 import { Profesor } from "./Profesor";
@@ -38,8 +38,8 @@ const App = () => {
         {/* RUTA SIN HEADER o FOOTER */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/mis-materias" element={<MateriasUser/>} />
+        <Route path="/perfil" element={<Perfil />} />
+        <Route path="/perfil/mis-materias" element={<MateriasUser/>} />
       </Routes>
     </>
   );
