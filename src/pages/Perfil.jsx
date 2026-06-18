@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import { IconAlertHexagon, IconArrowBigRight, IconBook2, IconSchool, IconStar } from "@tabler/icons-react";
+import { IconAlertHexagon, IconArrowBigRight, IconBook2, IconPhone, IconSchool, IconStar } from "@tabler/icons-react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom"
+import { useQuery } from "@apollo/client/react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import Header from "../components/Header";
 import "../styles/dashboard.css";
 import { BackButton } from "../components/BackButton";
+import { PROXIMOS_VENCIMIENTOS } from "../graphql/usuario.queries";
 
 const AccesosDirectos = () => {
   return (
@@ -33,7 +35,8 @@ const AccesosDirectos = () => {
 }
 
 export default function Dashboard() {
-  const { token, userIdentity } = useAuthContext();
+  const { token, userIdentity } = useAuthContext()
+  const {data: { proximosVencimientos = {} } = [], loading} = useQuery(PROXIMOS_VENCIMIENTOS)
 
   const navigate = useNavigate();
 
@@ -48,6 +51,7 @@ export default function Dashboard() {
       <p>Cargando...</p>
     )
   }
+
 
   return (
     <>
@@ -67,8 +71,43 @@ export default function Dashboard() {
           <section className="section">
             <h3 className="section-title">
               <IconAlertHexagon size={16}/>
-              Vencimientos próximos
+              Próximos vencimientos
             </h3>
+            <ul>
+              {
+                proximosVencimientos.map(pv => (
+                  <li key={pv.materia.id}>
+                    <header>
+                      <Link to={`/materia/${pv.materia.id}`}>
+                        {pv.materia.id} - {pv.materia.nombre}
+                      </Link>
+                      <button>
+                        <IconPhone />
+                        Indicar llamado
+                      </button>
+                    </header>
+                    <main>
+                      <div>
+                        <strong>
+                          Vencimiento:
+                        </strong>
+                        <p>
+                          {pv.vencimiento.fecha}º Fecha de {pv.vencimiento.anio}
+                        </p>
+                      </div>
+                      <div>
+                        <strong>
+                          Llamados usados:
+                        </strong>
+                        <p>
+                          {pv.llamadosUsados}/3
+                        </p>
+                      </div>                      
+                    </main>
+                  </li>
+                ))
+              }
+            </ul>
           </section>
           <section className="section">
             <h3 className="section-title">
