@@ -48,34 +48,35 @@ export const MiMateria = ({materia}) => {
 
       <main className="materia-user-content">
         <p className={`${estadosMateria[materia.estado] || ""} estado`}>
-            {materia.estado}
-          </p>
-          <p className="nota-materia">
-            Cursada: <b className="number-nota">{
-              materia.cuatrimestre && materia.anio
-                ? `${materia.cuatrimestre}C ${materia.anio}`
-                : "?"
-            }</b>
-          </p>
+          {materia.estado}
+        </p>
 
-          {materia.estado === "REGULARIZADA" && (
-            <>
-              <p className="nota-materia">
-                Vencimiento: <b className="number-nota">{`${materia.vencimiento?.fecha}º fecha ${materia.vencimiento?.anio}`}</b>
-              </p>
-              <p className="nota-materia">
-                Llamados usados: <b className="number-nota">{`${materia.llamadosUsados}/3`}</b>
-              </p>
-            </> 
-          )}
+        <p className="nota-materia">
+          Cursada: <b className="number-nota">{
+            materia.cuatrimestre && materia.anio
+              ? `${materia.cuatrimestre}C ${materia.anio}`
+              : "?"
+          }</b>
+        </p>
 
-          {(materia.estado === "PROMOCIONADA" || materia.estado === "APROBADA") && (
-            <>
-              <p className="nota-materia">
-                Nota: <b className="number-nota">{materia.notaFinal}</b>
-              </p>
-            </> 
-          )}
+        {materia.estado === "REGULARIZADA" && (
+          <>
+            <p className="nota-materia">
+              Vencimiento: <b className="number-nota">{`${materia.vencimiento?.fecha}º fecha ${materia.vencimiento?.anio}`}</b>
+            </p>
+            <p className="nota-materia">
+              Llamados usados: <b className="number-nota">{`${materia.llamadosUsados}/3`}</b>
+            </p>
+          </> 
+        )}
+
+        {(materia.estado === "PROMOCIONADA" || materia.estado === "APROBADA") && (
+          <>
+            <p className="nota-materia">
+              Nota: <b className="number-nota">{materia.notaFinal}</b>
+            </p>
+          </> 
+        )}
       </main>
       {editMateriaActive && (
         <EditarEstadoMateriaForm

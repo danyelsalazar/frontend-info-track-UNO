@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { IconBrandWhatsapp, IconBuilding, IconCalendarCheck, IconCalendarWeek, IconCirclePlus, IconLink, IconStar, IconUsersGroup } from "@tabler/icons-react";
+import { Rating } from "@mui/material";
 import { useMateria } from "../hooks/useMateria"
+import { useAuthContext } from "../hooks/useAuthContext"
 import { MateriaBadge } from "../components/MateriaBadge";
 import { BackButton } from "../components/BackButton";
-import { Rating } from "@mui/material";
 import MateriaSkeleton from "../skeletons/MateriaSkeleton";
 
 const HeaderSection = ({materia}) => {
@@ -69,7 +70,7 @@ const ComisionesSection = ({comisionesActuales, comisionesAnteriores}) => {
   // Si no hay comisiones
   if(Object.keys(comisionesActuales).length === 0 && Object.keys(comisionesAnteriores).length === 0) {
     return (
-      <section className="section">
+      <section>
         <h3 className="section-title">
           <IconCalendarWeek size={16}/>
           Comisiones
@@ -150,8 +151,22 @@ const CarrerasSection = ({ planEstudio }) => {
 } 
 
 const BadgesContainer = ({materia}) => {
+  const { userIdentity } = useAuthContext()
+  let materiaUser = undefined
+  if(userIdentity) {
+    materiaUser = userIdentity.materias.find(m => m.materia.id === materia.id)
+  }
+
   return (
     <div className="materia-badge-container">
+      {
+        materiaUser &&
+          (
+            <p className="badge badge-calendar-container">
+              {materiaUser.estado.slice(0,1) + materiaUser.estado.toLowerCase().slice(1)}
+            </p>
+          )
+      }
       {
         materia?.cuatrimestreDictado.length > 0
         && (
@@ -167,11 +182,11 @@ const BadgesContainer = ({materia}) => {
       }
       
       {
-        materia.promocionable 
+        materia.promocion !== undefined
         && (
-          <p className="badge">
-            <IconStar size={14}/>
-            Promocionable
+          <p className="badge badge-calendar-container">
+            <IconStar size={14} fill="#ffffff"/>
+            {materia.promocion ? "Promocionable" : "No Promocionable"}
           </p>
         )
       }
