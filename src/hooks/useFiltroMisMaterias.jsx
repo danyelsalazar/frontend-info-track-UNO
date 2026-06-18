@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react"
 
-const ORDEN_ESTADO = { CURSANDO: 0, REGULARIZADA: 1, APROBADA: 2, PROMOCIONADA: 2 }
+const ORDEN_ESTADO = { CURSANDO: 0, REGULARIZADA: 1, APROBADA: 2, PROMOCIONADA: 3 }
 
 const comparadores = {
   actividad: (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt),
@@ -42,8 +42,14 @@ export const useFiltroMisMaterias = ({materias}) => {
     return resultado
   }, [materias, filtroEstado, filtroAnio, filtroCuatrimestre, orden])
 
+  const aniosDisponibles = useMemo(() => {
+    const set = new Set(materias.map((m) => m.anio).filter(Boolean))
+    return [...set].sort((a, b) => b - a)
+  }, [materias])
+
   return {
     materiasProcesadas,
+    aniosDisponibles,
     filtroEstado, setFiltroEstado,
     filtroAnio, setFiltroAnio,
     filtroCuatrimestre, setFiltroCuatrimestre,

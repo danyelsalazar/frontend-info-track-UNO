@@ -1,13 +1,22 @@
 import { Link } from "react-router-dom";
-import { IconBrandWhatsapp, IconBuilding, IconCalendarCheck, IconCalendarWeek, IconCirclePlus, IconLink, IconStar, IconUsersGroup } from "@tabler/icons-react";
+import { IconBrandWhatsapp, IconBuilding, IconCalendarCheck, IconCalendarWeek, IconCirclePlus, IconEdit, IconLink, IconStar, IconUsersGroup } from "@tabler/icons-react";
 import { Rating } from "@mui/material";
 import { useMateria } from "../hooks/useMateria"
 import { useAuthContext } from "../hooks/useAuthContext"
 import { MateriaBadge } from "../components/MateriaBadge";
 import { BackButton } from "../components/BackButton";
+import { EditarEstadoMateriaForm } from "../components/EditarEstadoMateriaForm"
 import MateriaSkeleton from "../skeletons/MateriaSkeleton";
+import { useState } from "react";
 
 const HeaderSection = ({materia}) => {
+  const { userIdentity } = useAuthContext()
+  const [formActive, setFormActive] = useState()
+  let materiaUser = {materia}
+  if(userIdentity) {
+    materiaUser = userIdentity.materias.find(m => m.materia.id === materia.id) || {materia}
+  }
+
   return (
     <header className="materia-header section">
       <div className="materia-header-top">
@@ -16,11 +25,23 @@ const HeaderSection = ({materia}) => {
           <BackButton/>
         </h3>
       </div>
-        <button className="materia-button-estado">
-          <IconCirclePlus size={14}/>
-          Indicar estado
-        </button>
-      <BadgesContainer materia={materia}/>
+        {
+          materiaUser?.estado
+            ? (
+              <button className="materia-button-estado" onClick={() => setFormActive(true)}>
+                <IconEdit size={14}/>
+                Modificar estado
+              </button>
+            )
+            : (
+              <button className="materia-button-estado" onClick={() => setFormActive(true)}>
+                <IconCirclePlus size={14}/>
+                Indicar estado
+              </button>
+            )
+        }
+      <BadgesContainer materia={materia} materiaUser={materiaUser}/>
+      <EditarEstadoMateriaForm active={formActive} setActive={setFormActive} materiaUser={materiaUser}/>
     </header>
   )
 }
@@ -128,20 +149,20 @@ const CarrerasSection = ({ planEstudio }) => {
       <ul className="materia-carreras-container">
         {
           planEstudio.map(pe => (
-              <Link to={`/carrera/${pe.carrera.id}`}>
-            <li className="materia-carrera-item card" key={pe.carrera.id}>
-              <p className="materia-carrera-nombre">
-                { pe.carrera.nombre }
-              </p>
-              <div className="materia-carrera-badges-container">
-                <p className="badge bage-carreras">
-                  { pe.anio }º Año 
+            <Link to={`/carrera/${pe.carrera.id}`} key={pe.carrera.id}>
+              <li className="materia-carrera-item card" key={pe.carrera.id}>
+                <p className="materia-carrera-nombre">
+                  { pe.carrera.nombre }
                 </p>
-                <p className="badge bage-carreras">
-                  {pe.cuatrimestre}º Cuatrimestre
-                </p>
-              </div>
-            </li>
+                <div className="materia-carrera-badges-container">
+                  <p className="badge bage-carreras">
+                    { pe.anio }º Año 
+                  </p>
+                  <p className="badge bage-carreras">
+                    {pe.cuatrimestre}º Cuatrimestre
+                  </p>
+                </div>
+              </li>
             </Link>
           ))
         }
@@ -150,20 +171,14 @@ const CarrerasSection = ({ planEstudio }) => {
   )
 } 
 
-const BadgesContainer = ({materia}) => {
-  const { userIdentity } = useAuthContext()
-  let materiaUser = undefined
-  if(userIdentity) {
-    materiaUser = userIdentity.materias.find(m => m.materia.id === materia.id)
-  }
-
+const BadgesContainer = ({materia, materiaUser}) => {
   return (
     <div className="materia-badge-container">
       {
-        materiaUser &&
+        materiaUser?.estado &&
           (
             <p className="badge badge-calendar-container">
-              {materiaUser.estado.slice(0,1) + materiaUser.estado.toLowerCase().slice(1)}
+              {materiaUser.estado?.slice(0,1) + materiaUser.estado?.toLowerCase().slice(1)}
             </p>
           )
       }

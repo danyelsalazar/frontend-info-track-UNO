@@ -1,31 +1,29 @@
 import "../styles/materiasUser.css";
 import { useAuthContext } from "../hooks/useAuthContext";
-import { useMemo, useState } from "react";
+import { useState } from "react";
+import { IconCirclePlus } from "@tabler/icons-react";
 import Header from "../components/Header";
 import { MiMateria } from "../components/MiMateria";
 import { CrearEstadoMateriaForm } from "../components/CrearEstadoMateriaForm"
 import { useFiltroMisMaterias } from "../hooks/useFiltroMisMaterias";
+import { EditarEstadoMateriaForm } from "../components/EditarEstadoMateriaForm";
 
 const MateriasUser = () => {
   const { userIdentity, loading, error } = useAuthContext()
-  const [estadoMateriaActive, setEstadoMateriaActive] = useState(false)
+  const [crearActive, setCrearActive] = useState(false)
+  const [materiaEditando, setMateriaEditando] = useState(null)
 
   // Desestructuración segura del usuario
   const { materias = [] } = userIdentity || {};
 
   const {
     materiasProcesadas,
+    aniosDisponibles,
     filtroEstado, setFiltroEstado,
     filtroAnio, setFiltroAnio,
     filtroCuatrimestre, setFiltroCuatrimestre,
     orden, setOrden,
   } = useFiltroMisMaterias({materias})
-
-  // Años de los estados de materia del usuario
-  const aniosDisponibles = useMemo(() => {
-    const set = new Set(materias.map((m) => m.anio).filter(Boolean))
-    return [...set].sort((a, b) => b - a)
-  }, [materias])
 
     // Manejo de estados de carga y error
   if (loading) return <p>Cargando datos del usuario...</p>
@@ -35,10 +33,14 @@ const MateriasUser = () => {
     <div className="materias-user-container">
       <Header />
       <div className="container-sub-materias-user">
+        <button className="add-materia card" onClick={() => setCrearActive(true)}>
+          <IconCirclePlus size={16} />
+          Agregar Materia
+        </button>
         <div className="filter-materias-user">
           <div className="container-filter-materias-user">
             <select value={filtroEstado} onChange={(e) => setFiltroEstado(e.target.value)}>
-              <option value="TODAS">Todas</option>
+              <option value="TODAS">Todos los estados</option>
               <option value="CURSANDO">Cursando</option>
               <option value="REGULARIZADA">Regularizada</option>
               <option value="APROBADA">Aprobada</option>
@@ -66,19 +68,21 @@ const MateriasUser = () => {
               <option value="estado">Estado</option>
             </select>
           </div>
-
-          <button className="add-materia card" onClick={() => setEstadoMateriaActive(true)}>Agregar materia</button>
         </div>
 
         {materiasProcesadas.length === 0 
           ? (<p>No hay materias</p>) 
-          : (materiasProcesadas.map((m) => <MiMateria materia={m} key={m.materia.id}/>)
+          : (materiasProcesadas.map((m) => 
+            <MiMateria materia={m} key={m.materia.id} onEditar={() => setMateriaEditando(m)}/>
+          )
           )}
       </div>
-      {estadoMateriaActive && (
-        <CrearEstadoMateriaForm
-          active={estadoMateriaActive} 
-          setActive={setEstadoMateriaActive}
+      <CrearEstadoMateriaForm active={crearActive} setActive={setCrearActive}/>
+      {materiaEditando && (
+        <EditarEstadoMateriaForm
+          active={true}
+          setActive={() => setMateriaEditando(null)}
+          materiaUser={materiaEditando}
         />
       )}
     </div>

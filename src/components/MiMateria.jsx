@@ -1,7 +1,5 @@
 import { IconEdit, IconTrash } from "@tabler/icons-react";
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { EditarEstadoMateriaForm } from "./EditarEstadoMateriaForm";
 import { useMutation } from "@apollo/client/react";
 import { REMOVE_MATERIA } from "../graphql/materia.mutations";
 import { useAuthContext } from "../hooks/useAuthContext";
@@ -13,14 +11,12 @@ const estadosMateria = {
   PROMOCIONADA: "promocionada",
 }
 
-export const MiMateria = ({materia}) => {
-  const [editMateriaActive, setEditMateriaActive] = useState(false)
+export const MiMateria = ({materia, onEditar}) => {
   const [removeMateria, { loading: loadingRemove }] = useMutation(REMOVE_MATERIA)
   const { setMaterias } = useAuthContext()
 
   const handleRemove = async () => {
     const {data} = await removeMateria({ variables: { materiaId: materia.materia.id }})
-    console.log(data)
     setMaterias(data.eliminarEstadoMateria.materias)
   }
 
@@ -34,7 +30,7 @@ export const MiMateria = ({materia}) => {
           {materia.materia.nombre}
         </Link>
         <div className="buttons-container-materia-user">
-          <button className="materia-user-button" onClick={() => setEditMateriaActive(true)}>
+          <button className="materia-user-button" onClick={onEditar}>
             <IconEdit color="var(--color-btn)"/>
           </button>
           <button 
@@ -78,13 +74,6 @@ export const MiMateria = ({materia}) => {
           </> 
         )}
       </main>
-      {editMateriaActive && (
-        <EditarEstadoMateriaForm
-          active={editMateriaActive}
-          setActive={setEditMateriaActive}
-          materia={materia}
-        />
-      )}
     </div>
   )
 }
