@@ -65,7 +65,7 @@ export const EstadoMateriaFormBase = ({
       )}
 
       {mostrarAnioCuatrimestre && (
-        <>
+        <div className="form-model-row">
           <select
             name="anio"
             value={form.anio}
@@ -88,7 +88,7 @@ export const EstadoMateriaFormBase = ({
             <option value={1}>1º cuatrimestre</option>
             <option value={2}>2º cuatrimestre</option>
           </select>
-        </>
+        </div>
       )}
     </FormModel>
   )

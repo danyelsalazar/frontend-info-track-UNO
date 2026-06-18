@@ -137,9 +137,15 @@
 }
 
 /* boton agregar materia */
-
-.add-materia:hover {
+.add-materia {
   background-color: var(--color-btn);
   color: #fff;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  align-self: flex-end;
+}
+.add-materia:hover {
+  background-color: var(--color-btn-hover);
 }

@@ -2519,6 +2519,16 @@ p.divisor i {
 .internal-container-form-model input::placeholder {
   color: var(--color-primary-dark);
 }
+.form-model-row {
+  display: flex;
+  gap: 10px;
+}
+.form-model-row>* {
+  width: 100%;
+  /* opcional: si querés que ambos ocupen el mismo ancho exacto */
+  flex: 1;
+  min-width: 0;
+}
 .btn-form-model {
   font-size: 1.3rem;
   padding: 7px;
