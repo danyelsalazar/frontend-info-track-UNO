@@ -34,10 +34,60 @@ const AccesosDirectos = () => {
   )
 }
 
+const ProximosVencimientosSection = () => {
+  const {data: { proximosVencimientos = [] } = [], loading} = useQuery(PROXIMOS_VENCIMIENTOS)
+
+  return (
+    <section className="section">
+      <h3 className="section-title">
+        <IconAlertHexagon size={16}/>
+        Próximos vencimientos
+      </h3>
+      <ul>
+        {
+          proximosVencimientos.map(pv => <MateriaAVencer vencimiento={pv} key={pv.materia.id}/>)
+        }
+      </ul>
+    </section>
+  )
+}
+
+const MateriaAVencer = ({vencimiento}) => {
+  return (
+    <li key={vencimiento.materia.id}>
+      <header>
+        <Link to={`/materia/${vencimiento.materia.id}`}>
+          {vencimiento.materia.id} - {vencimiento.materia.nombre}
+        </Link>
+        <button>
+          <IconPhone />
+          Indicar llamado
+        </button>
+      </header>
+      <main>
+        <div>
+          <strong>
+            Vencimiento:
+          </strong>
+          <p>
+            {vencimiento.vencimiento.fecha}º Fecha de {vencimiento.vencimiento.anio}
+          </p>
+        </div>
+        <div>
+          <strong>
+            Llamados usados:
+          </strong>
+          <p>
+            {vencimiento.llamadosUsados}/3
+          </p>
+        </div>                      
+      </main>
+    </li>
+  )
+}
+
 export default function Dashboard() {
   const { token, userIdentity } = useAuthContext()
-  const {data: { proximosVencimientos = {} } = [], loading} = useQuery(PROXIMOS_VENCIMIENTOS)
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -51,7 +101,6 @@ export default function Dashboard() {
       <p>Cargando...</p>
     )
   }
-
 
   return (
     <>
@@ -68,47 +117,7 @@ export default function Dashboard() {
             </div>
           </header>
           <AccesosDirectos/>
-          <section className="section">
-            <h3 className="section-title">
-              <IconAlertHexagon size={16}/>
-              Próximos vencimientos
-            </h3>
-            <ul>
-              {
-                proximosVencimientos.map(pv => (
-                  <li key={pv.materia.id}>
-                    <header>
-                      <Link to={`/materia/${pv.materia.id}`}>
-                        {pv.materia.id} - {pv.materia.nombre}
-                      </Link>
-                      <button>
-                        <IconPhone />
-                        Indicar llamado
-                      </button>
-                    </header>
-                    <main>
-                      <div>
-                        <strong>
-                          Vencimiento:
-                        </strong>
-                        <p>
-                          {pv.vencimiento.fecha}º Fecha de {pv.vencimiento.anio}
-                        </p>
-                      </div>
-                      <div>
-                        <strong>
-                          Llamados usados:
-                        </strong>
-                        <p>
-                          {pv.llamadosUsados}/3
-                        </p>
-                      </div>                      
-                    </main>
-                  </li>
-                ))
-              }
-            </ul>
-          </section>
+          <ProximosVencimientosSection />
           <section className="section">
             <h3 className="section-title">
               <IconArrowBigRight size={16}/>
