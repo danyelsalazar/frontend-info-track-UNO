@@ -13,23 +13,101 @@
   gap: 15px;
 }
 
-/* selects */
-.container-filter-materias-user {
-  padding: 10px 0px;
+/* filtrado de materias========== */
+
+/* Contenedor principal exterior */
+.filter-materias-user {
+  width: 100%;
+  margin: 32px 0;
   display: flex;
-  align-items: center;
-  gap: 10px;
+  justify-content: center;
+  padding: 0 16px;
+  box-sizing: border-box;
 }
 
+/* Contenedor interno que agrupa los filtros */
+.container-filter-materias-user {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  /* Sombra premium multinivel */
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.02),
+    0 8px 24px rgba(149, 157, 165, 0.08);
+  border: 1px solid #f1f5f9;
+  width: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+}
+
+/* Estilo individual para cada menú desplegable */
 .select-materia-user {
-  padding: 5px;
-  border-radius: 10px;
-  color: var(--color-text);
-  border: none;
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 18px;
+  font-size: 14px;
+  font-weight: 600; /* Texto ligeramente más grueso para mayor legibilidad */
+  color: #475569;
+  background-color: #f8fafc; /* Fondo gris claro sutil */
+  border: 1px solid #e2e8f0;
+  border-radius: 10px; /* Bordes más modernos y redondeados */
+  cursor: pointer;
+  outline: none;
+  /* Transición más suave y elástica */
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Elimina la flecha nativa del navegador */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  
+  /* Mantiene tu flecha personalizada en base64 */
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjZDYyYzViIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yIDEyQzIgNi40NzcgNi40NzcgMiAxMiAyczEwIDQuNDc3IDEwIDEwcy00LjQ3NyAxMC0xMCAxMFMyIDE3LjUyMyAyIDEybTEyIDNhMSAxIDAgMCAwIDEtMXYtNGExIDEgMCAxIDAtMiAwdjNoLTNhMSAxIDAgMSAwIDAgMnoiIGNsaXAtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 20px; /* Un poco más grande para que destaque */
+  padding-right: 44px; 
 }
+
+/* Efecto al pasar el mouse por encima */
+.select-materia-user:hover {
+  border-color: #cbd5e1;
+  background-color: #f1f5f9;
+  transform: translateY(-1px); /* Efecto sutil de levante */
+}
+
+/* Efecto cuando el select está activo o enfocado */
 .select-materia-user:focus {
-  outline: 1px solid var(--color-border);
+  border-color: #d62c5b; /* Combina con el color fucsia de tu flecha */
+  background-color: #ffffff;
+  /* Resplandor estético del color de tu marca */
+  box-shadow: 0 0 0 4px rgba(214, 44, 91, 0.12);
 }
+
+/* Estilo para las opciones internas */
+.select-materia-user option {
+  color: #1e293b;
+  background-color: #ffffff;
+  padding: 12px;
+}
+
+/* Adaptación para pantallas móviles */
+@media (max-width: 768px) {
+  .container-filter-materias-user {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+  
+  .select-materia-user {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 
 /* card de materia */
 .materia-user-card {
@@ -143,8 +221,10 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
   align-self: flex-end;
+  width: 100%;
 }
 .add-materia:hover {
   background-color: var(--color-btn-hover);
