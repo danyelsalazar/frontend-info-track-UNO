@@ -45,5 +45,6 @@ export const useEstadoMateriaForm = ({ onSuccess, initialForm = {materiaId: "", 
     handleChange,
     handleEstadoChange,
     handleSubmit,
+    clearForm: () => setForm(initialForm)
   }
 }

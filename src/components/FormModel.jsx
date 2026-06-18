@@ -1,4 +1,4 @@
-export const FormModel = ({children, title, onSubmit, active, setActive}) => {
+export const FormModel = ({children, title, onSubmit, active, setActive, clearForm = () => {}}) => {
   return (
     <div className="form-model-container">
       <form onSubmit={onSubmit}  className={`${active ? 'form-model-active' : 'form-model-desactive'} form-model`}>
@@ -11,7 +11,10 @@ export const FormModel = ({children, title, onSubmit, active, setActive}) => {
             <button 
               type="button"
               className="btn-form-model btn-cancelar-form-model"
-              onClick={() => setActive(false)}
+              onClick={() => {
+                setActive(false)
+                clearForm()
+              }}
             >
               Cancelar
             </button>

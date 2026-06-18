@@ -8,7 +8,7 @@ export const CrearEstadoMateriaForm = ({ active, setActive }) => {
 
   const { materias } = useMaterias({ limit: 1000 })
   const { userIdentity } = useAuthContext()
-  const { form, handleChange, handleEstadoChange, handleSubmit } = useEstadoMateriaForm({ onSuccess })
+  const { form, handleChange, handleEstadoChange, handleSubmit, clearForm } = useEstadoMateriaForm({ onSuccess })
 
   // Mostrar materias que no tengan estado y en orden alfabetico
   const materiasFiltradas = materias
@@ -24,6 +24,7 @@ export const CrearEstadoMateriaForm = ({ active, setActive }) => {
       handleChange={handleChange}
       handleEstadoChange={handleEstadoChange}
       handleSubmit={handleSubmit}
+      clearForm={clearForm}
       materiaSelectSlot={
         <select name="materiaId" value={form.materiaId} required onChange={handleChange}>
           <option value="" disabled hidden>Seleciona una materia</option>

@@ -8,6 +8,7 @@ export const EstadoMateriaFormBase = ({
   handleChange,
   handleEstadoChange,
   handleSubmit,
+  clearForm,
   materiaSelectSlot, // lo que se renderiza en el lugar del select de materia
 }) => {
   const mostrarCalificacion = form.estado === "APROBADA" || form.estado === "PROMOCIONADA"
@@ -20,7 +21,7 @@ export const EstadoMateriaFormBase = ({
   )
 
   return (
-    <FormModel onSubmit={handleSubmit} active={active} setActive={setActive} title={title}>
+    <FormModel onSubmit={handleSubmit} active={active} setActive={setActive} title={title} clearForm={clearForm}>
       {materiaSelectSlot}
 
       <select

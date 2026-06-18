@@ -12,7 +12,7 @@ export const EditarEstadoMateriaForm = ({ active, setActive, materiaUser }) => {
     cuatrimestre: materiaUser?.cuatrimestre || "",
     anio: materiaUser?.anio || ""
   }
-  const { form, handleChange, handleEstadoChange, handleSubmit } = useEstadoMateriaForm({ onSuccess, initialForm })
+  const { form, handleChange, handleEstadoChange, handleSubmit, clearForm } = useEstadoMateriaForm({ onSuccess, initialForm })
   
   return (
     <EstadoMateriaFormBase
@@ -23,6 +23,7 @@ export const EditarEstadoMateriaForm = ({ active, setActive, materiaUser }) => {
       handleChange={handleChange}
       handleEstadoChange={handleEstadoChange}
       handleSubmit={handleSubmit}
+      clearForm={clearForm}
       materiaSelectSlot={""}
     />
   )
