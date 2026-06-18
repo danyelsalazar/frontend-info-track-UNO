@@ -9,27 +9,25 @@ import { BackButton } from "../components/BackButton";
 
 const AccesosDirectos = () => {
   return (
-    <ul className="accesos-section section">
-      <div className="accesos-grid">
-        <Link className="acceso-btn card" to="/perfil/mis-carreras">
-          <div className="container-icon-acces-sped">
-            <span className="acceso-icon"><IconSchool color="#fff"/></span>
-          </div>
-          <span className="acceso-label">Mis Carreras</span>
-        </Link>
-        <Link className="acceso-btn card" to="/perfil/mis-materias">
-          <div className="container-icon-acces-sped">
-            <span className="acceso-icon"><IconBook2 color="#fff"/></span>
-          </div>
-          <span className="acceso-label">Mis Materias</span>
-        </Link>
-        <Link className="acceso-btn card" to="/perfil/mis-valoraciones">
-          <div className="container-icon-acces-sped">
-            <span className="acceso-icon"><IconStar color="#fff"/></span>
-          </div>
-          <span className="acceso-label">Mis Valoraciones</span>
-        </Link>
-      </div>
+    <ul className="accesos-grid section">
+      <Link className="acceso-btn card" to="/perfil/mis-carreras">
+        <div className="container-icon-acceso">
+          <span className="acceso-icon"><IconSchool color="#fff"/></span>
+        </div>
+        <span className="acceso-label">Mis Carreras</span>
+      </Link>
+      <Link className="acceso-btn card" to="/perfil/mis-materias">
+        <div className="container-icon-acceso">
+          <span className="acceso-icon"><IconBook2 color="#fff"/></span>
+        </div>
+        <span className="acceso-label">Mis Materias</span>
+      </Link>
+      <Link className="acceso-btn card" to="/perfil/mis-valoraciones">
+        <div className="container-icon-acceso">
+          <span className="acceso-icon"><IconStar color="#fff"/></span>
+        </div>
+        <span className="acceso-label">Mis Valoraciones</span>
+      </Link>
     </ul>
   )
 }
@@ -45,10 +43,16 @@ export default function Dashboard() {
     }
   }, [navigate, token]);
 
+  if(!userIdentity) {
+    return (
+      <p>Cargando...</p>
+    )
+  }
+
   return (
     <>
       <Header />
-      <main className="page-content">
+      <main className="page-content" id="page-content-perfil">
         <div className="container-section">
           <header className="materia-header section">
             <div className="profesor-header-logo">

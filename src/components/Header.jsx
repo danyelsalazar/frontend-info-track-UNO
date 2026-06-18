@@ -31,7 +31,7 @@ const BotonesAuth = ({ setOpen, navigate }) => {
 const BotonUsuario = ({ userIdentity }) => {
   return (
     <Link 
-      to="/dashboard"
+      to="/perfil"
     >
       <div className="avatar">
         {userIdentity.siglas}

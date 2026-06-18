@@ -1,26 +1,3 @@
-/* ── PÁGINA ─────────────────────────────────────── */
-.dashboard-page {
-  margin-top: 20px;
-  min-height: 100vh;
-  background: var(--color-bg);
-  font-family: "DM Sans", system-ui, sans-serif;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-}
-
-/* ── MAIN CARD ──────────────────────────────────── */
-.dashboard-card {
-  width: 100%;
-  height: 100%;
-  padding: 0px 0px;
-  box-shadow: 0 8px 32px rgba(20, 74, 117, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 /* Barrra de progreso */
 .multi-progress-container {
   width: 100%;
@@ -167,16 +144,6 @@
 .stat-red     { color: rgb(220, 199, 64); }
 .stat-muted   { color: var(--color-btn); }
 
-/* ── SECTION TITLE ──────────────────────────────── */
-.section-title {
-  font-size: 1.2em;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-primary-dark);
-  margin-bottom: 4px;
-}
-
 /* ── TAREAS ─────────────────────────────────────── */
 .tareas-list {
   list-style: none;
@@ -283,35 +250,34 @@
 .dot-blue   { background: var(--color-primary); }
 
 /* badges */
-.badge-red    { background: rgba(214,44,91,.1);  color: var(--color-btn);       }
-.badge-yellow { background: rgba(42, 213, 167, 0.1); color: var(--color-accent);                    }
-.badge-blue   { background: rgba(0,156,209,.1);  color: var(--color-primary-dark);  }
+.badge-red    { background: rgba(214,44,91,.1);  color: var(--color-btn); }
+.badge-yellow { background: rgba(42, 213, 167, 0.1); color: var(--color-accent); }
+.badge-blue   { background: rgba(0,156,209,.1);  color: var(--color-primary-dark); }
+
+/* ── PAGINA ─────────────────────────────────────── */
+#page-content-perfil {
+  justify-content: start;
+}
 
 /* ── ACCESOS ─────────────────────────────────────── */
-.accesos-section{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
 .accesos-grid {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
-  padding: 0px 20px 20px 20px;
+
 }
-.container-icon-acces-sped{
-  width: 30px;
-  height: 30px;
+.container-icon-acceso{
+  width: 2.8rem;
+  height: 2.8rem;
   background-color: var(--color-btn);
   border-radius: 50%;
-  padding: 3px;
+  padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.container-icon-acces-sped span{
+.acceso-icon{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -324,7 +290,6 @@
   align-items: center;
   justify-content: center;
   gap: 7px;
-  padding: 14px 6px;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: 14px;
@@ -340,7 +305,7 @@
 .acceso-btn:active { transform: scale(0.96); }
 
 .acceso-label {
-  font-size: 10px;
+  font-size: 1rem;
   font-weight: 500;
   color: #475569;
   transition: color 0.15s ease;
@@ -348,42 +313,8 @@
   line-height: 1.3;
 }
 
-/* ===== exit ===== */
-.exit-dashboard{
-  position: absolute;
-  top: 60px;
-  right: 30px;
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  padding: 5px;
-  transition: background-color ease .3s;
-  z-index: 10;
-  cursor: pointer;
-  border: none;
-}
-.exit-dashboard::before {
-  content: ""; 
-  position: absolute;   
-  top: 50%;
-  left: 50%;
-  width: 70px;          
-  height: 70px;
-  background-color: var(--color-btn);
-  border-radius: 50%; 
-  z-index: -1;    
-  transform: translate(-50%, -50%) scale(0); 
-  transition: transform ease 0.3s; 
-}
-
-.exit-dashboard:hover::before {
-  transform: translate(-50%, -50%) scale(.7); 
-}
-
 /* =============================================
-   TABLET  ≥ 600px
+    TABLET  ≥ 600px
    ============================================= */
 @media (min-width: 600px) {
   
@@ -407,7 +338,7 @@
 }
 
 /* =============================================
-   DESKTOP  ≥ 1024px
+    DESKTOP  ≥ 1024px
    ============================================= */
 @media (min-width: 1024px) {
   .dashboard-card {
@@ -422,29 +353,14 @@
   .stat-label { font-size: 13px; }
 
   .tarea-title { font-size: 15px; }
-
-  /* accesos en 6 columnas */
-  .accesos-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-  }
-  .acceso-btn {
-    padding: 20px 10px;
-    border-radius: 16px;
-  }
   .acceso-icon  { font-size: 28px; }
   .acceso-label { font-size: 12px; }
-
-  .section-title { font-size: 12px; }
 }
 
 /* =============================================
-   LARGE DESKTOP  ≥ 1280px
+    LARGE DESKTOP  ≥ 1280px
    ============================================= */
 @media (min-width: 1280px) {
-  .dashboard-card {
-    max-width: 1100px;
-  }
   .hero-greeting { font-size: 32px; }
   .hero-sub      { font-size: 15px; }
 }
