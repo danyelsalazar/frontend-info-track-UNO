@@ -21,7 +21,7 @@ const IconoBienvenida = () => {
         />
         <path
           fill="url(#IconifyId19edda4ceb4c78dc547)"
-          fill-opacity=".6"
+          fillOpacity=".6"
           d="M17.976 30.04c7.928 0 11.89-5.323 11.89-11.89c0-6.566-3.962-11.89-11.89-11.89c-7.927 0-11.89 5.324-11.89 11.89s3.963 11.89 11.89 11.89"
         />
         <path
@@ -51,28 +51,28 @@ const IconoBienvenida = () => {
         <g filter="url(#IconifyId19edda4ceb4c78dc584)">
           <path
             stroke="#4D264E"
-            stroke-linecap="round"
-            stroke-width="1.6"
+            strokeLinecap="round"
+            strokeWidth="1.6"
             d="M13.992 20.53c.459.594 1.887 1.781 3.932 1.781s3.543-1.187 4.037-1.78"
           />
         </g>
         <path
           stroke="url(#IconifyId19edda4ceb4c78dc552)"
-          stroke-linecap="round"
-          stroke-width="1.6"
+          strokeLinecap="round"
+          strokeWidth="1.6"
           d="M13.992 20.53c.459.594 1.887 1.781 3.932 1.781s3.543-1.187 4.037-1.78"
         />
         <path
           stroke="url(#IconifyId19edda4ceb4c78dc553)"
-          stroke-linecap="round"
-          stroke-width="1.6"
+          strokeLinecap="round"
+          strokeWidth="1.6"
           d="M13.992 20.53c.459.594 1.887 1.781 3.932 1.781s3.543-1.187 4.037-1.78"
         />
         <g filter="url(#IconifyId19edda4ceb4c78dc585)">
           <path
             stroke="url(#IconifyId19edda4ceb4c78dc572)"
-            stroke-linecap="round"
-            stroke-width=".5"
+            strokeLinecap="round"
+            strokeWidth=".5"
             d="M13.992 20.39c.459.593 1.887 1.78 3.932 1.78s3.543-1.187 4.037-1.78"
           />
         </g>
@@ -213,9 +213,9 @@ const IconoBienvenida = () => {
             gradientTransform="rotate(132.839 10.359 11.787)scale(31.8522)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FFF478" />
-            <stop offset=".475" stop-color="#FFB02E" />
-            <stop offset="1" stop-color="#F70A8D" />
+            <stop stopColor="#FFF478" />
+            <stop offset=".475" stopColor="#FFB02E" />
+            <stop offset="1" stopColor="#F70A8D" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc545"
@@ -225,9 +225,9 @@ const IconoBienvenida = () => {
             gradientTransform="rotate(131.878 10.298 11.918)scale(33.0797)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FFF478" />
-            <stop offset=".475" stop-color="#FFB02E" />
-            <stop offset="1" stop-color="#F70A8D" />
+            <stop stopColor="#FFF478" />
+            <stop offset=".475" stopColor="#FFB02E" />
+            <stop offset="1" stopColor="#F70A8D" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc546"
@@ -237,8 +237,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(-2.97263 14.86305 -19.0367 -3.80736 17.977 15.179)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset=".788" stop-color="#F59639" stop-opacity="0" />
-            <stop offset=".973" stop-color="#FF7DCE" />
+            <stop offset=".788" stopColor="#F59639" stopOpacity="0" />
+            <stop offset=".973" stopColor="#FF7DCE" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc547"
@@ -248,7 +248,7 @@ const IconoBienvenida = () => {
             gradientTransform="rotate(135 6.43 12.301)scale(34.8323)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset=".315" stop-opacity="0" />
+            <stop offset=".315" stopOpacity="0" />
             <stop offset="1" />
           </radialGradient>
           <radialGradient
@@ -259,8 +259,8 @@ const IconoBienvenida = () => {
             gradientTransform="rotate(77.692 -2.808 20.662)scale(23.9056)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset=".508" stop-color="#7D6133" stop-opacity="0" />
-            <stop offset="1" stop-color="#715B32" />
+            <stop offset=".508" stopColor="#7D6133" stopOpacity="0" />
+            <stop offset="1" stopColor="#715B32" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc549"
@@ -270,8 +270,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(6.36988 9.34248 -6.7719 4.6172 18.402 18.576)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FFB849" />
-            <stop offset="1" stop-color="#FFB847" stop-opacity="0" />
+            <stop stopColor="#FFB849" />
+            <stop offset="1" stopColor="#FFB847" stopOpacity="0" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc550"
@@ -281,8 +281,8 @@ const IconoBienvenida = () => {
             gradientTransform="rotate(9.866 -104.093 136.212)scale(9.91374)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FFA64B" />
-            <stop offset=".9" stop-color="#FFAE46" stop-opacity="0" />
+            <stop stopColor="#FFA64B" />
+            <stop offset=".9" stopColor="#FFAE46" stopOpacity="0" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc551"
@@ -292,8 +292,8 @@ const IconoBienvenida = () => {
             gradientTransform="rotate(43.971 -11.802 32.493)scale(50.1546)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset=".185" stop-opacity="0" />
-            <stop offset="1" stop-opacity=".4" />
+            <stop offset=".185" stopOpacity="0" />
+            <stop offset="1" stopOpacity=".4" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc552"
@@ -303,8 +303,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(-.76562 .67188 -.6058 -.69032 22.491 20.03)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#5F4E50" />
-            <stop offset="1" stop-color="#5F4E50" stop-opacity="0" />
+            <stop stopColor="#5F4E50" />
+            <stop offset="1" stopColor="#5F4E50" stopOpacity="0" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc553"
@@ -314,8 +314,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(1.64063 1.9375 -.67707 .57333 14.538 19.89)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#57434C" />
-            <stop offset="1" stop-color="#57434C" stop-opacity="0" />
+            <stop stopColor="#57434C" />
+            <stop offset="1" stopColor="#57434C" stopOpacity="0" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc554"
@@ -325,8 +325,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(3.1875 -2.6875 2.14102 2.53935 4.611 13.624)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#EE9654" />
-            <stop offset="1" stop-color="#EE9654" stop-opacity="0" />
+            <stop stopColor="#EE9654" />
+            <stop offset="1" stopColor="#EE9654" stopOpacity="0" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc555"
@@ -336,8 +336,8 @@ const IconoBienvenida = () => {
             gradientTransform="rotate(130.301 1.968 5.668)scale(6.62467 10.1816)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset=".769" stop-color="#F3A731" stop-opacity="0" />
-            <stop offset="1" stop-color="#D1A64E" />
+            <stop offset=".769" stopColor="#F3A731" stopOpacity="0" />
+            <stop offset="1" stopColor="#D1A64E" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc556"
@@ -347,8 +347,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(3.2508 .70115 -.3739 1.7335 10.028 7.437)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FFB639" />
-            <stop offset="1" stop-color="#FFB639" stop-opacity="0" />
+            <stop stopColor="#FFB639" />
+            <stop offset="1" stopColor="#FFB639" stopOpacity="0" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc557"
@@ -358,8 +358,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(4.09375 -3.76574 2.15105 2.33842 7.486 12.937)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#F7A23E" />
-            <stop offset="1" stop-color="#F7A23E" stop-opacity="0" />
+            <stop stopColor="#F7A23E" />
+            <stop offset="1" stopColor="#F7A23E" stopOpacity="0" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc558"
@@ -369,8 +369,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(-1.40624 2.25001 -2.14896 -1.34308 17.299 6.78)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FFE667" />
-            <stop offset="1" stop-color="#FFC744" stop-opacity="0" />
+            <stop stopColor="#FFE667" />
+            <stop offset="1" stopColor="#FFC744" stopOpacity="0" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc559"
@@ -380,8 +380,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(-2.0625 1.01563 -1.08792 -2.2093 18.658 4.28)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FFF064" />
-            <stop offset="1" stop-color="#FEBA32" stop-opacity="0" />
+            <stop stopColor="#FFF064" />
+            <stop offset="1" stopColor="#FEBA32" stopOpacity="0" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc560"
@@ -391,8 +391,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(3.00402 -3.3837 4.37322 3.88252 13.76 8.65)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset=".302" stop-color="#FDA04C" />
-            <stop offset="1" stop-color="#FDA04C" stop-opacity="0" />
+            <stop offset=".302" stopColor="#FDA04C" />
+            <stop offset="1" stopColor="#FDA04C" stopOpacity="0" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc561"
@@ -402,8 +402,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(-4.85935 2.76566 -1.4409 -2.53172 17.877 5.312)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset=".619" stop-color="#FFA24E" stop-opacity="0" />
-            <stop offset=".922" stop-color="#FFB639" />
+            <stop offset=".619" stopColor="#FFA24E" stopOpacity="0" />
+            <stop offset=".922" stopColor="#FFB639" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc562"
@@ -413,8 +413,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(-1.90626 1.06249 -1.16524 -2.0906 18.018 2.718)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FFF064" />
-            <stop offset="1" stop-color="#FEBA32" stop-opacity="0" />
+            <stop stopColor="#FFF064" />
+            <stop offset="1" stopColor="#FEBA32" stopOpacity="0" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc563"
@@ -424,8 +424,8 @@ const IconoBienvenida = () => {
             gradientTransform="rotate(-49.636 14.827 -10.248)scale(4.51151 5.7955)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset=".302" stop-color="#FDA04C" />
-            <stop offset="1" stop-color="#FDA04C" stop-opacity="0" />
+            <stop offset=".302" stopColor="#FDA04C" />
+            <stop offset="1" stopColor="#FDA04C" stopOpacity="0" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc564"
@@ -435,8 +435,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(-5.28123 3.28127 -1.97232 -3.17447 17.033 3.812)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset=".639" stop-color="#FFA24E" stop-opacity="0" />
-            <stop offset=".922" stop-color="#FFB639" />
+            <stop offset=".639" stopColor="#FFA24E" stopOpacity="0" />
+            <stop offset=".922" stopColor="#FFB639" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc565"
@@ -446,8 +446,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(4.45392 -.89237 .8955 4.46951 10.889 7.47)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset=".142" stop-color="#FC9F4D" />
-            <stop offset="1" stop-color="#FC9F4D" stop-opacity="0" />
+            <stop offset=".142" stopColor="#FC9F4D" />
+            <stop offset="1" stopColor="#FC9F4D" stopOpacity="0" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc566"
@@ -457,8 +457,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(-1.3704 3.66512 -5.32541 -1.9912 12.243 4.139)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset=".842" stop-color="#FFB639" stop-opacity="0" />
-            <stop offset="1" stop-color="#FFB639" />
+            <stop offset=".842" stopColor="#FFB639" stopOpacity="0" />
+            <stop offset="1" stopColor="#FFB639" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc567"
@@ -468,8 +468,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(.84375 -.20704 .28715 1.1702 11.707 5.27)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset=".334" stop-color="#FFA80F" />
-            <stop offset="1" stop-color="#FFA80F" stop-opacity="0" />
+            <stop offset=".334" stopColor="#FFA80F" />
+            <stop offset="1" stopColor="#FFA80F" stopOpacity="0" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc568"
@@ -479,8 +479,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(-1.82812 1.01564 -1.222 -2.19958 14.846 3.546)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FFF266" />
-            <stop offset="1" stop-color="#FFC033" stop-opacity="0" />
+            <stop stopColor="#FFF266" />
+            <stop offset="1" stopColor="#FFC033" stopOpacity="0" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc569"
@@ -490,8 +490,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(-2.43751 1.37498 -1.39761 -2.47763 11.799 4.561)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FFF166" />
-            <stop offset="1" stop-color="#FFBB32" stop-opacity="0" />
+            <stop stopColor="#FFF166" />
+            <stop offset="1" stopColor="#FFBB32" stopOpacity="0" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc570"
@@ -501,8 +501,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(-.625 -1.125 4.5106 -2.50593 9.08 8.061)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FEA24F" />
-            <stop offset="1" stop-color="#FEA24F" stop-opacity="0" />
+            <stop stopColor="#FEA24F" />
+            <stop offset="1" stopColor="#FEA24F" stopOpacity="0" />
           </radialGradient>
           <radialGradient
             id="IconifyId19edda4ceb4c78dc571"
@@ -512,8 +512,8 @@ const IconoBienvenida = () => {
             gradientTransform="matrix(-.24218 -.40625 2.97413 -1.77301 10.197 7.522)"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset=".185" stop-color="#F19B3D" />
-            <stop offset="1" stop-color="#F19B3D" stop-opacity="0" />
+            <stop offset=".185" stopColor="#F19B3D" />
+            <stop offset="1" stopColor="#F19B3D" stopOpacity="0" />
           </radialGradient>
           <linearGradient
             id="IconifyId19edda4ceb4c78dc572"
@@ -523,8 +523,8 @@ const IconoBienvenida = () => {
             y2="22.171"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#56404E" />
-            <stop offset="1" stop-color="#56404E" stop-opacity="0" />
+            <stop stopColor="#56404E" />
+            <stop offset="1" stopColor="#56404E" stopOpacity="0" />
           </linearGradient>
           <linearGradient
             id="IconifyId19edda4ceb4c78dc573"
@@ -534,8 +534,8 @@ const IconoBienvenida = () => {
             y2="11.593"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FFB438" />
-            <stop offset="1" stop-color="#F1A530" />
+            <stop stopColor="#FFB438" />
+            <stop offset="1" stopColor="#F1A530" />
           </linearGradient>
           <linearGradient
             id="IconifyId19edda4ceb4c78dc574"
@@ -545,8 +545,8 @@ const IconoBienvenida = () => {
             y2="10.406"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset=".316" stop-color="#FFB032" />
-            <stop offset="1" stop-color="#FFC946" stop-opacity="0" />
+            <stop offset=".316" stopColor="#FFB032" />
+            <stop offset="1" stopColor="#FFC946" stopOpacity="0" />
           </linearGradient>
           <linearGradient
             id="IconifyId19edda4ceb4c78dc575"
@@ -556,8 +556,8 @@ const IconoBienvenida = () => {
             y2="8.217"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FFBC32" />
-            <stop offset="1" stop-color="#F0A42F" />
+            <stop stopColor="#FFBC32" />
+            <stop offset="1" stopColor="#F0A42F" />
           </linearGradient>
           <linearGradient
             id="IconifyId19edda4ceb4c78dc576"
@@ -567,8 +567,8 @@ const IconoBienvenida = () => {
             y2="4.77"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#C7A357" />
-            <stop offset=".851" stop-color="#FFC42D" stop-opacity="0" />
+            <stop stopColor="#C7A357" />
+            <stop offset=".851" stopColor="#FFC42D" stopOpacity="0" />
           </linearGradient>
           <linearGradient
             id="IconifyId19edda4ceb4c78dc577"
@@ -578,8 +578,8 @@ const IconoBienvenida = () => {
             y2="6.546"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#F19B3A" />
-            <stop offset="1" stop-color="#F19B3A" stop-opacity="0" />
+            <stop stopColor="#F19B3A" />
+            <stop offset="1" stopColor="#F19B3A" stopOpacity="0" />
           </linearGradient>
           <linearGradient
             id="IconifyId19edda4ceb4c78dc578"
@@ -589,8 +589,8 @@ const IconoBienvenida = () => {
             y2="6.986"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FFBC32" />
-            <stop offset="1" stop-color="#F0A42F" />
+            <stop stopColor="#FFBC32" />
+            <stop offset="1" stopColor="#F0A42F" />
           </linearGradient>
           <linearGradient
             id="IconifyId19edda4ceb4c78dc579"
@@ -600,8 +600,8 @@ const IconoBienvenida = () => {
             y2="3.687"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#C7A357" />
-            <stop offset=".851" stop-color="#FFC42D" stop-opacity="0" />
+            <stop stopColor="#C7A357" />
+            <stop offset=".851" stopColor="#FFC42D" stopOpacity="0" />
           </linearGradient>
           <linearGradient
             id="IconifyId19edda4ceb4c78dc580"
@@ -611,8 +611,8 @@ const IconoBienvenida = () => {
             y2="5.562"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#F19B3A" />
-            <stop offset="1" stop-color="#F19B3A" stop-opacity="0" />
+            <stop stopColor="#F19B3A" />
+            <stop offset="1" stopColor="#F19B3A" stopOpacity="0" />
           </linearGradient>
           <linearGradient
             id="IconifyId19edda4ceb4c78dc581"
@@ -622,8 +622,8 @@ const IconoBienvenida = () => {
             y2="6.499"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset=".189" stop-color="#F09A35" />
-            <stop offset="1" stop-color="#F09A35" stop-opacity="0" />
+            <stop offset=".189" stopColor="#F09A35" />
+            <stop offset="1" stopColor="#F09A35" stopOpacity="0" />
           </linearGradient>
           <linearGradient
             id="IconifyId19edda4ceb4c78dc582"
@@ -633,8 +633,8 @@ const IconoBienvenida = () => {
             y2="4.624"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset=".048" stop-color="#C6A253" />
-            <stop offset="1" stop-color="#FFBD38" stop-opacity="0" />
+            <stop offset=".048" stopColor="#C6A253" />
+            <stop offset="1" stopColor="#FFBD38" stopOpacity="0" />
           </linearGradient>
           <linearGradient
             id="IconifyId19edda4ceb4c78dc583"
@@ -644,8 +644,8 @@ const IconoBienvenida = () => {
             y2="10.749"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FFBC32" />
-            <stop offset="1" stop-color="#F0A42F" />
+            <stop stopColor="#FFBC32" />
+            <stop offset="1" stopColor="#F0A42F" />
           </linearGradient>
           <filter
             id="IconifyId19edda4ceb4c78dc584"
@@ -653,10 +653,10 @@ const IconoBienvenida = () => {
             height="3.981"
             x="13.192"
             y="19.73"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               in="SourceGraphic"
               in2="BackgroundImageFix"
@@ -679,10 +679,10 @@ const IconoBienvenida = () => {
             height="3.281"
             x="13.242"
             y="19.64"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               in="SourceGraphic"
               in2="BackgroundImageFix"
@@ -699,10 +699,10 @@ const IconoBienvenida = () => {
             height="5.409"
             x="11.259"
             y="5.645"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               in="SourceGraphic"
               in2="BackgroundImageFix"
@@ -738,10 +738,10 @@ const IconoBienvenida = () => {
             height="8.555"
             x="2.134"
             y="3.594"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               in="SourceGraphic"
               in2="BackgroundImageFix"
