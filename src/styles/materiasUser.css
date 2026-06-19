@@ -1,231 +1,311 @@
+/* ==========================================================================
+   ── CONTENEDOR PRINCIPAL Y BASE ───────────────────────────────────────────
+   ========================================================================== */
 .materias-user-container {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 10px 20px;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
 }
+
 .container-sub-materias-user {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 1rem; /* Espaciado más compacto entre tarjetas */
 }
 
-/* filtrado de materias========== */
+/* MENSAJES DE CARGA O COMPONENTES VACÍOS */
+.container-sub-materias-user > p {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  padding: 2.5rem;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  border: 1px dashed var(--color-border);
+}
 
-/* Contenedor principal exterior */
+/* ==========================================================================
+   ── SECCIÓN DE FILTROS (DISEÑO GLASS/PREMIUM) ────────────────────────────
+   ========================================================================== */
 .filter-materias-user {
   width: 100%;
-  margin: 32px 0;
-  display: flex;
-  justify-content: center;
-  padding: 0 16px;
-  box-sizing: border-box;
-}
-
-/* Contenedor interno que agrupa los filtros */
-.container-filter-materias-user {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 16px;
-  /* Sombra premium multinivel */
-  box-shadow: 
-    0 1px 3px rgba(0, 0, 0, 0.02),
-    0 8px 24px rgba(149, 157, 165, 0.08);
-  border: 1px solid #f1f5f9;
-  width: 100%;
-  max-width: 1000px;
-  box-sizing: border-box;
-}
-
-/* Estilo individual para cada menú desplegable */
-.select-materia-user {
-  flex: 1;
-  min-width: 200px;
-  padding: 12px 18px;
-  font-size: 14px;
-  font-weight: 600; /* Texto ligeramente más grueso para mayor legibilidad */
-  color: #475569;
-  background-color: #f8fafc; /* Fondo gris claro sutil */
-  border: 1px solid #e2e8f0;
-  border-radius: 10px; /* Bordes más modernos y redondeados */
-  cursor: pointer;
-  outline: none;
-  /* Transición más suave y elástica */
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  /* Elimina la flecha nativa del navegador */
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  
-  /* Mantiene tu flecha personalizada en base64 */
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjZDYyYzViIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yIDEyQzIgNi40NzcgNi40NzcgMiAxMiAyczEwIDQuNDc3IDEwIDEwcy00LjQ3NyAxMC0xMCAxMFMyIDE3LjUyMyAyIDEybTEyIDNhMSAxIDAgMCAwIDEtMXYtNGExIDEgMCAxIDAtMiAwdjNoLTNhMSAxIDAgMSAwIDAgMnoiIGNsaXAtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  background-size: 20px; /* Un poco más grande para que destaque */
-  padding-right: 44px; 
-}
-
-/* Efecto al pasar el mouse por encima */
-.select-materia-user:hover {
-  border-color: #cbd5e1;
-  background-color: #f1f5f9;
-  transform: translateY(-1px); /* Efecto sutil de levante */
-}
-
-/* Efecto cuando el select está activo o enfocado */
-.select-materia-user:focus {
-  border-color: #d62c5b; /* Combina con el color fucsia de tu flecha */
-  background-color: #ffffff;
-  /* Resplandor estético del color de tu marca */
-  box-shadow: 0 0 0 4px rgba(214, 44, 91, 0.12);
-}
-
-/* Estilo para las opciones internas */
-.select-materia-user option {
-  color: #1e293b;
-  background-color: #ffffff;
-  padding: 12px;
-}
-
-/* Adaptación para pantallas móviles */
-@media (max-width: 768px) {
-  .container-filter-materias-user {
-    flex-direction: column;
-    gap: 12px;
-    padding: 16px;
-  }
-  
-  .select-materia-user {
-    width: 100%;
-    min-width: 0;
-  }
-}
-
-
-/* card de materia */
-.materia-user-card {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--color-card);
-  padding: 10px;
+  background: var(--color-surface);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  padding: 0.85rem 1.25rem;
+  transition: var(--transition);
+  margin-bottom: 0.5rem;
 }
-.materia-user-card-header {
-  display: flex;
-  justify-content: space-between;
+
+.filter-materias-user:hover {
+  box-shadow: var(--shadow);
+  border-color: rgba(0, 156, 209, 0.15);
+}
+
+.container-filter-materias-user {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
   align-items: center;
 }
-.title-materia-user-card {
-  color: var(--color-primary-dark);
-  font-size: 1.5rem;
-  font-weight: 300;
+
+/* ESTILIZACIÓN DE SELECTS DE FILTRADO */
+.select-materia-user {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 1rem;
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  transition: var(--transition);
+  
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 2.5rem;
+}
+
+.select-materia-user:focus {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface);
+  box-shadow: 0 0 0 3px rgba(0, 156, 209, 0.12);
+}
+
+/* ==========================================================================
+   ── BOTÓN "AGREGAR MATERIA" ───────────────────────────────────────────────
+   ========================================================================== */
+.add-materia {
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.65rem 1.2rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 156, 209, 0.2);
+  transition: var(--transition);
+  width: 100%;
+}
+
+.add-materia:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 156, 209, 0.3);
+}
+
+/* ==========================================================================
+   ── NUEVA TARJETA DE MATERIA: ESTILO FILA COMPACTA Y ULTRA ATRACTIVA ──────
+   ========================================================================== */
+.materia-user-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.5rem; /* Padding reducido drásticamente para hacerla esbelta */
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+  gap: 2rem;
   transition: var(--transition);
 }
+
+.materia-user-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: rgba(0, 156, 209, 0.25);
+}
+
+/* ── BLOQUE IZQUIERDO: TÍTULO DE MATERIA ──────────────────────────────────── */
+.materia-user-card-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1; /* Toma el espacio disponible izquierdo de forma fluida */
+}
+
+.title-materia-user-card {
+  font-size: 1.15rem; /* Equilibrado, ni muy gigante ni chico */
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+  line-height: 1.3;
+  transition: var(--transition);
+}
+
 .title-materia-user-card:hover {
   color: var(--color-primary);
 }
-.buttons-container-materia-user {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.materia-user-button {
-  background-color: var(--color-bg);
-  width: 2.5rem;
-  height: 2.5rem;
-  margin-left: 10px;
-  border: none;
-  border-radius: 50%;
-  padding: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: transform ease 0.2s;
-}
-.materia-user-button:hover {
-  transform: scale(1.05);
-  background-color: #02020219;
-}
+
+/* ── BLOQUE CENTRAL: DETALLES INLINE SIN ESPACIOS VACÍOS ─────────────────── */
 .materia-user-content {
-  width: 100%;
-  margin-top: 5px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  column-gap: 10px;
-  row-gap: 5px;
+  flex-direction: row; /* Se alinea en horizontal al lado del título */
   align-items: center;
+  gap: 2rem; /* Separación fija y elegante entre datos */
+  padding-top: 0;
+  border-top: none; /* Quitamos la línea molesta que dividía antes */
 }
 
-
-.title-materias-user {
-  color: var(--color-dark);
-}
-
-.container-estado-nota-materia {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  align-self: center;
-}
+/* Información de cursada, notas, llamados, etc. */
 .nota-materia {
+  font-size: 0.95rem;
   color: var(--color-text-muted);
+  margin: 0;
+  font-weight: 500;
+  white-space: nowrap; /* Evita saltos de línea raros */
 }
+
 .number-nota {
   color: var(--color-text);
-}
-/* colores estado materia */
-.estado {
-  width: max-content;
-  height: max-content;
-  border-radius: 10px;
-  padding: 2px 5px;
-  font-size: 0.8rem;
-  border: 0.5px solid var(--color-border);
-  font-weight: 600;
-}
-.aprobada {
-  background-color: #3fd4a050;
-  color: #134446;
-  border: 1px solid #0db808;
-}
-.cursando {
-  background-color: #2551e241;
-  color: #071b69;
-  border: 1px solid #092cef;
-}
-.regularizada {
-  background-color: #e199074b;
-  color: #4b2a01;
-  border: 1px solid #cc9a12;
-}
-.promocionada {
-  background-color: #a2ef88;
-  color: #042d03;
-  border: 1px solid #08a000;
+  font-weight: 700;
+  margin-left: 4px;
 }
 
-/* boton agregar materia */
-.add-materia {
-  background-color: var(--color-btn);
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  align-self: flex-end;
-  width: 100%;
+/* BADGES DE ESTADO ESTILO PÍLDORA SLIM */
+.estado {
+  margin: 0;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  white-space: nowrap;
 }
-.add-materia:hover {
-  background-color: var(--color-btn-hover);
+
+.estado.cursando {
+  background-color: rgba(124, 58, 237, 0.08);
+  color: #7c3aed;
+}
+
+.estado.regularizada {
+  background-color: rgba(251, 150, 9, 0.08);
+  color: #fb9609;
+}
+
+.estado.aprobada,
+.estado.promocionada {
+  background-color: rgba(49, 187, 141, 0.08);
+  color: #249c74;
+}
+
+/* ── BLOQUE DERECHO: BOTONES DE ACCIÓN COMPLETAMENTE COMPACTOS ───────────── */
+.buttons-container-materia-user {
+  display: flex;
+  gap: 4px;
+}
+
+.materia-user-button {
+  background: transparent; /* Más minimalistas, sin fondo rígido */
+  border: none;
+  border-radius: var(--radius-sm);
+  width: 34px;
+  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.materia-user-button:hover {
+  background: var(--color-card-bg);
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   ── RESPONSIVE COMPACTO AUTOMÁTICO (MEDIA QUERIES) ───────────────────────
+   ========================================================================== */
+
+@media (min-width: 1024px) {
+  .container-filter-materias-user {
+    grid-template-columns: repeat(4, 1fr) auto;
+    gap: 16px;
+  }
+  .add-materia {
+    width: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 900px) {
+  /* En tablets o pantallas intermedias la tarjeta se acomoda en columna de forma ordenada */
+  .materia-user-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .materia-user-card-header {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .materia-user-content {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    flex-wrap: wrap; /* Se defiende si hay muchos datos */
+  }
+
+  .buttons-container-materia-user {
+    order: 2; /* Los botones se quedan fijos arriba a la derecha */
+  }
+}
+
+@media (max-width: 600px) {
+  .container-filter-materias-user {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .add-materia {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-filter-materias-user {
+    grid-template-columns: 1fr;
+  }
+  .add-materia {
+    grid-column: span 1;
+  }
+
+  .materia-user-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .nota-materia {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed var(--color-border);
+    padding-bottom: 4px;
+  }
 }
