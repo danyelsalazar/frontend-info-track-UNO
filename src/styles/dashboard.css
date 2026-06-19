@@ -257,6 +257,8 @@
 /* ── PAGINA ─────────────────────────────────────── */
 #page-content-perfil {
   justify-content: start;
+  max-width: 900px;
+  margin: auto;
 }
 
 /* ── ACCESOS ─────────────────────────────────────── */
@@ -313,6 +315,65 @@
   line-height: 1.3;
 }
 
+/* ── VENCIMIENTOS ─────────────────────────────────────── */
+
+.proximos-vencimientos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 0;
+}
+.materia-a-vencer-card {
+  background-color: var(--color-card);
+  padding: 10px 15px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "titulo titulo";
+  gap: 6px;
+}
+.title-materia-a-vencer {
+  color: #df6101;
+  font-size: 1.4rem;
+  font-weight: 600;
+  transition: var(--transition);
+  grid-area: titulo;
+}
+.title-materia-a-vencer:hover {
+  color: var(--color-primary-dark);
+}
+.area-llamados p,
+.area-vencimiento p {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+.area-llamados strong,
+.area-vencimiento strong {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.btn-indicar-llamado {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  gap: 4px;
+  cursor: pointer;
+  margin-left: auto;
+  transition: var(--transition);
+}
+.btn-indicar-llamado:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+  box-shadow: var(--shadow-lg);
+  transform: translatey(-2px);
+}
+
 /* =============================================
     TABLET  ≥ 600px
    ============================================= */
@@ -335,6 +396,14 @@
   .acceso-label { font-size: 11px; }
 
   .hero-deco-1 { width: 200px; height: 200px; }
+
+  .materia-a-vencer-card {
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas: "titulo vencimiento llamados";
+    align-items: center;
+    gap: 2rem;
+    padding: 10px 25px 10px 12px;
+  }
 }
 
 /* =============================================

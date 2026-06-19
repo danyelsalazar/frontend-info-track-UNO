@@ -12,17 +12,17 @@ import { PROXIMOS_VENCIMIENTOS } from "../graphql/usuario.queries";
 const AccesosDirectos = () => {
   return (
     <ul className="accesos-grid section">
-      <Link className="acceso-btn card" to="/perfil/mis-carreras">
-        <div className="container-icon-acceso">
-          <span className="acceso-icon"><IconSchool color="#fff"/></span>
-        </div>
-        <span className="acceso-label">Mis Carreras</span>
-      </Link>
       <Link className="acceso-btn card" to="/perfil/mis-materias">
         <div className="container-icon-acceso">
           <span className="acceso-icon"><IconBook2 color="#fff"/></span>
         </div>
         <span className="acceso-label">Mis Materias</span>
+      </Link>
+      <Link className="acceso-btn card" to="/perfil/mis-carreras">
+        <div className="container-icon-acceso">
+          <span className="acceso-icon"><IconSchool color="#fff"/></span>
+        </div>
+        <span className="acceso-label">Mis Carreras</span>
       </Link>
       <Link className="acceso-btn card" to="/perfil/mis-valoraciones">
         <div className="container-icon-acceso">
@@ -42,8 +42,12 @@ const ProximosVencimientosSection = () => {
       <h3 className="section-title">
         <IconAlertHexagon size={16}/>
         Próximos vencimientos
+        <button className="btn-indicar-llamado">
+          <IconPhone size={16}/>
+          Indicar llamado
+        </button>
       </h3>
-      <ul>
+      <ul className="proximos-vencimientos-container">
         {
           proximosVencimientos.map(pv => <MateriaAVencer vencimiento={pv} key={pv.materia.id}/>)
         }
@@ -54,34 +58,20 @@ const ProximosVencimientosSection = () => {
 
 const MateriaAVencer = ({vencimiento}) => {
   return (
-    <li key={vencimiento.materia.id}>
-      <header>
-        <Link to={`/materia/${vencimiento.materia.id}`}>
-          {vencimiento.materia.id} - {vencimiento.materia.nombre}
-        </Link>
-        <button>
-          <IconPhone />
-          Indicar llamado
-        </button>
-      </header>
-      <main>
-        <div>
-          <strong>
-            Vencimiento:
-          </strong>
-          <p>
-            {vencimiento.vencimiento.fecha}º Fecha de {vencimiento.vencimiento.anio}
-          </p>
-        </div>
-        <div>
-          <strong>
-            Llamados usados:
-          </strong>
-          <p>
-            {vencimiento.llamadosUsados}/3
-          </p>
-        </div>                      
-      </main>
+    <li key={vencimiento.materia.id} className="materia-a-vencer-card">
+      <Link to={`/materia/${vencimiento.materia.id}`} className="title-materia-a-vencer">
+        {vencimiento.materia.nombre}
+      </Link>
+      
+      <div className="area-vencimiento">
+        <p>Vencimiento</p>
+        <strong>{vencimiento.vencimiento.fecha}º Fecha de {vencimiento.vencimiento.anio}</strong>
+      </div>
+
+      <div className="area-llamados">
+        <p>Llamados usados</p>
+        <strong>{vencimiento.llamadosUsados}/3</strong>
+      </div>    
     </li>
   )
 }
