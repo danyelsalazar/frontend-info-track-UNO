@@ -1,450 +1,572 @@
-/* ── PÁGINA ─────────────────────────────────────── */
+/* ==========================================================================
+   ── PÁGINA Y ESTRUCTURA BASE ──────────────────────────────────────────────
+   ========================================================================== */
 .dashboard-page {
-  margin-top: 20px;
+  padding: 2.5rem 1rem;
   min-height: 100vh;
   background: var(--color-bg);
-  font-family: "DM Sans", system-ui, sans-serif;
-  height: 100%;
+  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+  align-items: flex-start;
 }
 
-/* ── MAIN CARD ──────────────────────────────────── */
 .dashboard-card {
   width: 100%;
-  height: 100%;
-  padding: 0px 0px;
-  box-shadow: 0 8px 32px rgba(20, 74, 117, 0.1);
+  max-width: 100%;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 2rem;
+  padding: 1.5rem;
+  transition: var(--transition);
 }
 
-/* Barrra de progreso */
+/* ==========================================================================
+   ── SECCIÓN PROGRESO (HERO STYLE) ─────────────────────────────────────────
+   ========================================================================== */
+.progress-section {
+  padding: 1.5rem;
+  background: var(--color-card-bg);
+  border-radius: var(--radius);
+  border: 1px solid rgba(0, 156, 209, 0.08);
+}
+
+.progress-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.progress-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  letter-spacing: -0.01em;
+}
+
+.progress-value {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.progress-value b {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+/* Barra de progreso unificada */
 .multi-progress-container {
   width: 100%;
 }
 
 .multi-progress-bar {
   display: flex;
-  height: 13px;
+  height: 14px;
   width: 100%;
-  background: #e5e7eb;
+  background: #e2e8f0;
   border-radius: 999px;
   overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .multi-progress-segment {
   height: 100%;
-  transition: width 0.5s ease;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.multi-progress-labels {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 8px;
-  font-size: 12px;
+/* ==========================================================================
+   ── GRID DE ESTADÍSTICAS (TARJETAS GLOSSY) ────────────────────────────────
+   ========================================================================== */
+.container-materias-grafico {
+  width: 100%;
 }
 
-.multi-progress-label {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.color-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-/* ── PROGRESO ───────────────────────────────────── */
-.progress-section{
-  padding: 0px 20px;
-}
-.progress-row {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 10px;
-  gap: 8px;
-}
-.progress-label {
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--color-text);
-}
-.progress-value {
-  font-size: 13px;
-  font-weight: 400;
-  color:#9a9fa5;
-  white-space: nowrap;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-}
-.progress-value b{
-  font-size: 30px;
-  color:  var(--color-text);
-}
-.progress-track {
-  height: 8px;
-  background: var(--color-border);
-  border-radius: 100px;
-  overflow: hidden;
-}
-
-/* contenedor de materias y grafico */
-.container-materias-grafico{
-  display: flex;
-  border-bottom: .5px solid var(--color-border);
-  padding: 0px 20px 20px 20px;
-}
-/* ── STATS ──────────────────────────────────────── */
 .stats-grid {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
-.icono-info-user-materias{
+
+.stat-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: rgba(0, 156, 209, 0.25);
+}
+
+/* Contenedores de Iconos circulares superiores */
+.icono-info-user-materias {
   border-radius: 50%;
   width: 30px;
   height: 30px;
-  padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
-.icono-info-user-materias-aprobadas{
-  background-color: #31bb8d;
-}
-.icono-info-user-materias-cursando{
-  background-color:  #7c3aed;
-}
-.icono-info-user-materias-restantes{
-  background-color: #fb9609;
-}
-.icono-info-user-materias-promedio{
-  background-color: var(--color-primary);
-}
-.stat-card {
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: 14px;
-  padding: 14px 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  height: max-content;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-  cursor: default;
-  cursor:auto;
-}
-.stat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
-}
+
+.icono-info-user-materias-aprobadas { background-color: #31bb8d; }
+.icono-info-user-materias-cursando  { background-color: #7c3aed; }
+.icono-info-user-materias-restantes { background-color: #fb9609; }
+.icono-info-user-materias-promedio  { background-color: var(--color-primary); }
+
+/* Valores numéricos estilizados */
 .stat-value {
-  font-size: clamp(26px, 6vw, 34px);
-  font-weight: 700;
-  line-height: 1.1;
+  font-size: clamp(28px, 5vw, 36px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
 }
+
 .stat-label {
-  font-size: 11px;
+  font-size: 0.8rem;
   color: var(--color-text-muted);
-  font-weight: 400;
-}
-
-/* colores de valores */
-.stat-teal    { color: var(--color-accent); }
-.stat-primary { color: var(--color-primary); }
-.stat-red     { color: rgb(220, 199, 64); }
-.stat-muted   { color: var(--color-btn); }
-
-/* ── SECTION TITLE ──────────────────────────────── */
-.section-title {
-  font-size: 1.2em;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-primary-dark);
-  margin-bottom: 4px;
+  letter-spacing: 0.05em;
 }
 
-/* ── TAREAS ─────────────────────────────────────── */
+/* Colores personalizados para las fuentes de los contadores */
+.stat-teal    { color: #249c74; }
+.stat-primary { color: #7c3aed; }
+.stat-red     { color: #fb9609; }
+.stat-muted   { color: var(--color-primary); }
+
+/* ==========================================================================
+   ── SECCIÓN TAREAS (ESTILO TIMELINE CARD) ─────────────────────────────────
+   ========================================================================== */
+.tareas-section {
+  width: 100%;
+}
+
+.title-tareas-user {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
 .tareas-list {
   list-style: none;
-  padding: 0px 20px 20px 20px;
+  padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  border-bottom: 1px solid var(--color-border);
+  gap: 12px;
 }
+
 .tarea-item {
   display: grid;
-  grid-template-columns: 1fr .5px 6fr;
+  grid-template-columns: 4.5rem 1px 1fr;
   align-items: center;
-  gap: 10px;
-  padding: 12px 5px;
-  border-radius: 12px;
-  cursor: default;
-  transition: box-shadow 0.15s ease;
+  gap: 16px;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
-  padding: 10px;
-  cursor: pointer;
-}
-.divisor-horario-info{
-  height: 100%;
-  background-color: var(--color-border);
-}
-.title-tareas-user{
-  font-size: 1.5em;
-  color: var(--color-text-muted);
-}
-.tarea-item-description{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  padding: 10px;
-  border-radius: 10px;
-}
-.tarea-item:hover{
-   box-shadow: 0 10px 6px rgba(0, 0, 0, 0.048);
-}
-.tarea-item:last-child { border-bottom: none; }
-
-.task-day{
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
 }
 
-.task-description-sub{
+.tarea-item:hover {
+  transform: translateX(4px);
+  border-color: rgba(0, 156, 209, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.horario-task {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text);
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.1;
 }
-.tarea-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
+
+.tarea-dia {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-top: 2px;
 }
-.tarea-title {
-  flex: 1;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-dark);
-  /* evita overflow en pantallas chicas */
+
+.divisor-horario-info {
+  height: 70%;
+  background-color: var(--color-border);
+  width: 1px;
+}
+
+.tarea-item-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.task-description-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   overflow: hidden;
+}
+
+.tarea-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
   text-overflow: ellipsis;
   white-space: nowrap;
+  overflow: hidden;
 }
-.tarea-dia {
-  font-size: 11px;
-  color: var(--color-text-muted);
-  line-height: 1.3;
-  white-space: nowrap;
-  flex-shrink: 0;
-  height: max-content;
-  border-radius: 10px;
-}
+
+/* Badges modernos y pasteles */
 .tarea-badge {
-  padding: 0px 9px;
-  border-radius: 100px;
-  font-size: 10px;
-  font-weight: 600;
-  white-space: nowrap;
-  flex-shrink: 0;
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   width: max-content;
 }
 
-.horario-task{
-  align-self: flex-start;
+.badge-red    { background: rgba(214, 44, 91, 0.08);  color: var(--color-btn); }
+.badge-yellow { background: rgba(47, 164, 169, 0.08); color: var(--color-accent); }
+.badge-blue   { background: rgba(0, 156, 209, 0.08);  color: var(--color-primary); }
+
+.task-day {
   display: flex;
-  flex-direction: column;
-}
-
-/* btn agregar tarea */
-.btn-add-tarea-user:hover{
-  cursor: pointer;
-  background-color: var(--color-btn);
-  color: var(--color-bg);
-}
-
-/* dots */
-.dot-red    { background: var(--color-btn); }
-.dot-yellow { background: var(--color-accent); }
-.dot-blue   { background: var(--color-primary); }
-
-/* badges */
-.badge-red    { background: rgba(214,44,91,.1);  color: var(--color-btn);       }
-.badge-yellow { background: rgba(42, 213, 167, 0.1); color: var(--color-accent);                    }
-.badge-blue   { background: rgba(0,156,209,.1);  color: var(--color-primary-dark);  }
-
-/* ── ACCESOS ─────────────────────────────────────── */
-.accesos-section{
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 20px;
+  cursor: pointer;
+  padding-left: 8px;
+  transition: var(--transition);
 }
+
+.task-day:hover {
+  transform: scale(1.12);
+}
+
+/* Botón agregar tarea minimalista */
+.btn-add-tarea-user {
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 2px dashed var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  transition: var(--transition);
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+.btn-add-tarea-user:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: rgba(0, 156, 209, 0.02);
+}
+
+/* ==========================================================================
+   ── ACCESOS RÁPIDOS (BOTONES MODERNOS) ────────────────────────────────────
+   ========================================================================== */
+.accesos-section {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
 .accesos-grid {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-  padding: 0px 20px 20px 20px;
+  gap: 12px;
 }
-.container-icon-acces-sped{
-  width: 30px;
-  height: 30px;
-  background-color: var(--color-btn);
-  border-radius: 50%;
-  padding: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.container-icon-acces-sped span{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
+
 .acceso-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  padding: 14px 6px;
-  background: var(--color-bg);
+  gap: 10px;
+  padding: 1.5rem 1rem;
+  background: var(--color-card-bg);
   border: 1px solid var(--color-border);
-  border-radius: 14px;
+  border-radius: var(--radius);
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  transition: var(--transition);
   font-family: inherit;
 }
-.acceso-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
-}
-.acceso-btn:hover .acceso-label { color: var(--color-primary-dark); }
-.acceso-btn:active { transform: scale(0.96); }
 
-.acceso-label {
-  font-size: 10px;
-  font-weight: 500;
-  color: #475569;
-  transition: color 0.15s ease;
-  text-align: center;
-  line-height: 1.3;
-}
-
-/* ===== exit ===== */
-.exit-dashboard{
-  position: absolute;
-  top: 60px;
-  right: 30px;
-  background-color: transparent;
+.container-icon-acces-sped {
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-primary-dark);
+  border-radius: var(--radius-sm);
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  padding: 5px;
-  transition: background-color ease .3s;
-  z-index: 10;
-  cursor: pointer;
-  border: none;
+  box-shadow: 0 4px 12px rgba(20, 74, 117, 0.15);
+  transition: var(--transition);
 }
-.exit-dashboard::before {
-  content: ""; 
-  position: absolute;   
-  top: 50%;
-  left: 50%;
-  width: 70px;          
-  height: 70px;
+
+.acceso-btn:hover {
+  transform: translateY(-4px);
+  background: var(--color-surface);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow);
+}
+
+.acceso-btn:hover .container-icon-acces-sped {
   background-color: var(--color-btn);
-  border-radius: 50%; 
-  z-index: -1;    
-  transform: translate(-50%, -50%) scale(0); 
-  transition: transform ease 0.3s; 
+  box-shadow: 0 4px 12px rgba(214, 44, 91, 0.25);
+  transform: scale(1.05);
 }
 
-.exit-dashboard:hover::before {
-  transform: translate(-50%, -50%) scale(.7); 
+.acceso-btn:hover .acceso-label {
+  color: var(--color-primary-dark);
 }
 
-/* =============================================
-   TABLET  ≥ 600px
-   ============================================= */
+.acceso-btn:active {
+  transform: scale(0.96);
+}
+
+.acceso-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text);
+  transition: color 0.15s ease;
+  text-align: center;
+}
+
+/* ==========================================================================
+   ── RESPONSIVE DESIGN (MEDIA QUERIES) ─────────────────────────────────────
+   ========================================================================== */
+
+/* ── TABLETS (≥ 600px) ────────────────────────────────────────────────── */
 @media (min-width: 600px) {
-  
-
-  /* stats en fila de 4 */
-  .stats-grid {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 10px;
-  }
-  .stat-card { padding: 16px 14px; }
-
-  .tarea-title  { font-size: 14px; }
-  .tarea-badge  { font-size: 11px; padding: 4px 11px; }
-
-  .accesos-grid { gap: 10px; }
-  .acceso-btn   { padding: 18px 10px; }
-  .acceso-icon  { font-size: 26px; }
-  .acceso-label { font-size: 11px; }
-
-  .hero-deco-1 { width: 200px; height: 200px; }
-}
-
-/* =============================================
-   DESKTOP  ≥ 1024px
-   ============================================= */
-@media (min-width: 1024px) {
   .dashboard-card {
-    max-width: 900px;
-    padding: 32px 36px;
-    gap: 28px;
-    border-radius: 24px;
+    padding: 2rem;
   }
-
-  .stats-grid { gap: 14px; }
-  .stat-card  { padding: 20px 18px; border-radius: 16px; }
-  .stat-label { font-size: 13px; }
-
-  .tarea-title { font-size: 15px; }
-
-  /* accesos en 6 columnas */
-  .accesos-grid {
+  
+  .stats-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
   }
-  .acceso-btn {
-    padding: 20px 10px;
-    border-radius: 16px;
+  
+  .stat-card {
+    padding: 1.5rem 1rem;
   }
-  .acceso-icon  { font-size: 28px; }
-  .acceso-label { font-size: 12px; }
 
-  .section-title { font-size: 12px; }
+  .acceso-btn {
+    padding: 1.75rem 1rem;
+  }
+  
+  .acceso-label {
+    font-size: 0.9rem;
+  }
 }
 
-/* =============================================
-   LARGE DESKTOP  ≥ 1280px
-   ============================================= */
-@media (min-width: 1280px) {
-  .dashboard-card {
-    max-width: 1100px;
+/* ── DESKTOP (≥ 1024px) ───────────────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .dashboard-page {
+    padding: 3.5rem 2rem;
   }
-  .hero-greeting { font-size: 32px; }
-  .hero-sub      { font-size: 15px; }
+
+  .dashboard-card {
+    max-width: 1050px;
+    padding: 2.5rem 3rem;
+    gap: 2.5rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .stats-grid {
+    gap: 20px;
+  }
+
+  .stat-card {
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius);
+  }
+
+  .tarea-item {
+    grid-template-columns: 5.5rem 1px 1fr;
+    gap: 24px;
+    padding: 1.25rem 2rem;
+  }
+
+  .tarea-title {
+    font-size: 1.05rem;
+  }
+
+  .accesos-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+}
+
+/* ==========================================================================
+   ── ESTILOS DEL FORMULARIO DE NUEVA TAREA  ────────────────────
+   ========================================================================== */
+
+/* Contenedor tipo tarjeta para el formulario inline */
+form.tarea-item {
+  display: flex !important;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--color-surface);
+  border: 1px solid rgba(0, 156, 209, 0.3); /* Borde sutil de enfoque */
+  box-shadow: 0 4px 15px rgba(0, 156, 209, 0.05);
+  animation: fadeInForm 0.3s ease-out;
+}
+
+/* Animación de entrada suave */
+@keyframes fadeInForm {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Filas del formulario (Por defecto en móvil se apilan) */
+form.tarea-item > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+/* Estilos para los Inputs, Selects y Time pickers */
+form.tarea-item input[type="text"],
+form.tarea-item input[type="time"],
+form.tarea-item select {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.85rem;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: var(--transition);
+}
+
+/* Efecto Focus (Cuando el usuario está escribiendo) */
+form.tarea-item input:focus,
+form.tarea-item select:focus {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface);
+  box-shadow: 0 0 0 3px rgba(0, 156, 209, 0.12);
+}
+
+/* Placeholder elegante */
+form.tarea-item input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+/* Contenedor de los botones de acción */
+form.tarea-item .actions-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+/* Estilo base para los botones del formulario */
+form.tarea-item button {
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+/* Botón Cancelar */
+form.tarea-item button[type="button"] {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+form.tarea-item button[type="button"]:hover {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+/* Botón Guardar */
+form.tarea-item button[type="submit"] {
+  background: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 156, 209, 0.2);
+}
+
+form.tarea-item button[type="submit"]:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 156, 209, 0.3);
+}
+
+form.tarea-item button:active {
+  transform: scale(0.97);
+}
+
+/* ==========================================================================
+   ── RESPONSIVE COMPLEMENTARIO (MEDIA QUERIES) ─────────────────────────────
+   ========================================================================== */
+
+/* Control de diseño en pantallas medianas y grandes (Tablets/Desktop) */
+@media (min-width: 600px) {
+  form.tarea-item > div {
+    flex-direction: row; /* Los elementos se ponen uno al lado del otro */
+    align-items: center;
+  }
+
+  form.tarea-item input[type="time"] {
+    width: 140px; /* Ancho fijo para el reloj en desktop */
+  }
+
+  form.tarea-item select {
+    width: 130px; /* Ancho fijo para el selector de tipo */
+  }
 }
