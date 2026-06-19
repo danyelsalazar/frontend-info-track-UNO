@@ -5,34 +5,32 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import Header from "../components/Header";
 import MultiProgressBar from "../components/MultiProgressBar";
 
-// Puedes cambiar este número por el total de materias reales que tiene el plan de estudios
 const TOTAL_MATERIAS_CARRERA = 35;
 
-// ── DATA ESTÁTICA ─────────────────────────────────────────────
-const TAREAS = [
+const TAREAS_INICIALES = [
   {
     title: "Parcial de Bases de Datos",
     dia: "Hoy",
     tipo: "Final",
     horario: "09:00",
-    dotClass: "dot-red",
     badgeClass: "badge-red",
+    completada: false,
   },
   {
     title: "TP Algoritmos — entrega",
     dia: "Jue 17",
     tipo: "Tarea",
     horario: "09:00",
-    dotClass: "dot-yellow",
     badgeClass: "badge-yellow",
+    completada: false,
   },
   {
     title: "Parcial de Redes II",
     dia: "Vie 18",
     tipo: "Parcial",
     horario: "09:00",
-    dotClass: "dot-blue",
     badgeClass: "badge-blue",
+    completada: false,
   },
 ];
 
@@ -89,7 +87,16 @@ const ACCESOS = [
 export default function Dashboard() {
   const navigate = useNavigate();
   const { token, userIdentity, loading, error } = useAuthContext();
-  const [tarea, setTarea] = useState(true);
+  
+  // ── ESTADOS PARA LAS TAREAS ──
+  const [tareas, setTareas] = useState(TAREAS_INICIALES);
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
+  
+  // Estados de los inputs del formulario nueva tarea
+  const [nuevoTitulo, setNuevoTitulo] = useState("");
+  const [nuevoHorario, setNuevoHorario] = useState("");
+  const [nuevoDia, setNuevoDia] = useState("");
+  const [nuevoTipo, setNuevoTipo] = useState("Tarea"); // Valor por defecto
 
   useEffect(() => {
     if (!token) {
@@ -97,8 +104,40 @@ export default function Dashboard() {
     }
   }, [navigate, token]);
 
-  const handleClickTask = () => {
-    setTarea(!tarea);
+  // Alternar el estado de completado de una tarea específica
+  const handleClickTask = (index) => {
+    const nuevasTareas = [...tareas];
+    nuevasTareas[index].completada = !nuevasTareas[index].completada;
+    setTareas(nuevasTareas);
+  };
+
+  // Agregar la nueva tarea al listado
+  const handleAgregarTarea = (e) => {
+    e.preventDefault();
+    if (!nuevoTitulo || !nuevoHorario || !nuevoDia) return;
+
+    // Asignar clases de insignias según el tipo seleccionado
+    let badgeClass = "badge-blue";
+    if (nuevoTipo === "Final") badgeClass = "badge-red";
+    if (nuevoTipo === "Tarea") badgeClass = "badge-yellow";
+
+    const nuevaTarea = {
+      title: nuevoTitulo,
+      horario: nuevoHorario,
+      dia: nuevoDia,
+      tipo: nuevoTipo,
+      badgeClass: badgeClass,
+      completada: false,
+    };
+
+    setTareas([...tareas, nuevaTarea]);
+    
+    // Resetear inputs y cerrar formulario
+    setNuevoTitulo("");
+    setNuevoHorario("");
+    setNuevoDia("");
+    setNuevoTipo("Tarea");
+    setMostrarFormulario(false);
   };
 
   if (loading) return <p style={{ padding: "20px" }}>Cargando dashboard...</p>;
@@ -106,23 +145,16 @@ export default function Dashboard() {
 
   const { materias = [] } = userIdentity || {};
 
-  // ── 1. CONTEOS DE ESTADOS REALES ──
   const aprobadasYPromocionadas = materias.filter(
     (m) => m.estado === "APROBADA" || m.estado === "PROMOCIONADA"
   ).length;
 
   const cursando = materias.filter((m) => m.estado === "CURSANDO").length;
   const regularizadas = materias.filter((m) => m.estado === "REGULARIZADA").length;
-
-  // Las restantes numéricas para el contador de abajo
   const restantes = Math.max(0, TOTAL_MATERIAS_CARRERA - aprobadasYPromocionadas);
 
-  // ── 2. CÁLCULO DEL PROMEDIO REAL DE TU BD (CON NOTA FINAL) ──
   const materiasConNotaValida = materias.filter((m) => {
-    let notaRaw = m.notaFinal;
-    if (notaRaw === undefined && m.materia) {
-      notaRaw = m.materia.notaFinal;
-    }
+    let notaRaw = m.notaFinal !== undefined ? m.notaFinal : (m.materia ? m.materia.notaFinal : 0);
     const notaNumerica = parseFloat(notaRaw);
     return !isNaN(notaNumerica) && notaNumerica > 0;
   });
@@ -134,7 +166,6 @@ export default function Dashboard() {
       }, 0) / materiasConNotaValida.length).toFixed(2)
     : "0.00";
 
-  // ── 3. PORCENTAJES PARA LA BARRA DE PROGRESO MULTICOLOR ──
   const porcentajeProgreso = TOTAL_MATERIAS_CARRERA > 0 
     ? Math.round((aprobadasYPromocionadas / TOTAL_MATERIAS_CARRERA) * 100) 
     : 0;
@@ -142,8 +173,6 @@ export default function Dashboard() {
   const pctAprobadas = TOTAL_MATERIAS_CARRERA > 0 ? (aprobadasYPromocionadas / TOTAL_MATERIAS_CARRERA) * 100 : 0;
   const pctCursando = TOTAL_MATERIAS_CARRERA > 0 ? (cursando / TOTAL_MATERIAS_CARRERA) * 100 : 0;
   const pctRegularizadas = TOTAL_MATERIAS_CARRERA > 0 ? (regularizadas / TOTAL_MATERIAS_CARRERA) * 100 : 0;
-  
-  // Porcentaje restante para rellenar la barra completa (gris)
   const pctRestantes = Math.max(0, 100 - (pctAprobadas + pctCursando + pctRegularizadas));
 
   return (
@@ -152,7 +181,7 @@ export default function Dashboard() {
       <div className="dashboard-page">
         <div className="dashboard-card">
           
-          {/* SECCIÓN PROGRESO MULTICOLOR */}
+          {/* SECCIÓN PROGRESO */}
           <div className="progress-section">
             <div className="progress-row">
               <span className="progress-label">Progreso de la carrera</span>
@@ -162,19 +191,17 @@ export default function Dashboard() {
             </div>
             <MultiProgressBar
               data={[
-                { value: pctAprobadas, color: "#31bb8d" },       // Aprobadas
-                { value: pctCursando, color: "#7c3aed" },        // Cursando
-                { value: pctRegularizadas, color: "#fb9609" },   // Regularizadas
-                { value: pctRestantes, color: "#e5e7eb" },       // Fondo Gris para lo restante
+                { value: pctAprobadas, color: "#31bb8d" },
+                { value: pctCursando, color: "#7c3aed" },
+                { value: pctRegularizadas, color: "#fb9609" },
+                { value: pctRestantes, color: "#e5e7eb" },
               ]}
             />
           </div>
 
-          {/* CONTENEDOR DE MATERIAS Y GRÁFICO (STATS GRID) */}
+          {/* GRID STATS */}
           <div className="container-materias-grafico">
             <div className="stats-grid">
-              
-              {/* APROBADAS */}
               <div className="stat-card">
                 <div className="icono-info-user-materias icono-info-user-materias-aprobadas">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1024 1024">
@@ -185,7 +212,6 @@ export default function Dashboard() {
                 <span className="stat-label">Aprobadas</span>
               </div>
 
-              {/* CURSANDO */}
               <div className="stat-card">
                 <div className="icono-info-user-materias icono-info-user-materias-cursando">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
@@ -196,7 +222,6 @@ export default function Dashboard() {
                 <span className="stat-label">Cursando</span>
               </div>
 
-              {/* RESTANTES */}
               <div className="stat-card">
                 <div className="icono-info-user-materias icono-info-user-materias-restantes">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
@@ -210,7 +235,6 @@ export default function Dashboard() {
                 <span className="stat-label">Restantes</span>
               </div>
 
-              {/* PROMEDIO */}
               <div className="stat-card">
                 <div className="icono-info-user-materias icono-info-user-materias-promedio">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
@@ -220,16 +244,15 @@ export default function Dashboard() {
                 <span className="stat-value stat-muted">{promedio}</span>
                 <span className="stat-label">Promedio</span>
               </div>
-
             </div>
           </div>
 
           {/* SECCIÓN TAREAS */}
           <div className="tareas-section">
+            <h3 className="title-tareas-user">Tareas</h3>
             <ul className="tareas-list">
-              <h3 className="title-tareas-user">Tareas</h3>
-              {TAREAS.map((t, i) => (
-                <li key={i} className="tarea-item">
+              {tareas.map((t, i) => (
+                <li key={i} className="tarea-item" style={{ opacity: t.completada ? 0.5 : 1 }}>
                   <div className="horario-task">
                     {t.horario}
                     <span className="tarea-dia">{t.dia}</span>
@@ -237,24 +260,81 @@ export default function Dashboard() {
                   <div className="divisor-horario-info"></div>
                   <div className="tarea-item-description">
                     <div className="task-description-sub">
-                      <span className="tarea-title">{t.title}</span>
+                      <span className="tarea-title" style={{ textDecoration: t.completada ? "line-through" : "none" }}>
+                        {t.title}
+                      </span>
                       <span className={`tarea-badge ${t.badgeClass}`}>{t.tipo}</span>
                     </div>
-                    <div className="task-day" onClick={handleClickTask}>
-                      {tarea ? (
+                    <div className="task-day" onClick={() => handleClickTask(i)}>
+                      {t.completada ? (
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                          <path fill="#009cd1" d="M11.5 3a9.5 9.5 0 0 1 9.5 9.5a9.5 9.5 0 0 1-9.5 9.5A9.5 9.5 0 0 1 2 12.5A9.5 9.5 0 0 1 11.5 3m0 1A8.5 8.5 0 0 0 3 12.5a8.5 8.5 0 0 0 8.5 8.5a8.5 8.5 0 0 0 8.5-8.5A8.5 8.5 0 0 0 11.5 4"/>
+                          <path fill="#31bb8d" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"/>
                         </svg>
                       ) : (
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                          <path fill="#009cd1" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2"/>
+                          <path fill="#009cd1" d="M11.5 3a9.5 9.5 0 0 1 9.5 9.5a9.5 9.5 0 0 1-9.5 9.5A9.5 9.5 0 0 1 2 12.5A9.5 9.5 0 0 1 11.5 3m0 1A8.5 8.5 0 0 0 3 12.5a8.5 8.5 0 0 0 8.5 8.5a8.5 8.5 0 0 0 8.5-8.5A8.5 8.5 0 0 0 11.5 4"/>
                         </svg>
                       )}
                     </div>
                   </div>
                 </li>
               ))}
-              <button className="btn-add-tarea-user">Agregar tarea</button>
+
+              {/* FORMULARIO INLINE DINÁMICO */}
+              {mostrarFormulario && (
+                <form onSubmit={handleAgregarTarea} className="tarea-item" style={{ gridTemplateColumns: "1fr", gap: "10px", padding: "15px" }}>
+                  <div style={{ display: "flex", gap: "10px", width: "100%" }}>
+                    <input 
+                      type="text" 
+                      placeholder="Título de la tarea..." 
+                      value={nuevoTitulo} 
+                      onChange={(e) => setNuevoTitulo(e.target.value)}
+                      required
+                      style={{ flex: 2, padding: "8px 12px", borderRadius: "8px", border: "1px solid var(--color-border)", outline: "none" }}
+                    />
+                    <input 
+                      type="text" 
+                      placeholder="Día (Ej: Hoy, Jue 17)" 
+                      value={nuevoDia} 
+                      onChange={(e) => setNuevoDia(e.target.value)}
+                      required
+                      style={{ flex: 1, padding: "8px 12px", borderRadius: "8px", border: "1px solid var(--color-border)", outline: "none" }}
+                    />
+                  </div>
+                  <div style={{ display: "flex", gap: "10px", width: "100%", alignItems: "center" }}>
+                    <input 
+                      type="time" 
+                      value={nuevoHorario} 
+                      onChange={(e) => setNuevoHorario(e.target.value)}
+                      required
+                      style={{ padding: "8px 12px", borderRadius: "8px", border: "1px solid var(--color-border)", outline: "none" }}
+                    />
+                    <select 
+                      value={nuevoTipo} 
+                      onChange={(e) => setNuevoTipo(e.target.value)}
+                      style={{ padding: "8px 12px", borderRadius: "8px", border: "1px solid var(--color-border)", outline: "none", background: "white" }}
+                    >
+                      <option value="Tarea">Tarea</option>
+                      <option value="Parcial">Parcial</option>
+                      <option value="Final">Final</option>
+                    </select>
+                    <div style={{ marginLeft: "auto", display: "flex", gap: "8px" }}>
+                      <button type="button" onClick={() => setMostrarFormulario(false)} style={{ background: "#e2e8f0", border: "none", padding: "8px 14px", borderRadius: "8px", cursor: "pointer", fontWeight: "600" }}>
+                        Cancelar
+                      </button>
+                      <button type="submit" style={{ background: "var(--color-primary)", color: "white", border: "none", padding: "8px 14px", borderRadius: "8px", cursor: "pointer", fontWeight: "600" }}>
+                        Guardar
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              )}
+
+              {!mostrarFormulario && (
+                <button type="button" className="btn-add-tarea-user" onClick={() => setMostrarFormulario(true)}>
+                  Agregar tarea
+                </button>
+              )}
             </ul>
           </div>
 
