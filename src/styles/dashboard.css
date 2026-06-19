@@ -683,4 +683,5 @@ form.tarea-item button:active {
 /* ======== Icono de bienvenida  */
 .title-bienvenida-dashboard{
   display: flex;
+  align-items: center;
 }
