@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import Header from "../components/Header";
 import MultiProgressBar from "../components/MultiProgressBar";
+import { IconoBienvenida } from "../components/IconoBienvenida";
 
 const TOTAL_MATERIAS_CARRERA = 35;
 
@@ -88,15 +89,13 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const { token, userIdentity, loading, error } = useAuthContext();
   
-  // ── ESTADOS PARA LAS TAREAS ──
   const [tareas, setTareas] = useState(TAREAS_INICIALES);
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   
-  // Estados de los inputs del formulario nueva tarea
   const [nuevoTitulo, setNuevoTitulo] = useState("");
   const [nuevoHorario, setNuevoHorario] = useState("");
   const [nuevoDia, setNuevoDia] = useState("");
-  const [nuevoTipo, setNuevoTipo] = useState("Tarea"); // Valor por defecto
+  const [nuevoTipo, setNuevoTipo] = useState("Tarea");
 
   useEffect(() => {
     if (!token) {
@@ -104,19 +103,16 @@ export default function Dashboard() {
     }
   }, [navigate, token]);
 
-  // Alternar el estado de completado de una tarea específica
   const handleClickTask = (index) => {
     const nuevasTareas = [...tareas];
     nuevasTareas[index].completada = !nuevasTareas[index].completada;
     setTareas(nuevasTareas);
   };
 
-  // Agregar la nueva tarea al listado
   const handleAgregarTarea = (e) => {
     e.preventDefault();
     if (!nuevoTitulo || !nuevoHorario || !nuevoDia) return;
 
-    // Asignar clases de insignias según el tipo seleccionado
     let badgeClass = "badge-blue";
     if (nuevoTipo === "Final") badgeClass = "badge-red";
     if (nuevoTipo === "Tarea") badgeClass = "badge-yellow";
@@ -132,7 +128,6 @@ export default function Dashboard() {
 
     setTareas([...tareas, nuevaTarea]);
     
-    // Resetear inputs y cerrar formulario
     setNuevoTitulo("");
     setNuevoHorario("");
     setNuevoDia("");
@@ -143,7 +138,12 @@ export default function Dashboard() {
   if (loading) return <p style={{ padding: "20px" }}>Cargando dashboard...</p>;
   if (error) return <p style={{ padding: "20px" }}>Error: {error.message}</p>;
 
-  const { materias = [] } = userIdentity || {};
+  // Desestructuración de datos de usuario con fallbacks de seguridad
+  const { materias = [], nombre = "Estudiante", apellido = "", carrera } = userIdentity || {};
+  const nombreCompleto = `${nombre} ${apellido}`.trim();
+
+  // Si no viene la carrera en el JSON del backend, usamos una por defecto genérica
+  const carreraUsuario = carrera || "Licenciatura en Sistemas de Información";
 
   const aprobadasYPromocionadas = materias.filter(
     (m) => m.estado === "APROBADA" || m.estado === "PROMOCIONADA"
@@ -181,6 +181,27 @@ export default function Dashboard() {
       <div className="dashboard-page">
         <div className="dashboard-card">
           
+          {/* NUEVO: BLOQUE DE BIENVENIDA Y BADGE DE CARRERA */}
+          <div className="dashboard-welcome-container">
+            <div className="welcome-text-block">
+              <h2 className="title-bienvenida-dashboard">¡Hola, {nombreCompleto || "de nuevo"}! <IconoBienvenida/> </h2>
+              <p className="welcome-subtitle">Este es el estado actualizado de tu rendimiento académico.</p>
+            </div>
+            
+            <div className="user-carrera-badge-container">
+              <div className="carrera-badge-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                  <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
+                </svg>
+              </div>
+              <div className="carrera-badge-info">
+                <span className="carrera-badge-label">Carrera Activa</span>
+                <h2 className="carrera-badge-name">{carreraUsuario}</h2>
+              </div>
+            </div>
+          </div>
+
           {/* SECCIÓN PROGRESO */}
           <div className="progress-section">
             <div className="progress-row">

@@ -1137,9 +1137,6 @@ section {
   color: #f5c518;
 }
 
-/* ============================= */
-/* FOOTER */
-/* ============================= */
 
 .rating-resenias-profe {
   display: flex;
@@ -1262,176 +1259,145 @@ section {
   }
 }
 
-/* ================= NOVEDADES ================= */
-
+/* ================= SECCIÓN NOVEDADES PREMIUM ================= */
 .section-novedades {
-  padding: 20px 16px;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem;
 }
 
-/* contenedor scroll */
-.container-novedades {
-  display: flex;
-  gap: 16px;
-
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-
-  padding: 10px 4px 20px;
-  scrollbar-width: none;
+/* Grilla Centrada y Auto-Ajustable */
+.grid-novedades-premium {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  width: 100%;
+  margin-top: 1rem;
 }
 
-.container-novedades::-webkit-scrollbar {
-  display: none;
-}
-
-/* ================= CARD ================= */
-
-.container-novedad {
+/* Tarjeta Contenedora Principal */
+.tarjeta-novedad {
   position: relative;
-
-  min-width: 280px;
-  max-width: 320px;
-
-  padding: 20px;
-
-  border-radius: 20px;
-  background: var(--color-card);
-
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
-
+  border-radius: var(--radius);
+  padding: 24px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 14px;
-
-  scroll-snap-align: start;
-
-  transition: all 0.35s ease;
+  align-items: center; /* Alineación horizontal de la fecha y el texto */
+  gap: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
   overflow: hidden;
 }
 
-/* gradiente premium hover */
-.container-novedad::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: radial-gradient(
-    circle at top left,
-    var(--color-btn),
-    transparent 60%
-  );
-
-  opacity: 0;
-  transition: opacity 0.35s ease;
+/* Efectos Hover de Alta Calidad */
+.tarjeta-novedad:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(0, 156, 209, 0.3);
 }
 
-.container-novedad:hover::before {
-  opacity: 0.15;
-}
-
-/* hover */
-.container-novedad:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
-  border-color: var(--color-btn);
-}
-
-/* ================= DESTACADA (PRIMER CARD) ================= */
-
-.container-novedad:first-child {
-  min-width: 340px;
-  max-width: 380px;
-
-  background: linear-gradient(135deg, var(--color-btn), var(--color-btn-hover));
-
-  color: white;
-  border: none;
-}
-
-.container-novedad:first-child .text-novedad,
-.container-novedad:first-child .categoria-novedad-title,
-.container-novedad:first-child .indice-novedad i {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.container-novedad:first-child .title-dia {
-  color: white;
-}
-
-/* ================= FECHA ================= */
-
-.indice-novedad {
+/* Indicador de Fecha Tipo Calendario */
+.badge-calendario {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  height: 68px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  transition: var(--transition);
+}
+.tarjeta-novedad:hover .badge-calendario {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  border-color: transparent;
 }
 
-/* día */
-.title-dia {
-  font-size: 26px;
+.calendario-dia {
+  font-size: 20px;
+  font-weight: 700;
   color: var(--color-text);
+  line-height: 1.1;
+  transition: var(--transition);
 }
-
-/* mes */
-.indice-novedad i {
+.calendario-mes {
   font-size: 11px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
   color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+  transition: var(--transition);
 }
 
-/* ================= CONTENIDO ================= */
+/* Cambios de color en la fecha al hacer hover */
+.tarjeta-novedad:hover .calendario-dia,
+.tarjeta-novedad:hover .calendario-mes {
+  color: #ffffff;
+}
 
-.info-novedad {
+/* Bloque de Información */
+.contenido-novedad {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
+  flex: 1;
 }
 
-/* categoría */
-.categoria-novedad-title {
+/* Badge de Categoría Dinámico */
+.tag-categoria {
+  display: inline-block;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-
-  color: var(--color-btn);
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(0, 156, 209, 0.06);
+  color: var(--color-primary);
+  width: fit-content;
 }
 
-/* título */
-.text-novedad {
-  font-size: 15px;
+/* Título de la Novedad */
+.titulo-novedad-texto {
+  font-size: 16px;
+  font-weight: 600;
   color: var(--color-text);
-  line-height: 1.5;
-  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  transition: var(--transition);
+}
+.tarjeta-novedad:hover .titulo-novedad-texto {
+  color: var(--color-primary-dark);
 }
 
-/* ================= ANIMACIÓN ENTRADA ================= */
-
-.container-novedad {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeCarousel 0.5s ease forwards;
+/* Microdetalle: Línea sutil izquierda que se enciende en hover */
+.decoracion-borde-tarjeta {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: transparent;
+  transition: var(--transition);
+}
+.tarjeta-novedad:hover .decoracion-borde-tarjeta {
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-accent));
 }
 
-.container-novedad:nth-child(1) {
-  animation-delay: 0.05s;
-}
-.container-novedad:nth-child(2) {
-  animation-delay: 0.1s;
-}
-.container-novedad:nth-child(3) {
-  animation-delay: 0.15s;
-}
-.container-novedad:nth-child(4) {
-  animation-delay: 0.2s;
+/* ================= MEDIA QUERIES (Responsivo) ================= */
+@media (min-width: 768px) {
+  .grid-novedades-premium {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en Tablets */
+    gap: 28px;
+  }
 }
 
-@keyframes fadeCarousel {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+@media (min-width: 1100px) {
+  .grid-novedades-premium {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en Pantallas Grandes */
   }
 }
 
@@ -1936,42 +1902,6 @@ p.divisor i {
   transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* GRADIENTE GLOW DE FONDO */
-.cta-container::before {
-  content: "";
-  position: absolute;
-  inset: -20%;
-
-  background: radial-gradient(
-    circle at 50% 0%,
-    var(--color-btn),
-    transparent 60%
-  );
-
-  opacity: 0.18;
-  filter: blur(60px);
-
-  transition: 0.6s;
-}
-
-/* borde glow animado */
-.cta-container::after {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: 28px;
-
-  background: linear-gradient(
-    120deg,
-    var(--color-btn),
-    transparent,
-    var(--color-accent)
-  );
-
-  opacity: 0.15;
-  z-index: 0;
-}
-
 /* contenido */
 .cta-container > * {
   position: relative;
@@ -1981,7 +1911,7 @@ p.divisor i {
 /* hover general */
 .cta-container:hover {
   transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.35);
 }
 
 .cta-container:hover::before {
@@ -2238,7 +2168,11 @@ p.divisor i {
 
 /* ================= FOOTER ================= */
 .footer {
-  background: var(--color-primary-dark);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
   color: #fff;
 }
 .footer-container {
