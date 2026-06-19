@@ -37,7 +37,7 @@ const Materias = () => {
         {
           loading 
             ? Array.from({ length: 10 }, (_, i) => <MateriasSkeleton key={i} />)
-            : materias.map(materia => <MateriaCard materia={materia} navigate={navigate} key={materia.id} />)
+            : materias.map(materia => <MateriaCard key={materia.id} materia={materia} navigate={navigate} key={materia.id} />)
         }
       </SearchLayout>
     </main>
