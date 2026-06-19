@@ -139,11 +139,14 @@ export default function Dashboard() {
   if (error) return <p style={{ padding: "20px" }}>Error: {error.message}</p>;
 
   // Desestructuración de datos de usuario con fallbacks de seguridad
-  const { materias = [], nombre = "Estudiante", apellido = "", carrera } = userIdentity || {};
+  const { materias = [], nombre = "Estudiante", apellido = "", carreras =[] } = userIdentity || {};
   const nombreCompleto = `${nombre} ${apellido}`.trim();
 
+  // console.log(carreras[0]);
+  
   // Si no viene la carrera en el JSON del backend, usamos una por defecto genérica
-  const carreraUsuario = carrera || "Licenciatura en Sistemas de Información";
+  // solo muestra nombre de la primera carrera del arreglo de carreras !!!!!HAY QUE ARREGLAR ESTO LUEGO EN LA IMPLEMENTACION DE VARIAS CARRERAS
+  const carreraUsuario = carreras[0] || "Carrera no reconocida";
 
   const aprobadasYPromocionadas = materias.filter(
     (m) => m.estado === "APROBADA" || m.estado === "PROMOCIONADA"
@@ -197,7 +200,7 @@ export default function Dashboard() {
               </div>
               <div className="carrera-badge-info">
                 <span className="carrera-badge-label">Carrera Activa</span>
-                <h2 className="carrera-badge-name">{carreraUsuario}</h2>
+                <h2 className="carrera-badge-name">{carreraUsuario.nombre}</h2>
               </div>
             </div>
           </div>
