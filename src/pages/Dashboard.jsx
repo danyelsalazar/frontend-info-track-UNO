@@ -120,7 +120,7 @@ export default function Dashboard() {
   // ── 2. CÁLCULO DEL PROMEDIO (SEGURO Y FILTRADO) ──
   const materiasConNotaValida = materias.filter((m) => {
     const notaNumerica = parseFloat(m.notaFinal);
-    // Evaluamos que sea un número válido y que sea mayor a 0 (por si guardas ceros vacíos)
+    // Evaluamos que sea un número valido y que sea mayor a 0 (por si guardas ceros vacíos)
     return !isNaN(notaNumerica) && notaNumerica > 0;
   });
 
