@@ -1,4 +1,4 @@
-# InfoTrack 
+# InfoTrack Actualmente estamos trabajando en el sistema interno y mejornado la interfaz de usuario, la web en produccion solo es la primera version que se implemento
 - link page: https://frontend-info-track-uno.vercel.app/
 
 # InfoTrack - Frontend

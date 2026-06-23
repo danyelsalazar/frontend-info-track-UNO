@@ -1,0 +1,60 @@
+.reseña-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+}
+
+.reseña-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.reseña-logo {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.15rem;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.reseña-header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.reseña-header-info-content {
+  display: flex;
+  align-items: center;
+  gap: 6px
+}
+
+.reseña-nombre-usuario {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.reseña-fecha {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.reseña-comentario {
+  font-size: 1.2rem;
+  padding-left: 6px;
+  color: var(--color-text);
+  line-height: 1.55;
+  font-style: italic;
+}

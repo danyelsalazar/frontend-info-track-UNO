@@ -1,13 +1,19 @@
 import { Route, Routes } from "react-router-dom";
 import Materias from "./Materias";
-import Home from "./Home"
+import Home from "./Home";
 import ScrollTopTop from "../components/ScrollTopTop";
-import MateriaDetalle from "../components/MateriaDetalle";
+import Materia from "./Materia";
 import Login from "./Login";
 import MainLayout from "../components/MainLayout";
 import Register from "./Register";
 import Dashboard from "./Dashboard";
-import MateriasUser from "../components/MateriasUser";
+import MateriasUser from "../pages/MateriasUser";
+import Profesores from "./Profesores";
+import { Profesor } from "./Profesor";
+import { Carrera } from "./Carrera";
+import CuatrimestrCurso from "../components/CuatrimestreCurso";
+import Recursos from "./Recursos";
+
 
 const App = () => {
   return (
@@ -19,14 +25,24 @@ const App = () => {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/materias" element={<Materias />} />
-          <Route path="/materias/:id" element={<MateriaDetalle />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/materia/:id" element={<Materia />} />
+          <Route path="/profesores" element={<Profesores />} />
+          <Route path="/profesor/:id" element={<Profesor />} />
+          <Route path="/materia/:id" element={<Materia />} />
+          <Route path="/profesores" element={<Profesores />} />
+          <Route path="/profesor/:id" element={<Profesor />} />
+          <Route path="/carrera/:id" element={<Carrera />} />
+          <Route path="/cuatrimestre-activo" element={<CuatrimestrCurso />} />
+          <Route path="/recursos" element={<Recursos/>} />
         </Route>
 
-        {/* RUTA SIN HEADER NI FOOTER */}
+        {/* RUTA SIN HEADER o FOOTER */}
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register/>}/>
-        <Route path="/dashboard" element={<Dashboard/>}/>
-        <Route path="/dashboard/mis-materias" element={<MateriasUser/>}/>
+        <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/mis-materias" element={<MateriasUser />} />
       </Routes>
     </>
   );

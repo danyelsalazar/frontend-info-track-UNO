@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -29,14 +31,15 @@ const Footer = () => {
             <h4>Secciones</h4>
             <a href="#">Carreras</a>
             <a href="#">Cuatrimestre</a>
-            <a href="#">Profesores</a>
+            <Link to="/profesores">Profesores</Link>
+            <Link to="/materias">Materias</Link>
             <a href="#">Novedades</a>
           </div>
 
           <div>
             <h4>Cuenta</h4>
-            <a href="#">Ingresar</a>
-            <a href="#">Registrarse</a>
+            <Link to="/login">Ingresar</Link>
+            <Link to="/register">Registrarse</Link>
           </div>
         </div>
 
@@ -44,7 +47,7 @@ const Footer = () => {
 
       {/* bottom */}
       <div className="footer-bottom">
-        <p>© 2026 InfoTrack — Todos los derechos reservados</p>
+        <p>© {new Date().getFullYear()} InfoTrack — Todos los derechos reservados</p>
       </div>
     </footer>
   );

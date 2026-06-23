@@ -1,0 +1,361 @@
+/* layout general */
+.page-content {
+  background: var(--color-bg);
+  min-height: calc(100vh - 64px);
+  width: 100%;
+  padding: 16px;
+  margin: 0px;
+  border-radius: 10px;
+}
+
+.container-section {
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* secciones */
+.section {
+  background: var(--color-card);
+  /* border-radius: var(--radius); */
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--color-border);
+  
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+
+.section-text {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+/* header */
+.materia-header {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  color: white;
+  border: none;
+  border-radius: 20px;
+}
+
+.materia-title {
+  font-size: 2rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.materia-title strong {
+  font-size: 1.8rem;
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+.materia-button-estado {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+  gap: 6px;
+  background: white;
+  color: var(--color-primary-dark);
+  border: none;
+  padding: 0.6rem;
+  border-radius: var(--radius-sm);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.materia-button-estado:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* badges */
+.materia-badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: inherit;
+  text-decoration: none;
+}
+.bage-carreras{
+  background: black;
+  color: white;
+}
+
+/* listas */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* correlativas */
+.materia-correlativas-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  row-gap: 10px;
+}
+.name-correlativa-materia{
+  background-color:aliceblue;
+  border-radius: 10px;
+  padding: 5px 8px;
+  outline: transparent;
+  transition: var(--transition);
+}
+.name-correlativa-materia:hover{
+  outline: .5px solid var(--color-primary);
+}
+
+/* profesores */
+.materia-profesores-container {
+  display: grid;
+  gap: 10px;
+}
+
+.materia-profesor-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  transition: var(--transition);
+}
+
+.materia-profesor-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.materia-profesor-avatar {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.15rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.materia-profesor-info {
+  flex: 1;
+}
+
+.materia-profesor-nombre {
+  font-size: 1.3rem;
+  color: var(--color-text);
+}
+
+.materia-profesor-email {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+}
+
+.materia-profesor-puntuacion {
+  text-align: right;
+  font-size: 12px;
+}
+/* comisiones */
+
+/* Contenedor principal de la sección */
+.materia-comisiones-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 20px;
+}
+
+.materia-cuatrimestre-block {
+  display: flex;
+  flex-direction: column;
+  max-height: 350px; 
+}
+
+.materia-comisiones-list {
+  display: grid;
+  gap: 10px;
+  flex-grow: 1;
+  min-height: 0; 
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 5px;
+}
+
+.materia-comisiones-title {
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: var(--color-text-muted);
+}
+
+.materia-comision-container {
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background: var(--color-card-bg);
+  height: max-content;
+}
+
+.materia-comision-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.materia-comision-numero {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.materia-comision-modalidad {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+}
+
+.materia-comision-horarios {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.materia-comision-horario {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+/* carreras */
+.materia-carreras-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.materia-carrera-item {
+  padding: 10px;
+  border-radius: var(--radius);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+}
+
+.materia-carrera-nombre {
+  font-size: 14px;
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.materia-carrera-badges-container {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.materia-carrera-badges-container .badge {
+  background: var(--color-btn) ;
+  color: white;
+}
+.badge-calendar-container{
+  background-color: #d62c5c;;
+}
+
+/* estilos de las materias en el compoente de carreras  */
+.card-materias-carrera{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 400px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.card-materias-carrera li {
+  cursor: pointer;
+}
+/* -------------------- */
+/* RESPONSIVE */
+/* -------------------- */
+
+@media (min-width: 768px) {
+  .page-content {
+    padding: 24px;
+  }
+  .materia-carreras-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .materia-header-top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .materia-profesores-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .materia-cuatrimestre-block {
+    max-height: max-content;
+    border: .5px solid var(--color-border);
+    padding: 12px;
+    border-radius: var(--radius);
+}
+
+  .materia-comisiones-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px;
+}
+
+  .materia-comisiones-container > div {
+    flex: 1;
+  }
+
+  .materia-comisiones-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .materia-profesores-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .materia-comisiones-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

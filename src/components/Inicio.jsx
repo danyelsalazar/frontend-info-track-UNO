@@ -1,64 +1,78 @@
-import { useNavigate } from "react-router-dom"
-import InfoResum from "./InfoResum"
-const Inicio =()=>{
-  const navigate = useNavigate()
-    return(
-      <section className="inicio" id="inicio">
-          <InfoResum />
-            <div className="pre-title">
-              <p className="divisor">              </p>
-            </div>
-          <div className="container-inicio-texto children-block">
-            <div className="title-principal children-block">
-              <h1>
-                Seguí tu carrera. <b>Sin excusas.</b>
-              </h1>
-            </div>
-            <div className="description-inicio">
-              <p>
-                Progreso, materias, profesores, tareas y comunidad. Todo lo que
-                un estudiante de Informática necesita, en un solo lugar.
-              </p>
-            </div>
-            <div className="buttons-inicio button children-block">
-              <button className="btn btn-primary" onClick={()=>{navigate("/dashboard")}}>Crear cuenta gratis</button>
-              <button className="btn btn-primary">
-                Ver cuatrimestre
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M5 12H19M19 12L13 6M19 12L13 18"
-                    stroke="#faf9f5"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import InfoResum from "./InfoResum";
+const Inicio = () => {
+  const navigate = useNavigate();
+  return (
+    <section className="inicio" id="inicio">
+      <InfoResum />
+      <div className="container-inicio-texto children-block">
+        <div className="title-principal children-block">
+          <h1>
+            Seguí tu carrera. <b>Sin excusas.</b>
+          </h1>
+        </div>
+        <div className="description-inicio">
+          <p className="texto-inicio">
+            Progreso, materias, profesores, tareas y comunidad. Todo lo que un
+            estudiante de Informática necesita, en un solo lugar.
+          </p>
+        </div>
+        <div className="buttons-inicio button children-block">
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              navigate("/register");
+            }}
+          >
+            Crear cuenta gratis
+          </button>
+          <button className="btn btn-primary">
+            <Link to={"/cuatrimestre-activo"}>Ver cuatrimestre</Link>
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 12H19M19 12L13 6M19 12L13 18"
+                stroke="#faf9f5"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
 
-            <div className="description-inicio-table children-block">
-              <div className="childrem-description-inicio">
-                <p> <b>4</b> Carreras</p>
-              </div>
-              <div className="childrem-description-inicio">
-                <p><b>127</b> Materias</p>
-              </div>
-              <div className="childrem-description-inicio">
-                <p><b>50+</b> Profesores</p>
-              </div>
-              <div className="childrem-description-inicio">
-                <p><b>1000+ </b>Estudiantes</p>
-              </div>
-            </div>
+        <div className="description-inicio-table children-block">
+          <div className="childrem-description-inicio">
+            <p>
+              {" "}
+              <b>4</b> Carreras
+            </p>
           </div>
-        </section>
-    )
-}
+          <div className="childrem-description-inicio">
+            <p>
+              <b>127</b> Materias
+            </p>
+          </div>
+          <div className="childrem-description-inicio">
+            <p>
+              <b>50+</b> Profesores
+            </p>
+          </div>
+          <div className="childrem-description-inicio">
+            <p>
+              <b>1000+ </b>Estudiantes
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
-export default Inicio
+export default Inicio;

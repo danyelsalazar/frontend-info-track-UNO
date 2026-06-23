@@ -1,0 +1,220 @@
+.index-profe {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.15rem;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+
+/*-------PROFESOR CARD---------*/
+
+.profesor-card {
+  display: flex;
+  align-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.profesor-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  border-radius: 3px 0 0 3px;
+  opacity: 0;
+  transition: var(--transition);
+}
+.profesor-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+  border-color: rgba(0, 156, 209, 0.3);
+}
+.profesor-card:hover::before {
+  opacity: 1;
+}
+.profesor-card-nombre {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--color-primary-dark);
+
+}
+
+/*-------PROFESOR PAGINA-------*/
+/* -------------------- */
+/* HEADER PROFESOR */
+/* -------------------- */
+
+.profesor-container-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  color: white;
+  border-radius: 20px;
+  padding: 16px;
+  justify-content: space-between;
+}
+.info-header-profesor{
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+.container-data-header-profesor{
+  width: 100;
+  display:flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* avatar */
+.siglas-profe{
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.15rem;
+  border-radius: 50%;
+  background-color: #fff;
+  color: var(--color-primary-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+}
+.profesor-header-logo {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+
+/* info */
+.profesor-header-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.profesor-nombre {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.profesor-email {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+}
+
+/* rating */
+.profesor-rating-container {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.profesor-rating-promedio {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.profesor-rating-cantidad {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* -------------------- */
+/* MATERIAS */
+/* -------------------- */
+
+.profesor-materias-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  row-gap: 10px;
+}
+
+/* -------------------- */
+/* MI RESEÑA */
+/* -------------------- */
+
+.mi-reseña-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  padding-top: 3rem;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+}
+
+.boton-mi-reseña {
+  background: var(--color-btn);
+  color: white;
+  border: none;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.boton-mi-reseña:hover {
+  background: var(--color-btn-hover);
+  transform: translateY(-1px);
+}
+
+/* -------------------- */
+/* RESEÑAS */
+/* -------------------- */
+
+.profesor-reseñas-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* -------------------- */
+/* RESPONSIVE */
+/* -------------------- */
+
+@media (min-width: 768px) {
+  .page-content-profesor{
+    max-width: 800px;
+    align-self: center;
+}
+
+  .profesor-header-info {
+    flex: 1;
+  }
+}
