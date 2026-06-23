@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Rating } from "@mui/material";
-import { IconBook2, IconStar } from "@tabler/icons-react";
+import { IconBook2, IconMail, IconStar } from "@tabler/icons-react";
 import { useProfesor } from "../hooks/useProfesor";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { Reseña } from "../components/Reseña";
@@ -9,7 +9,13 @@ import { BackButton } from "../components/BackButton";
 import { ProfesorSkeleton } from "../skeletons/ProfesorSkeleton";
 import { CrearValoracionForm } from "../components/CrearValoracionForm";
 
-const HeaderSection = ({ profesor }) => {
+const HeaderSection = ({ profesor, puntuaciones }) => {
+  const cantidad = puntuaciones.length
+  const promedio = cantidad 
+    ? puntuaciones.reduce((acc, p) => acc + p.puntuacion, 0) / cantidad
+    : 0
+  const promedioRedondeado = Math.round(promedio * 10) / 10
+
   return (
     <header className="profesor-container-header section">
       <div className="container-data-header-profesor">
@@ -23,31 +29,21 @@ const HeaderSection = ({ profesor }) => {
               {profesor.apellido}, {profesor.nombre}
             </h2>
             <a className="profesor-email" href={`mailto:${profesor.email}`}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="#ffffff"
-                  d="m20 8l-8 5l-8-5V6l8 5l8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"
-                />
-              </svg>
+              <IconMail size={16}/>
               {profesor.email}
             </a>
           </div>
           <div className="profesor-rating-container">
             <h2 className="profesor-rating-promedio">
-              {profesor?.promedioPuntuaciones || 0}/5
+              {promedioRedondeado}/5
             </h2>
             <Rating
               size="small"
               readOnly
-              defaultValue={profesor?.promedioPuntuaciones || 0}
+              value={promedioRedondeado}
             />
             <p className="profesor-rating-cantidad">
-              {`${profesor?.cantidadPuntuaciones} ${profesor?.cantidadPuntuaciones === 1 ? "reseña" : "reseñas"}`}
+              {`${cantidad} ${cantidad === 1 ? "reseña" : "reseñas"}`}
             </p>
           </div>
         </div>
@@ -76,7 +72,7 @@ const ValoracionesSection = ({ puntuaciones, showForm }) => {
   const { userIdentity } = useAuthContext();
 
   const miValoracion = userIdentity
-    ? puntuaciones.find((p) => p.usuario.id.toString() === userIdentity.id.toString())
+    ? puntuaciones.find((p) => p.usuario.id === userIdentity.id)
     : null;
 
   const otrasValoraciones = miValoracion
@@ -125,19 +121,24 @@ const ListarValoraciones = ({ puntuaciones }) => {
 };
 
 export const Profesor = () => {
-  const { profesor, loading } = useProfesor();
-  const [formActive, setFormActive] = useState()
+  const [formActive, setFormActive] = useState(false)
+  const { profesor, loading, puntuaciones, addValoracion } = useProfesor()
 
   if (loading) return <ProfesorSkeleton />;
 
   return (
     <main className="page-content page-content-profesor">
       <div className="container-section">
-        <HeaderSection profesor={profesor} />
+        <HeaderSection profesor={profesor} puntuaciones={puntuaciones} />
         <MateriasSection materias={profesor.materias} />
-        <ValoracionesSection puntuaciones={profesor.puntuaciones} showForm={() => setFormActive(true)}/>
+        <ValoracionesSection puntuaciones={puntuaciones} showForm={() => setFormActive(true)}/>
       </div>
-      <CrearValoracionForm active={formActive} setActive={setFormActive} profesorId={profesor.id}/>
+      <CrearValoracionForm 
+        active={formActive} 
+        setActive={setFormActive} 
+        profesorId={profesor.id}
+        onCreated={addValoracion}
+      />
     </main>
   );
 };

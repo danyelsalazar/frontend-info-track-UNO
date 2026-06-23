@@ -12,6 +12,12 @@ export const CREAR_VALORACION = gql`
         nombre
         apellido
       }
+      usuario {
+        id
+        nombre
+        apellido
+        siglas
+      }
     }
   }
 `

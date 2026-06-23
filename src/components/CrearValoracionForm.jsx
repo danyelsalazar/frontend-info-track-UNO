@@ -1,10 +1,10 @@
+import { useMutation } from "@apollo/client/react"
+import { useState } from "react"
 import { Rating } from "@mui/material"
 import { FormModel } from "./FormModel"
-import { useState } from "react"
-import { useMutation } from "@apollo/client/react"
 import { CREAR_VALORACION } from "../graphql/profesor.mutations"
 
-export const CrearValoracionForm = ({ profesorId, active, setActive }) => {
+export const CrearValoracionForm = ({ profesorId, active, setActive, onCreated }) => {
   const [puntuacion, setPuntuacion] = useState(0)
   const [comentario, setComentario] = useState("")
   const [crearValoracion, {loading, error}] = useMutation(CREAR_VALORACION)
@@ -17,7 +17,12 @@ export const CrearValoracionForm = ({ profesorId, active, setActive }) => {
   const onSubmit = async (e) => {
     e.preventDefault()
     if (!puntuacion) return // evitar enviar sin estrellas
-    await crearValoracion({variables: {profesorId, puntuacion, comentario}})
+    const {data: { puntuarProfesor = {} } = {}} = await crearValoracion(
+      {variables: {profesorId, puntuacion, comentario}
+    })
+    clearForm()
+    setActive(false)
+    onCreated(puntuarProfesor)
   }
 
   return (
