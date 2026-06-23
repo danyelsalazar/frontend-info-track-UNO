@@ -39,12 +39,14 @@ export const ME = gql`
         updatedAt
       }
       puntuaciones {
+        id
         puntuacion
         fecha
         comentario
         profesor {
           id
           nombre
+          apellido
         }
       }
     }

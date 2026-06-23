@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Rating } from "@mui/material";
 import { IconBook2, IconStar } from "@tabler/icons-react";
 import { useProfesor } from "../hooks/useProfesor";
@@ -6,6 +7,7 @@ import { Reseña } from "../components/Reseña";
 import { MateriaBadge } from "../components/MateriaBadge";
 import { BackButton } from "../components/BackButton";
 import { ProfesorSkeleton } from "../skeletons/ProfesorSkeleton";
+import { CrearValoracionForm } from "../components/CrearValoracionForm";
 
 const HeaderSection = ({ profesor }) => {
   return (
@@ -70,11 +72,11 @@ const MateriasSection = ({ materias }) => {
   );
 };
 
-const ValoracionesSection = ({ puntuaciones }) => {
+const ValoracionesSection = ({ puntuaciones, showForm }) => {
   const { userIdentity } = useAuthContext();
 
   const miValoracion = userIdentity
-    ? puntuaciones.find((p) => p.usuario.id === userIdentity.id)
+    ? puntuaciones.find((p) => p.usuario.id.toString() === userIdentity.id.toString())
     : null;
 
   const otrasValoraciones = miValoracion
@@ -88,21 +90,23 @@ const ValoracionesSection = ({ puntuaciones }) => {
         Valoraciones
       </h3>
       <ul className="profesor-reseñas-container">
-        <MiValoracion valoracion={miValoracion} />
+        <MiValoracion valoracion={miValoracion} showForm={showForm} />
         <ListarValoraciones puntuaciones={otrasValoraciones} />
       </ul>
     </section>
   );
 };
 
-const MiValoracion = ({ valoracion }) => {
+const MiValoracion = ({ valoracion, showForm }) => {
   if (!valoracion) {
     return (
       <div className="mi-reseña-section">
         <p className="section-text">
           Todavía no dejaste una valoración para este profesor
         </p>
-        <button className="boton-mi-reseña">+ Dejar valoración</button>
+        <button className="boton-mi-reseña" onClick={showForm}>
+          + Dejar valoración
+        </button>
       </div>
     );
   }
@@ -122,6 +126,7 @@ const ListarValoraciones = ({ puntuaciones }) => {
 
 export const Profesor = () => {
   const { profesor, loading } = useProfesor();
+  const [formActive, setFormActive] = useState()
 
   if (loading) return <ProfesorSkeleton />;
 
@@ -130,8 +135,9 @@ export const Profesor = () => {
       <div className="container-section">
         <HeaderSection profesor={profesor} />
         <MateriasSection materias={profesor.materias} />
-        <ValoracionesSection puntuaciones={profesor.puntuaciones} />
+        <ValoracionesSection puntuaciones={profesor.puntuaciones} showForm={() => setFormActive(true)}/>
       </div>
+      <CrearValoracionForm active={formActive} setActive={setFormActive} profesorId={profesor.id}/>
     </main>
   );
 };
