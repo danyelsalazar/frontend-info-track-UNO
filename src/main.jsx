@@ -11,6 +11,9 @@ import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 import { ApolloProvider } from "@apollo/client/react";
 import { SetContextLink } from "@apollo/client/link/context";
 import { AuthProvider } from './providers/AuthProvider.jsx'
+import { registerSW } from 'virtual:pwa-register'
+
+registerSW()
 
 const httpLink = new HttpLink({uri: import.meta.env.VITE_GRAPHQL_URI})
 
