@@ -108,7 +108,7 @@ const MiValoracion = ({ valoracion, showForm }) => {
             navigate("/login")
             return
           }
-          showForm
+          showForm()
         }}>
           + Dejar valoración
         </button>
