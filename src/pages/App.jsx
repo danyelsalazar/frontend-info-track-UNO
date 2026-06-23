@@ -13,15 +13,155 @@ import { Profesor } from "./Profesor";
 import { Carrera } from "./Carrera";
 import CuatrimestrCurso from "../components/CuatrimestreCurso";
 import Recursos from "./Recursos";
-
+import { useEffect, useState } from "react";
 
 const App = () => {
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [isInstalled, setIsInstalled] = useState(() => {
+    const standalone = window.matchMedia("(display-mode: standalone)").matches;
+    const isInStandaloneIOS = window.navigator.standalone === true;
+    return standalone || isInStandaloneIOS;
+  });
+  const [showBanner, setShowBanner] = useState(() => {
+    const standalone = window.matchMedia("(display-mode: standalone)").matches;
+    const isInStandaloneIOS = window.navigator.standalone === true;
+
+    const isIOS =
+      /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+    if (standalone || isInStandaloneIOS) return false;
+
+    return isIOS; //solo iOS lo muestra de entrada
+  });
+
+  // detección iOS (sin state → evita warning)
+  const isIOS =
+    /iphone|ipad|ipod/i.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+  useEffect(() => {
+    const handler = (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      setShowBanner(true);
+    };
+
+    window.addEventListener("beforeinstallprompt", handler);
+
+    const onInstalled = () => {
+      setIsInstalled(true);
+      setDeferredPrompt(null);
+      setShowBanner(false);
+    };
+
+    window.addEventListener("appinstalled", onInstalled);
+
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handler);
+      window.removeEventListener("appinstalled", onInstalled);
+    };
+  }, []);
+
+  const handleInstall = async () => {
+    if (!deferredPrompt) return;
+
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+
+    if (outcome === "accepted") {
+      setIsInstalled(true);
+    }
+
+    setDeferredPrompt(null);
+    setShowBanner(false);
+  };
+
+  const handleClose = () => {
+    localStorage.setItem("hideInstall", "true");
+    setShowBanner(false);
+  };
+
   return (
     <>
       <ScrollTopTop />
 
+      {/* 🔥 BANNER PRO */}
+      {showBanner && !isInstalled && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: "20px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "90%",
+            maxWidth: "500px",
+            background: "#0f172a",
+            color: "#fff",
+            borderRadius: "16px",
+            padding: "16px",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+            zIndex: 9999,
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
+            animation: "slideUp 0.4s ease",
+          }}
+        >
+          {/* TEXTO */}
+          <div>
+            <strong>Instalar InfoTrack</strong>
+
+            {!isIOS ? (
+              <p style={{ fontSize: "12px", margin: 0, opacity: 0.8 }}>
+                Accedé más rápido y usala como app
+              </p>
+            ) : (
+              <p style={{ fontSize: "12px", margin: 0, opacity: 0.8 }}>
+                En iPhone: tocá <b>Compartir</b> →{" "}
+                <b>Agregar a pantalla de inicio</b>
+              </p>
+            )}
+          </div>
+
+          {/* BOTONES */}
+          <div
+            style={{ display: "flex", gap: "8px", justifyContent: "flex-end" }}
+          >
+            <button
+              onClick={handleClose}
+              style={{
+                background: "transparent",
+                color: "#fff",
+                border: "1px solid #fff",
+                padding: "6px 10px",
+                borderRadius: "8px",
+                cursor: "pointer",
+              }}
+            >
+              Ahora no
+            </button>
+
+            {!isIOS && deferredPrompt && (
+              <button
+                onClick={handleInstall}
+                style={{
+                  background: "#3b82f6",
+                  color: "#fff",
+                  border: "none",
+                  padding: "6px 12px",
+                  borderRadius: "8px",
+                  cursor: "pointer",
+                }}
+              >
+                Instalar
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+
       <Routes>
-        {/* RUTAS CON HEADER Y FOOTER */}
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/materias" element={<Materias />} />
@@ -30,20 +170,32 @@ const App = () => {
           <Route path="/materia/:id" element={<Materia />} />
           <Route path="/profesores" element={<Profesores />} />
           <Route path="/profesor/:id" element={<Profesor />} />
-          <Route path="/materia/:id" element={<Materia />} />
-          <Route path="/profesores" element={<Profesores />} />
-          <Route path="/profesor/:id" element={<Profesor />} />
           <Route path="/carrera/:id" element={<Carrera />} />
           <Route path="/cuatrimestre-activo" element={<CuatrimestrCurso />} />
-          <Route path="/recursos" element={<Recursos/>} />
+          <Route path="/recursos" element={<Recursos />} />
         </Route>
 
-        {/* RUTA SIN HEADER o FOOTER */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/mis-materias" element={<MateriasUser />} />
       </Routes>
+
+      {/* animación */}
+      <style>
+        {`
+          @keyframes slideUp {
+            from {
+              transform: translate(-50%, 100%);
+              opacity: 0;
+            }
+            to {
+              transform: translate(-50%, 0);
+              opacity: 1;
+            }
+          }
+        `}
+      </style>
     </>
   );
 };
