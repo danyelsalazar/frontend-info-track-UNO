@@ -38,15 +38,6 @@ export const ME = gql`
         llamadosUsados
         updatedAt
       }
-      puntuaciones {
-        puntuacion
-        fecha
-        comentario
-        profesor {
-          id
-          nombre
-        }
-      }
     }
   }
 `;
