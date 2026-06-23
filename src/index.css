@@ -871,7 +871,7 @@ section {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 .container-materia-en-curso:hover::after {
-  opacity: .2;
+  opacity: 0.2;
   z-index: 10;
 }
 .container-materia-en-curso:hover .materia-code {
@@ -879,7 +879,7 @@ section {
   color: #fff;
   box-shadow: 0px 5px 35px rgba(8, 8, 8, 0.401);
 }
-.container-materia-en-curso:hover .profe-initials{
+.container-materia-en-curso:hover .profe-initials {
   background-color: #d62c5b;
   color: #fff;
 }
@@ -914,7 +914,7 @@ section {
     color ease 0.2s,
     box-shadow ease.2s,
     transform ease 0.2s;
-    font-weight: 800;
+  font-weight: 800;
 }
 
 /* ================= INFO ================= */
@@ -970,7 +970,7 @@ section {
   border-radius: 50%;
   border: 0.5px solid #64748b42;
   z-index: 200;
-  transition: background-color ease .4s;
+  transition: background-color ease 0.4s;
 }
 
 /* ================= ANIMACIÓN SUAVE ================= */
@@ -1136,7 +1136,6 @@ section {
 .rating span {
   color: #f5c518;
 }
-
 
 .rating-resenias-profe {
   display: flex;
@@ -1312,7 +1311,11 @@ section {
   transition: var(--transition);
 }
 .tarjeta-novedad:hover .badge-calendario {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
   border-color: transparent;
 }
 
@@ -1384,7 +1387,11 @@ section {
   transition: var(--transition);
 }
 .tarjeta-novedad:hover .decoracion-borde-tarjeta {
-  background: linear-gradient(to bottom, var(--color-primary), var(--color-accent));
+  background: linear-gradient(
+    to bottom,
+    var(--color-primary),
+    var(--color-accent)
+  );
 }
 
 /* ================= MEDIA QUERIES (Responsivo) ================= */
@@ -2411,7 +2418,7 @@ p.divisor i {
   -webkit-backdrop-filter: blur(4px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity ease .3s;
+  transition: opacity ease 0.3s;
 }
 .form-model-container:has(.form-model-active) {
   opacity: 1;
@@ -2419,7 +2426,7 @@ p.divisor i {
 }
 .form-model {
   margin: auto;
-  transition: left ease .3s;
+  transition: left ease 0.3s;
   max-width: 500px;
   width: calc(100% - 40px);
   position: fixed;
@@ -2472,7 +2479,7 @@ p.divisor i {
   display: flex;
   gap: 10px;
 }
-.form-model-row>* {
+.form-model-row > * {
   width: 100%;
   /* opcional: si querés que ambos ocupen el mismo ancho exacto */
   flex: 1;

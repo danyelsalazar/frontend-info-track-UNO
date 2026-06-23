@@ -1,6 +1,5 @@
 import Inicio from "../components/Inicio";
 import CarrerasArea from "../components/CarrerasArea";
-import CuatrimestrCurso from "../components/CuatrimestreCurso";
 import Profesores from "../components/Profesores";
 import Novedades from "../components/Novedades";
 import { useLocation } from "react-router-dom";
