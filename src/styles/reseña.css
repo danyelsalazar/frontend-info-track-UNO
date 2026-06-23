@@ -7,8 +7,15 @@
 .reseña-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
   margin-bottom: 8px;
+}
+.container-header-name-star{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .reseña-logo {
@@ -54,7 +61,51 @@
 .reseña-comentario {
   font-size: 1.2rem;
   padding-left: 6px;
-  color: var(--color-text);
+  color: var(--color-text-muted);
   line-height: 1.55;
   font-style: italic;
+}
+
+/* crud */
+.div-btns-edit-valoration{
+  display: flex;
+  gap: 10px;
+}
+.btn-crud-valoration{
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  background-color: var(--color-btn);
+  color: #fff;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform ease .3s, background-color ease .2s;
+}
+.btn-crud-valoration:hover{
+  transform: scale(1.1);
+  background-color: #a91942;
+}
+.icon-edit{
+  color: #fff;
+}
+
+
+/* textarea del formulario para comentario en la valoracion */
+.textare-valoracio-profe{
+  width: 100%;
+  min-height: 120px;
+  max-height: 300px;
+  padding: 12px 16px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #1e293b; 
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px; 
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  resize: none; 
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }

@@ -40,7 +40,7 @@ export const Profesores = () => {
         {
           loading
             ? Array.from({ length: 10 }, (_, i) => <ProfesoresSkeleton key={i} />)
-            : profesores.map(profesor => <ProfesorCard navigate={navigate} profesor={profesor}/>)
+            : profesores.map(profesor => <ProfesorCard navigate={navigate} profesor={profesor} key={profesor.id}/>)
         }
       </SearchLayout>
     </main>
