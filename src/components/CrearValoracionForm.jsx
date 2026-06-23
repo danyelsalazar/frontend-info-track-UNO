@@ -44,6 +44,7 @@ export const CrearValoracionForm = ({ profesorId, active, setActive, onCreated }
         value={comentario}
         onChange={(e) => setComentario(e.target.value)}
         placeholder="Dejá tu comentario..."
+        className="textare-valoracio-profe"
       />
     </FormModel>
   )
