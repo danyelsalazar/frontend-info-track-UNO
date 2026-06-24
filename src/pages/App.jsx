@@ -1,19 +1,20 @@
+import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import ScrollTopTop from "../components/ScrollTopTop";
+import MainLayout from "../components/MainLayout";
+import CuatrimestrCurso from "../components/CuatrimestreCurso";
 import Materias from "./Materias";
 import Home from "./Home";
-import ScrollTopTop from "../components/ScrollTopTop";
 import Materia from "./Materia";
 import Login from "./Login";
-import MainLayout from "../components/MainLayout";
 import Register from "./Register";
 import Dashboard from "./Dashboard";
 import MateriasUser from "../pages/MateriasUser";
 import Profesores from "./Profesores";
+import Recursos from "./Recursos";
 import { Profesor } from "./Profesor";
 import { Carrera } from "./Carrera";
-import CuatrimestrCurso from "../components/CuatrimestreCurso";
-import Recursos from "./Recursos";
-import { useEffect, useState } from "react";
+import { Calendario } from "./Calendario";
 import { Carreras } from "./Carreras";
 
 const App = () => {
@@ -175,6 +176,7 @@ const App = () => {
           <Route path="/carrera/:id" element={<Carrera />} />
           <Route path="/cuatrimestre-activo" element={<CuatrimestrCurso />} />
           <Route path="/recursos" element={<Recursos />} />
+          <Route path="/calendario" element={<Calendario />} />
         </Route>
 
         <Route path="/login" element={<Login />} />
