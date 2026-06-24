@@ -1,7 +1,19 @@
-import data from "../data/infotrack_data (1).json";
+import { useQuery } from "@apollo/client/react"
+import { FECHAS_POR_MES } from "../graphql/fechas.queries";
+
+const formatearMes = (mes) => {
+  return mes.slice(0,3).toUpperCase()
+}
+
+const formatearDia = (fecha) => {
+  return new Date(Number(fecha)).getDate()
+}
 
 export const Calendario = () => {
-  const { news } = data;
+  const { data: { fechasImportantesPorMes: informacion} = [], loading, error} = useQuery(FECHAS_POR_MES)
+
+  if(loading) return (<p>Cargando...</p>)
+
   return (
     <main className="page-content">
       <section className="section-novedades">
@@ -13,44 +25,44 @@ export const Calendario = () => {
           </p>
         </div>
 
-        {/* Contenedor principal con grid/flex controlado */}
-        <div className="grid-novedades-premium">
-          {news.map((novedad) => {
-            const fechaStr = novedad.date;
-            const [anio, mes, dia] = fechaStr.split("-");
-            const fechaObjeto = new Date(anio, mes - 1, dia);
-            
-            // Nombre del mes formateado
-            let nombreMes = new Intl.DateTimeFormat("es-ES", {
-              month: "short",
-            }).format(fechaObjeto);
-            
-            // Limpiamos el punto si lo trae (ej: "dic.") y ponemos mayúscula inicial
-            nombreMes = nombreMes.replace(".", "");
-            nombreMes = nombreMes.charAt(0).toUpperCase() + nombreMes.slice(1);
-
+        <div>
+          {informacion.map(info => {
             return (
-              <article key={novedad.id} className="tarjeta-novedad">
-                {/* Bloque de Fecha Estilo Calendario Minimalista */}
-                <div className="badge-calendario">
-                  <span className="calendario-dia">{dia}</span>
-                  <span className="calendario-mes">{nombreMes}</span>
-                </div>
+              <div key={info.mes}>
+                <h1>
+                  - {info.mes} {info.anio}
+                </h1>
+                <div className="grid-novedades-premium">
+                {
+                  info.fechas.map(fecha => (
+                    <article key={fecha.id} className="tarjeta-novedad">
+                      <div className="badge-calendario">
+                        <span className="calendario-dia">{formatearDia(fecha.fechaInicio)}</span>
+                        {
+                          fecha.fechaFin &&
+                          (
+                            <span className="calendario-dia">/{formatearDia(fecha.fechaFin)}</span>
+                          )
+                        }
+                        <span className="calendario-mes">{formatearMes(info.mes)}</span>
+                      </div>
 
-                {/* Contenido de la Noticia */}
-                <div className="contenido-novedad">
-                  <div className="meta-novedad">
-                    <span className={`tag-categoria cat-${novedad.category.toLowerCase().replace(/\s+/g, '-')}`}>
-                      {novedad.category}
-                    </span>
-                  </div>
-                  <h3 className="titulo-novedad-texto">{novedad.title}</h3>
-                </div>
+                      <div className="contenido-novedad">
+                        <div className="meta-novedad">
+                          <span className="tag-categoria">
+                            {fecha.titulo}
+                          </span>
+                        </div>
+                        <h3 className="titulo-novedad-texto">{fecha.descripcion}</h3>
+                      </div>
 
-                {/* Detalle visual: Línea decorativa de calidad */}
-                <div className="decoracion-borde-tarjeta"></div>
-              </article>
-            );
+                      <div className="decoracion-borde-tarjeta"></div>
+                    </article>
+                  ))
+                }
+                </div>
+              </div>
+            )
           })}
         </div>
       </section>
