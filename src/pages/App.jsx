@@ -14,6 +14,7 @@ import { Carrera } from "./Carrera";
 import CuatrimestrCurso from "../components/CuatrimestreCurso";
 import Recursos from "./Recursos";
 import { useEffect, useState } from "react";
+import { Carreras } from "./Carreras";
 
 const App = () => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
@@ -170,6 +171,7 @@ const App = () => {
           <Route path="/materia/:id" element={<Materia />} />
           <Route path="/profesores" element={<Profesores />} />
           <Route path="/profesor/:id" element={<Profesor />} />
+          <Route path="/carreras" element={<Carreras />} />
           <Route path="/carrera/:id" element={<Carrera />} />
           <Route path="/cuatrimestre-activo" element={<CuatrimestrCurso />} />
           <Route path="/recursos" element={<Recursos />} />
