@@ -191,10 +191,10 @@ export default function Dashboard() {
                   </div>
 
                   <div className="stat-card">
-                    <div className="icono-info-user-materias icono-info-user-materias-cursando">
+                    <div className="icono-info-user-materias icono-info-user-materias-regularizadas">
                       <IconClipboardCheck color="#fff" size={20} />
                     </div>
-                    <span className="stat-value stat-primary">
+                    <span className="stat-value stat-red">
                       {estadisticas.regularizadas}
                     </span>
                     <span className="stat-label">Regularizadas</span>
@@ -204,7 +204,7 @@ export default function Dashboard() {
                     <div className="icono-info-user-materias icono-info-user-materias-restantes">
                       <IconAlertCircle color="#fff" size={20} />
                     </div>
-                    <span className="stat-value stat-red">
+                    <span className="stat-value restante-label">
                       {estadisticas.faltantes}
                     </span>
                     <span className="stat-label">Restantes</span>

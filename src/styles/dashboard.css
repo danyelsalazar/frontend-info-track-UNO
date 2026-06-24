@@ -133,9 +133,9 @@
 
 .icono-info-user-materias-aprobadas { background-color: #31bb8d; }
 .icono-info-user-materias-cursando  { background-color: #7c3aed; }
-.icono-info-user-materias-restantes { background-color: #fb9609; }
+.icono-info-user-materias-regularizadas { background-color: #fb9609; }
 .icono-info-user-materias-promedio  { background-color: var(--color-primary); }
-
+.icono-info-user-materias-restantes{ background-color: #475569;}
 /* Valores numéricos estilizados */
 .stat-value {
   font-size: clamp(28px, 5vw, 36px);
@@ -158,6 +158,9 @@
 .stat-red     { color: #fb9609; }
 .stat-muted   { color: var(--color-primary); }
 
+.restante-label{
+  color: #475569
+}
 /* ==========================================================================
    ── SECCIÓN TAREAS (ESTILO TIMELINE CARD) ─────────────────────────────────
    ========================================================================== */
