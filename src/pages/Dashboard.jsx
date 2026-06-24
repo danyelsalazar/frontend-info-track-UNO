@@ -1,11 +1,14 @@
 import { useNavigate } from "react-router-dom";
-import "../styles/dashboard.css";
 import { useEffect, useState } from "react";
+import { useQuery } from "@apollo/client/react"
+import { IconAlertCircle, IconBook2, IconChartBar, IconCircleCheck, IconClipboardCheck, IconClipboardText, IconFolder, IconStar, } from "@tabler/icons-react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import Header from "../components/Header";
 import MultiProgressBar from "../components/MultiProgressBar";
 import { IconoBienvenida } from "../components/IconoBienvenida";
-import { IconAlertCircle, IconBook2, IconChartBar, IconCircleCheck, IconClipboardCheck, IconClipboardText, IconFolder, IconStar, } from "@tabler/icons-react";
+import { PROXIMOS_VENCIMIENTOS } from "../graphql/usuario.queries";
+import "../styles/dashboard.css";
+
 
 const TOTAL_MATERIAS_CARRERA = 35;
 
@@ -70,6 +73,9 @@ export default function Dashboard() {
   const [nuevoHorario, setNuevoHorario] = useState("");
   const [nuevoDia, setNuevoDia] = useState("");
   const [nuevoTipo, setNuevoTipo] = useState("Tarea");
+
+  const {data: { proximosVencimientos } = []} = useQuery(PROXIMOS_VENCIMIENTOS)
+  console.log(proximosVencimientos)
 
   useEffect(() => {
     if (!token) {
@@ -239,6 +245,26 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
+
+          {/* SECCIÓN PROXIMOS VENCIMIENTOS */}
+          {
+            proximosVencimientos.length > 0 &&
+            (
+              <div className="tareas-section">
+                <h3 className="title-tareas-user">Próximos vencimientos</h3>
+                {proximosVencimientos.map(pv => (
+                  <div>
+                    <h3>{pv.materia.nombre}</h3>
+                    <div>
+                      <p>Llamados usados: {pv.llamadosUsados}/3</p>
+                      <p>Vencimiento: {pv.vencimiento.fecha}º fecha {pv.vencimiento.anio}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )
+          }
+          
 
           {/* SECCIÓN TAREAS */}
           <div className="tareas-section">

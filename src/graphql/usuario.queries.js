@@ -41,3 +41,19 @@ export const ME = gql`
     }
   }
 `;
+
+export const PROXIMOS_VENCIMIENTOS = gql`
+  query ProximosVencimientos {
+    proximosVencimientos {
+      materia {
+        id
+        nombre
+      }
+      llamadosUsados
+      vencimiento {
+        anio
+        fecha
+      }
+    }
+  }
+`
