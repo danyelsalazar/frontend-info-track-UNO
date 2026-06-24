@@ -13,14 +13,14 @@ export const useLogin = () => {
   useEffect(() => {
     if(userIdentity?.id) {
       // Si está logueado entonces ir a home
-      navigate('/dashboard')
+      navigate('/perfil')
     }
   }, [navigate, userIdentity])
   const [loguearUsuario, {loading, error}] = useMutation(LOGIN, {
     onCompleted: (data) => {
       const {loguearUsuario: accessToken} = data
       guardarToken(accessToken)
-      navigate("/dashboard")
+      navigate("/perfil")
     }
   })
 

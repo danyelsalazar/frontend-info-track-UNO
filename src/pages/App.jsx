@@ -16,6 +16,7 @@ import { Profesor } from "./Profesor";
 import { Carrera } from "./Carrera";
 import { Calendario } from "./Calendario";
 import { Carreras } from "./Carreras";
+import { MisTareas } from "./MisTareas";
 
 const App = () => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
@@ -177,12 +178,13 @@ const App = () => {
           <Route path="/cuatrimestre-activo" element={<CuatrimestrCurso />} />
           <Route path="/recursos" element={<Recursos />} />
           <Route path="/calendario" element={<Calendario />} />
+          <Route path="/perfil/mis-tareas" element={<MisTareas />} />
         </Route>
 
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/mis-materias" element={<MateriasUser />} />
+        <Route path="/perfil" element={<Dashboard />} />
+        <Route path="/perfil/mis-materias" element={<MateriasUser />} />
       </Routes>
 
       {/* animación */}
