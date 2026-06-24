@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client/react";
 import { CARRERAS_NOMBRE } from "../graphql/carrera.queries";
 import { IconAntenna, IconCode, IconDatabase, IconWorldCode } from "@tabler/icons-react";
+import { CarrerasSkeleton } from "../skeletons/CarrerasSkeleton";
 
 const icons = [
   <IconWorldCode />,
@@ -12,8 +13,6 @@ const icons = [
 
 export const Carreras = () => {
   const { data: { carreras } = [], loading, error} = useQuery(CARRERAS_NOMBRE)
-
-  if(loading) return (<p>Cargando...</p>)
   
   return (
     <main className="page-content">
@@ -27,45 +26,38 @@ export const Carreras = () => {
         </div>
 
         <div className="container-info-carreas-area">
-          {carreras.map((carrera, index) => (
-            <Link
-              to={`/carrera/${carrera.id}`}
-              className="card info-carrera-item"
-              key={carrera.id}
-            >
-              <header>
-                <p className="index-carrera">
-                  {
-                    icons[index]
-                  }
-                </p>
+          {loading
+            ? Array.from({ length: 4 }, (_, i) => <CarrerasSkeleton key={i} />)
+            : carreras.map((carrera, index) => (
+              <Link
+                to={`/carrera/${carrera.id}`}
+                className="card info-carrera-item"
+                key={carrera.id}
+              >
+                <header>
+                  <p className="index-carrera">
+                    {
+                      icons[index]
+                    }
+                  </p>
 
-                <h3 className="title-carrera">{carrera.nombre}</h3>
-              </header>
-              
-              <div>
-                <p className="description-carrera">
-                  {carrera.tituloOtorgado}
-                </p>
+                  <h3 className="title-carrera">{carrera.nombre}</h3>
+                </header>
+                
+                <div>
+                  <p className="description-carrera">
+                    {carrera.tituloOtorgado}
+                  </p>
 
-                <p className="description-carrera">
-                  {carrera.duracion} años ·{" "}
-                  {carrera.cantidadMaterias} materias
-                </p>
-              </div>
-              
+                  <p className="description-carrera">
+                    {carrera.duracion} años ·{" "}
+                    {carrera.cantidadMaterias} materias
+                  </p>
+                </div>
 
-              {/* <ul className="items-materias-por-carrera">
-                {carrera.tags.map((tag, index) => (
-                  <li key={index} className="materi-carrera">
-                    {tag}
-                  </li>
-                ))}
-              </ul> */}
-
-              <span className="cta">Ver carrera →</span>
-            </Link>
-          ))}
+                <span className="cta">Ver carrera →</span>
+              </Link>))
+            }
         </div>
       </section>
     </main>
