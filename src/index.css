@@ -726,16 +726,16 @@ section {
 }
 
 .info-carrera-item:nth-child(1) {
-  animation-delay: 0.05s;
+  animation-delay: 25ms;
 }
 .info-carrera-item:nth-child(2) {
-  animation-delay: 0.1s;
+  animation-delay: 50ms;
 }
 .info-carrera-item:nth-child(3) {
-  animation-delay: 0.15s;
+  animation-delay: 75ms;
 }
 .info-carrera-item:nth-child(4) {
-  animation-delay: 0.2s;
+  animation-delay: 100ms;
 }
 
 @keyframes appleFade {
@@ -1462,6 +1462,10 @@ p.divisor i {
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: appleFade 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: calc(var(--index) * 15ms);
 }
 .materia-item::before {
   content: "";

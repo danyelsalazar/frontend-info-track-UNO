@@ -4,12 +4,13 @@ import { useProfesores } from "../hooks/useProfesores";
 import { useNavigate } from "react-router-dom";
 import { ProfesoresSkeleton } from "../skeletons/ProfesoresSkeleton";
 
-const ProfesorCard = ({ profesor, navigate }) => {
+const ProfesorCard = ({ profesor, navigate, style }) => {
   return (
     <li 
       key={profesor.id}
       className="profesor-card"
       onClick={() => navigate(`/profesor/${profesor.id}`)}
+      style={style}
     >
       <div className="index-profe">
         {profesor.siglas}
@@ -40,7 +41,14 @@ export const Profesores = () => {
         {
           loading
             ? Array.from({ length: 10 }, (_, i) => <ProfesoresSkeleton key={i} />)
-            : profesores.map(profesor => <ProfesorCard navigate={navigate} profesor={profesor} key={profesor.id}/>)
+            : profesores.map((profesor, i) => 
+              <ProfesorCard 
+                navigate={navigate} 
+                profesor={profesor} 
+                key={profesor.id} 
+                style={{ '--index': i + 1 }}
+              />
+            )
         }
       </SearchLayout>
     </main>
