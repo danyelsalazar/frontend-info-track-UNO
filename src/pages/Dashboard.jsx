@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client/react"
 import { IconAlertCircle, IconBook2, IconChartBar, IconCircleCheck, IconClipboardCheck, IconClipboardText, IconFolder, IconPhone, IconStar, } from "@tabler/icons-react";
@@ -9,9 +9,6 @@ import { IconoBienvenida } from "../components/IconoBienvenida";
 import { PROXIMO_CUATRIMESTRE, PROXIMOS_VENCIMIENTOS } from "../graphql/usuario.queries";
 import "../styles/dashboard.css";
 import { CARRERA_STATS, CARRERAS_NOMBRE } from "../graphql/carrera.queries";
-
-
-const TOTAL_MATERIAS_CARRERA = 35;
 
 const ACCESOS = [
   {
@@ -214,14 +211,14 @@ export default function Dashboard() {
             <h3 className="title-tareas-user">Próximo Cuatrimestre</h3>
             {!loadingProxCuatri &&
               MateriasProxCuatri.map(materia => (
-                <div key={materia.id}>
+                <Link key={materia.id} to={"/materia/" + materia.id}>
                   <h3>{materia.nombre}</h3>
                   <div>
                     <p>Correlativas: {materia.correlativas.length}/{materia.correlativas.length}</p>
                     <p>Dictado: {materia.cuatrimestreDictado.length > 1 ? "2º y 1º Cuatrimestre": `${materia.cuatrimestreDictado[0]}º Cuatrimestre`}</p>
                     <p>Carga horaria: {materia.cargaHorariaSemanal}</p>
                   </div>
-                </div>
+                </Link>
             ))}
           </div>
         </div>
