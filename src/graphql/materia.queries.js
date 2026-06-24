@@ -28,7 +28,6 @@ export const MATERIA_ID = gql`
       linkWhatsapp
       promocion
       cargaHorariaSemanal
-      cargaHorariaTotal
       cuatrimestreDictado
       correlativas {
         id
