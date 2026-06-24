@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client/react"
-import { IconAlertCircle, IconBook2, IconChartBar, IconCircleCheck, IconClipboardCheck, IconClipboardText, IconFolder, IconPhone, IconStar, } from "@tabler/icons-react";
+import { IconAlertCircle, IconBook2, IconChartBar, IconCircleCheck, IconClipboardCheck, IconClipboardText, IconFolder, IconLogout2, IconPhone, IconStar, } from "@tabler/icons-react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import Header from "../components/Header";
 import MultiProgressBar from "../components/MultiProgressBar";
@@ -37,9 +37,9 @@ export default function Dashboard() {
   const [carreraElegida, setCarreraElegida] = useState(null)
 
   const navigate = useNavigate()
-  const { token, userIdentity, loading, error } = useAuthContext()
+  const { token, userIdentity, loading, error, clearUserIdentity, eliminarToken } = useAuthContext()
 
-  const { data: { proximosVencimientos } = [] } = useQuery(PROXIMOS_VENCIMIENTOS)
+  const { data: { proximosVencimientos } = [], loading: loadingVencimientos } = useQuery(PROXIMOS_VENCIMIENTOS)
   const { data: { carreras } = [] } = useQuery(CARRERAS_NOMBRE)
   const { data: { estadisticasPorCarrera: estadisticas } = {}, loading: loadingEstadisticas } = useQuery(CARRERA_STATS, {
     variables: {
@@ -60,6 +60,12 @@ export default function Dashboard() {
     }
   }, [navigate, token]);
 
+  const cerrarSesion = () => {
+    navigate("/")
+    eliminarToken()
+    clearUserIdentity()
+  }
+
   if (loading) return <p style={{ padding: "20px" }}>Cargando dashboard...</p>;
   if (error) return <p style={{ padding: "20px" }}>Error: {error.message}</p>;
 
@@ -75,6 +81,10 @@ export default function Dashboard() {
               <h2 className="title-bienvenida-dashboard">¡Hola, {userIdentity?.nombre + " " + userIdentity?.apellido || "de nuevo"}! <IconoBienvenida/> </h2>
               <p className="welcome-subtitle">Este es el estado actualizado de tu rendimiento académico.</p>
             </div>
+            <button onClick={cerrarSesion}>
+              <IconLogout2 />
+              Cerrar sesión
+            </button>
           </div>
 
           {/* ACCESOS RÁPIDOS */}
@@ -104,7 +114,7 @@ export default function Dashboard() {
               }
             </select>
             {
-              !loadingEstadisticas &&
+              !loadingEstadisticas && estadisticas &&
               (
                 <>
                   <div className="progress-row">
@@ -130,7 +140,7 @@ export default function Dashboard() {
           <div className="container-materias-grafico">
             <div className="stats-grid">
               {
-                !loadingEstadisticas &&
+                !loadingEstadisticas && estadisticas &&
                 (
                   <>
                     <div className="stat-card">
@@ -188,7 +198,7 @@ export default function Dashboard() {
 
           {/* SECCIÓN PROXIMOS VENCIMIENTOS */}
           {
-            proximosVencimientos.length > 0 &&
+            !loadingVencimientos && proximosVencimientos && proximosVencimientos.length > 0 &&
             (
               <div className="tareas-section">
                 <h3 className="title-tareas-user">Próximos Vencimientos</h3>
