@@ -34,3 +34,17 @@ export const CARRERA_ID = gql`
     }
   }
 `
+
+export const CARRERA_STATS = gql`
+  query EstadisticasPorCarrera($carreraId: ID!) {
+    estadisticasPorCarrera(carreraId: $carreraId) {
+      porcentajeCompletado
+      aprobadas
+      cursando
+      faltantes
+      promocionadas
+      regularizadas
+      promedio
+    }
+  }
+`

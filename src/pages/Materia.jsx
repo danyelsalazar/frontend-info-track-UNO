@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { IconBrandWhatsapp, IconBuilding, IconCalendarCheck, IconCalendarWeek, IconCirclePlus, IconEdit, IconLink, IconStar, IconUsersGroup } from "@tabler/icons-react";
+import { IconBrandWhatsapp, IconBuilding, IconCalendarCheck, IconCalendarWeek, IconCirclePlus, IconClockHour3, IconEdit, IconLink, IconStar, IconStarOff, IconUsersGroup } from "@tabler/icons-react";
 import { Rating } from "@mui/material";
 import { useMateria } from "../hooks/useMateria"
 import { useAuthContext } from "../hooks/useAuthContext"
@@ -97,7 +97,7 @@ const ComisionesSection = ({comisionesActuales, comisionesAnteriores}) => {
   // Si no hay comisiones
   if(Object.keys(comisionesActuales).length === 0 && Object.keys(comisionesAnteriores).length === 0) {
     return (
-      <section>
+      <section className="section">
         <h3 className="section-title">
           <IconCalendarWeek size={16}/>
           Comisiones
@@ -179,36 +179,41 @@ const CarrerasSection = ({ planEstudio }) => {
 
 const BadgesContainer = ({materia, materiaUser}) => {
   return (
-    <div className="materia-badge-container">
+    <ul className="materia-badge-container">
       {
         materiaUser?.estado &&
           (
-            <p className="badge badge-calendar-container">
+            <li className="badge badge-calendar-container">
               {materiaUser.estado?.slice(0,1) + materiaUser.estado?.toLowerCase().slice(1)}
-            </p>
+            </li>
           )
       }
       {
         materia?.cuatrimestreDictado.length > 0
         && (
-          <p className="badge badge-calendar-container">
+          <li className="badge badge-calendar-container">
             <IconCalendarCheck size={14}/>
             {
               materia?.cuatrimestreDictado.length === 2
                 ? "1º y 2º Cuatrimestre"
                 : `${materia.cuatrimestreDictado[0]}º Cuatrimestre`             
             }
-          </p>
+          </li>
         )
       }
-      
+      <li className="badge badge-calendar-container">
+        <IconClockHour3 size={14}/>
+        {`${materia.cargaHorariaSemanal}hs Semanales`}
+      </li>     
       {
         materia.promocion !== undefined
         && (
-          <p className="badge badge-calendar-container">
-            <IconStar size={14} fill="#ffffff"/>
-            {materia.promocion ? "Promocionable" : "No Promocionable"}
-          </p>
+          <li className="badge badge-calendar-container">
+            {materia.promocion 
+              ? <><IconStar size={14} fill="#ffffff"/> Promocionable</>  
+              : <><IconStarOff size={14} fill="#ffffff"/> No Promocionable</>
+            }
+          </li>
         )
       }
       {
@@ -225,7 +230,7 @@ const BadgesContainer = ({materia, materiaUser}) => {
           </a>
         )
       }
-    </div>
+    </ul>
   )
 }
 
