@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client/react"
-import { IconAlertCircle, IconBook2, IconChartBar, IconCircleCheck, IconClipboardCheck, IconClipboardText, IconFolder, IconStar, } from "@tabler/icons-react";
+import { IconAlertCircle, IconBook2, IconChartBar, IconCircleCheck, IconClipboardCheck, IconClipboardText, IconFolder, IconPhone, IconStar, } from "@tabler/icons-react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import Header from "../components/Header";
 import MultiProgressBar from "../components/MultiProgressBar";
@@ -252,6 +252,7 @@ export default function Dashboard() {
             (
               <div className="tareas-section">
                 <h3 className="title-tareas-user">Próximos vencimientos</h3>
+                <button><IconPhone />Indicar llamado</button>
                 {proximosVencimientos.map(pv => (
                   <div>
                     <h3>{pv.materia.nombre}</h3>
