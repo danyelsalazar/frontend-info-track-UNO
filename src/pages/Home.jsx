@@ -1,7 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Inicio from "../components/Inicio";
-import CarrerasArea from "../components/CarrerasArea";
 import Profesores from "../components/Profesores";
 import Features from "../components/Features";
 import HowItWorks from "../components/HowItWorks";
@@ -32,7 +31,6 @@ const Home = () => {
         <div className="container-sections-landing-page">
           <Features/>
           <HowItWorks/>
-          <CarrerasArea />
           <Profesores />
           <CTAFinal/>
         </div>

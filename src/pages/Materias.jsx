@@ -4,11 +4,12 @@ import { useMaterias } from "../hooks/useMaterias";
 import { useSearch } from "../hooks/useSearch";
 import { MateriasSkeleton } from "../skeletons/MateriasSkeleton";
 
-const MateriaCard = ({materia, navigate}) => {
+const MateriaCard = ({materia, navigate, style}) => {
   return (
     <li
       className="materia-item card"
       onClick={() => navigate(`/materia/${materia.id}`)}
+      style={style}
     >
       <p className="materia-name">
         <span>({materia.id})</span> {materia.nombre}
@@ -37,7 +38,15 @@ const Materias = () => {
         {
           loading 
             ? Array.from({ length: 10 }, (_, i) => <MateriasSkeleton key={i} />)
-            : materias.map(materia => <MateriaCard key={materia.id} materia={materia} navigate={navigate} key={materia.id} />)
+            : materias.map((materia, i) => 
+              <MateriaCard 
+                key={materia.id} 
+                materia={materia} 
+                navigate={navigate} 
+                key={materia.id}
+                style={{ '--index': i + 1 }}
+              />
+            )
         }
       </SearchLayout>
     </main>

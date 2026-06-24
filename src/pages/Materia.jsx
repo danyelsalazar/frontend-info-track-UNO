@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IconBrandWhatsapp, IconBuilding, IconCalendarCheck, IconCalendarWeek, IconCirclePlus, IconEdit, IconLink, IconStar, IconUsersGroup } from "@tabler/icons-react";
 import { Rating } from "@mui/material";
 import { useMateria } from "../hooks/useMateria"
@@ -10,8 +10,9 @@ import MateriaSkeleton from "../skeletons/MateriaSkeleton";
 import { useState } from "react";
 
 const HeaderSection = ({materia}) => {
-  const { userIdentity } = useAuthContext()
   const [formActive, setFormActive] = useState()
+  const { userIdentity } = useAuthContext()
+  const navigate = useNavigate()
   let materiaUser = {materia}
   if(userIdentity) {
     materiaUser = userIdentity.materias.find(m => m.materia.id === materia.id) || {materia}
@@ -34,7 +35,12 @@ const HeaderSection = ({materia}) => {
               </button>
             )
             : (
-              <button className="materia-button-estado" onClick={() => setFormActive(true)}>
+              <button className="materia-button-estado" onClick={() => {
+                console.log(userIdentity)
+                !userIdentity 
+                  ? navigate("/login")
+                  : setFormActive(true)
+              }}>
                 <IconCirclePlus size={14}/>
                 Indicar estado
               </button>
