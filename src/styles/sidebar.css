@@ -1,0 +1,131 @@
+/* Contenedor Base del Sidebar */
+.sidebar-container {
+  position: fixed;
+  top: 70px; /* Ajustalo según la altura de tu Header principal */
+  left: 0;
+  bottom: 0;
+  width: 70px; /* Ancho colapsado (solo íconos) */
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+  display: block;
+}
+
+/* Cuando el sidebar está abierto */
+.sidebar-container.is-open {
+  width: 240px; /* Ancho expandido con texto */
+  box-shadow: 6px 0 24px rgba(0, 0, 0, 0.05);
+}
+
+/* Botón de flecha circular a la mitad */
+.sidebar-toggle-btn {
+  position: absolute;
+  top: 50%;
+  right: -14px; /* Mitad afuera, mitad adentro */
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  z-index: 1000;
+}
+
+.sidebar-toggle-btn:hover {
+  background: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+
+/* Estructura del contenido interno */
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px 12px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Mini Header o isotipo interno */
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 12px;
+  margin-bottom: 30px;
+  height: 30px;
+}
+
+.brand-dot {
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.brand-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Lista de navegación */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Links individuales */
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--color-text-muted);
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent; /* Reservado para el estado activo */
+}
+
+.sidebar-link:hover {
+  background: rgba(0, 156, 209, 0.04);
+  color: var(--color-primary);
+}
+
+/* Wrapper del ícono para centrado estático */
+.sidebar-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  flex-shrink: 0;
+}
+
+.sidebar-label {
+  font-size: 14px;
+  font-weight: 600;
+  white-stroke: nowrap;
+}
+
+/* ==================== ESTADO ACTIVO ==================== */
+.sidebar-link.active-link {
+  background: rgba(0, 156, 209, 0.08);
+  color: var(--color-primary);
+  border-left-color: var(--color-primary); /* Se enciende el borde lateral izquierdo */
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
