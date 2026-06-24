@@ -57,3 +57,17 @@ export const PROXIMOS_VENCIMIENTOS = gql`
     }
   }
 `
+
+export const PROXIMO_CUATRIMESTRE = gql`
+  query MateriasACursarProximoCuatrimestre {
+    materiasACursarProximoCuatrimestre {
+      id
+      nombre
+      correlativas {
+        id
+      }
+      cuatrimestreDictado
+      cargaHorariaSemanal
+    }
+  }
+`

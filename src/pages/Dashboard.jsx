@@ -6,7 +6,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import Header from "../components/Header";
 import MultiProgressBar from "../components/MultiProgressBar";
 import { IconoBienvenida } from "../components/IconoBienvenida";
-import { PROXIMOS_VENCIMIENTOS } from "../graphql/usuario.queries";
+import { PROXIMO_CUATRIMESTRE, PROXIMOS_VENCIMIENTOS } from "../graphql/usuario.queries";
 import "../styles/dashboard.css";
 import { CARRERA_STATS, CARRERAS_NOMBRE } from "../graphql/carrera.queries";
 
@@ -49,7 +49,7 @@ export default function Dashboard() {
       carreraId: carreraElegida
     }
   })
-  console.log(estadisticas)
+  const { data: { materiasACursarProximoCuatrimestre: MateriasProxCuatri } = [], loading: loadingProxCuatri } = useQuery(PROXIMO_CUATRIMESTRE)
 
   useEffect(() => {
     if(carreras) {
@@ -194,7 +194,7 @@ export default function Dashboard() {
             proximosVencimientos.length > 0 &&
             (
               <div className="tareas-section">
-                <h3 className="title-tareas-user">Próximos vencimientos</h3>
+                <h3 className="title-tareas-user">Próximos Vencimientos</h3>
                 <button><IconPhone />Indicar llamado</button>
                 {proximosVencimientos.map(pv => (
                   <div key={pv.materia.id}>
@@ -208,6 +208,22 @@ export default function Dashboard() {
               </div>
             )
           }
+
+          {/* SECCIÓN PROXIMO CUATRIMESTRE */}
+          <div className="tareas-section">
+            <h3 className="title-tareas-user">Próximo Cuatrimestre</h3>
+            {!loadingProxCuatri &&
+              MateriasProxCuatri.map(materia => (
+                <div key={materia.id}>
+                  <h3>{materia.nombre}</h3>
+                  <div>
+                    <p>Correlativas: {materia.correlativas.length}/{materia.correlativas.length}</p>
+                    <p>Dictado: {materia.cuatrimestreDictado.length > 1 ? "2º y 1º Cuatrimestre": `${materia.cuatrimestreDictado[0]}º Cuatrimestre`}</p>
+                    <p>Carga horaria: {materia.cargaHorariaSemanal}</p>
+                  </div>
+                </div>
+            ))}
+          </div>
         </div>
       </div>
     </>
