@@ -1,14 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { useQuery } from "@apollo/client/react"
+import { Link } from "react-router-dom";
 import { IconAlertCircle, IconBook2, IconChartBar, IconCircleCheck, IconClipboardCheck, IconClipboardText, IconFolder, IconLogout2, IconPhone, IconStar, } from "@tabler/icons-react";
-import { useAuthContext } from "../hooks/useAuthContext";
 import Header from "../components/Header";
 import MultiProgressBar from "../components/MultiProgressBar";
 import { IconoBienvenida } from "../components/IconoBienvenida";
-import { PROXIMO_CUATRIMESTRE, PROXIMOS_VENCIMIENTOS } from "../graphql/usuario.queries";
 import "../styles/dashboard.css";
-import { CARRERA_STATS, CARRERAS_NOMBRE } from "../graphql/carrera.queries";
+import { useDashboard } from "../hooks/useDashboard";
 
 const ACCESOS = [
   {
@@ -34,40 +30,24 @@ const ACCESOS = [
 ];
 
 export default function Dashboard() {
-  const [carreraElegida, setCarreraElegida] = useState(null)
+  const {
+    loadingUser,
+    errorUser,
+    setCarreraElegida,
+    carreras,
+    userIdentity,
+    proximosVencimientos,
+    loadingVencimientos,
+    estadisticas,
+    loadingEstadisticas,
+    materiasProxCuatri,
+    loadingProxCuatri,
+    cerrarSesion,
+    navigate
+  } = useDashboard()
 
-  const navigate = useNavigate()
-  const { token, userIdentity, loading, error, clearUserIdentity, eliminarToken } = useAuthContext()
-
-  const { data: { proximosVencimientos } = [], loading: loadingVencimientos } = useQuery(PROXIMOS_VENCIMIENTOS)
-  const { data: { carreras } = [] } = useQuery(CARRERAS_NOMBRE)
-  const { data: { estadisticasPorCarrera: estadisticas } = {}, loading: loadingEstadisticas } = useQuery(CARRERA_STATS, {
-    variables: {
-      carreraId: carreraElegida
-    }
-  })
-  const { data: { materiasACursarProximoCuatrimestre: MateriasProxCuatri } = [], loading: loadingProxCuatri } = useQuery(PROXIMO_CUATRIMESTRE)
-
-  useEffect(() => {
-    if(carreras) {
-      setCarreraElegida(carreras[0].id)
-    }
-  }, [carreras])
-
-  useEffect(() => {
-    if (!token) {
-      navigate("/");
-    }
-  }, [navigate, token]);
-
-  const cerrarSesion = () => {
-    navigate("/")
-    eliminarToken()
-    clearUserIdentity()
-  }
-
-  if (loading) return <p style={{ padding: "20px" }}>Cargando dashboard...</p>;
-  if (error) return <p style={{ padding: "20px" }}>Error: {error.message}</p>;
+  if (loadingUser) return <p style={{ padding: "20px" }}>Cargando dashboard...</p>;
+  if (errorUser) return <p style={{ padding: "20px" }}>Error: {errorUser.message}</p>;
 
   return (
     <>
@@ -220,7 +200,7 @@ export default function Dashboard() {
           <div className="tareas-section">
             <h3 className="title-tareas-user">Próximo Cuatrimestre</h3>
             {!loadingProxCuatri &&
-              MateriasProxCuatri.map(materia => (
+              materiasProxCuatri.map(materia => (
                 <Link key={materia.id} to={"/materia/" + materia.id}>
                   <h3>{materia.nombre}</h3>
                   <div>
