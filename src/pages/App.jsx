@@ -15,9 +15,6 @@ import Recursos from "./Recursos";
 import { Profesor } from "./Profesor";
 import { Carrera } from "./Carrera";
 import { Calendario } from "./Calendario";
-import CuatrimestrCurso from "../components/CuatrimestreCurso";
-import Recursos from "./Recursos";
-import { useEffect, useState } from "react";
 import { Carreras } from "./Carreras";
 
 const App = () => {
