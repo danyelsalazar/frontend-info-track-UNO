@@ -5,7 +5,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import Header from "../components/Header";
 import MultiProgressBar from "../components/MultiProgressBar";
 import { IconoBienvenida } from "../components/IconoBienvenida";
-import { IconAlertCircle, IconBook2, IconChartBar, IconCircleCheck, IconClipboardCheck, } from "@tabler/icons-react";
+import { IconAlertCircle, IconBook2, IconChartBar, IconCircleCheck, IconClipboardCheck, IconClipboardText, IconFolder, IconStar, } from "@tabler/icons-react";
 
 const TOTAL_MATERIAS_CARRERA = 35;
 
@@ -38,52 +38,25 @@ const TAREAS_INICIALES = [
 
 const ACCESOS = [
   {
-    label: "Plan de estudios",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-        <g fill="none">
-          <path d="M20 22V4h-4v2H8V4H4v18z" />
-          <path d="M16 6H8V2h8z" />
-          <path stroke="#fff" strokeWidth="2" d="M16 4h4v18H4V4h4m8 0V2H8v2m8 0v2H8V4" />
-          <path stroke="#fff" strokeLinecap="square" strokeWidth="2" d="M10 12h4m-4 4h4" />
-        </g>
-      </svg>
-    ),
+    label: "Mis Materias",
+    icon: <IconBook2 color="#fff"/>,
+    path: "/mis-materias",
+  },
+  {
+    label: "Mis Tareas",
+    icon: <IconClipboardText color="#fff"/>,
     path: "/plan-estudio",
   },
   {
-    label: "Recursos",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
-        <path fill="#ffffff" fillRule="evenodd" d="M11.934 7.406a1 1 0 0 0 .914.594H19a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V6a.5.5 0 0 1 .5-.5h5.764a.5.5 0 0 1 .447.276zm1.064-1.216a.5.5 0 0 0 .462.31H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.764a2 2 0 0 1 1.789 1.106zM8.5 10.5h7V12h-7zm7 3.5h-7v1.5h7z"/>
-      </svg>
-    ),
-    path: "/recursos",
-  },
-  {
-    label: "Mi perfil",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-        <g fill="none" stroke="#fff" strokeWidth="2">
-          <path strokeLinejoin="round" d="M4 18a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z" />
-          <circle cx="12" cy="7" r="3" />
-        </g>
-      </svg>
-    ),
+    label: "Mis Valoraciones",
+    icon: <IconStar color="#fff"/>,
     path: "/mi-perfil",
   },
   {
-    label: "Mis Materias",
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-        <g fill="none">
-          <path d="M20.5 2.5h-14a3 3 0 0 0-3 3v13a3 3 0 0 1 3-3h14z" />
-          <path stroke="#fff" strokeLinecap="square" strokeWidth="2" d="M20.5 21.5h-14a3 3 0 1 1 0-6h14zm0 0v-19h-14a3 3 0 0 0-3 3v12m8-11h5" />
-        </g>
-      </svg>
-    ),
-    path: "/mis-materias",
-  },
+    label: "Recursos",
+    icon: <IconFolder color="#fff"/>,
+    path: "/recursos",
+  }
 ];
 
 export default function Dashboard() {
@@ -143,12 +116,6 @@ export default function Dashboard() {
   const { materias = [], nombre = "Estudiante", apellido = "", carreras =[] } = userIdentity || {};
   const nombreCompleto = `${nombre} ${apellido}`.trim();
 
-  // console.log(carreras[0]);
-  
-  // Si no viene la carrera en el JSON del backend, usamos una por defecto genérica
-  // solo muestra nombre de la primera carrera del arreglo de carreras !!!!!HAY QUE ARREGLAR ESTO LUEGO EN LA IMPLEMENTACION DE VARIAS CARRERAS
-  const carreraUsuario = carreras[0] || "Carrera no reconocida";
-
   const aprobadasYPromocionadas = materias.filter(
     (m) => m.estado === "APROBADA" || m.estado === "PROMOCIONADA"
   ).length;
@@ -190,6 +157,20 @@ export default function Dashboard() {
             <div className="welcome-text-block">
               <h2 className="title-bienvenida-dashboard">¡Hola, {nombreCompleto || "de nuevo"}! <IconoBienvenida/> </h2>
               <p className="welcome-subtitle">Este es el estado actualizado de tu rendimiento académico.</p>
+            </div>
+          </div>
+
+          {/* ACCESOS RÁPIDOS */}
+          <div className="accesos-section">
+            <div className="accesos-grid">
+              {ACCESOS.map((a) => (
+                <button key={a.path} className="acceso-btn" onClick={() => navigate(a.path)}>
+                  <div className="container-icon-acces-sped">
+                    <span className="acceso-icon">{a.icon}</span>
+                  </div>
+                  <span className="acceso-label">{a.label}</span>
+                </button>
+              ))}
             </div>
           </div>
 
@@ -349,21 +330,6 @@ export default function Dashboard() {
               )}
             </ul>
           </div>
-
-          {/* ACCESOS RÁPIDOS */}
-          <div className="accesos-section">
-            <div className="accesos-grid">
-              {ACCESOS.map((a) => (
-                <button key={a.path} className="acceso-btn" onClick={() => navigate(a.path)}>
-                  <div className="container-icon-acces-sped">
-                    <span className="acceso-icon">{a.icon}</span>
-                  </div>
-                  <span className="acceso-label">{a.label}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-
         </div>
       </div>
     </>
