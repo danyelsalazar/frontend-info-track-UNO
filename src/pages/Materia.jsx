@@ -97,7 +97,7 @@ const ComisionesSection = ({comisionesActuales, comisionesAnteriores}) => {
   // Si no hay comisiones
   if(Object.keys(comisionesActuales).length === 0 && Object.keys(comisionesAnteriores).length === 0) {
     return (
-      <section>
+      <section className="section">
         <h3 className="section-title">
           <IconCalendarWeek size={16}/>
           Comisiones
