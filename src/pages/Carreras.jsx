@@ -1,8 +1,19 @@
 import { Link } from "react-router-dom";
-import data from "../data/infotrack_uno_final.json";
+import { useQuery } from "@apollo/client/react";
+import { CARRERAS_NOMBRE } from "../graphql/carrera.queries";
+import { IconAntenna, IconCode, IconDatabase, IconWorldCode } from "@tabler/icons-react";
+
+const icons = [
+  <IconWorldCode />,
+  <IconCode />,
+  <IconAntenna />,
+  <IconDatabase />
+]
 
 export const Carreras = () => {
-  const { careers } = data;
+  const { data: { carreras } = [], loading, error} = useQuery(CARRERAS_NOMBRE)
+  console.log(carreras)
+  if(loading) return (<p>Cargando...</p>)
   return (
     <main className="page-content">
       <section className="carreras-area">
@@ -15,30 +26,41 @@ export const Carreras = () => {
         </div>
 
         <div className="container-info-carreas-area">
-          {careers.map((carrera) => (
+          {carreras.map((carrera, index) => (
             <Link
               to={`/carrera/${carrera.id}`}
               className="card info-carrera-item"
               key={carrera.id}
             >
-              <p className="index-carrera">
-                <span dangerouslySetInnerHTML={{ __html: carrera.avatar }} />
-              </p>
+              <header>
+                <p className="index-carrera">
+                  {
+                    icons[index]
+                  }
+                </p>
 
-              <h3 className="title-carrera">{carrera.name}</h3>
+                <h3 className="title-carrera">{carrera.nombre}</h3>
+              </header>
+              
+              <div>
+                <p className="description-carrera">
+                  {carrera.tituloOtorgado}
+                </p>
 
-              <p className="description-carrera">
-                {carrera.type} - {carrera.durationYears} años ·{" "}
-                {carrera.totalSubjects} materias
-              </p>
+                <p className="description-carrera">
+                  {carrera.duracion} años ·{" "}
+                  {carrera.cantidadMaterias} materias
+                </p>
+              </div>
+              
 
-              <ul className="items-materias-por-carrera">
+              {/* <ul className="items-materias-por-carrera">
                 {carrera.tags.map((tag, index) => (
                   <li key={index} className="materi-carrera">
                     {tag}
                   </li>
                 ))}
-              </ul>
+              </ul> */}
 
               <span className="cta">Ver carrera →</span>
             </Link>
