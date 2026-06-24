@@ -685,3 +685,193 @@ form.tarea-item button:active {
   display: flex;
   align-items: center;
 }
+
+/* ==========================================================================
+   ── PARCHES DE ESTILOS DASHBOARD COMPLETO 
+   ========================================================================== */
+
+/* Botón cerrar sesión superior estilizado */
+.btn-logout-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-logout-header:hover {
+  background: var(--color-btn);
+  color: #ffff;
+}
+
+/* Encabezado inline para alinear título y botón de llamadas */
+.section-header-inline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.section-header-inline .title-tareas-user {
+  margin-bottom: 0;
+}
+
+/* Botón Indicar Llamado con diseño tech minimal */
+.btn-indicar-llamado {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.btn-indicar-llamado:hover {
+  border-color: var(--color-primary);
+  background: rgba(0, 156, 209, 0.02);
+  transform: translateY(-1px);
+}
+
+/* Customización del contenedor select de carreras */
+.selector-carrera-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 1.5rem;
+  max-width: 320px;
+}
+
+.select-carrera-custom {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  outline: none;
+  cursor: pointer;
+}
+
+/* Doble columna y tarjetas tipo agenda premium */
+.dashboard-double-column-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  width: 100%;
+}
+
+.agenda-items-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.tarjeta-agenda-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  text-decoration: none;
+  transition: var(--transition);
+  box-sizing: border-box;
+}
+
+.link-materia-proxima:hover {
+  transform: translateX(4px);
+  border-color: rgba(0, 156, 209, 0.25);
+  box-shadow: var(--shadow-sm);
+}
+
+.agenda-icon-indicator {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 156, 209, 0.15);
+}
+
+.agenda-icon-indicator.indicator-orange {
+  background: linear-gradient(135deg, #fb9609, #ffb03a);
+  box-shadow: 0 4px 10px rgba(251, 150, 9, 0.15);
+}
+
+.agenda-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.agenda-content h4 {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.agenda-meta-data {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.agenda-meta-data b {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.meta-divider {
+  color: var(--color-border);
+}
+
+.badge-cuatrimestre-dictado {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-accent);
+  background: rgba(47, 164, 169, 0.06);
+  padding: 2px 8px;
+  border-radius: 4px;
+  width: fit-content;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+.vencimiento-alerta {
+  border: 3.5px dashed #fb9609;
+}
+
+@media (min-width: 1024px) {
+  .dashboard-double-column-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
