@@ -12,8 +12,9 @@ const icons = [
 
 export const Carreras = () => {
   const { data: { carreras } = [], loading, error} = useQuery(CARRERAS_NOMBRE)
-  console.log(carreras)
+
   if(loading) return (<p>Cargando...</p>)
+  
   return (
     <main className="page-content">
       <section className="carreras-area">
