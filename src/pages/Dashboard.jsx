@@ -8,7 +8,7 @@ import MultiProgressBar from "../components/MultiProgressBar";
 import { IconoBienvenida } from "../components/IconoBienvenida";
 import { PROXIMOS_VENCIMIENTOS } from "../graphql/usuario.queries";
 import "../styles/dashboard.css";
-import { CARRERAS_NOMBRE } from "../graphql/carrera.queries";
+import { CARRERA_STATS, CARRERAS_NOMBRE } from "../graphql/carrera.queries";
 
 
 const TOTAL_MATERIAS_CARRERA = 35;
@@ -44,6 +44,12 @@ export default function Dashboard() {
 
   const { data: { proximosVencimientos } = [] } = useQuery(PROXIMOS_VENCIMIENTOS)
   const { data: { carreras } = [] } = useQuery(CARRERAS_NOMBRE)
+  const { data: { estadisticasPorCarrera: estadisticas } = {}, loading: loadingEstadisticas } = useQuery(CARRERA_STATS, {
+    variables: {
+      carreraId: carreraElegida
+    }
+  })
+  console.log(estadisticas)
 
   useEffect(() => {
     if(carreras) {
@@ -100,64 +106,86 @@ export default function Dashboard() {
                 ))
               }
             </select>
-            <div className="progress-row">
-              <span className="progress-label">Progreso de la carrera</span>
-              <span className="progress-value">
-                <b>%</b> Progreso
-              </span>
-            </div>
-            <MultiProgressBar
-              data={[
-                { value: 0, color: "#31bb8d" },
-                { value: 0, color: "#7c3aed" },
-                { value: 0, color: "#fb9609" },
-                { value: 0, color: "#e5e7eb" },
-              ]}
-            />
+            {
+              !loadingEstadisticas &&
+              (
+                <>
+                  <div className="progress-row">
+                    <span className="progress-label">Progreso de la carrera</span>
+                    <span className="progress-value">
+                      <b>{estadisticas.porcentajeCompletado}%</b> Progreso
+                    </span>
+                  </div>
+                  <MultiProgressBar
+                    data={[
+                      { value: estadisticas.aprobadas + estadisticas.promocionadas, color: "#31bb8d" },
+                      { value: estadisticas.regularizadas, color: "#fb9609" },
+                      { value: estadisticas.cursando, color: "#7c3aed" },
+                      { value: estadisticas.faltantes, color: "#e5e7eb" },
+                    ]}
+                  />
+                </>
+              )
+            }
           </div>
 
           {/* GRID STATS */}
           <div className="container-materias-grafico">
             <div className="stats-grid">
-              <div className="stat-card">
-                <div className="icono-info-user-materias icono-info-user-materias-aprobadas">
-                  <IconCircleCheck color="#fff" size={20}/>
-                </div>
-                <span className="stat-value stat-teal">{0}</span>
-                <span className="stat-label">Aprobadas</span>
-              </div>
+              {
+                !loadingEstadisticas &&
+                (
+                  <>
+                    <div className="stat-card">
+                      <div className="icono-info-user-materias icono-info-user-materias-aprobadas">
+                        <IconCircleCheck color="#fff" size={20}/>
+                      </div>
+                      <span className="stat-value stat-teal">{estadisticas.aprobadas}</span>
+                      <span className="stat-label">Aprobadas</span>
+                    </div>
 
-              <div className="stat-card">
-                <div className="icono-info-user-materias icono-info-user-materias-cursando">
-                  <IconBook2 color="#fff" size={20}/>
-                </div>
-                <span className="stat-value stat-primary">{0}</span>
-                <span className="stat-label">Cursando</span>
-              </div>
+                    <div className="stat-card">
+                      <div className="icono-info-user-materias icono-info-user-materias-aprobadas">
+                        <IconStar color="#fff" size={20}/>
+                      </div>
+                      <span className="stat-value stat-teal">{estadisticas.promocionadas}</span>
+                      <span className="stat-label">Promocionadas</span>
+                    </div>
 
-              <div className="stat-card">
-                <div className="icono-info-user-materias icono-info-user-materias-cursando">
-                  <IconClipboardCheck color="#fff" size={20}/>
-                </div>
-                <span className="stat-value stat-primary">X</span>
-                <span className="stat-label">Regularizadas</span>
-              </div>
+                    <div className="stat-card">
+                      <div className="icono-info-user-materias icono-info-user-materias-cursando">
+                        <IconBook2 color="#fff" size={20}/>
+                      </div>
+                      <span className="stat-value stat-primary">{estadisticas.cursando}</span>
+                      <span className="stat-label">Cursando</span>
+                    </div>
 
-              <div className="stat-card">
-                <div className="icono-info-user-materias icono-info-user-materias-restantes">
-                  <IconAlertCircle color="#fff" size={20}/>
-                </div>
-                <span className="stat-value stat-red">{0}</span>
-                <span className="stat-label">Restantes</span>
-              </div>
+                    <div className="stat-card">
+                      <div className="icono-info-user-materias icono-info-user-materias-cursando">
+                        <IconClipboardCheck color="#fff" size={20}/>
+                      </div>
+                      <span className="stat-value stat-primary">{estadisticas.regularizadas}</span>
+                      <span className="stat-label">Regularizadas</span>
+                    </div>
 
-              <div className="stat-card">
-                <div className="icono-info-user-materias icono-info-user-materias-promedio">
-                  <IconChartBar color="#fff" size={20}/>
-                </div>
-                <span className="stat-value stat-muted">{0}</span>
-                <span className="stat-label">Promedio</span>
-              </div>
+                    <div className="stat-card">
+                      <div className="icono-info-user-materias icono-info-user-materias-restantes">
+                        <IconAlertCircle color="#fff" size={20}/>
+                      </div>
+                      <span className="stat-value stat-red">{estadisticas.faltantes}</span>
+                      <span className="stat-label">Restantes</span>
+                    </div>
+
+                    <div className="stat-card">
+                      <div className="icono-info-user-materias icono-info-user-materias-promedio">
+                        <IconChartBar color="#fff" size={20}/>
+                      </div>
+                      <span className="stat-value stat-muted">{estadisticas.promedio}</span>
+                      <span className="stat-label">Promedio</span>
+                    </div>
+                  </>
+                )
+              }
             </div>
           </div>
 
