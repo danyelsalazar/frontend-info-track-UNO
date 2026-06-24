@@ -151,8 +151,8 @@ const Header = () => {
               </Link>
             </li>
             <li className="item-nav">
-              <Link to={"/?section=novedades"} onClick={() => setOpen(false)}>
-                Novedades
+              <Link to={"/calendario"} onClick={() => setOpen(false)}>
+                Calendario
               </Link>
             </li>
             {userIdentity?.id ? (
