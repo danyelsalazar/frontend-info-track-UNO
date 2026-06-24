@@ -128,7 +128,7 @@ const Header = () => {
               </Link>
             </li>
             <li className="item-nav">
-              <Link to={"/?section=carreras"} onClick={() => setOpen(false)}>
+              <Link to={"/carreras"} onClick={() => setOpen(false)}>
                 Carreras
               </Link>
             </li>

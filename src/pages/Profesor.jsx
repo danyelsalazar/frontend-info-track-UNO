@@ -8,6 +8,7 @@ import { MateriaBadge } from "../components/MateriaBadge";
 import { BackButton } from "../components/BackButton";
 import { ProfesorSkeleton } from "../skeletons/ProfesorSkeleton";
 import { CrearValoracionForm } from "../components/CrearValoracionForm";
+import { useNavigate } from "react-router-dom";
 
 const HeaderSection = ({ profesor, puntuaciones }) => {
   const cantidad = puntuaciones.length
@@ -94,13 +95,21 @@ const ValoracionesSection = ({ puntuaciones, showForm }) => {
 };
 
 const MiValoracion = ({ valoracion, showForm }) => {
+  const { userIdentity } = useAuthContext()
+  const navigate = useNavigate()
   if (!valoracion) {
     return (
       <div className="mi-reseña-section">
         <p className="section-text">
           Todavía no dejaste una valoración para este profesor
         </p>
-        <button className="boton-mi-reseña" onClick={showForm}>
+        <button className="boton-mi-reseña" onClick={() => {
+          if(!userIdentity) {
+            navigate("/login")
+            return
+          }
+          showForm()
+        }}>
           + Dejar valoración
         </button>
       </div>

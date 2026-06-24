@@ -6,6 +6,8 @@ export const CARRERAS_NOMBRE = gql`
       id
       nombre
       duracion
+      cantidadMaterias
+      tituloOtorgado
     }
   }
 `

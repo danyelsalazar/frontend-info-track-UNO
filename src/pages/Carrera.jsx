@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { IconBuilding, IconBook2 } from "@tabler/icons-react"
 import { useCarrera } from "../hooks/useCarrera"
 import { BackButton } from "../components/BackButton"
+import { CarreraSkeleton } from "../skeletons/CarreraSkeleton"
 
 const HeaderSection = ({ carrera }) => {
   return (
@@ -63,10 +64,8 @@ const PlanEstudiosSection = ({ materias, cantidadMaterias }) => {
               </h4>
 
               <ul className="card-materias-carrera">
-                {
-                  arrM.map(m => (
-                    <Link
-                    to={`/materia/${m.materia.id}`}>
+                {arrM.map(m => (
+                  <Link to={`/materia/${m.materia.id}`}>
                     <li key={m.materia.id} className="card">
                       <p className="materia-carrera-nombre">
                         {m.materia.id} - {m.materia.nombre}
@@ -77,7 +76,7 @@ const PlanEstudiosSection = ({ materias, cantidadMaterias }) => {
                         </p>
                       </div>
                     </li>
-                    </Link>
+                  </Link>
                   ))
                 }
               </ul>
@@ -92,27 +91,22 @@ const PlanEstudiosSection = ({ materias, cantidadMaterias }) => {
 export const Carrera = () => {
   const { carrera, materias, loading } = useCarrera()
 
-  if (loading) {
-    return <p>cargando...</p>
-  }
-
-  if (!carrera) {
-    return <p>Carrera no encontrada</p>
-  }
-
   return (
     <main className="page-content">
       <section className="container-section">
-        <HeaderSection carrera={carrera} />
-
-        <main>
-          <InfoSection carrera={carrera} />
-
-          <PlanEstudiosSection
-            materias={materias}
-            cantidadMaterias={carrera.cantidadMaterias}
-          />
-        </main>
+        {loading
+          ? <CarreraSkeleton />
+          : <>
+              <HeaderSection carrera={carrera} />
+              <main>
+                <InfoSection carrera={carrera} />
+                <PlanEstudiosSection
+                  materias={materias}
+                  cantidadMaterias={carrera.cantidadMaterias}
+                />
+              </main>
+            </>
+        }
       </section>
     </main>
   )

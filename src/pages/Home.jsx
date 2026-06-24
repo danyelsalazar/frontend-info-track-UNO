@@ -1,5 +1,4 @@
 import Inicio from "../components/Inicio";
-import CarrerasArea from "../components/CarrerasArea";
 import Profesores from "../components/Profesores";
 import Novedades from "../components/Novedades";
 import { useLocation } from "react-router-dom";
@@ -33,7 +32,6 @@ const Home = () => {
         <div className="container-sections-landing-page">
           <Features/>
           <HowItWorks/>
-          <CarrerasArea />
           <Profesores />
           <CTAFinal/>
           <Novedades />
