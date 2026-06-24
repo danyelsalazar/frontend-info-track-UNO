@@ -1,13 +1,12 @@
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Inicio from "../components/Inicio";
 import CarrerasArea from "../components/CarrerasArea";
 import Profesores from "../components/Profesores";
-import Novedades from "../components/Novedades";
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
-import "../index.css";
 import Features from "../components/Features";
 import HowItWorks from "../components/HowItWorks";
 import CTAFinal from "../components/CTAFinal";
+import "../index.css";
 
 const Home = () => {
   // obtengo la localizacion de mi pagina
@@ -36,7 +35,6 @@ const Home = () => {
           <CarrerasArea />
           <Profesores />
           <CTAFinal/>
-          <Novedades />
         </div>
       </main>
     </>

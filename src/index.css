@@ -1611,6 +1611,8 @@ p.divisor i {
 .features-section {
   padding: 80px 16px;
   text-align: center;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .features-header {
@@ -1770,6 +1772,8 @@ p.divisor i {
 
 .how-section {
   padding: 20px 16px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .how-grid {
