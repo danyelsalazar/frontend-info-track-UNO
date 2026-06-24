@@ -28,11 +28,10 @@ export const Reseña = ({ puntuacion, mine = false }) => {
           <div className="div-btns-edit-valoration">
             <button className="btn-crud-valoration">
               <IconEdit size={16} className="icon-edit"/>
-              Editar
             </button>
             <button className="btn-crud-valoration">
               <IconTrash size={16} />
-              Borrar
+              
             </button>
           </div>
         )}
