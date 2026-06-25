@@ -39,12 +39,13 @@
   align-items: center;
   gap: 8px;
   background: var(--color-primary);
+  height: max-content;
   color: #ffffff;
   border: none;
   padding: 10px 18px;
   border-radius: 12px;
   font-weight: 700;
-  font-size: 0.88rem;
+  font-size: 1.3rem;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 156, 209, 0.2);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -397,7 +398,7 @@
 .tarea-form-card input[type="time"],
 .tarea-form-card select {
   font-family: inherit;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   font-weight: 500;
   color: var(--color-text);
   background-color: rgba(0, 0, 0, 0.02);
@@ -424,7 +425,7 @@
 
 .tarea-form-card button {
   font-family: inherit;
-  font-size: 0.88rem;
+  font-size: 1.2rem;
   font-weight: 700;
   padding: 0.7rem 1.4rem;
   border-radius: 10px;
@@ -433,7 +434,7 @@
   transition: all 0.2s ease;
 }
 
-.btn-cancelar {
+.btn-cancelar-tareas {
   background: #f1f5f9;
   color: #64748b;
 }
@@ -441,7 +442,7 @@
   background: #e2e8f0;
   color: #334155;
 }
-.btn-guardar {
+.btn-guardar-tareas {
   background: var(--color-btn);
   color: #ffffff;
 }
