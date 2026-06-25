@@ -7,7 +7,6 @@ import {
   IconPlus,
   IconCalendar,
   IconClock,
-  IconAlertTriangle,
   IconChecklist,
 } from "@tabler/icons-react";
 import Header from "../components/Header";
@@ -170,11 +169,11 @@ export const MisTareas = () => {
                 <button
                   type="button"
                   onClick={() => setMostrarFormulario(false)}
-                  className="btn-cancelar"
+                  className="btn-cancelar-tareas"
                 >
                   Cancelar
                 </button>
-                <button type="submit" className="btn-guardar">
+                <button type="submit" className="btn-guardar-tareas">
                   Guardar
                 </button>
               </div>
