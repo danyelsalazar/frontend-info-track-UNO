@@ -21,3 +21,11 @@ export const CREAR_VALORACION = gql`
     }
   }
 `
+
+export const ELIMINAR_VALORACION = gql`
+  mutation EliminarPuntuacion($puntuacionId: ID!) {
+    eliminarPuntuacion(puntuacionId: $puntuacionId) {
+      id
+    }
+  }
+`
