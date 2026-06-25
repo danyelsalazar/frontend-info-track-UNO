@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client/react";
 import { REMOVE_MATERIA } from "../graphql/materia.mutations";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { BotonLoading } from "../components/BotonLoading"
 
 const estadosMateria = {
   APROBADA: "aprobada",
@@ -30,15 +31,12 @@ export const MiMateria = ({materia, onEditar}) => {
           {materia.materia.nombre}
         </Link>
         <div className="buttons-container-materia-user">
-          <button className="materia-user-button" onClick={onEditar}>
+          <button className="materia-user-button" onClick={onEditar} disabled={loadingRemove}>
             <IconEdit color="var(--color-btn)"/>
           </button>
-          <button 
-            className="materia-user-button"
-            onClick={handleRemove}
-          >
-            <IconTrash color="var(--color-btn)"/>
-          </button>
+          <BotonLoading className="materia-user-button" onClick={handleRemove} colorSpinner="#d62c5b" loading={loadingRemove} size={25}>
+            { !loadingRemove && <IconTrash color="var(--color-btn)"/>}
+          </BotonLoading>
         </div>
       </header>
 
