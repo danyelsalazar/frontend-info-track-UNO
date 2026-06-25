@@ -1027,6 +1027,70 @@ section {
   }
 }
 
+/* ==========================================================================
+   ── ESTILOS DEL SKELETON LOADER 
+   ========================================================================== */
+@keyframes skeletonPulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.skeleton-card {
+  animation: skeletonPulse 1.5s ease-in-out infinite !important; /* Desactiva la caída mientras carga */
+  pointer-events: none;
+}
+
+.skeleton-header-bg {
+  background: var(--color-border) !important; /* Cabecera gris neutra */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Bloque genérico para las líneas de texto del skeleton */
+.skeleton-line {
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+}
+
+/* Adaptación si tu app maneja modo oscuro general */
+@media (prefers-color-scheme: dark) {
+  .skeleton-line {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* Tamaños específicos de los placeholders */
+.title-skele {
+  width: 120px;
+  height: 24px;
+  border-radius: 6px;
+}
+
+.day-skele {
+  width: 35px;
+  height: 28px;
+  margin-bottom: 4px;
+}
+
+.sub-skele {
+  width: 45px;
+  height: 12px;
+}
+
+.tag-skele {
+  width: 140px;
+  height: 16px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+}
+
+.desc-skele {
+  width: 85%;
+  height: 14px;
+}
+
 /* ==================================== */
 /* ================= DIVISOR ================= */
 p.divisor {

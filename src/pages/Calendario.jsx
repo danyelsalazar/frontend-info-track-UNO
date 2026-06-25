@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client/react";
 import { FECHAS_POR_MES } from "../graphql/fechas.queries";
+import { CalendarioSkeleton } from "../skeletons/CalendarioSkeleton";
 
 const formatearMes = (mes) => {
   return mes.slice(0, 3).toUpperCase();
@@ -10,9 +11,7 @@ const formatearDia = (fecha) => {
 };
 
 export const Calendario = () => {
-  const { data: { fechasImportantesPorMes: informacion } = {}, loading, error } = useQuery(FECHAS_POR_MES);
-
-  if (loading) return <p className="loading-text">Cargando calendario académico...</p>;
+const { data: { fechasImportantesPorMes: informacion } = {}, loading = true, error } = useQuery(FECHAS_POR_MES);
   if (error) return <p className="error-text">Error al cargar las fechas.</p>;
 
   const mesesInformacion = informacion || [];
@@ -30,54 +29,53 @@ export const Calendario = () => {
           </p>
         </div>
 
-        {/* Grilla Principal de Hojas de Calendario */}
-        <div className="calendario-almanaque-vistas">
-          {mesesInformacion.map((info) => (
-            <div key={info.mes} className="hoja-almanaque">
-              
-              {/* Encabezado de la hoja del mes */}
-              <div className="hoja-almanaque-header">
-                <div className="anillos-decorativos">
-                  <span></span><span></span><span></span><span></span>
+        {/* Render condicional limpio */}
+        {loading ? (
+          <CalendarioSkeleton />
+        ) : (
+          <div className="calendario-almanaque-vistas">
+            {mesesInformacion.map((info) => (
+              <div key={info.mes} className="hoja-almanaque">
+                
+                <div className="hoja-almanaque-header">
+                  <div className="anillos-decorativos">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                  <h3 className="hoja-mes-titulo">
+                    {info.mes} <span className="hoja-anio-sub">{info.anio}</span>
+                  </h3>
                 </div>
-                <h3 className="hoja-mes-titulo">
-                  {info.mes} <span className="hoja-anio-sub">{info.anio}</span>
-                </h3>
-              </div>
 
-              {/* Cuerpo: Lista interna de eventos estilo agenda analógica */}
-              <div className="hoja-almanaque-cuerpo">
-                {info.fechas.map((fecha) => {
-                  const diaInicio = formatearDia(fecha.fechaInicio);
-                  const diaFin = fecha.fechaFin ? formatearDia(fecha.fechaFin) : null;
+                <div className="hoja-almanaque-cuerpo">
+                  {info.fechas.map((fecha) => {
+                    const diaInicio = formatearDia(fecha.fechaInicio);
+                    const diaFin = fecha.fechaFin ? formatearDia(fecha.fechaFin) : null;
 
-                  return (
-                    <div key={fecha.id} className="almanaque-fila-evento">
-                      
-                      {/* Bloque del indicador del día (Izquierda) */}
-                      <div className="almanaque-dia-bloque">
-                        <span className="num-dia-principal">{diaInicio}</span>
-                        {diaFin && <span className="num-dia-rango-flecha">al {diaFin}</span>}
-                        <span className="mes-abreviado-sub">{formatearMes(info.mes)}</span>
+                    return (
+                      <div key={fecha.id} className="almanaque-fila-evento">
+                        
+                        <div className="almanaque-dia-bloque">
+                          <span className="num-dia-principal">{diaInicio}</span>
+                          {diaFin && <span className="num-dia-rango-flecha">al {diaFin}</span>}
+                          <span className="mes-abreviado-sub">{formatearMes(info.mes)}</span>
+                        </div>
+
+                        <div className="almanaque-linea-vertical"></div>
+
+                        <div className="almanaque-detalle-bloque">
+                          <span className="almanaque-evento-tag">{fecha.titulo}</span>
+                          <p className="almanaque-evento-desc">{fecha.descripcion}</p>
+                        </div>
+
                       </div>
+                    );
+                  })}
+                </div>
 
-                      {/* Separador físico sutil */}
-                      <div className="almanaque-linea-vertical"></div>
-
-                      {/* Información del Evento (Derecha) */}
-                      <div className="almanaque-detalle-bloque">
-                        <span className="almanaque-evento-tag">{fecha.titulo}</span>
-                        <p className="almanaque-evento-desc">{fecha.descripcion}</p>
-                      </div>
-
-                    </div>
-                  );
-                })}
               </div>
-
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
       </section>
     </main>
