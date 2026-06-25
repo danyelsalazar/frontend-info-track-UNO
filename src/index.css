@@ -2199,10 +2199,14 @@ p.divisor i {
   box-shadow: var(--shadow-sm);
   opacity: 0.9;
 }
-.btn-cancelar:hover {
+.btn-cancelar:not(:disabled):hover {
   opacity: 1;
   transform: translateY(-1px);
   box-shadow: var(--shadow)
+}
+.btn-cancelar:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 @media (max-width: 520px) {

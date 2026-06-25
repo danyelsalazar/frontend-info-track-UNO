@@ -17,6 +17,7 @@ export const FormModel = ({children, loading, title, onSubmit, active, setActive
                 setActive(false)
                 clearForm()
               }}
+              disabled={loading}
             >
               Cancelar
             </button>
