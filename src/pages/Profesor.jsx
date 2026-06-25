@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Rating } from "@mui/material";
 import { IconBook2, IconMail, IconStar } from "@tabler/icons-react";
 import { useProfesor } from "../hooks/useProfesor";
@@ -6,11 +7,9 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { Reseña } from "../components/Reseña";
 import { MateriaBadge } from "../components/MateriaBadge";
 import { BackButton } from "../components/BackButton";
-import { ProfesorSkeleton } from "../skeletons/ProfesorSkeleton";
 import { CrearValoracionForm } from "../components/CrearValoracionForm";
-import { useNavigate } from "react-router-dom";
-import { useMutation } from "@apollo/client/react";
-import { ELIMINAR_VALORACION } from "../graphql/profesor.mutations";
+import { EditarValoracionForm } from "../components/EditarValoracionForm";
+import { ProfesorSkeleton } from "../skeletons/ProfesorSkeleton";
 
 const HeaderSection = ({ profesor, puntuaciones }) => {
   const cantidad = puntuaciones.length
@@ -71,13 +70,7 @@ const MateriasSection = ({ materias }) => {
   );
 };
 
-const ValoracionesSection = ({ puntuaciones, showForm, eliminarValoracion }) => {
-  const { userIdentity } = useAuthContext();
-
-  const miValoracion = userIdentity
-    ? puntuaciones.find((p) => p.usuario.id === userIdentity.id)
-    : null;
-
+const ValoracionesSection = ({ puntuaciones, miValoracion, showForm, showModificarForm, eliminarValoracion }) => {
   const otrasValoraciones = miValoracion
     ? puntuaciones.filter((p) => p.id !== miValoracion.id)
     : puntuaciones;
@@ -89,14 +82,14 @@ const ValoracionesSection = ({ puntuaciones, showForm, eliminarValoracion }) => 
         Valoraciones
       </h3>
       <ul className="profesor-reseñas-container">
-        <MiValoracion valoracion={miValoracion} showForm={showForm} eliminarValoracion={eliminarValoracion}/>
+        <MiValoracion valoracion={miValoracion} showForm={showForm} showModificarForm={showModificarForm} eliminarValoracion={eliminarValoracion}/>
         <ListarValoraciones puntuaciones={otrasValoraciones} />
       </ul>
     </section>
   );
 };
 
-const MiValoracion = ({ valoracion, showForm, eliminarValoracion }) => {
+const MiValoracion = ({ valoracion, showForm, showModificarForm, eliminarValoracion }) => {
   const { userIdentity } = useAuthContext()
   const navigate = useNavigate()
   if (!valoracion) {
@@ -118,7 +111,13 @@ const MiValoracion = ({ valoracion, showForm, eliminarValoracion }) => {
     );
   }
 
-  return <Reseña puntuacion={valoracion} mine eliminarValoracion={eliminarValoracion}/>;
+  return (
+    <Reseña 
+      puntuacion={valoracion} 
+      eliminarValoracion={eliminarValoracion}
+      showModificarForm={showModificarForm}
+      mine/>
+  )
 };
 
 const ListarValoraciones = ({ puntuaciones }) => {
@@ -133,13 +132,17 @@ const ListarValoraciones = ({ puntuaciones }) => {
 
 export const Profesor = () => {
   const [formActive, setFormActive] = useState(false)
-  const { profesor, loading, puntuaciones, addValoracion, quitarValoracion } = useProfesor()
-  const [ eliminarValoracion, {loading: loadingEliminar} ] = useMutation(ELIMINAR_VALORACION)
-
-  const handleEliminarValoracion = async (id) => {
-    await eliminarValoracion({ variables: { puntuacionId: id } })
-    quitarValoracion(id)
-  }
+  const [formModificarActive, setFormModificarActive] = useState(false)
+  const { 
+    profesor, 
+    loading, 
+    puntuaciones, 
+    addValoracion, 
+    handleEliminarValoracion, 
+    actualizarValoracion, 
+    loadingEliminar, 
+    miValoracion 
+  } = useProfesor()
 
   if (loading) return <ProfesorSkeleton />;
 
@@ -148,13 +151,24 @@ export const Profesor = () => {
       <div className="container-section">
         <HeaderSection profesor={profesor} puntuaciones={puntuaciones} />
         <MateriasSection materias={profesor.materias} />
-        <ValoracionesSection puntuaciones={puntuaciones} showForm={() => setFormActive(true)} eliminarValoracion={handleEliminarValoracion}/>
+        <ValoracionesSection 
+          puntuaciones={puntuaciones}
+          miValoracion={miValoracion}
+          showForm={() => setFormActive(true)} 
+          showModificarForm={() => setFormModificarActive(true)}
+          eliminarValoracion={handleEliminarValoracion}/>
       </div>
       <CrearValoracionForm 
         active={formActive} 
         setActive={setFormActive} 
         profesorId={profesor.id}
         onCreated={addValoracion}
+      />
+      <EditarValoracionForm 
+        active={formModificarActive}
+        setActive={setFormModificarActive}
+        valoracion={miValoracion}
+        onModified={actualizarValoracion}
       />
     </main>
   );
