@@ -44,7 +44,9 @@ export const Reseña = ({ loadingEliminar, puntuacion, showModificarForm, elimin
           </div>
         )}
       </header>
-      <main className="reseña-comentario">{puntuacion?.comentario}</main>
+      <p className="reseña-comentario">
+        {puntuacion?.comentario}
+      </p>
     </li>
   );
 };
