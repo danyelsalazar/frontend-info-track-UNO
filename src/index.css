@@ -170,6 +170,8 @@ main {
   background-color: var(--color-surface);
   box-shadow: var(--shadow-lg);
   border-top: 1px solid var(--color-border);
+  z-index: 200;
+
 }
 .nav-container.active {
   transform: translateX(0);

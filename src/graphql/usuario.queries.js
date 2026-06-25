@@ -41,3 +41,33 @@ export const ME = gql`
     }
   }
 `;
+
+export const PROXIMOS_VENCIMIENTOS = gql`
+  query ProximosVencimientos {
+    proximosVencimientos {
+      materia {
+        id
+        nombre
+      }
+      llamadosUsados
+      vencimiento {
+        anio
+        fecha
+      }
+    }
+  }
+`
+
+export const PROXIMO_CUATRIMESTRE = gql`
+  query MateriasACursarProximoCuatrimestre {
+    materiasACursarProximoCuatrimestre {
+      id
+      nombre
+      correlativas {
+        id
+      }
+      cuatrimestreDictado
+      cargaHorariaSemanal
+    }
+  }
+`

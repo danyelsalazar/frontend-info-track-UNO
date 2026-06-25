@@ -37,11 +37,16 @@ export const AuthProvider = ({ children }) => {
     }))
   }
 
+  const clearUserIdentity = () => {
+    setUserIdentity(null)
+  }
+
   return (
     <AuthContext.Provider
       value={{
         userIdentity,
         setMaterias,
+        clearUserIdentity,
         loading,
         error,
         guardarToken,
