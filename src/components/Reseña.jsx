@@ -27,7 +27,11 @@ export const Reseña = ({ loadingEliminar, puntuacion, showModificarForm, elimin
         </div>
         {mine && (
           <div className="div-btns-edit-valoration">
-            <button className="btn-crud-valoration" onClick={showModificarForm}>
+            <button 
+              className="btn-crud-valoration" 
+              onClick={showModificarForm}
+              disabled={loadingEliminar}
+            >
               <IconEdit size={16} className="icon-edit"/>
             </button>
             <BotonLoading 
