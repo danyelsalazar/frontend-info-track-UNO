@@ -1,4 +1,16 @@
+import "../styles/tareas.css";
 import { useState } from "react";
+import {
+  IconCircleCheck,
+  IconCircle,
+  IconTrash,
+  IconPlus,
+  IconCalendar,
+  IconClock,
+  IconAlertTriangle,
+  IconChecklist,
+} from "@tabler/icons-react";
+import Header from "../components/Header";
 
 const TAREAS_INICIALES = [
   {
@@ -7,6 +19,7 @@ const TAREAS_INICIALES = [
     tipo: "Final",
     horario: "09:00",
     badgeClass: "badge-red",
+    prioridad: "Alta",
     completada: false,
   },
   {
@@ -15,6 +28,7 @@ const TAREAS_INICIALES = [
     tipo: "Tarea",
     horario: "09:00",
     badgeClass: "badge-yellow",
+    prioridad: "Media",
     completada: false,
   },
   {
@@ -23,6 +37,7 @@ const TAREAS_INICIALES = [
     tipo: "Parcial",
     horario: "09:00",
     badgeClass: "badge-blue",
+    prioridad: "Alta",
     completada: false,
   },
 ];
@@ -30,16 +45,27 @@ const TAREAS_INICIALES = [
 export const MisTareas = () => {
   const [tareas, setTareas] = useState(TAREAS_INICIALES);
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
-  
+
   const [nuevoTitulo, setNuevoTitulo] = useState("");
   const [nuevoHorario, setNuevoHorario] = useState("");
   const [nuevoDia, setNuevoDia] = useState("");
   const [nuevoTipo, setNuevoTipo] = useState("Tarea");
+  const [nuevaPrioridad, setNuevaPrioridad] = useState("Media");
+
+  // Métricas calculadas en tiempo real
+  const totalTareas = tareas.length;
+  const completadas = tareas.filter((t) => t.completada).length;
+  const pendientes = totalTareas - completadas;
 
   const handleClickTask = (index) => {
     const nuevasTareas = [...tareas];
     nuevasTareas[index].completada = !nuevasTareas[index].completada;
     setTareas(nuevasTareas);
+  };
+
+  const handleEliminarTarea = (index, e) => {
+    e.stopPropagation(); // Evita que se dispare el click de completado
+    setTareas(tareas.filter((_, i) => i !== index));
   };
 
   const handleAgregarTarea = (e) => {
@@ -56,107 +82,193 @@ export const MisTareas = () => {
       dia: nuevoDia,
       tipo: nuevoTipo,
       badgeClass: badgeClass,
+      prioridad: nuevaPrioridad,
       completada: false,
     };
 
     setTareas([...tareas, nuevaTarea]);
-    
+
     setNuevoTitulo("");
     setNuevoHorario("");
     setNuevoDia("");
     setNuevoTipo("Tarea");
+    setNuevaPrioridad("Media");
     setMostrarFormulario(false);
   };
 
   return (
     <div className="tareas-section page-content">
-      <h3 className="title-tareas-user">Tareas</h3>
-      <ul className="tareas-list">
-        {tareas.map((t, i) => (
-          <li key={i} className="tarea-item" style={{ opacity: t.completada ? 0.5 : 1 }}>
-            <div className="horario-task">
-              {t.horario}
-              <span className="tarea-dia">{t.dia}</span>
-            </div>
-            <div className="divisor-horario-info"></div>
-            <div className="tarea-item-description">
-              <div className="task-description-sub">
-                <span className="tarea-title" style={{ textDecoration: t.completada ? "line-through" : "none" }}>
-                  {t.title}
-                </span>
-                <span className={`tarea-badge ${t.badgeClass}`}>{t.tipo}</span>
-              </div>
-              <div className="task-day" onClick={() => handleClickTask(i)}>
-                {t.completada ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                    <path fill="#31bb8d" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"/>
-                  </svg>
-                ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                    <path fill="#009cd1" d="M11.5 3a9.5 9.5 0 0 1 9.5 9.5a9.5 9.5 0 0 1-9.5 9.5A9.5 9.5 0 0 1 2 12.5A9.5 9.5 0 0 1 11.5 3m0 1A8.5 8.5 0 0 0 3 12.5a8.5 8.5 0 0 0 8.5 8.5a8.5 8.5 0 0 0 8.5-8.5A8.5 8.5 0 0 0 11.5 4"/>
-                  </svg>
-                )}
-              </div>
-            </div>
-          </li>
-        ))}
+      <Header />
+      <div className="tareas-header-container">
+        <h3 className="title-tareas-user">Gestión de Tareas</h3>
+        {!mostrarFormulario && (
+          <button
+            type="button"
+            className="btn-add-inline"
+            onClick={() => setMostrarFormulario(true)}
+          >
+            <IconPlus size={16} /> Nueva Tarea
+          </button>
+        )}
+      </div>
 
-        {/* FORMULARIO INLINE DINÁMICO */}
-        {mostrarFormulario && (
-          <form onSubmit={handleAgregarTarea} className="tarea-item" style={{ gridTemplateColumns: "1fr", gap: "10px", padding: "15px" }}>
-            <div style={{ display: "flex", gap: "10px", width: "100%" }}>
-              <input 
-                type="text" 
-                placeholder="Título de la tarea..." 
-                value={nuevoTitulo} 
-                onChange={(e) => setNuevoTitulo(e.target.value)}
-                required
-                style={{ flex: 2, padding: "8px 12px", borderRadius: "8px", border: "1px solid var(--color-border)", outline: "none" }}
-              />
-              <input 
-                type="text" 
-                placeholder="Día (Ej: Hoy, Jue 17)" 
-                value={nuevoDia} 
-                onChange={(e) => setNuevoDia(e.target.value)}
-                required
-                style={{ flex: 1, padding: "8px 12px", borderRadius: "8px", border: "1px solid var(--color-border)", outline: "none" }}
-              />
-            </div>
-            <div style={{ display: "flex", gap: "10px", width: "100%", alignItems: "center" }}>
-              <input 
-                type="time" 
-                value={nuevoHorario} 
+      {/* 1. PANEL DE MÉTRICAS (NUEVO) */}
+      <div className="metrics-grid">
+        <div className="metric-card">
+          <span className="metric-val">{pendientes}</span>
+          <span className="metric-label">Pendientes</span>
+        </div>
+        <div className="metric-card">
+          <span className="metric-val">
+            {completadas}/{totalTareas}
+          </span>
+          <span className="metric-label">Completadas</span>
+        </div>
+        <div className="metric-card highlight">
+          <span
+            className="metric-val"
+            style={{ fontSize: "1rem", paddingTop: "6px" }}
+          >
+            {tareas.find((t) => !t.completada)?.title || "Ninguna"}
+          </span>
+          <span className="metric-label">Próxima Urgente</span>
+        </div>
+      </div>
+      {/* FORMULARIO ADAPTADO */}
+      {mostrarFormulario && (
+        <form onSubmit={handleAgregarTarea} className="tarea-form-card">
+          <div className="form-row-main">
+            <input
+              type="text"
+              placeholder="Título de la tarea o examen..."
+              value={nuevoTitulo}
+              onChange={(e) => setNuevoTitulo(e.target.value)}
+              required
+              className="form-input-title"
+            />
+            <input
+              type="text"
+              placeholder="Día (Ej: Hoy, Jue 17)"
+              value={nuevoDia}
+              onChange={(e) => setNuevoDia(e.target.value)}
+              required
+              className="form-input-day"
+            />
+          </div>
+
+          <div className="form-row-sub">
+            <div className="form-inputs-group">
+              <input
+                type="time"
+                value={nuevoHorario}
                 onChange={(e) => setNuevoHorario(e.target.value)}
                 required
-                style={{ padding: "8px 12px", borderRadius: "8px", border: "1px solid var(--color-border)", outline: "none" }}
               />
-              <select 
-                value={nuevoTipo} 
+              <select
+                value={nuevoTipo}
                 onChange={(e) => setNuevoTipo(e.target.value)}
-                style={{ padding: "8px 12px", borderRadius: "8px", border: "1px solid var(--color-border)", outline: "none", background: "white" }}
               >
                 <option value="Tarea">Tarea</option>
                 <option value="Parcial">Parcial</option>
                 <option value="Final">Final</option>
               </select>
-              <div style={{ marginLeft: "auto", display: "flex", gap: "8px" }}>
-                <button type="button" onClick={() => setMostrarFormulario(false)} style={{ background: "#e2e8f0", border: "none", padding: "8px 14px", borderRadius: "8px", cursor: "pointer", fontWeight: "600" }}>
-                  Cancelar
+              <select
+                value={nuevaPrioridad}
+                onChange={(e) => setNuevaPrioridad(e.target.value)}
+              >
+                <option value="Baja">Prioridad Baja</option>
+                <option value="Media">Prioridad Media</option>
+                <option value="Alta">Prioridad Alta</option>
+              </select>
+            </div>
+
+            <div className="actions-container">
+              <button
+                type="button"
+                onClick={() => setMostrarFormulario(false)}
+                className="btn-cancelar"
+              >
+                Cancelar
+              </button>
+              <button type="submit" className="btn-guardar">
+                Guardar
+              </button>
+            </div>
+          </div>
+        </form>
+      )}
+      {/* 2. ESTADO VACÍO (NUEVO) */}
+      {totalTareas === 0 && (
+        <div className="empty-state-card">
+          <IconChecklist size={48} className="empty-icon" />
+          <h4>¡Todo limpio por acá!</h4>
+          <p>
+            No tenés entregas ni parciales registrados. Disfrutá el tiempo libre
+            o agrega una nueva meta.
+          </p>
+        </div>
+      )}
+
+      <ul className="tareas-list">
+        {tareas.map((t, i) => (
+          <li
+            key={i}
+            className={`tarea-item prio-${t.prioridad.toLowerCase()}`}
+            style={{ opacity: t.completada ? 0.6 : 1 }}
+          >
+            <div className="horario-task">
+              <span className="time-text">
+                <IconClock size={14} /> {t.horario}
+              </span>
+              <span className="tarea-dia">
+                <IconCalendar size={12} /> {t.dia}
+              </span>
+            </div>
+
+            <div className="divisor-horario-info"></div>
+
+            <div className="tarea-item-description">
+              <div className="task-description-sub">
+                <span
+                  className="tarea-title"
+                  style={{
+                    textDecoration: t.completada ? "line-through" : "none",
+                  }}
+                >
+                  {t.title}
+                </span>
+                <div className="badges-wrapper">
+                  <span className={`tarea-badge ${t.badgeClass}`}>
+                    {t.tipo}
+                  </span>
+                  <span className={`prio-badge ${t.prioridad.toLowerCase()}`}>
+                    {t.prioridad}
+                  </span>
+                </div>
+              </div>
+
+              <div className="task-actions-wrapper">
+                <button
+                  className="task-action-btn check"
+                  onClick={() => handleClickTask(i)}
+                >
+                  {t.completada ? (
+                    <IconCircleCheck size={22} color="#31bb8d" />
+                  ) : (
+                    <IconCircle size={22} color="#009cd1" />
+                  )}
                 </button>
-                <button type="submit" style={{ background: "var(--color-primary)", color: "white", border: "none", padding: "8px 14px", borderRadius: "8px", cursor: "pointer", fontWeight: "600" }}>
-                  Guardar
+                <button
+                  className="task-action-btn delete"
+                  onClick={(e) => handleEliminarTarea(i, e)}
+                >
+                  <IconTrash size={18} />
                 </button>
               </div>
             </div>
-          </form>
-        )}
-
-        {!mostrarFormulario && (
-          <button type="button" className="btn-add-tarea-user" onClick={() => setMostrarFormulario(true)}>
-            Agregar tarea
-          </button>
-        )}
+          </li>
+        ))}
       </ul>
     </div>
-  )
-}
+  );
+};
