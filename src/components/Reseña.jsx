@@ -1,7 +1,7 @@
 import { Rating } from "@mui/material";
 import { IconEdit, IconTrash } from "@tabler/icons-react";
 
-export const Reseña = ({ puntuacion, mine = false, eliminarValoracion = undefined}) => {
+export const Reseña = ({ puntuacion, showModificarForm, eliminarValoracion = undefined, mine = false}) => {
   const fecha = new Date(Number(puntuacion.fecha));
   const fechaFormateada = fecha.toLocaleDateString("es-AR");
 
@@ -18,7 +18,7 @@ export const Reseña = ({ puntuacion, mine = false, eliminarValoracion = undefin
               <Rating
                 readOnly
                 size="small"
-                defaultValue={puntuacion.puntuacion}
+                value={puntuacion.puntuacion}
               />
             </div>
             <p className="reseña-fecha">{fechaFormateada}</p>
@@ -26,12 +26,11 @@ export const Reseña = ({ puntuacion, mine = false, eliminarValoracion = undefin
         </div>
         {mine && (
           <div className="div-btns-edit-valoration">
-            <button className="btn-crud-valoration">
+            <button className="btn-crud-valoration" onClick={showModificarForm}>
               <IconEdit size={16} className="icon-edit"/>
             </button>
             <button className="btn-crud-valoration" onClick={() => eliminarValoracion(puntuacion.id)}>
               <IconTrash size={16} />
-              
             </button>
           </div>
         )}
