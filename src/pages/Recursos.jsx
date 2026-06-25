@@ -1,5 +1,6 @@
 // Archivo: Recursos.jsx
 import React from 'react';
+import Header from '../components/Header';
 
 export default function Recursos() {
   // 1. Guardamos todo el código HTML en una constante de texto
@@ -32,6 +33,7 @@ export default function Recursos() {
   // 2. Renderizamos el iframe apuntando a nuestra constante
   return (
     <div style={{ width: '100%', height: '600px', overflow: 'hidden' }}>
+      <Header/>
       <iframe
         title="centro-comando-marca-personal"
         srcDoc={codigoHtml} // <- Aquí inyectamos el HTML

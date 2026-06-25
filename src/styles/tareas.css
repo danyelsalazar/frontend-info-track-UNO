@@ -7,7 +7,13 @@
   margin: 0 auto;
   padding: 24px;
   box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
 }
 
 /* Contenedor de la cabecera (Título + Botón Nueva Tarea) */
@@ -137,9 +143,15 @@
 }
 
 /* Estados de Prioridades (Bordes izquierdos destacados) */
-.tarea-item.prio-alta { border: 4px dashed #ef44446e; }
-.tarea-item.prio-media { border: 4px dashed #f59f0b75; }
-.tarea-item.prio-baja { border: 4px dashed #10b9816a; }
+.tarea-item.prio-alta {
+  border: 4px dashed #ef44446e;
+}
+.tarea-item.prio-media {
+  border: 4px dashed #f59f0b75;
+}
+.tarea-item.prio-baja {
+  border: 4px dashed #10b9816a;
+}
 
 /* Contenedor Horario y Fecha */
 .horario-task {
@@ -170,7 +182,12 @@
 /* Divisor Vertical Línea de Tiempo */
 .divisor-horario-info {
   height: 2.5rem;
-  background: linear-gradient(to bottom, transparent, var(--color-border), transparent);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-border),
+    transparent
+  );
   width: 1.5px;
 }
 
@@ -217,9 +234,18 @@
   letter-spacing: 0.05em;
 }
 
-.badge-red    { background: rgba(214, 44, 91, 0.08);  color: #d62c5b; }
-.badge-yellow { background: rgba(245, 158, 11, 0.08); color: #f59e0b; }
-.badge-blue   { background: rgba(0, 156, 209, 0.08);  color: var(--color-primary); }
+.badge-red {
+  background: rgba(214, 44, 91, 0.08);
+  color: #d62c5b;
+}
+.badge-yellow {
+  background: rgba(245, 158, 11, 0.08);
+  color: #f59e0b;
+}
+.badge-blue {
+  background: rgba(0, 156, 209, 0.08);
+  color: var(--color-primary);
+}
 
 .prio-badge {
   font-size: 0.65rem;
@@ -228,9 +254,18 @@
   border-radius: 6px;
   text-transform: uppercase;
 }
-.prio-badge.alta { background: rgba(239, 68, 68, 0.08); color: #ef4444; }
-.prio-badge.media { background: rgba(245, 158, 11, 0.08); color: #f59e0b; }
-.prio-badge.baja { background: rgba(16, 185, 129, 0.08); color: #10b981; }
+.prio-badge.alta {
+  background: rgba(239, 68, 68, 0.08);
+  color: #ef4444;
+}
+.prio-badge.media {
+  background: rgba(245, 158, 11, 0.08);
+  color: #f59e0b;
+}
+.prio-badge.baja {
+  background: rgba(16, 185, 129, 0.08);
+  color: #10b981;
+}
 
 /* Botones de acción internos */
 .task-actions-wrapper {
@@ -252,36 +287,96 @@
   transition: all 0.2s ease;
 }
 
-.task-action-btn.check:hover { background: rgba(0, 156, 209, 0.05); }
-.task-action-btn.delete { color: #a1a1aa; }
-.task-action-btn.delete:hover { color: #ef4444; background: rgba(239, 68, 68, 0.08); }
+.task-action-btn.check:hover {
+  background: rgba(0, 156, 209, 0.05);
+}
+.task-action-btn.delete {
+  color: #a1a1aa;
+}
+.task-action-btn.delete:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.08);
+}
 
 /* ==========================================================================
-   ── FORMULARIO DINÁMICO REFACTORIZADO
+   ── FORMULARIO FLOTANTE EN CAPA SUPERPUESTA (MODAL OVERLAY)
    ========================================================================== */
+
+/* Fondo oscuro translúcido que cubre toda la pantalla */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.4); /* Color slate oscuro con opacidad */
+  backdrop-filter: blur(
+    4px
+  ); /* Suave desenfoque de fondo al estilo iOS/Notion */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Asegura que flote sobre headers, barras o cualquier elemento */
+  padding: 20px;
+  box-sizing: border-box;
+  animation: fadeInOverlay 0.2s ease-out;
+}
+
+/* Contenedor del formulario adaptado para ser un Pop-up */
 .tarea-form-card {
+  width: 100%;
+  max-width: 550px; /* Ancho ideal en escritorios */
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  padding: 1.5rem;
+  padding: 1.75rem;
   background: var(--color-surface);
-  border: 1px solid rgba(0, 156, 209, 0.35);
-  border-radius: 16px;
-  box-shadow: 0 12px 24px -10px rgba(0, 156, 209, 0.15);
-  animation: slideFormIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  animation: slideModalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); /* Efecto pop sutil */
 }
 
-@keyframes slideFormIn {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
+.modal-title {
+  margin: 0 0 4px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .form-row-main {
   display: flex;
   gap: 12px;
 }
-.form-input-title { flex: 2.5; }
-.form-input-day { flex: 1; }
+.form-input-title {
+  flex: 2.5;
+}
+.form-input-day {
+  flex: 1;
+}
 
 .form-row-sub {
   display: flex;
@@ -291,7 +386,9 @@
 }
 
 .form-inputs-group {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
   gap: 12px;
   flex-wrap: wrap;
 }
@@ -319,8 +416,10 @@
 }
 
 .actions-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
+  width: 100%;
 }
 
 .tarea-form-card button {
@@ -334,11 +433,22 @@
   transition: all 0.2s ease;
 }
 
-.btn-cancelar { background: #f1f5f9; color: #64748b; }
-.btn-cancelar:hover { background: #e2e8f0; color: #334155; }
-.btn-guardar { background: var(--color-primary); color: #ffffff; }
-.btn-guardar:hover { transform: translateY(-1px); opacity: 0.95; }
-
+.btn-cancelar {
+  background: #f1f5f9;
+  color: #64748b;
+}
+.btn-cancelar:hover {
+  background: #e2e8f0;
+  color: #334155;
+}
+.btn-guardar {
+  background: var(--color-btn);
+  color: #ffffff;
+}
+.btn-guardar:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
 /* ==========================================================================
    ── ESTADO COMPLETO VACÍO
    ========================================================================== */
@@ -350,10 +460,21 @@
   border-radius: 16px;
   color: var(--color-text-muted);
 }
-.empty-state-card h4 { margin: 14px 0 6px 0; color: var(--color-text); font-size: 1.15rem; }
-.empty-state-card p { font-size: 0.9rem; max-width: 420px; margin: 0 auto; line-height: 1.4; }
-.empty-icon { color: var(--color-primary); opacity: 0.7; }
-
+.empty-state-card h4 {
+  margin: 14px 0 6px 0;
+  color: var(--color-text);
+  font-size: 1.15rem;
+}
+.empty-state-card p {
+  font-size: 0.9rem;
+  max-width: 420px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+.empty-icon {
+  color: var(--color-primary);
+  opacity: 0.7;
+}
 
 /* ==========================================================================
    ── BREAKPOINTS RESPONSIVE (TABLETS Y TELEFONOS)
@@ -417,7 +538,7 @@
   }
 
   /* Formulario en cascada completa */
-  .form-row-main, 
+  .form-row-main,
   .form-row-sub,
   .form-inputs-group {
     flex-direction: column;
@@ -434,13 +555,13 @@
   .actions-container {
     width: 100%;
   }
-  
+
   .tarea-form-card button {
     flex: 1;
     text-align: center;
     padding: 12px;
   }
-  .tarea-form-card{
+  .tarea-form-card {
     width: 100%;
   }
 }

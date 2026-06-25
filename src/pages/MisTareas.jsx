@@ -13,33 +13,7 @@ import {
 import Header from "../components/Header";
 
 const TAREAS_INICIALES = [
-  {
-    title: "Parcial de Bases de Datos",
-    dia: "Hoy",
-    tipo: "Final",
-    horario: "09:00",
-    badgeClass: "badge-red",
-    prioridad: "Alta",
-    completada: false,
-  },
-  {
-    title: "TP Algoritmos — entrega",
-    dia: "Jue 17",
-    tipo: "Tarea",
-    horario: "09:00",
-    badgeClass: "badge-yellow",
-    prioridad: "Media",
-    completada: false,
-  },
-  {
-    title: "Parcial de Redes II",
-    dia: "Vie 18",
-    tipo: "Parcial",
-    horario: "09:00",
-    badgeClass: "badge-blue",
-    prioridad: "Alta",
-    completada: false,
-  },
+  
 ];
 
 export const MisTareas = () => {
@@ -134,68 +108,78 @@ export const MisTareas = () => {
           <span className="metric-label">Próxima Urgente</span>
         </div>
       </div>
-      {/* FORMULARIO ADAPTADO */}
+      {/* FORMULARIO FLOTANTE (MODAL) */}
       {mostrarFormulario && (
-        <form onSubmit={handleAgregarTarea} className="tarea-form-card">
-          <div className="form-row-main">
-            <input
-              type="text"
-              placeholder="Título de la tarea o examen..."
-              value={nuevoTitulo}
-              onChange={(e) => setNuevoTitulo(e.target.value)}
-              required
-              className="form-input-title"
-            />
-            <input
-              type="text"
-              placeholder="Día (Ej: Hoy, Jue 17)"
-              value={nuevoDia}
-              onChange={(e) => setNuevoDia(e.target.value)}
-              required
-              className="form-input-day"
-            />
-          </div>
+        <div
+          className="modal-overlay"
+          onClick={() => setMostrarFormulario(false)}
+        >
+          <form
+            onSubmit={handleAgregarTarea}
+            className="tarea-form-card"
+            onClick={(e) => e.stopPropagation()} // Evita que se cierre al hacer click dentro del formulario
+          >
+            <h4 className="modal-title">Nueva Tarea</h4>
 
-          <div className="form-row-sub">
-            <div className="form-inputs-group">
+            <div className="form-row-main">
               <input
-                type="time"
-                value={nuevoHorario}
-                onChange={(e) => setNuevoHorario(e.target.value)}
+                type="text"
+                placeholder="Título de la tarea o examen..."
+                value={nuevoTitulo}
+                onChange={(e) => setNuevoTitulo(e.target.value)}
                 required
+                className="form-input-title"
               />
-              <select
-                value={nuevoTipo}
-                onChange={(e) => setNuevoTipo(e.target.value)}
-              >
-                <option value="Tarea">Tarea</option>
-                <option value="Parcial">Parcial</option>
-                <option value="Final">Final</option>
-              </select>
-              <select
-                value={nuevaPrioridad}
-                onChange={(e) => setNuevaPrioridad(e.target.value)}
-              >
-                <option value="Baja">Prioridad Baja</option>
-                <option value="Media">Prioridad Media</option>
-                <option value="Alta">Prioridad Alta</option>
-              </select>
+              <input
+                type="text"
+                placeholder="Día (Ej: Hoy, Jue 17)"
+                value={nuevoDia}
+                onChange={(e) => setNuevoDia(e.target.value)}
+                required
+                className="form-input-day"
+              />
             </div>
 
-            <div className="actions-container">
-              <button
-                type="button"
-                onClick={() => setMostrarFormulario(false)}
-                className="btn-cancelar"
-              >
-                Cancelar
-              </button>
-              <button type="submit" className="btn-guardar">
-                Guardar
-              </button>
+            <div className="form-row-sub">
+              <div className="form-inputs-group">
+                <input
+                  type="time"
+                  value={nuevoHorario}
+                  onChange={(e) => setNuevoHorario(e.target.value)}
+                  required
+                />
+                <select
+                  value={nuevoTipo}
+                  onChange={(e) => setNuevoTipo(e.target.value)}
+                >
+                  <option value="Tarea">Tarea</option>
+                  <option value="Parcial">Parcial</option>
+                  <option value="Final">Final</option>
+                </select>
+                <select
+                  value={nuevaPrioridad}
+                  onChange={(e) => setNuevaPrioridad(e.target.value)}
+                >
+                  <option value="Baja">Prioridad Baja</option>
+                  <option value="Media">Prioridad Media</option>
+                  <option value="Alta">Prioridad Alta</option>
+                </select>
+              </div>
             </div>
-          </div>
-        </form>
+            <div className="actions-container">
+                <button
+                  type="button"
+                  onClick={() => setMostrarFormulario(false)}
+                  className="btn-cancelar"
+                >
+                  Cancelar
+                </button>
+                <button type="submit" className="btn-guardar">
+                  Guardar
+                </button>
+              </div>
+          </form>
+        </div>
       )}
       {/* 2. ESTADO VACÍO (NUEVO) */}
       {totalTareas === 0 && (
