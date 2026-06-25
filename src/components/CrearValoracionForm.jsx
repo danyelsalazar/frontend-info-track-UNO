@@ -7,7 +7,7 @@ import { CREAR_VALORACION } from "../graphql/profesor.mutations"
 export const CrearValoracionForm = ({ profesorId, active, setActive, onCreated }) => {
   const [puntuacion, setPuntuacion] = useState(0)
   const [comentario, setComentario] = useState("")
-  const [crearValoracion, {loading, error}] = useMutation(CREAR_VALORACION)
+  const [crearValoracion, {loading}] = useMutation(CREAR_VALORACION)
 
   const clearForm = () => {
     setPuntuacion(0)
@@ -32,6 +32,7 @@ export const CrearValoracionForm = ({ profesorId, active, setActive, onCreated }
       setActive={setActive} 
       onSubmit={onSubmit} 
       clearForm={clearForm}
+      loading={loading}
     >
       <Rating 
         size="large" 

@@ -69,7 +69,8 @@
 /* crud */
 .div-btns-edit-valoration{
   display: flex;
-  gap: 10px;
+  gap: 6px;
+  align-self: flex-start;
 }
 .btn-crud-valoration{
   border: none;
@@ -83,9 +84,13 @@
   cursor: pointer;
   transition: transform ease .3s, background-color ease .2s;
 }
-.btn-crud-valoration:hover{
+.btn-crud-valoration:not(:disabled):hover{
   transform: scale(1.1);
   background-color: #a91942;
+}
+.btn-crud-valoration:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 .icon-edit{
   color: #fff;

@@ -70,7 +70,7 @@ const MateriasSection = ({ materias }) => {
   );
 };
 
-const ValoracionesSection = ({ puntuaciones, miValoracion, showForm, showModificarForm, eliminarValoracion }) => {
+const ValoracionesSection = ({ puntuaciones, miValoracion, showForm, showModificarForm, eliminarValoracion, loadingEliminar }) => {
   const otrasValoraciones = miValoracion
     ? puntuaciones.filter((p) => p.id !== miValoracion.id)
     : puntuaciones;
@@ -82,14 +82,20 @@ const ValoracionesSection = ({ puntuaciones, miValoracion, showForm, showModific
         Valoraciones
       </h3>
       <ul className="profesor-reseñas-container">
-        <MiValoracion valoracion={miValoracion} showForm={showForm} showModificarForm={showModificarForm} eliminarValoracion={eliminarValoracion}/>
+        <MiValoracion 
+          valoracion={miValoracion} 
+          showForm={showForm} 
+          showModificarForm={showModificarForm} 
+          eliminarValoracion={eliminarValoracion}
+          loadingEliminar={loadingEliminar}
+        />
         <ListarValoraciones puntuaciones={otrasValoraciones} />
       </ul>
     </section>
   );
 };
 
-const MiValoracion = ({ valoracion, showForm, showModificarForm, eliminarValoracion }) => {
+const MiValoracion = ({ valoracion, showForm, showModificarForm, eliminarValoracion, loadingEliminar }) => {
   const { userIdentity } = useAuthContext()
   const navigate = useNavigate()
   if (!valoracion) {
@@ -116,7 +122,9 @@ const MiValoracion = ({ valoracion, showForm, showModificarForm, eliminarValorac
       puntuacion={valoracion} 
       eliminarValoracion={eliminarValoracion}
       showModificarForm={showModificarForm}
-      mine/>
+      loadingEliminar={loadingEliminar}
+      mine
+    />
   )
 };
 
@@ -126,7 +134,7 @@ const ListarValoraciones = ({ puntuaciones }) => {
   }
 
   return puntuaciones.map((puntuacion) => (
-    <Reseña puntuacion={puntuacion} key={puntuacion.id} />
+    <Reseña puntuacion={puntuacion} key={puntuacion.id}/>
   ));
 };
 
@@ -156,7 +164,9 @@ export const Profesor = () => {
           miValoracion={miValoracion}
           showForm={() => setFormActive(true)} 
           showModificarForm={() => setFormModificarActive(true)}
-          eliminarValoracion={handleEliminarValoracion}/>
+          eliminarValoracion={handleEliminarValoracion}
+          loadingEliminar={loadingEliminar}
+        />
       </div>
       <CrearValoracionForm 
         active={formActive} 

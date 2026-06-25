@@ -3,6 +3,7 @@ import { FormModel } from "./FormModel";
 export const EstadoMateriaFormBase = ({
   active,
   setActive,
+  loading,
   title,
   form,
   handleChange,
@@ -21,14 +22,14 @@ export const EstadoMateriaFormBase = ({
   )
 
   return (
-    <FormModel onSubmit={handleSubmit} active={active} setActive={setActive} title={title} clearForm={clearForm}>
+    <FormModel loading={loading} onSubmit={handleSubmit} active={active} setActive={setActive} title={title} clearForm={clearForm}>
       {materiaSelectSlot}
 
       <select
         name="estado"
         value={form.estado}
         onChange={handleEstadoChange}
-        disabled={!form.materiaId}
+        disabled={!form.materiaId || loading}
         required
       >
         <option value="" disabled hidden>Seleciona estado</option>
@@ -39,7 +40,7 @@ export const EstadoMateriaFormBase = ({
       </select>
 
       {mostrarCalificacion && (
-        <select name="nota" value={form.nota} onChange={handleChange} required>
+        <select name="nota" value={form.nota} onChange={handleChange} required disabled={loading}>
           <option value="" disabled hidden>Calificacion</option>
           {form.estado === "APROBADA"
             ? (
@@ -72,6 +73,7 @@ export const EstadoMateriaFormBase = ({
             value={form.anio}
             onChange={handleChange}
             required={form.estado === "REGULARIZADA"}
+            disabled={loading}
           >
             <option value="" disabled hidden>Año</option>
             {anios.map((a) => (
@@ -84,6 +86,7 @@ export const EstadoMateriaFormBase = ({
             value={form.cuatrimestre}
             onChange={handleChange}
             required={form.estado === "REGULARIZADA"}
+            disabled={loading}
           >
             <option value="" disabled hidden>Cuatrimestre</option>
             <option value={1}>1º cuatrimestre</option>
