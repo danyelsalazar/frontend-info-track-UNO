@@ -1,12 +1,25 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { 
-  IconBook2, IconClipboardText, IconStar, IconFolder, 
-  IconChevronRight, IconChevronLeft 
+import {
+  IconLayoutDashboard,
+  IconBook2,
+  IconClipboardText,
+  IconStar,
+  IconFolder,
+  IconChevronRight,
+  IconChevronLeft,
+  IconLogout2,
 } from "@tabler/icons-react";
 import "../styles/sidebar.css";
 
+import { useDashboard } from "../hooks/useDashboard";
+
 const ACCESOS = [
+  {
+    label: "Dashboard",
+    icon: <IconLayoutDashboard size={22} />,
+    path: "/perfil",
+  },
   {
     label: "Mis Materias",
     icon: <IconBook2 size={22} />,
@@ -22,49 +35,79 @@ const ACCESOS = [
     icon: <IconStar size={22} />,
     path: "/mi-perfil",
   },
-  {
-    label: "Recursos",
-    icon: <IconFolder size={22} />,
-    path: "/recursos",
-  }
+  { label: "Recursos", icon: <IconFolder size={22} />, path: "/recursos" },
 ];
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+  const { cerrarSesion } = useDashboard();
 
   return (
-    <div className={`sidebar-container ${isOpen ? "is-open" : ""}`}>
-      {/* Botón de flecha a la mitad del borde */}
-      <button className="sidebar-toggle-btn" onClick={toggleSidebar} aria-label="Toggle Sidebar">
-        {isOpen ? <IconChevronLeft size={16} /> : <IconChevronRight size={16} />}
-      </button>
+    <>
+      {/* Fondo oscuro para cerrar el menú en móviles */}
+      {isOpen && (
+        <div className="sidebar-overlay" onClick={() => setIsOpen(false)} />
+      )}
 
-      {/* Contenido del menú lateral */}
-      <div className="sidebar-content">
-        <div className="sidebar-brand">
-          <span className="brand-dot"></span>
-          {isOpen && <span className="brand-text">InfoTrack</span>}
-        </div>
+      <div className={`sidebar-container ${isOpen ? "is-open" : ""}`}>
+        {/* Botón flotante tipo pestaña */}
+        <button
+          className="sidebar-toggle-btn"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? (
+            <IconChevronLeft size={16} />
+          ) : (
+            <IconChevronRight size={16} />
+          )}
+        </button>
 
-        <nav className="sidebar-nav">
-          {ACCESOS.map((acceso) => (
-            <NavLink 
-              key={acceso.path} 
-              to={acceso.path}
-              className={({ isActive }) => `sidebar-link ${isActive ? "active-link" : ""}`}
+        <div
+          className="sidebar-content"
+          style={{ display: "flex", flexDirection: "column", height: "100%" }}
+        >
+          <nav className="sidebar-nav" style={{ flex: 1 }}>
+            {ACCESOS.map((acceso) => (
+              <NavLink
+                key={acceso.path}
+                to={acceso.path}
+                className={({ isActive }) =>
+                  `sidebar-link ${isActive ? "active-link" : ""}`
+                }
+                onClick={() => setIsOpen(false)}
+                end={acceso.path === "/perfil"}
+              >
+                <div className="sidebar-icon-wrapper">{acceso.icon}</div>
+                {isOpen && (
+                  <span className="sidebar-label">{acceso.label}</span>
+                )}
+              </NavLink>
+            ))}
+          </nav>
+
+          {/* Botón de cerrar sesión alineado exactamente igual a los links */}
+          <div className="sidebar-footer" style={{ marginTop: "auto" }}>
+            <button
+              onClick={cerrarSesion}
+              className="sidebar-link"
+              style={{
+                width: "100%",
+                background: "transparent",
+                border: "1px solid transparent",
+                cursor: "pointer",
+                textAlign: "left",
+                display: "flex",
+                alignItems: "center",
+              }}
             >
               <div className="sidebar-icon-wrapper">
-                {acceso.icon}
+                <IconLogout2 size={22} />
               </div>
-              {isOpen && <span className="sidebar-label">{acceso.label}</span>}
-            </NavLink>
-          ))}
-        </nav>
+              {isOpen && <span className="sidebar-label">Cerrar sesión</span>}
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

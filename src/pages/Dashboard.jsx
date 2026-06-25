@@ -5,9 +5,6 @@ import {
   IconChartBar,
   IconCircleCheck,
   IconClipboardCheck,
-  IconClipboardText,
-  IconFolder,
-  IconLogout2,
   IconPhone,
   IconStar,
   IconCalendarEvent,
@@ -18,29 +15,6 @@ import MultiProgressBar from "../components/MultiProgressBar";
 import { IconoBienvenida } from "../components/IconoBienvenida";
 import "../styles/dashboard.css";
 import { useDashboard } from "../hooks/useDashboard";
-
-const ACCESOS = [
-  {
-    label: "Mis Materias",
-    icon: <IconBook2 color="#fff" />,
-    path: "/perfil/mis-materias",
-  },
-  {
-    label: "Mis Tareas",
-    icon: <IconClipboardText color="#fff" />,
-    path: "/perfil/mis-tareas",
-  },
-  {
-    label: "Mis Valoraciones",
-    icon: <IconStar color="#fff" />,
-    path: "/mi-perfil",
-  },
-  {
-    label: "Recursos",
-    icon: <IconFolder color="#fff" />,
-    path: "/recursos",
-  },
-];
 
 export default function Dashboard() {
   const {
@@ -55,8 +29,6 @@ export default function Dashboard() {
     loadingEstadisticas,
     materiasProxCuatri,
     loadingProxCuatri,
-    cerrarSesion,
-    navigate,
   } = useDashboard();
 
   if (loadingUser)
@@ -81,28 +53,6 @@ export default function Dashboard() {
               <p className="welcome-subtitle">
                 Este es el estado actualizado de tu rendimiento académico.
               </p>
-            </div>
-            <button onClick={cerrarSesion} className="btn-logout-header">
-              <IconLogout2 size={18} />
-              Cerrar sesión
-            </button>
-          </div>
-
-          {/* ACCESOS RÁPIDOS */}
-          <div className="accesos-section">
-            <div className="accesos-grid">
-              {ACCESOS.map((a) => (
-                <button
-                  key={a.path}
-                  className="acceso-btn"
-                  onClick={() => navigate(a.path)}
-                >
-                  <div className="container-icon-acces-sped">
-                    <span className="acceso-icon">{a.icon}</span>
-                  </div>
-                  <span className="acceso-label">{a.label}</span>
-                </button>
-              ))}
             </div>
           </div>
 
