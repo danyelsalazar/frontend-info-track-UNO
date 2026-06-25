@@ -111,26 +111,6 @@ export default function Dashboard() {
               {!loadingEstadisticas && estadisticas && (
                 <>
                   <div className="stat-card">
-                    <div className="icono-info-user-materias icono-info-user-materias-aprobadas">
-                      <IconCircleCheck color="#fff" size={20} />
-                    </div>
-                    <span className="stat-value stat-teal">
-                      {estadisticas.aprobadas}
-                    </span>
-                    <span className="stat-label">Aprobadas</span>
-                  </div>
-
-                  <div className="stat-card">
-                    <div className="icono-info-user-materias icono-info-user-materias-aprobadas">
-                      <IconStar color="#fff" size={20} />
-                    </div>
-                    <span className="stat-value stat-teal">
-                      {estadisticas.promocionadas}
-                    </span>
-                    <span className="stat-label">Promocionadas</span>
-                  </div>
-
-                  <div className="stat-card">
                     <div className="icono-info-user-materias icono-info-user-materias-cursando">
                       <IconBook2 color="#fff" size={20} />
                     </div>
@@ -161,6 +141,26 @@ export default function Dashboard() {
                   </div>
 
                   <div className="stat-card">
+                    <div className="icono-info-user-materias icono-info-user-materias-aprobadas">
+                      <IconCircleCheck color="#fff" size={20} />
+                    </div>
+                    <span className="stat-value stat-teal">
+                      {estadisticas.aprobadas}
+                    </span>
+                    <span className="stat-label">Aprobadas</span>
+                  </div>
+
+                  <div className="stat-card">
+                    <div className="icono-info-user-materias icono-info-user-materias-aprobadas">
+                      <IconStar color="#fff" size={20} />
+                    </div>
+                    <span className="stat-value stat-teal">
+                      {estadisticas.promocionadas}
+                    </span>
+                    <span className="stat-label">Promocionadas</span>
+                  </div>
+
+                  <div className="stat-card">
                     <div className="icono-info-user-materias icono-info-user-materias-promedio">
                       <IconChartBar color="#fff" size={20} />
                     </div>
@@ -174,25 +174,23 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* CONTENEDOR DE DOS COLUMNAS EN DESKTOP PARA LA AGENDA ACADÉMICA */}
-          <div className="dashboard-double-column-grid">
-            {/* SECCIÓN PROXIMOS VENCIMIENTOS */}
-            <div className="tareas-section">
-              <div className="section-header-inline">
-                <h3 className="title-tareas-user">Próximos Vencimientos</h3>
-                <button className="btn-indicar-llamado">
-                  <IconPhone size={16} />
-                  Indicar llamado
-                </button>
-              </div>
-              <div className="agenda-items-wrapper">
-                {loadingVencimientos && (
-                  <p className="loading-subtext">Cargando vencimientos...</p>
-                )}
-                {!loadingVencimientos &&
-                  proximosVencimientos &&
-                  proximosVencimientos.length > 0 &&
-                  proximosVencimientos.map((pv) => (
+          {/* SECCIÓN PROXIMOS VENCIMIENTOS */}
+          {!loadingVencimientos &&
+            proximosVencimientos?.length > 0 &&
+            (
+              <div>
+                <div className="section-header-inline">
+                  <h3 className="title-tareas-user">Próximos Vencimientos</h3>
+                  <button className="btn-indicar-llamado">
+                    <IconPhone size={16} />
+                    Indicar llamado
+                  </button>
+                </div>
+                <div className="agenda-items-wrapper">
+                  {loadingVencimientos && (
+                    <p className="loading-subtext">Cargando vencimientos...</p>
+                  )}
+                  {proximosVencimientos.map((pv) => (
                     <div
                       key={pv.materia.id}
                       className="tarjeta-agenda-item vencimiento-alerta"
@@ -217,52 +215,51 @@ export default function Dashboard() {
                         </div>
                       </div>
                     </div>
-                  ))}
+                    ))}
+                </div>
               </div>
-            </div>
+            )
+          }
 
-            {/* SECCIÓN PROXIMO CUATRIMESTRE */}
-            <div className="tareas-section">
-              <h3 className="title-tareas-user">Próximo Cuatrimestre</h3>
-              <div className="agenda-items-wrapper">
-                {loadingProxCuatri && (
-                  <p className="loading-subtext">Cargando materias...</p>
-                )}
-                {!loadingProxCuatri &&
-                  materiasProxCuatri &&
-                  materiasProxCuatri.map((materia) => (
-                    <Link
-                      key={materia.id}
-                      to={"/materia/" + materia.id}
-                      className="tarjeta-agenda-item link-materia-proxima"
-                    >
-                      <div className="agenda-icon-indicator">
-                        <IconClock size={18} />
-                      </div>
-                      <div className="agenda-content">
-                        <h4>{materia.nombre}</h4>
-                        <div className="agenda-meta-data">
-                          <span>
-                            Correlativas:{" "}
-                            <b>
-                              {materia.correlativas.length}/
-                              {materia.correlativas.length}
-                            </b>
-                          </span>
-                          <span className="meta-divider">•</span>
-                          <span>
-                            Carga: <b>{materia.cargaHorariaSemanal}h</b>
-                          </span>
-                        </div>
-                        <span className="badge-cuatrimestre-dictado">
-                          {materia.cuatrimestreDictado.length > 1
-                            ? "2º y 1º Cuatrimestre"
-                            : `${materia.cuatrimestreDictado[0]}º Cuatrimestre`}
-                        </span>
-                      </div>
-                    </Link>
-                  ))}
-              </div>
+          {/* SECCIÓN PROXIMO CUATRIMESTRE */}
+          <div>
+            <h3 className="title-tareas-user">Próximo Cuatrimestre</h3>
+            <div className="agenda-items-wrapper">
+              {loadingProxCuatri && (
+                <p className="loading-subtext">Cargando materias...</p>
+              )}
+              {!loadingProxCuatri &&
+                materiasProxCuatri &&
+                materiasProxCuatri.map((materia) => (
+                  <Link
+                    key={materia.id}
+                    to={"/materia/" + materia.id}
+                    className="tarjeta-agenda-item link-materia-proxima"
+                  >
+                    <div className="agenda-icon-indicator materia-prox-icon">
+                      <IconClock size={18} />
+                    </div>
+                    <h4 className="materia-prox-title">{materia.nombre}</h4>
+                    <div className="agenda-meta-data materia-prox-info">
+                      <span>
+                        Correlativas:{" "}
+                        <b>
+                          {materia.correlativas.length}/
+                          {materia.correlativas.length}
+                        </b>
+                      </span>
+                      <span className="meta-divider">•</span>
+                      <span>
+                        Carga: <b>{materia.cargaHorariaSemanal}h</b>
+                      </span>
+                    </div>
+                    <span className="badge-cuatrimestre-dictado materia-prox-badge">
+                      {materia.cuatrimestreDictado.length > 1
+                        ? "2º y 1º Cuatrimestre"
+                        : `${materia.cuatrimestreDictado[0]}º Cuatrimestre`}
+                    </span>
+                  </Link>
+                ))}
             </div>
           </div>
         </div>
