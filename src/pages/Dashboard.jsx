@@ -91,10 +91,10 @@ const Estadisticas = ({loadingEstadisticas, estadisticas}) => {
     <div className="container-materias-grafico">
       <div className="stats-grid">
         {loadingEstadisticas
-          ? Array.from({ length: 6 }).map((_, i) => (<Skeleton key={i} height={150} variant="rounded"/>))
+          ? Array.from({ length: 6 }).map((_, i) => (<Skeleton key={i} height={"11rem"} variant="rounded"/>))
           : estadisticas && (
             <>
-              <div className="stat-card">
+              <div className="stat-card" style={{ '--index': 1 }}>
                 <div className="icono-info-user-materias icono-info-user-materias-cursando">
                   <IconBook2 color="#fff" size={20} />
                 </div>
@@ -104,7 +104,7 @@ const Estadisticas = ({loadingEstadisticas, estadisticas}) => {
                 <span className="stat-label">Cursando</span>
               </div>
 
-              <div className="stat-card">
+              <div className="stat-card" style={{ '--index': 2 }}>
                 <div className="icono-info-user-materias icono-info-user-materias-regularizadas">
                   <IconClipboardCheck color="#fff" size={20} />
                 </div>
@@ -114,7 +114,7 @@ const Estadisticas = ({loadingEstadisticas, estadisticas}) => {
                 <span className="stat-label">Regularizadas</span>
               </div>
 
-              <div className="stat-card">
+              <div className="stat-card" style={{ '--index': 3 }}>
                 <div className="icono-info-user-materias icono-info-user-materias-restantes">
                   <IconAlertCircle color="#fff" size={20} />
                 </div>
@@ -124,7 +124,7 @@ const Estadisticas = ({loadingEstadisticas, estadisticas}) => {
                 <span className="stat-label">Restantes</span>
               </div>
 
-              <div className="stat-card">
+              <div className="stat-card" style={{ '--index': 4 }}>
                 <div className="icono-info-user-materias icono-info-user-materias-aprobadas">
                   <IconCircleCheck color="#fff" size={20} />
                 </div>
@@ -134,7 +134,7 @@ const Estadisticas = ({loadingEstadisticas, estadisticas}) => {
                 <span className="stat-label">Aprobadas</span>
               </div>
 
-              <div className="stat-card">
+              <div className="stat-card" style={{ '--index': 5 }}>
                 <div className="icono-info-user-materias icono-info-user-materias-aprobadas">
                   <IconStar color="#fff" size={20} />
                 </div>
@@ -144,7 +144,7 @@ const Estadisticas = ({loadingEstadisticas, estadisticas}) => {
                 <span className="stat-label">Promocionadas</span>
               </div>
 
-              <div className="stat-card">
+              <div className="stat-card" style={{ '--index': 6 }}>
                 <div className="icono-info-user-materias icono-info-user-materias-promedio">
                   <IconChartBar color="#fff" size={20} />
                 </div>

@@ -100,12 +100,12 @@ const MateriaSkeleton = () => {
     <main className="page-content">
       <section className="container-section">
         <HeaderSection/>
-        <main>
+        <div>
           <CorrelativasSection/>
           <ProfesoresSection/>
           <ComisionesSection/>
           <CarrerasSection/>
-        </main>
+        </div>
       </section>
     </main>
   );
