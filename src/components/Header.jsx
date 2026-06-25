@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom"; // <-- Agregamos useLocation
 import { useAuthContext } from "../hooks/useAuthContext";
+import { Skeleton } from "@mui/material";
 
 const BotonesAuth = ({ setOpen, navigate }) => {
   return (
@@ -84,8 +85,6 @@ const Header = () => {
     };
   }, [location]); // <-- Escucha activamente cada vez que cambia la sección o URL
 
-  if(loading) return null;
-
   const esPantallaInicio = location.pathname === "/" || location.search.includes("section=inicio");
   const usarTransparente = esPantallaInicio && !esVisible;
 
@@ -148,11 +147,12 @@ const Header = () => {
                 Calendario
               </Link>
             </li>
-            {userIdentity?.id ? (
-              <BotonUsuario userIdentity={userIdentity} />
-            ) : (
-              <BotonesAuth setOpen={setOpen} navigate={navigate} />
-            )}
+            {loading 
+              ? <Skeleton variant="circular" width={"3rem"} height={"3rem"}/>
+              : userIdentity?.id 
+                ? (<BotonUsuario userIdentity={userIdentity} />) 
+                : (<BotonesAuth setOpen={setOpen} navigate={navigate} />)
+            }
           </ul>
         </nav>
       </div>
