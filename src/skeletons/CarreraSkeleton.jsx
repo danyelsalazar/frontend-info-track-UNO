@@ -55,10 +55,10 @@ export const CarreraSkeleton = () => {
   return (
     <>
       <HeaderSection/>
-      <main>
+      <div>
         <InfoSection/>
         <PlanEstudiosSection/>
-      </main>
+      </div>
     </>
   )
 }
