@@ -1775,12 +1775,12 @@ p.divisor i {
   background: var(--color-btn);
   color: #fff;
   border: none;
-  padding: 13px;
+  padding: 1rem;
   border-radius: var(--radius);
   cursor: pointer;
-  margin-top: 12px;
+  margin-top: 0.9rem;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 1.2rem;
   font-weight: 600;
   transition: var(--transition);
   box-shadow: 0 2px 8px rgba(214, 44, 91, 0.25);
@@ -2181,6 +2181,28 @@ p.divisor i {
 }
 .btn-cancelar-form-model:hover {
   background-color: var(--color-border);
+}
+
+.btn-cancelar {
+  width: 100%;
+  background-color: var(--color-border);
+  color: #fff;
+  border: none;
+  padding: 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  margin-top: 0.9rem;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  opacity: 0.9;
+}
+.btn-cancelar:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow)
 }
 
 @media (max-width: 520px) {
