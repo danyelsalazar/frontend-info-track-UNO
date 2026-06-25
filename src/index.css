@@ -1694,27 +1694,6 @@ p.divisor i {
   flex-wrap: wrap;
 }
 
-/* PRIMARY */
-.btn-primary {
-  padding: 14px 28px;
-  border-radius: 999px;
-
-  background: linear-gradient(135deg, var(--color-btn), var(--color-btn-hover));
-
-  color: white;
-  border: none;
-
-  font-weight: 600;
-  cursor: pointer;
-
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-}
-
 /* SECONDARY */
 .btn-secondary {
   padding: 14px 28px;
@@ -1788,6 +1767,10 @@ p.divisor i {
   margin-bottom: 5px;
 }
 .btn-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
   width: 100%;
   background: var(--color-btn);
   color: #fff;
@@ -1802,10 +1785,14 @@ p.divisor i {
   transition: var(--transition);
   box-shadow: 0 2px 8px rgba(214, 44, 91, 0.25);
 }
-.btn-primary:hover {
+.btn-primary:not(:disabled):hover {
   background: var(--color-btn-hover);
   transform: translateY(-1px);
   box-shadow: 0 6px 18px rgba(214, 44, 91, 0.32);
+}
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 .login-divider {
   font-size: 13px;
@@ -2200,4 +2187,11 @@ p.divisor i {
   html {
     font-size: 10px;
   }
+}
+.spinner {
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
