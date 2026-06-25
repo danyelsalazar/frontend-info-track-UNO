@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Skeleton } from "@mui/material"
 import {
   IconAlertCircle,
   IconBook2,
@@ -60,15 +61,15 @@ const SelectorYGrafico = ({carreras, estadisticas, setCarreraElegida, loadingEst
         </div>
       )}
 
-      {!loadingEstadisticas && estadisticas && (
-        <>
-          <div className="progress-row">
-            <span className="progress-label">Progreso de la carrera</span>
-            <span className="progress-value">
-              <b>{estadisticas.porcentajeCompletado}%</b> Progreso
-            </span>
-          </div>
-          <MultiProgressBar
+      <div className="progress-row">
+        <span className="progress-label">Progreso de la carrera</span>
+        <span className="progress-value">
+          <b>{estadisticas?.porcentajeCompletado}%</b> Progreso
+        </span>
+      </div>
+      {loadingEstadisticas
+        ? <Skeleton height={15} variant="rounded"/>
+        : <MultiProgressBar
             data={[
               {
                 value:
@@ -80,85 +81,87 @@ const SelectorYGrafico = ({carreras, estadisticas, setCarreraElegida, loadingEst
               { value: estadisticas.faltantes, color: "#e5e7eb" },
             ]}
           />
-        </>
-      )}
+      }
     </div>
   )
 }
 
-export const Estadisticas = ({loadingEstadisticas, estadisticas}) => {
+const Estadisticas = ({loadingEstadisticas, estadisticas}) => {
   return (
     <div className="container-materias-grafico">
       <div className="stats-grid">
-        {!loadingEstadisticas && estadisticas && (
-          <>
-            <div className="stat-card">
-              <div className="icono-info-user-materias icono-info-user-materias-cursando">
-                <IconBook2 color="#fff" size={20} />
+        {loadingEstadisticas
+          ? Array.from({ length: 6 }).map((_, i) => (<Skeleton key={i} height={150} variant="rounded"/>))
+          : estadisticas && (
+            <>
+              <div className="stat-card">
+                <div className="icono-info-user-materias icono-info-user-materias-cursando">
+                  <IconBook2 color="#fff" size={20} />
+                </div>
+                <span className="stat-value stat-primary">
+                  {estadisticas.cursando}
+                </span>
+                <span className="stat-label">Cursando</span>
               </div>
-              <span className="stat-value stat-primary">
-                {estadisticas.cursando}
-              </span>
-              <span className="stat-label">Cursando</span>
-            </div>
 
-            <div className="stat-card">
-              <div className="icono-info-user-materias icono-info-user-materias-regularizadas">
-                <IconClipboardCheck color="#fff" size={20} />
+              <div className="stat-card">
+                <div className="icono-info-user-materias icono-info-user-materias-regularizadas">
+                  <IconClipboardCheck color="#fff" size={20} />
+                </div>
+                <span className="stat-value stat-red">
+                  {estadisticas.regularizadas}
+                </span>
+                <span className="stat-label">Regularizadas</span>
               </div>
-              <span className="stat-value stat-red">
-                {estadisticas.regularizadas}
-              </span>
-              <span className="stat-label">Regularizadas</span>
-            </div>
 
-            <div className="stat-card">
-              <div className="icono-info-user-materias icono-info-user-materias-restantes">
-                <IconAlertCircle color="#fff" size={20} />
+              <div className="stat-card">
+                <div className="icono-info-user-materias icono-info-user-materias-restantes">
+                  <IconAlertCircle color="#fff" size={20} />
+                </div>
+                <span className="stat-value restante-label">
+                  {estadisticas.faltantes}
+                </span>
+                <span className="stat-label">Restantes</span>
               </div>
-              <span className="stat-value restante-label">
-                {estadisticas.faltantes}
-              </span>
-              <span className="stat-label">Restantes</span>
-            </div>
 
-            <div className="stat-card">
-              <div className="icono-info-user-materias icono-info-user-materias-aprobadas">
-                <IconCircleCheck color="#fff" size={20} />
+              <div className="stat-card">
+                <div className="icono-info-user-materias icono-info-user-materias-aprobadas">
+                  <IconCircleCheck color="#fff" size={20} />
+                </div>
+                <span className="stat-value stat-teal">
+                  {estadisticas.aprobadas}
+                </span>
+                <span className="stat-label">Aprobadas</span>
               </div>
-              <span className="stat-value stat-teal">
-                {estadisticas.aprobadas}
-              </span>
-              <span className="stat-label">Aprobadas</span>
-            </div>
 
-            <div className="stat-card">
-              <div className="icono-info-user-materias icono-info-user-materias-aprobadas">
-                <IconStar color="#fff" size={20} />
+              <div className="stat-card">
+                <div className="icono-info-user-materias icono-info-user-materias-aprobadas">
+                  <IconStar color="#fff" size={20} />
+                </div>
+                <span className="stat-value stat-teal">
+                  {estadisticas.promocionadas}
+                </span>
+                <span className="stat-label">Promocionadas</span>
               </div>
-              <span className="stat-value stat-teal">
-                {estadisticas.promocionadas}
-              </span>
-              <span className="stat-label">Promocionadas</span>
-            </div>
 
-            <div className="stat-card">
-              <div className="icono-info-user-materias icono-info-user-materias-promedio">
-                <IconChartBar color="#fff" size={20} />
+              <div className="stat-card">
+                <div className="icono-info-user-materias icono-info-user-materias-promedio">
+                  <IconChartBar color="#fff" size={20} />
+                </div>
+                <span className="stat-value stat-muted">
+                  {estadisticas.promedio}
+                </span>
+                <span className="stat-label">Promedio</span>
               </div>
-              <span className="stat-value stat-muted">
-                {estadisticas.promedio}
-              </span>
-              <span className="stat-label">Promedio</span>
-            </div>
-          </>
-        )}
+            </>
+          )
+        }
       </div>
     </div>
   )
 }
 
-const ProximosVencimientos = ({ loadingVencimientos, proximosVencimientos }) => {
+const ProximosVencimientos = ({ proximosVencimientos }) => {
   return (
     <div>
       <div className="section-header-inline">
@@ -169,9 +172,6 @@ const ProximosVencimientos = ({ loadingVencimientos, proximosVencimientos }) => 
         </button>
       </div>
       <div className="agenda-items-wrapper">
-        {loadingVencimientos && (
-          <p className="loading-subtext">Cargando vencimientos...</p>
-        )}
         {proximosVencimientos.map((pv) => (
           <div
             key={pv.materia.id}
@@ -208,12 +208,9 @@ const ProximoCuatrimestre = ({ materiasProxCuatri, loadingProxCuatri }) => {
     <div>
       <h3 className="title-tareas-user">Próximo Cuatrimestre</h3>
       <div className="agenda-items-wrapper">
-        {loadingProxCuatri && (
-          <p className="loading-subtext">Cargando materias...</p>
-        )}
-        {!loadingProxCuatri &&
-          materiasProxCuatri &&
-          materiasProxCuatri.map((materia) => (
+        {loadingProxCuatri 
+          ? Array.from({ length: 3 }).map((_, i) => (<Skeleton key={i} height={70} variant="rounded"/>))
+          : materiasProxCuatri?.map((materia) => (
             <Link
               key={materia.id}
               to={"/materia/" + materia.id}
@@ -250,8 +247,6 @@ const ProximoCuatrimestre = ({ materiasProxCuatri, loadingProxCuatri }) => {
 
 export default function Dashboard() {
   const {
-    loadingUser,
-    errorUser,
     setCarreraElegida,
     carreras,
     userIdentity,
@@ -262,11 +257,6 @@ export default function Dashboard() {
     materiasProxCuatri,
     loadingProxCuatri,
   } = useDashboard();
-
-  if (loadingUser)
-    return <p style={{ padding: "20px" }}>Cargando dashboard...</p>;
-  if (errorUser)
-    return <p style={{ padding: "20px" }}>Error: {errorUser.message}</p>;
 
   return (
     <>
@@ -293,7 +283,6 @@ export default function Dashboard() {
           {!loadingVencimientos &&
             proximosVencimientos?.length > 0 &&
             <ProximosVencimientos 
-              loadingVencimientos={loadingVencimientos} 
               proximosVencimientos={proximosVencimientos}
             />
           }
