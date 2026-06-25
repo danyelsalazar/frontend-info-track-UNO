@@ -1,16 +1,15 @@
+import { BotonLoading } from "../components/BotonLoading";
 import { useLogin } from "../hooks/useLogin";
 
 const Login = () => {
   // TODO: Mostrar error y loading
-  const {form, handleChange, handleSubmit, navigate, error, loading} = useLogin()
+  const {form, handleChange, handleSubmit, navigate, loading} = useLogin()
 
   return (
     <div className="login-container">
       <div className="login-box">
-        {/* LOGO / HEADER */}
         <h2 className="login-title">Acceso al sistema</h2>
         <p className="login-subtitle">Ingresá con tu cuenta para continuar</p>
-        {/* FORM */}
         <form onSubmit={handleSubmit} className="login-form">
           <input
             type="text"
@@ -19,6 +18,7 @@ const Login = () => {
             value={form.email}
             onChange={handleChange}
             required
+            disabled={loading}
           />
 
           <input
@@ -28,6 +28,7 @@ const Login = () => {
             value={form.password}
             onChange={handleChange}
             required
+            disabled={loading}
           />
 
           <p className="forgot">
@@ -39,10 +40,9 @@ const Login = () => {
               Registrate
             </span>
           </p>
-
-          <button type="submit" className="btn-primary">
-            Acceder
-          </button>
+          <BotonLoading loading={loading} type="submit">
+            {loading ? "Accediendo" : "Acceder"}
+          </BotonLoading>
         </form>
         <p className="forgot">
             <span
