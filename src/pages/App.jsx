@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import ScrollTopTop from "../components/ScrollTopTop";
 import MainLayout from "../components/MainLayout";
-import CuatrimestrCurso from "../components/CuatrimestreCurso";
 import Materias from "./Materias";
 import Home from "./Home";
 import Materia from "./Materia";
@@ -175,7 +174,6 @@ const App = () => {
           <Route path="/profesor/:id" element={<Profesor />} />
           <Route path="/carreras" element={<Carreras />} />
           <Route path="/carrera/:id" element={<Carrera />} />
-          <Route path="/cuatrimestre-activo" element={<CuatrimestrCurso />} />
           <Route path="/calendario" element={<Calendario />} />
         </Route>
 
