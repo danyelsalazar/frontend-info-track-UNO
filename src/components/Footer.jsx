@@ -7,19 +7,19 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-
         {/* logo + descripción */}
         <div className="footer-brand">
-          <div className="container-logo-header">
-            <div className="container-svg-logo-header">
-              <svg className="svg-logo-header" viewBox="0 0 14 14">
-                <rect x="1" y="1" width="5" height="5" rx="1" />
-                <rect x="8" y="1" width="5" height="5" rx="1" />
-                <rect x="1" y="8" width="5" height="5" rx="1" />
-                <rect x="8" y="8" width="5" height="5" rx="1" />
-              </svg>
-            </div>
-            <p className="footer-logo-text">InfoTrack</p>
+          <div className="container-svg-logo-footer">
+            <svg
+              className="svg-logo-footer"
+              viewBox="0 0 14 14"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <rect x="1" y="1" width="5" height="5" rx="1" />
+              <rect x="8" y="1" width="5" height="5" rx="1" />
+              <rect x="1" y="8" width="5" height="5" rx="1" />
+              <rect x="8" y="8" width="5" height="5" rx="1" />
+            </svg>
           </div>
 
           <p className="footer-description">
@@ -51,12 +51,13 @@ const Footer = () => {
             }
           </div>
         </div>
-
       </div>
 
       {/* bottom */}
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} InfoTrack — Todos los derechos reservados</p>
+        <p>
+          © {new Date().getFullYear()} InfoTrack — Todos los derechos reservados
+        </p>
       </div>
     </footer>
   );
