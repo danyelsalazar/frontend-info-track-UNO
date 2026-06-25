@@ -1,4 +1,6 @@
-export const FormModel = ({children, title, onSubmit, active, setActive, clearForm = () => {}}) => {
+import { BotonLoading } from "./BotonLoading"
+
+export const FormModel = ({children, loading, title, onSubmit, active, setActive, clearForm = () => {}}) => {
   return (
     <div className="form-model-container">
       <form onSubmit={onSubmit}  className={`${active ? 'form-model-active' : 'form-model-desactive'} form-model`}>
@@ -10,7 +12,7 @@ export const FormModel = ({children, title, onSubmit, active, setActive, clearFo
           <div className="form-model-row">
             <button 
               type="button"
-              className="btn-form-model btn-cancelar-form-model"
+              className="btn-cancelar"
               onClick={() => {
                 setActive(false)
                 clearForm()
@@ -18,9 +20,9 @@ export const FormModel = ({children, title, onSubmit, active, setActive, clearFo
             >
               Cancelar
             </button>
-            <button type="submit" className="btn-form-model btn-enviar-form-model">
-              Guardar
-            </button>
+            <BotonLoading type="submit" loading={loading}>
+              {loading ? "Guardando" : "Guardar"}
+            </BotonLoading>
           </div>
         </fieldset>
       </form>
