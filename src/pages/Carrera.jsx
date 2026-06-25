@@ -98,13 +98,13 @@ export const Carrera = () => {
           ? <CarreraSkeleton />
           : <>
               <HeaderSection carrera={carrera} />
-              <main>
+              <div>
                 <InfoSection carrera={carrera} />
                 <PlanEstudiosSection
                   materias={materias}
                   cantidadMaterias={carrera.cantidadMaterias}
                 />
-              </main>
+              </div>
             </>
         }
       </section>

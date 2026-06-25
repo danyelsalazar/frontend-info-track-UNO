@@ -5,7 +5,6 @@
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 24px;
   box-sizing: border-box;
   font-family:
     system-ui,
@@ -31,6 +30,7 @@
   color: var(--color-text);
   letter-spacing: -0.02em;
   margin: 0;
+  margin-bottom: 1rem;
 }
 
 /* Botón "Nueva Tarea" superior */

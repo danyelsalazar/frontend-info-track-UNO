@@ -315,12 +315,12 @@ const Materia = () => {
     <main className="page-content">
       <section className="container-section">
         <HeaderSection materia={materia}/>
-        <main>
+        <div>
           <CorrelativasSection correlativas={materia.correlativas}/>
           <ProfesoresSection profesores={materia.profesores}/>
           <ComisionesSection comisionesActuales={materia.comisionesActuales} comisionesAnteriores={materia.comisionesAnteriores}/>
           <CarrerasSection planEstudio={materia.planEstudio}/>
-        </main>
+        </div>
       </section>
     </main>
   );
