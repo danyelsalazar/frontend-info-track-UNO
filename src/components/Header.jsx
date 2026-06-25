@@ -133,14 +133,6 @@ const Header = () => {
               </Link>
             </li>
             <li className="item-nav">
-              <Link
-                to={"/cuatrimestre-activo"}
-                onClick={() => setOpen(false)}
-              >
-                Cuatrimestre
-              </Link>
-            </li>
-            <li className="item-nav">
               <Link to={"/profesores"} onClick={() => setOpen(false)}>
                 Profesores
               </Link>

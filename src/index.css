@@ -90,8 +90,7 @@ main {
   align-items: center;
   padding: 0 1.25rem;
   background-color: var(--color-surface);
-  transition:
-    box-shadow 0.1s ease;
+  transition: box-shadow 0.1s ease;
   border-bottom: 1px solid var(--color-border);
 }
 .header-fijo.visible {
@@ -171,7 +170,6 @@ main {
   box-shadow: var(--shadow-lg);
   border-top: 1px solid var(--color-border);
   z-index: 200;
-
 }
 .nav-container.active {
   transform: translateX(0);
@@ -806,479 +804,6 @@ section {
   margin: 0 auto;
 }
 
-/* ================= CUATRIMESTRE ================= */
-
-.cuatrimestre-activo {
-  padding: 40px 16px;
-}
-
-/* HEADER */
-.title-top-careras-cuatrimestre {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.title-top-careras-cuatrimestre p {
-  color: var(--color-text-muted);
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.description-cuatri-active-top {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-/* ================= SCROLL ================= */
-
-.container-info-carreas-area-cuatrimestre-activo {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding-right: 6px;
-}
-
-/* scrollbar */
-.container-info-carreas-area-cuatrimestre-activo::-webkit-scrollbar {
-  width: 6px;
-}
-
-.container-info-carreas-area-cuatrimestre-activo::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
-}
-
-/* ================= CARD ================= */
-
-.container-materia-en-curso {
-  position: relative;
-  padding: 16px 16px 16px 18px;
-  border-radius: 14px;
-
-  background: var(--color-card);
-  border: 1px solid var(--color-border);
-
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  transition: all 0.25s ease;
-  z-index: 100;
-}
-.container-materia-en-curso::after {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: 14px;
-
-  background: linear-gradient(
-    120deg,
-    var(--color-primary),
-    var(--color-accent),
-    transparent 60%
-  );
-  opacity: 0;
-  z-index: 0;
-  transition: 0.3s;
-}
-/* hover */
-.container-materia-en-curso:hover {
-  position: relative;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-}
-.container-materia-en-curso:hover::after {
-  opacity: 0.2;
-  z-index: 10;
-}
-.container-materia-en-curso:hover .materia-code {
-  transform: scale(1.02);
-  color: #fff;
-  box-shadow: 0px 5px 35px rgba(8, 8, 8, 0.401);
-}
-.container-materia-en-curso:hover .profe-initials {
-  background-color: #d62c5b;
-  color: #fff;
-}
-
-/* ================= HEADER CARD ================= */
-
-.title-materia-en-curso-cuatrimestre {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.title-materia-curso {
-  font-size: 17px;
-  color: var(--color-text);
-  z-index: 200;
-}
-
-/* código tipo chip */
-.materia-code {
-  font-size: 11px;
-  color: #fff;
-  background: linear-gradient(
-    135deg,
-    var(--color-primary),
-    var(--color-accent)
-  );
-  padding: 4px 8px;
-  border-radius: 8px;
-  transition:
-    background-color ease 0.2s,
-    color ease 0.2s,
-    box-shadow ease.2s,
-    transform ease 0.2s;
-  font-weight: 800;
-}
-
-/* ================= INFO ================= */
-
-.carrera-cuatri-activo-materia {
-  font-size: 12px;
-  color: var(--color-text-muted);
-}
-
-/* schedule como etiqueta */
-.schedule {
-  font-size: 12px;
-  color: var(--color-text-muted);
-
-  background: rgba(255, 255, 255, 0.05);
-  padding: 6px 8px;
-  border-radius: 8px;
-  width: fit-content;
-  z-index: 200;
-}
-
-/* ================= PROFESORES ================= */
-
-.list-profesores-materia-cuatrimestre {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-/* cada profesor como chip */
-.item-list-materia-curso-pro {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-
-  font-size: 12px;
-
-  background: rgba(255, 255, 255, 0.04);
-  padding: 4px 8px;
-  border-radius: 999px;
-  z-index: 200;
-}
-
-/* initials */
-.profe-initials {
-  font-size: 10px;
-  font-weight: 400;
-
-  color: var(--color-text);
-  /* background: var(--color-primary); */
-
-  padding: 6px;
-  border-radius: 50%;
-  border: 0.5px solid #64748b42;
-  z-index: 200;
-  transition: background-color ease 0.4s;
-}
-
-/* ================= ANIMACIÓN SUAVE ================= */
-
-.container-materia-en-curso {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeSoft 0.4s ease forwards;
-}
-
-@keyframes fadeSoft {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===============Profesores mejores valorados=========
-========================================================= */
-/* ============================= */
-/* SECTION */
-/* ============================= */
-
-.profesores {
-  padding: 10px 16px;
-}
-
-/* ============================= */
-/* GRID */
-/* ============================= */
-
-.container-profes {
-  margin-top: 24px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-
-/* ============================= */
-/* CARD */
-/* ============================= */
-
-.item-profesor-materia {
-  position: relative;
-  padding: 18px;
-  border-radius: 18px;
-
-  background: var(--color-card);
-  border: 1px solid var(--color-border);
-
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-
-  transition: all 0.3s ease;
-  overflow: hidden;
-}
-
-/* gradiente SOLO en hover */
-.item-profesor-materia::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: radial-gradient(
-    circle at top left,
-    var(--color-primary),
-    transparent 60%
-  );
-
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-}
-
-.item-profesor-materia::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: radial-gradient(
-    circle at bottom right,
-    var(--color-accent),
-    transparent 60%
-  );
-
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-}
-
-/* HOVER */
-.item-profesor-materia:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 14px 25px rgba(0, 0, 0, 0.165);
-}
-
-.item-profesor-materia:hover::before {
-  opacity: 0.15;
-}
-
-.item-profesor-materia:hover::after {
-  opacity: 0.1;
-}
-
-/* ============================= */
-/* HEADER PROFESOR */
-/* ============================= */
-
-.descripcion-profe {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* ============================= */
-/* INDEX (ANIMADO) */
-/* ============================= */
-
-.index-profe {
-  font-size: 1.5rem;
-  font-weight: 700;
-
-  background: linear-gradient(
-    135deg,
-    var(--color-primary),
-    var(--color-accent)
-  );
-
-  transition: all 0.3s ease;
-}
-
-/* animación en hover */
-.item-profesor-materia:hover .index-profe {
-  transform: scale(1.2) translateY(-2px);
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
-}
-
-/* ============================= */
-/* TEXTO */
-/* ============================= */
-
-.description-profe-departament h4 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--color-text);
-}
-
-.departament-profe {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
-
-/* ============================= */
-/* RATING */
-/* ============================= */
-
-.rating {
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-}
-
-.rating span {
-  color: #f5c518;
-}
-
-.rating-resenias-profe {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.ratting-profe {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-text);
-}
-
-/* ============================= */
-/* ANIMACIÓN ENTRADA */
-/* ============================= */
-
-.item-profesor-materia {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeProf 0.4s ease forwards;
-}
-
-.item-profesor-materia:nth-child(1) {
-  animation-delay: 0.05s;
-}
-.item-profesor-materia:nth-child(2) {
-  animation-delay: 0.1s;
-}
-.item-profesor-materia:nth-child(3) {
-  animation-delay: 0.15s;
-}
-.item-profesor-materia:nth-child(4) {
-  animation-delay: 0.2s;
-}
-
-@keyframes fadeProf {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ============================= */
-/* RESPONSIVE */
-/* ============================= */
-
-@media (min-width: 768px) {
-  .container-profes {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .container-profes {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* top profesor */
-.top-profesor-badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-
-  font-size: 0.75rem;
-  font-weight: 600;
-
-  padding: 5px 10px;
-  border-radius: 999px;
-
-  display: flex;
-  align-items: center;
-  gap: 6px;
-
-  transform: scale(0.9);
-  opacity: 0;
-  animation: badgeIn 0.4s ease forwards;
-  animation-delay: 0.3s;
-  /* gradiente premium */
-  color: #1a1a1a;
-
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.161);
-
-  z-index: 2;
-}
-/* 🥇 */
-.rank-0 {
-  background: linear-gradient(135deg, #f5c518ba, #ff8c0066);
-}
-
-/* 🥈 */
-.rank-1 {
-  background: linear-gradient(135deg, #d1d5db8f, #9ca3af80);
-}
-
-/* 🥉 */
-.rank-2 {
-  background: linear-gradient(135deg, #cd803279, #a9704265);
-}
-
-/* animación */
-@keyframes badgeIn {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  60% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-@keyframes badgeIn {
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
 /* ==========================================================================
    ── VISTA DE CALENDARIO / ALMANAQUE RESPONSIVO
    ========================================================================== */
@@ -1287,7 +812,7 @@ section {
   width: 100%;
   max-width: 1240px;
   margin: 0 auto;
-  padding: 4rem 1.5rem;
+  padding: 1rem 1.5rem;
 }
 
 /* Grilla de meses adaptativa */
@@ -1309,9 +834,20 @@ section {
   display: flex;
   flex-direction: column;
   transition: var(--transition);
+  animation: caidaAlmanaque 0.45s cubic-bezier(0.25, 1, 0.5, 1) both;
 }
 
-/* Efecto hover sobre toda la tarjeta */
+@keyframes caidaAlmanaque {
+  from {
+    opacity: 0;
+    transform: translateY(-24px); /* Comienza suspendida más arriba */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Cae a su posición final */
+  }
+}
+
 .hoja-almanaque:hover {
   transform: translateY(-6px);
   box-shadow:
@@ -1320,7 +856,6 @@ section {
   border-color: rgba(47, 164, 169, 0.3);
 }
 
-/* Encabezadoo de la hoja del mes ¡AHORA CON GRADIENTE LLAMATIVO! */
 .hoja-almanaque-header {
   background: linear-gradient(
     135deg,
@@ -1333,7 +868,6 @@ section {
   transition: var(--transition);
 }
 
-/* Al hacer hover sobre el mes, el encabezado se ilumina sutilmente */
 .hoja-almanaque:hover .hoja-almanaque-header {
   filter: brightness(1.08);
 }
@@ -1493,6 +1027,7 @@ section {
   }
 }
 
+/* ==================================== */
 /* ================= DIVISOR ================= */
 p.divisor {
   font-size: 13px;
@@ -2274,6 +1809,7 @@ p.divisor i {
     var(--color-accent)
   );
   color: #fff;
+  margin-top: 5rem;
 }
 .footer-container {
   display: grid;
