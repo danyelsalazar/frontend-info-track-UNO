@@ -17,6 +17,7 @@ import { Carrera } from "./Carrera";
 import { Calendario } from "./Calendario";
 import { Carreras } from "./Carreras";
 import { MisTareas } from "./MisTareas";
+import PerfilLayout from "../components/PerfilLayout";
 
 const App = () => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
@@ -89,7 +90,7 @@ const App = () => {
     <>
       <ScrollTopTop />
 
-      {/* 🔥 BANNER PRO */}
+      {/* BANNER PRO */}
       {showBanner && !isInstalled && (
         <div
           style={{
@@ -165,43 +166,31 @@ const App = () => {
       )}
 
       <Routes>
+        {/* RUTAS PÚBLICAS CON SU PROPIO LAYOUT */}
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/materias" element={<Materias />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
           <Route path="/materia/:id" element={<Materia />} />
           <Route path="/profesores" element={<Profesores />} />
           <Route path="/profesor/:id" element={<Profesor />} />
           <Route path="/carreras" element={<Carreras />} />
           <Route path="/carrera/:id" element={<Carrera />} />
           <Route path="/cuatrimestre-activo" element={<CuatrimestrCurso />} />
-          <Route path="/recursos" element={<Recursos />} />
           <Route path="/calendario" element={<Calendario />} />
-          <Route path="/perfil/mis-tareas" element={<MisTareas />} />
         </Route>
 
+        {/* AUTENTICACIÓN SUELTA */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/perfil" element={<Dashboard />} />
-        <Route path="/perfil/mis-materias" element={<MateriasUser />} />
-      </Routes>
 
-      {/* animación */}
-      <style>
-        {`
-          @keyframes slideUp {
-            from {
-              transform: translate(-50%, 100%);
-              opacity: 0;
-            }
-            to {
-              transform: translate(-50%, 0);
-              opacity: 1;
-            }
-          }
-        `}
-      </style>
+        {/*SECCIONES PRIVADAS DE USUARIO CON SIDEBAR */}
+        <Route element={<PerfilLayout />}>
+          <Route path="/perfil" element={<Dashboard />} />
+          <Route path="/perfil/mis-materias" element={<MateriasUser />} />
+          <Route path="/perfil/mis-tareas" element={<MisTareas />} />
+          <Route path="/recursos" element={<Recursos />} />
+        </Route>
+      </Routes>
     </>
   );
 };

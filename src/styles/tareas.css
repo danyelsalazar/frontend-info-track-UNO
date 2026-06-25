@@ -1,0 +1,567 @@
+/* ==========================================================================
+   ── SECCIÓN TAREAS───────────
+   ========================================================================== */
+.tareas-section {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+}
+
+/* Contenedor de la cabecera (Título + Botón Nueva Tarea) */
+.tareas-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0 1.5rem 0; /* Margen superior para separarse del Header global */
+  gap: 16px;
+}
+
+.title-tareas-user {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* Botón "Nueva Tarea" superior */
+.btn-add-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 156, 209, 0.2);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.btn-add-inline:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 156, 209, 0.35);
+  opacity: 0.95;
+}
+
+.btn-add-inline:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   ── GRID DE KPI's / METRICAS (FLUIDO)
+   ========================================================================== */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.metric-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 18px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+}
+
+.metric-card.highlight {
+  border-color: rgba(0, 156, 209, 0.3);
+  background: rgba(0, 156, 209, 0.02);
+}
+
+.metric-val {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-weight: 700;
+  margin-top: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   ── LISTA DE TARJETAS (COMPONENTE PRINCIPAL)
+   ========================================================================== */
+.tareas-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Formato Tarjeta base */
+.tarea-item {
+  display: grid;
+  grid-template-columns: 6rem 1px 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 1.2rem 1.5rem;
+  border-radius: 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tarea-item:hover {
+  transform: translateY(-2px) translateX(4px);
+  border-color: rgba(0, 156, 209, 0.3);
+  box-shadow: 0 10px 20px -8px rgba(0, 156, 209, 0.12);
+}
+
+/* Estados de Prioridades (Bordes izquierdos destacados) */
+.tarea-item.prio-alta {
+  border: 4px dashed #ef44446e;
+}
+.tarea-item.prio-media {
+  border: 4px dashed #f59f0b75;
+}
+.tarea-item.prio-baja {
+  border: 4px dashed #10b9816a;
+}
+
+/* Contenedor Horario y Fecha */
+.horario-task {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  line-height: 1;
+}
+
+.time-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tarea-dia {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Divisor Vertical Línea de Tiempo */
+.divisor-horario-info {
+  height: 2.5rem;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-border),
+    transparent
+  );
+  width: 1.5px;
+}
+
+/* Cuerpo de la descripción */
+.tarea-item-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+  min-width: 0;
+}
+
+.task-description-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.tarea-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Envoltura de etiquetas */
+.badges-wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.tarea-badge {
+  padding: 3px 10px;
+  border-radius: 8px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-red {
+  background: rgba(214, 44, 91, 0.08);
+  color: #d62c5b;
+}
+.badge-yellow {
+  background: rgba(245, 158, 11, 0.08);
+  color: #f59e0b;
+}
+.badge-blue {
+  background: rgba(0, 156, 209, 0.08);
+  color: var(--color-primary);
+}
+
+.prio-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+.prio-badge.alta {
+  background: rgba(239, 68, 68, 0.08);
+  color: #ef4444;
+}
+.prio-badge.media {
+  background: rgba(245, 158, 11, 0.08);
+  color: #f59e0b;
+}
+.prio-badge.baja {
+  background: rgba(16, 185, 129, 0.08);
+  color: #10b981;
+}
+
+/* Botones de acción internos */
+.task-actions-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.task-action-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.task-action-btn.check:hover {
+  background: rgba(0, 156, 209, 0.05);
+}
+.task-action-btn.delete {
+  color: #a1a1aa;
+}
+.task-action-btn.delete:hover {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.08);
+}
+
+/* ==========================================================================
+   ── FORMULARIO FLOTANTE EN CAPA SUPERPUESTA (MODAL OVERLAY)
+   ========================================================================== */
+
+/* Fondo oscuro translúcido que cubre toda la pantalla */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.4); /* Color slate oscuro con opacidad */
+  backdrop-filter: blur(
+    4px
+  ); /* Suave desenfoque de fondo al estilo iOS/Notion */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Asegura que flote sobre headers, barras o cualquier elemento */
+  padding: 20px;
+  box-sizing: border-box;
+  animation: fadeInOverlay 0.2s ease-out;
+}
+
+/* Contenedor del formulario adaptado para ser un Pop-up */
+.tarea-form-card {
+  width: 100%;
+  max-width: 550px; /* Ancho ideal en escritorios */
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.75rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  animation: slideModalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); /* Efecto pop sutil */
+}
+
+.modal-title {
+  margin: 0 0 4px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.form-row-main {
+  display: flex;
+  gap: 12px;
+}
+.form-input-title {
+  flex: 2.5;
+}
+.form-input-day {
+  flex: 1;
+}
+
+.form-row-sub {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.form-inputs-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tarea-form-card input[type="text"],
+.tarea-form-card input[type="time"],
+.tarea-form-card select {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  background-color: rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.tarea-form-card input:focus,
+.tarea-form-card select:focus {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface);
+  box-shadow: 0 0 0 4px rgba(0, 156, 209, 0.12);
+}
+
+.actions-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+}
+
+.tarea-form-card button {
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-cancelar {
+  background: #f1f5f9;
+  color: #64748b;
+}
+.btn-cancelar:hover {
+  background: #e2e8f0;
+  color: #334155;
+}
+.btn-guardar {
+  background: var(--color-btn);
+  color: #ffffff;
+}
+.btn-guardar:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+/* ==========================================================================
+   ── ESTADO COMPLETO VACÍO
+   ========================================================================== */
+.empty-state-card {
+  text-align: center;
+  padding: 45px 20px;
+  background: var(--color-surface);
+  border: 2px dashed var(--color-border);
+  border-radius: 16px;
+  color: var(--color-text-muted);
+}
+.empty-state-card h4 {
+  margin: 14px 0 6px 0;
+  color: var(--color-text);
+  font-size: 1.15rem;
+}
+.empty-state-card p {
+  font-size: 0.9rem;
+  max-width: 420px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+.empty-icon {
+  color: var(--color-primary);
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   ── BREAKPOINTS RESPONSIVE (TABLETS Y TELEFONOS)
+   ========================================================================== */
+
+/* TABLETS: Disposición en rejilla de 2 columnas */
+@media (min-width: 650px) and (max-width: 1024px) {
+  .tareas-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .tarea-form-card {
+    grid-column: span 2;
+  }
+}
+
+/* DISPOSITIVOS MÓVILES */
+@media (max-width: 649px) {
+  .tareas-section {
+    padding: 16px;
+  }
+
+  .tareas-header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .btn-add-inline {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+  }
+
+  .metrics-grid {
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+  }
+
+  .tarea-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 1.25rem;
+  }
+
+  .divisor-horario-info {
+    display: none;
+  }
+
+  .horario-task {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 8px;
+  }
+
+  /* Formulario en cascada completa */
+  .form-row-main,
+  .form-row-sub,
+  .form-inputs-group {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .tarea-form-card input[type="text"],
+  .tarea-form-card input[type="time"],
+  .tarea-form-card select {
+    width: 100%;
+  }
+
+  .actions-container {
+    width: 100%;
+  }
+
+  .tarea-form-card button {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+  }
+  .tarea-form-card {
+    width: 100%;
+  }
+}
