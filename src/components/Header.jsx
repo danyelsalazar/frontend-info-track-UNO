@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom"; // <-- Agregamos useLocation
 import { useAuthContext } from "../hooks/useAuthContext";
 
 const BotonesAuth = ({ setOpen, navigate }) => {
@@ -20,7 +19,7 @@ const BotonesAuth = ({ setOpen, navigate }) => {
           setOpen(false);
           navigate("/register");
         }}
-        className="item-nav button-ingresar"
+        className="item-nav button-ingresar btn-registrarse"
       >
         Registrarse
       </li>
@@ -30,9 +29,7 @@ const BotonesAuth = ({ setOpen, navigate }) => {
 
 const BotonUsuario = ({ userIdentity }) => {
   return (
-    <Link 
-      to="/perfil"
-    >
+    <Link to="/perfil">
       <div className="avatar">
         {userIdentity.siglas}
       </div>
@@ -41,11 +38,11 @@ const BotonUsuario = ({ userIdentity }) => {
 };
 
 const Header = () => {
-  // Menu abierto en mobile
   const [open, setOpen] = useState(false);
   const [esVisible, setEsVisible] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation(); // <-- Detecta en qué página está el usuario de forma instantánea
   const navRef = useRef();
   const buttonRef = useRef();
 
@@ -61,36 +58,41 @@ const Header = () => {
         setOpen(false);
       }
     };
-    // abro un escuchador paran todos los click de la pagina
     document.addEventListener("mousedown", handleClickFuera);
 
-    //controlo scroll para mostrar el header
     const controlarScroll = () => {
-      // Cambia 200 por la cantidad de píxeles que tú quieras
-      if (window.scrollY > 5) {
-        setEsVisible(true);
+      const esPantallaInicio = location.pathname === "/" || location.search.includes("section=inicio");
+      
+      if (esPantallaInicio) {
+        if (window.scrollY > 10) {
+          setEsVisible(true);
+        } else {
+          setEsVisible(false);
+        }
       } else {
-        setEsVisible(false);
+        setEsVisible(true);
       }
     };
 
-    // Escuchar el evento de scroll del navegador
+    controlarScroll();
+
     window.addEventListener("scroll", controlarScroll);
 
     return () => {
-      // cierro el escuchador de clicks
       document.removeEventListener("mousedown", handleClickFuera);
-      // cierro el escuchador de scroll
       window.removeEventListener("scroll", controlarScroll);
     };
-  }, []);
+  }, [location]); // <-- Escucha activamente cada vez que cambia la sección o URL
 
   if(loading) return null;
+
+  const esPantallaInicio = location.pathname === "/" || location.search.includes("section=inicio");
+  const usarTransparente = esPantallaInicio && !esVisible;
 
   return (
     <header
       ref={navRef}
-      className={`header-fijo ${esVisible ? "visible" : ""}`}
+      className={`header-fijo ${usarTransparente ? "transparent-hero" : "scrolled-white"}`}
     >
       <div className="header-fijo-content">
         <Link to="/" className="container-logo-header">
@@ -111,7 +113,6 @@ const Header = () => {
           </div>
         </Link>
 
-        {/* botón hamburguesa */}
         <button
           ref={buttonRef}
           className={`menu-toggle ${open ? "hamburquesa-active" : ""}`}
