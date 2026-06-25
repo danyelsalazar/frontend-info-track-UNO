@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useMutation } from "@apollo/client/react";
 import { Rating } from "@mui/material";
 import { IconBook2, IconMail, IconStar } from "@tabler/icons-react";
 import { useProfesor } from "../hooks/useProfesor";
@@ -8,10 +7,9 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { Reseña } from "../components/Reseña";
 import { MateriaBadge } from "../components/MateriaBadge";
 import { BackButton } from "../components/BackButton";
-import { ProfesorSkeleton } from "../skeletons/ProfesorSkeleton";
 import { CrearValoracionForm } from "../components/CrearValoracionForm";
 import { EditarValoracionForm } from "../components/EditarValoracionForm";
-import { ELIMINAR_VALORACION } from "../graphql/profesor.mutations";
+import { ProfesorSkeleton } from "../skeletons/ProfesorSkeleton";
 
 const HeaderSection = ({ profesor, puntuaciones }) => {
   const cantidad = puntuaciones.length
