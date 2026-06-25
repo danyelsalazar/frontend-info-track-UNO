@@ -264,7 +264,7 @@ main {
   box-shadow: 0 4px 12px rgba(214, 44, 91, 0.4);
 }
 .header-fijo.transparent-hero .btn-registrarse {
-  background-color: var(--color-uno, #009cd1) !important;
+  background-color: var(--color-primary-dark) !important;
 }
 .header-fijo.transparent-hero .btn-registrarse:hover {
   background-color: #0082b0 !important;

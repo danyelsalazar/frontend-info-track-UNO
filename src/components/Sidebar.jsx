@@ -33,7 +33,7 @@ const ACCESOS = [
   {
     label: "Mis Valoraciones",
     icon: <IconStar size={22} />,
-    path: "/mi-perfil",
+    path: "/perfil/mis-valoraciones",
   },
   { label: "Recursos", icon: <IconFolder size={22} />, path: "/recursos" },
 ];
