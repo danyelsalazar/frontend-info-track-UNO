@@ -2,6 +2,7 @@
 
 Aplicacion web progresiva (PWA) para la plataforma InfoTrack, orientada a estudiantes universitarios de la Universidad Nacional del Oeste (UNO). Permite consultar materias, carreras y profesores, y gestionar el seguimiento personal del avance academico.
 
+#### Link demo: ```https://infotrack.vercel.app/```
 ---
 
 ## Tecnologias utilizadas
