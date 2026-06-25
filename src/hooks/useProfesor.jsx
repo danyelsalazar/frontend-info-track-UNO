@@ -21,10 +21,15 @@ export const useProfesor = () => {
     setPuntuaciones(p => [valoracion, ...p])
   }
 
+  const quitarValoracion = (valoracionId) => {
+    setPuntuaciones(p => p.filter(puntuacion => puntuacion.id !== valoracionId))
+  }
+
   return {
     profesor,
     loading,
     puntuaciones,
-    addValoracion
+    addValoracion,
+    quitarValoracion
   }
 }

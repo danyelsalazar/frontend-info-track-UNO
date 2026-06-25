@@ -133,8 +133,13 @@ const ListarValoraciones = ({ puntuaciones }) => {
 
 export const Profesor = () => {
   const [formActive, setFormActive] = useState(false)
-  const { profesor, loading, puntuaciones, addValoracion } = useProfesor()
+  const { profesor, loading, puntuaciones, addValoracion, quitarValoracion } = useProfesor()
   const [ eliminarValoracion, {loading: loadingEliminar} ] = useMutation(ELIMINAR_VALORACION)
+
+  const handleEliminarValoracion = async (id) => {
+    await eliminarValoracion({ variables: { puntuacionId: id } })
+    quitarValoracion(id)
+  }
 
   if (loading) return <ProfesorSkeleton />;
 
@@ -143,7 +148,7 @@ export const Profesor = () => {
       <div className="container-section">
         <HeaderSection profesor={profesor} puntuaciones={puntuaciones} />
         <MateriasSection materias={profesor.materias} />
-        <ValoracionesSection puntuaciones={puntuaciones} showForm={() => setFormActive(true)} eliminarValoracion={eliminarValoracion}/>
+        <ValoracionesSection puntuaciones={puntuaciones} showForm={() => setFormActive(true)} eliminarValoracion={handleEliminarValoracion}/>
       </div>
       <CrearValoracionForm 
         active={formActive} 

@@ -29,7 +29,7 @@ export const Reseña = ({ puntuacion, mine = false, eliminarValoracion = undefin
             <button className="btn-crud-valoration">
               <IconEdit size={16} className="icon-edit"/>
             </button>
-            <button className="btn-crud-valoration" onClick={() => eliminarValoracion({ variables: { puntuacionId: puntuacion.id } })}>
+            <button className="btn-crud-valoration" onClick={() => eliminarValoracion(puntuacion.id)}>
               <IconTrash size={16} />
               
             </button>
