@@ -29,3 +29,20 @@ export const ELIMINAR_VALORACION = gql`
     }
   }
 `
+
+export const MODIFICAR_VALORACION = gql`
+  mutation ModificarPuntuacionProfesor($puntuacionId: ID!, $puntuacion: Int, $comentario: String) {
+    modificarPuntuacionProfesor(puntuacionId: $puntuacionId, puntuacion: $puntuacion, comentario: $comentario) {
+      id
+      puntuacion
+      usuario {
+        id
+        nombre
+        apellido
+        siglas
+      }
+      fecha
+      comentario
+    }
+  }
+`
