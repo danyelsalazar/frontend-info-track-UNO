@@ -32,7 +32,7 @@ export const MiMateria = ({materia, onEditar}) => {
         </Link>
         <div className="buttons-container-materia-user">
           <button className="materia-user-button" onClick={onEditar} disabled={loadingRemove}>
-            <IconEdit color="var(--color-btn)"/>
+            <IconEdit color="var(--color-primary)"/>
           </button>
           <BotonLoading className="materia-user-button" onClick={handleRemove} colorSpinner="#d62c5b" loading={loadingRemove} size={25}>
             { !loadingRemove && <IconTrash color="var(--color-btn)"/>}

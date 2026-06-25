@@ -14,7 +14,7 @@
   padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* Espaciado más compacto entre tarjetas */
+  gap: 1rem; 
 }
 
 /* MENSAJES DE CARGA O COMPONENTES VACÍOS */
@@ -122,7 +122,7 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  padding: 0.9rem 1.5rem; /* Padding reducido drásticamente para hacerla esbelta */
+  padding: 0.9rem 1.5rem; 
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column; 
@@ -143,11 +143,11 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  flex: 1; /* Toma el espacio disponible izquierdo de forma fluida */
+  flex: 1; 
 }
 
 .title-materia-user-card {
-  font-size: 1.15rem; /* Equilibrado, ni muy gigante ni chico */
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--color-text);
   text-decoration: none;
@@ -162,11 +162,11 @@
 /* ── BLOQUE CENTRAL: DETALLES INLINE SIN ESPACIOS VACÍOS ─────────────────── */
 .materia-user-content {
   display: flex;
-  flex-direction: row; /* Se alinea en horizontal al lado del título */
+  flex-direction: row; 
   align-items: center;
-  gap: 2rem; /* Separación fija y elegante entre datos */
+  gap: 2rem; 
   padding-top: 0;
-  border-top: none; /* Quitamos la línea molesta que dividía antes */
+  border-top: none; 
 }
 
 /* Información de cursada, notas, llamados, etc. */
@@ -175,7 +175,7 @@
   color: var(--color-text-muted);
   margin: 0;
   font-weight: 500;
-  white-space: nowrap; /* Evita saltos de línea raros */
+  white-space: nowrap;
 }
 
 .number-nota {
@@ -220,7 +220,7 @@
 }
 
 .materia-user-button {
-  background: transparent; /* Más minimalistas, sin fondo rígido */
+  background: transparent;
   border: none;
   border-radius: var(--radius-sm);
   width: 34px;
@@ -255,6 +255,9 @@
     width: auto;
     white-space: nowrap;
   }
+  .buttons-container-materia-user {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 900px) {
@@ -275,11 +278,11 @@
     width: 100%;
     justify-content: flex-start;
     gap: 1.5rem;
-    flex-wrap: wrap; /* Se defiende si hay muchos datos */
+    flex-wrap: wrap; 
   }
 
   .buttons-container-materia-user {
-    order: 2; /* Los botones se quedan fijos arriba a la derecha */
+    order: 2; 
   }
 }
 
