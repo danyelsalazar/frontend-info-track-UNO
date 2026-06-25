@@ -1,9 +1,9 @@
+import { BotonLoading } from "../components/BotonLoading";
 import { useCarreras } from "../hooks/useCarreras";
 import { useRegister } from "../hooks/useRegister";
 
 const Register = () => {
-  // TODO: Mostrar errores, Mostrar cargando
-  const { error, loading, form, navigate, handleChange, handleSubmit } = useRegister()
+  const { loading, form, navigate, handleChange, handleSubmit } = useRegister()
   const { carreras } = useCarreras()
 
   return (
@@ -23,6 +23,7 @@ const Register = () => {
             required
             minLength={3}
             maxLength={40}
+            disabled={loading}
           />
 
           <input
@@ -34,6 +35,7 @@ const Register = () => {
             required
             minLength={3}
             maxLength={40}
+            disabled={loading}
           />
 
           <input
@@ -43,6 +45,7 @@ const Register = () => {
             value={form.email}
             onChange={handleChange}
             required
+            disabled={loading}
           />
 
           <input
@@ -54,6 +57,7 @@ const Register = () => {
             minLength={8}
             maxLength={100}
             required
+            disabled={loading}
           />
 
           {/* SELECT CARRERA */}
@@ -71,10 +75,10 @@ const Register = () => {
               ))
             }
           </select>
-
-          <button type="submit" className="btn-primary">
-            Registrarse
-          </button>
+          
+          <BotonLoading loading={loading} type="submit">
+            { loading ? "Registrando" : "Registrarse"}
+          </BotonLoading>
         </form>
         <p className="forgot">
           ¿Ya tenés cuenta?{" "}
