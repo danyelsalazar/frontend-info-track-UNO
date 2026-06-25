@@ -7,7 +7,7 @@ import { MODIFICAR_VALORACION } from "../graphql/profesor.mutations"
 export const EditarValoracionForm = ({ valoracion, onModified, active, setActive }) => {
   const [puntuacion, setPuntuacion] = useState(valoracion?.puntuacion ?? 0)
   const [comentario, setComentario] = useState(valoracion?.comentario ?? "")
-  const [modificarValoracion, { loading, error }] = useMutation(MODIFICAR_VALORACION)
+  const [modificarValoracion, { loading }] = useMutation(MODIFICAR_VALORACION)
 
   useEffect(() => {
     if (valoracion) {
@@ -38,12 +38,14 @@ export const EditarValoracionForm = ({ valoracion, onModified, active, setActive
       setActive={setActive}
       onSubmit={onSubmit}
       clearForm={resetForm}
+      loading={loading}
     >
       <Rating
         size="large"
         name="puntuacion"
         value={puntuacion}
         onChange={(_, newValue) => setPuntuacion(newValue)}
+        disabled={loading}
       />
       <textarea
         name="comentario"
@@ -51,6 +53,7 @@ export const EditarValoracionForm = ({ valoracion, onModified, active, setActive
         onChange={(e) => setComentario(e.target.value)}
         placeholder="Dejá tu comentario..."
         className="textare-valoracio-profe"
+        disabled={loading}
       />
     </FormModel>
   )

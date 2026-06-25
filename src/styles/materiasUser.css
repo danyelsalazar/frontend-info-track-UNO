@@ -232,9 +232,14 @@
   transition: var(--transition);
 }
 
-.materia-user-button:hover {
+.materia-user-button:not(:disabled):hover {
   background: var(--color-card-bg);
   transform: scale(1.08);
+}
+
+.materia-user-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* ==========================================================================

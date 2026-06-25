@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const Footer = () => {
+  const { userIdentity } = useAuthContext()
+
   return (
     <footer className="footer">
       <div className="footer-container">
@@ -20,8 +23,8 @@ const Footer = () => {
           </div>
 
           <p className="footer-description">
-            Plataforma académica para estudiantes de informática. Seguimiento de
-            materias, profesores y progreso en un solo lugar.
+            Plataforma académica para estudiantes de informática de la Universidad Nacional del Oeste. 
+            Seguimiento de materias, profesores y progreso en un solo lugar.
           </p>
         </div>
 
@@ -29,17 +32,23 @@ const Footer = () => {
         <div className="footer-links">
           <div>
             <h4>Secciones</h4>
-            <a href="#">Carreras</a>
-            <a href="#">Cuatrimestre</a>
+            <Link to="/carreras">Carreras</Link>
             <Link to="/profesores">Profesores</Link>
             <Link to="/materias">Materias</Link>
-            <a href="#">Novedades</a>
+            <Link to="/calendario">Calendario</Link>
           </div>
 
           <div>
             <h4>Cuenta</h4>
-            <Link to="/login">Ingresar</Link>
-            <Link to="/register">Registrarse</Link>
+            {!userIdentity
+              ? (
+                <>
+                  <Link to="/login">Ingresar</Link>
+                  <Link to="/register">Registrarse</Link>
+                </>
+              )
+              : <Link to="/perfil">Mi perfil</Link>
+            }
           </div>
         </div>
       </div>
