@@ -113,6 +113,9 @@
   position: relative;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
+  transform: translateY(30px);
+  animation: appleFade 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: calc(var(--index) * 20ms);
 }
 
 .stat-card:hover {
