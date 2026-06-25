@@ -1,7 +1,8 @@
 import { Rating } from "@mui/material";
 import { IconEdit, IconTrash } from "@tabler/icons-react";
+import { BotonLoading } from "./BotonLoading";
 
-export const Reseña = ({ puntuacion, showModificarForm, eliminarValoracion = undefined, mine = false}) => {
+export const Reseña = ({ loadingEliminar, puntuacion, showModificarForm, eliminarValoracion = undefined, mine = false}) => {
   const fecha = new Date(Number(puntuacion.fecha));
   const fechaFormateada = fecha.toLocaleDateString("es-AR");
 
@@ -29,9 +30,13 @@ export const Reseña = ({ puntuacion, showModificarForm, eliminarValoracion = un
             <button className="btn-crud-valoration" onClick={showModificarForm}>
               <IconEdit size={16} className="icon-edit"/>
             </button>
-            <button className="btn-crud-valoration" onClick={() => eliminarValoracion(puntuacion.id)}>
-              <IconTrash size={16} />
-            </button>
+            <BotonLoading 
+              className="btn-crud-valoration" 
+              loading={loadingEliminar} 
+              onClick={() => eliminarValoracion(puntuacion.id)}
+            >
+              {!loadingEliminar && <IconTrash size={16} />}
+            </BotonLoading>
           </div>
         )}
       </header>
