@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import Inicio from "../components/Inicio";
 import Features from "../components/Features";
 import HowItWorks from "../components/HowItWorks";
-import CTAFinal from "../components/CTAFinal";
 import "../index.css";
 
 const Home = () => {
@@ -30,7 +29,6 @@ const Home = () => {
         <div className="container-sections-landing-page">
           <Features/>
           <HowItWorks/>
-          <CTAFinal/>
         </div>
       </main>
     </>
