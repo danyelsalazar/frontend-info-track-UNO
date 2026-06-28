@@ -41,8 +41,7 @@ export default function Recursos() {
       <Header />
 
       <div className="content-recursos-wrapper">
-        {/* ENCABEZADO PRINCIPAL */}
-        <div className="header-recursos-landing">
+        <div className="header-recursos-landing animate-cascade" style={{ animationDelay: "0.05s" }}>
           <div className="title-icon-wrapper">
             <h3>Accedé a todos los apuntes</h3>
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -66,7 +65,6 @@ export default function Recursos() {
             Resúmenes completos, organizados por materia y profesor. Aprobá más fácil, en menos tiempo.
           </p>
 
-          {/* SECCIÓN EXPLICATIVA */}
           <div className="por-que-es-pago">
             <h4 className="por-que">¿Por qué es pago?</h4>
             <p>
@@ -76,35 +74,31 @@ export default function Recursos() {
           </div>
         </div>
 
-        {/* CONTENEDOR DE TARJETAS */}
         <div className="container-cards">
-          {plansMock.map((plan) => (
+          {plansMock.map((plan, index) => (
             <div
               key={plan.id}
-              className={`card-plan ${selectedPlan === plan.id ? "active" : ""}`}
+              className={`card-plan ${selectedPlan === plan.id ? "active" : ""} animate-cascade`}
+              style={{ animationDelay: `${(index + 2) * 0.08}s` }}
               onClick={() => handleSelectPlan(plan.id)}
             >
-              {/* 1. Selector circular izquierdo */}
               <div className="circle-select-plan">
                 {selectedPlan === plan.id && <div className="dot" />}
               </div>
 
-              {/* 2. Bloque central de textos */}
               <div className="info-plan">
                 <span className="title-plan">{plan.title}</span>
                 <span className="description-plan">{plan.description}</span>
               </div>
 
-              {/* 3. Precio a la derecha */}
               <b className="precio">${plan.price}</b>
 
-              {/* Badge flotante "Más elegido" */}
               {plan.popular && <span className="mas-elegido">MÁS POPULAR</span>}
             </div>
           ))}
         </div>
-        {/* CONTENEDOR DEL CTA FIJO/ANCLADO */}
-        <div className="cta-container-fixed">
+
+        <div className="cta-container-fixed animate-cascade" style={{ animationDelay: `${(plansMock.length + 2) * 0.08}s` }}>
           <button className="suscribirme" onClick={handleSubscribe}>
             Desbloquear todos los apuntes
           </button>
