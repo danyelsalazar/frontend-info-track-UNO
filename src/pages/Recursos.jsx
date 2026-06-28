@@ -44,7 +44,7 @@ export default function Recursos() {
         <div className="header-recursos-landing animate-cascade" style={{ animationDelay: "0.05s" }}>
           <div className="title-icon-wrapper">
             <h3>Accedé a todos los apuntes</h3>
-            <img src="../../public/favicon.png" alt="info-track" style={{width: "45px"}}/>
+            <img src="../../public/icon-512.png" alt="info-track" style={{width: "45px"}}/>
           </div>
           <p className="subtitle-recursos">
             Resúmenes completos, organizados por materia y profesor. Aprobá más fácil, en menos tiempo.
