@@ -17,7 +17,7 @@ function MisValoraciones() {
           <span className="badge-coming">PRÓXIMAMENTE</span>
           
           <p>
-            ¡Muy pronto vas a poder calificar los apuntes de tus compañeros, dejar reseñas de las cátedras y guardar tus profesores favoritos en un solo lugar!
+            ¡Muy pronto vas a poder llevar registro de reseñas de las cátedras y guardar tus profesores favoritos en un solo lugar!
           </p>
           
           <div className="valoraciones-footer-hint">
