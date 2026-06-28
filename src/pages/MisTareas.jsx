@@ -1,5 +1,5 @@
 import "../styles/tareas.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   IconCircleCheck,
   IconCircle,
@@ -11,12 +11,13 @@ import {
 } from "@tabler/icons-react";
 import Header from "../components/Header";
 
-const TAREAS_INICIALES = [
-  
-];
-
 export const MisTareas = () => {
-  const [tareas, setTareas] = useState(TAREAS_INICIALES);
+  // Inicialización segura desde localStorage
+  const [tareas, setTareas] = useState(() => {
+    const guardadas = localStorage.getItem("infotrack_tareas");
+    return guardadas ? JSON.parse(guardadas) : [];
+  });
+  
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
 
   const [nuevoTitulo, setNuevoTitulo] = useState("");
@@ -25,7 +26,11 @@ export const MisTareas = () => {
   const [nuevoTipo, setNuevoTipo] = useState("Tarea");
   const [nuevaPrioridad, setNuevaPrioridad] = useState("Media");
 
-  // Métricas calculadas en tiempo real
+  // Guardar en localStorage de forma automática cuando muta el estado
+  useEffect(() => {
+    localStorage.setItem("infotrack_tareas", JSON.stringify(tareas));
+  }, [tareas]);
+
   const totalTareas = tareas.length;
   const completadas = tareas.filter((t) => t.completada).length;
   const pendientes = totalTareas - completadas;
@@ -37,7 +42,7 @@ export const MisTareas = () => {
   };
 
   const handleEliminarTarea = (index, e) => {
-    e.stopPropagation(); // Evita que se dispare el click de completado
+    e.stopPropagation();
     setTareas(tareas.filter((_, i) => i !== index));
   };
 
@@ -72,7 +77,7 @@ export const MisTareas = () => {
   return (
     <div className="tareas-section page-content">
       <Header />
-      <div className="tareas-header-container">
+      <div className="tareas-header-container animate-cascade" style={{ animationDelay: "0.05s" }}>
         <h3 className="title-tareas-user">Gestión de Tareas</h3>
         {!mostrarFormulario && (
           <button
@@ -85,8 +90,7 @@ export const MisTareas = () => {
         )}
       </div>
 
-      {/* 1. PANEL DE MÉTRICAS (NUEVO) */}
-      <div className="metrics-grid">
+      <div className="metrics-grid animate-cascade" style={{ animationDelay: "0.12s" }}>
         <div className="metric-card">
           <span className="metric-val">{pendientes}</span>
           <span className="metric-label">Pendientes</span>
@@ -107,7 +111,7 @@ export const MisTareas = () => {
           <span className="metric-label">Próxima Urgente</span>
         </div>
       </div>
-      {/* FORMULARIO FLOTANTE (MODAL) */}
+
       {mostrarFormulario && (
         <div
           className="modal-overlay"
@@ -116,7 +120,7 @@ export const MisTareas = () => {
           <form
             onSubmit={handleAgregarTarea}
             className="tarea-form-card"
-            onClick={(e) => e.stopPropagation()} // Evita que se cierre al hacer click dentro del formulario
+            onClick={(e) => e.stopPropagation()}
           >
             <h4 className="modal-title">Nueva Tarea</h4>
 
@@ -166,28 +170,27 @@ export const MisTareas = () => {
               </div>
             </div>
             <div className="actions-container">
-                <button
-                  type="button"
-                  onClick={() => setMostrarFormulario(false)}
-                  className="btn-cancelar-tareas"
-                >
-                  Cancelar
-                </button>
-                <button type="submit" className="btn-guardar-tareas">
-                  Guardar
-                </button>
-              </div>
+              <button
+                type="button"
+                onClick={() => setMostrarFormulario(false)}
+                className="btn-cancelar-tareas"
+              >
+                Cancelar
+              </button>
+              <button type="submit" className="btn-guardar-tareas">
+                Guardar
+              </button>
+            </div>
           </form>
         </div>
       )}
-      {/* 2. ESTADO VACÍO (NUEVO) */}
+
       {totalTareas === 0 && (
-        <div className="empty-state-card">
+        <div className="empty-state-card animate-cascade" style={{ animationDelay: "0.2s" }}>
           <IconChecklist size={48} className="empty-icon" />
           <h4>¡Todo limpio por acá!</h4>
           <p>
-            No tenés entregas ni parciales registrados. Disfrutá el tiempo libre
-            o agrega una nueva meta.
+            No tenés entregas ni parciales registrados. Disfrutá el tiempo libre o agrega una nueva meta.
           </p>
         </div>
       )}
@@ -196,8 +199,11 @@ export const MisTareas = () => {
         {tareas.map((t, i) => (
           <li
             key={i}
-            className={`tarea-item prio-${t.prioridad.toLowerCase()}`}
-            style={{ opacity: t.completada ? 0.6 : 1 }}
+            className={`tarea-item prio-${t.prioridad.toLowerCase()} animate-cascade`}
+            style={{ 
+              opacity: t.completada ? 0.6 : 1,
+              animationDelay: `${(i + 2) * 0.08}s` 
+            }}
           >
             <div className="horario-task">
               <span className="time-text">

@@ -42,16 +42,16 @@ export const MiMateria = ({ materia, onEditar }) => {
             onClick={onEditar}
             disabled={loadingRemove}
           >
-            <IconEdit color="var(--color-primary)" />
+            <IconEdit color="var(--color-dark)" />
           </button>
           <BotonLoading
             className="materia-user-button"
             onClick={handleRemove}
-            colorSpinner="#d62c5b"
+            colorSpinner="#65d62c"
             loading={loadingRemove}
             size={25}
           >
-            {!loadingRemove && <IconTrash color="var(--color-btn)" />}
+            {!loadingRemove && <IconTrash color="var(--color-dark)" />}
           </BotonLoading>
         </div>
       </header>
@@ -70,7 +70,7 @@ export const MiMateria = ({ materia, onEditar }) => {
           <>
             <p className="nota-materia">
               Vencimiento:{" "}
-              <b className="number-nota">{`${materia.vencimiento?.fecha}º fecha ${materia.vencimiento?.anio}`}</b>
+              <b className="number-nota vencimiento">{`${materia.vencimiento?.fecha}º fecha ${materia.vencimiento?.anio}`}</b>
             </p>
             <p className="nota-materia">
               Llamados usados:{" "}
