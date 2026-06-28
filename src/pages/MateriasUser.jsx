@@ -7,6 +7,7 @@ import { MiMateria } from "../components/MiMateria";
 import { CrearEstadoMateriaForm } from "../components/CrearEstadoMateriaForm";
 import { useFiltroMisMaterias } from "../hooks/useFiltroMisMaterias";
 import { EditarEstadoMateriaForm } from "../components/EditarEstadoMateriaForm";
+import {MateriasUserSkeleton} from "../skeletons/MateriasUserSkeleton"
 
 const MateriasUser = () => {
   const { userIdentity, loading, error } = useAuthContext();
@@ -29,8 +30,8 @@ const MateriasUser = () => {
     setOrden,
   } = useFiltroMisMaterias({ materias });
 
-  // Manejo de estados de carga y error
-  if (loading) return <p>Cargando datos del usuario...</p>;
+  // Manejo de estados de carga skeleton
+  if (loading) return <MateriasUserSkeleton />;
   if (error) return <p>Error: {error.message}</p>;
 
   return (
