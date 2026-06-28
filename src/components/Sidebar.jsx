@@ -35,7 +35,7 @@ const ACCESOS = [
     icon: <IconStar size={22} />,
     path: "/perfil/mis-valoraciones",
   },
-  { label: "Recursos", icon: <IconFolder size={22} />, path: "/recursos" },
+  { label: "Apuntes Premium", icon: <IconFolder size={22} className="apuntes-premiun"/>, path: "/recursos" },
 ];
 
 export default function Sidebar() {

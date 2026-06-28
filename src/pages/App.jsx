@@ -17,6 +17,7 @@ import { Calendario } from "./Calendario";
 import { Carreras } from "./Carreras";
 import { MisTareas } from "./MisTareas";
 import PerfilLayout from "../components/PerfilLayout";
+import {MisValoraciones} from "./MisValoraciones";
 
 const App = () => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
@@ -186,6 +187,7 @@ const App = () => {
           <Route path="/perfil" element={<Dashboard />} />
           <Route path="/perfil/mis-materias" element={<MateriasUser />} />
           <Route path="/perfil/mis-tareas" element={<MisTareas />} />
+          <Route path="/perfil/mis-valoraciones" element={<MisValoraciones/>}/>
           <Route path="/recursos" element={<Recursos />} />
         </Route>
       </Routes>

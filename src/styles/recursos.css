@@ -1,0 +1,273 @@
+/* ==========================================================================
+   ── CONTENEDOR PRINCIPAL Y LAYOUT
+   ========================================================================== */
+.container-recursos {
+  height: max-content;
+  color: #f8fafc;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  box-sizing: border-box;
+  padding: 1rem;
+  overflow: hidden;
+  position: fixed;
+}
+
+.content-recursos-wrapper {
+  max-width: 540px;
+  height: max-content;
+  padding: 3rem 1.25rem ;
+}
+/* ==========================================================================
+   ── ENCABEZADOS (Estilo "Check out")
+   ========================================================================== */
+.header-recursos-landing {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.title-icon-wrapper h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-primary);
+  letter-spacing: -0.025em;
+}
+
+.subtitle-recursos {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  line-height: 1.5;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Bloque "¿Por qué es pago?" */
+.por-que-es-pago {
+  background-color: var(--color-card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.por-que-es-pago h4 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.25rem 0;
+}
+
+.por-que-es-pago p {
+  font-size: 1rem;
+  color: #94a3b8;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ==========================================================================
+   ── TARJETAS DE PLANES (Fila limpia basada en image_eb2cc1.png)
+   ========================================================================== */
+.container-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card-plan {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-card-bg);
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 1.25rem;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+/* Estado Activo / Seleccionado */
+.card-plan.active {
+  border-color: var(--color-border);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
+}
+
+/* 1. Radio button circular izquierdo */
+.circle-select-plan {
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--color-primary-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14px;
+  flex-shrink: 0;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.card-plan.active .circle-select-plan {
+  border-color: var(--color-uno, #009cd1);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
+}
+
+.circle-select-plan .dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+/* 2. Textos Centrales */
+.info-plan {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 2px;
+  padding-right: 8px;
+}
+
+.title-plan {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.description-plan {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
+
+/* 3. Precio Izquierdo */
+.precio {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  flex-shrink: 0;
+}
+
+.card-plan.active .title-plan {
+  color: var(--color-bg);
+}
+.card-plan.active .description-plan {
+  color: #e0dbdb;
+}
+.card-plan.active .precio {
+  color: var(--color-bg);
+}
+
+/* Badge Superior Derecho "MÁS POPULAR" */
+.mas-elegido {
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  background-color: var(--color-btn);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.4);
+}
+
+/* ==========================================================================
+   ── ACCIÓN PRINCIPAL (CTA de compra inferior)
+   ========================================================================== */
+.cta-container-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 3rem 2rem;
+  box-sizing: border-box;
+  z-index: 50;
+}
+
+.suscribirme {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: var(--color-btn);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 1rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px -5px var(--color-btn);
+  transition:
+    transform 0.15s ease,
+    background-color 0.2s ease;
+}
+
+.suscribirme:hover {
+  background-color: var(--color-primary-dark);
+  box-shadow: 0 4px 14px -5px var(--color-primary-dark);
+}
+
+.suscribirme:active {
+  transform: scale(0.98);
+}
+
+/* animacion de entrada */
+@keyframes cascadeFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-cascade {
+  opacity: 0;
+  animation: cascadeFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ==========================================================================
+   ── MEDIA QUERIES (Adaptación Escritorio)
+   ========================================================================== */
+@media (min-width: 768px) {
+  .content-recursos-wrapper {
+    max-width: 620px;
+    padding-bottom: 4rem; /* No requiere tanto aire abajo si cambia la barra */
+  }
+
+  /* El botón deja de flotar en pantallas grandes para integrarse al flujo del diseño */
+  .cta-container-fixed {
+    position: static;
+    background: transparent;
+    padding: 1rem 0 0 0;
+  }
+
+  .suscribirme {
+    max-width: 100%;
+  }
+}

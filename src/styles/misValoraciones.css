@@ -1,0 +1,93 @@
+.valoraciones-container {
+  min-height: 100vh;
+  color: #f8fafc;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  box-sizing: border-box;
+}
+
+.valoraciones-content-wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 100px 1.25rem 4rem;
+}
+
+.valoraciones-card-coming {
+  background-color: var(--color-card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.icon-wrapper-stars {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.stars-icon {
+  color: var(--color-bg, #009cd1);
+}
+
+.valoraciones-card-coming h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 0.75rem 0;
+  letter-spacing: -0.025em;
+}
+
+.badge-coming {
+  display: inline-block;
+  background-color: var(--color-btn);
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+}
+
+.valoraciones-card-coming p {
+  font-size: 1.2rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+}
+
+.valoraciones-footer-hint {
+  font-size: 1.1rem;
+  color: #64748b;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 1.25rem;
+  line-height: 1.4;
+}
+
+@keyframes cascadeFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-cascade {
+  opacity: 0;
+  animation: cascadeFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
