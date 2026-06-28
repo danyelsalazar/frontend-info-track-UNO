@@ -67,7 +67,7 @@
 }
 
 .por-que-es-pago p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #94a3b8;
   line-height: 1.4;
   margin: 0;
@@ -150,19 +150,19 @@
 }
 
 .title-plan {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 600;
   color: var(--color-primary);
 }
 
 .description-plan {
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: var(--color-text-muted);
 }
 
 /* 3. Precio Izquierdo */
 .precio {
-  font-size: 1.15rem;
+  font-size: 1.45rem;
   font-weight: 700;
   color: var(--color-text);
   flex-shrink: 0;
@@ -185,12 +185,12 @@
   right: 16px;
   background-color: var(--color-btn);
   color: #ffffff;
-  font-size: 0.65rem;
+  font-size: 1rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   padding: 3px 8px;
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 /* ==========================================================================
@@ -215,8 +215,8 @@
   color: #fff;
   border: none;
   border-radius: 14px;
-  padding: 1rem;
-  font-size: 1.4rem;
+  padding: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 4px 14px -5px var(--color-btn);
