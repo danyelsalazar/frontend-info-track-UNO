@@ -7,14 +7,13 @@ import { MiMateria } from "../components/MiMateria";
 import { CrearEstadoMateriaForm } from "../components/CrearEstadoMateriaForm";
 import { useFiltroMisMaterias } from "../hooks/useFiltroMisMaterias";
 import { EditarEstadoMateriaForm } from "../components/EditarEstadoMateriaForm";
-import {MateriasUserSkeleton} from "../skeletons/MateriasUserSkeleton"
+import { MateriasUserSkeleton } from "../skeletons/MateriasUserSkeleton";
 
 const MateriasUser = () => {
   const { userIdentity, loading, error } = useAuthContext();
   const [crearActive, setCrearActive] = useState(false);
   const [materiaEditando, setMateriaEditando] = useState(null);
 
-  // Desestructuración segura del usuario
   const { materias = [] } = userIdentity || {};
 
   const {
@@ -30,7 +29,6 @@ const MateriasUser = () => {
     setOrden,
   } = useFiltroMisMaterias({ materias });
 
-  // Manejo de estados de carga skeleton
   if (loading) return <MateriasUserSkeleton />;
   if (error) return <p>Error: {error.message}</p>;
 
@@ -38,7 +36,8 @@ const MateriasUser = () => {
     <div className="materias-user-container">
       <Header />
       <div className="container-sub-materias-user">
-        <div className="filter-materias-user">
+        {/* Los filtros aparecen primero */}
+        <div className="filter-materias-user animate-cascade" style={{ animationDelay: "0.05s" }}>
           <div className="container-filter-materias-user">
             <select
               className="select-materia-user"
@@ -99,12 +98,18 @@ const MateriasUser = () => {
         {materiasProcesadas.length === 0 ? (
           <p>No hay materias</p>
         ) : (
-          materiasProcesadas.map((m) => (
-            <MiMateria
-              materia={m}
-              key={m.materia.id}
-              onEditar={() => setMateriaEditando(m)}
-            />
+          /* Las materias aparecen secuencialmente */
+          materiasProcesadas.map((m, index) => (
+            <div 
+              key={m.materia.id} 
+              className="animate-cascade"
+              style={{ animationDelay: `${(index + 1) * 0.08}s` }}
+            >
+              <MiMateria
+                materia={m}
+                onEditar={() => setMateriaEditando(m)}
+              />
+            </div>
           ))
         )}
       </div>
