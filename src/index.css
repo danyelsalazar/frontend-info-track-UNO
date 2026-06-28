@@ -2611,7 +2611,7 @@ p.divisor i {
 .btn-cancelar {
   width: 100%;
   background-color: var(--color-border);
-  color: #fff;
+  color: var(--color-primary-dark);
   border: none;
   padding: 1rem;
   border-radius: var(--radius);
